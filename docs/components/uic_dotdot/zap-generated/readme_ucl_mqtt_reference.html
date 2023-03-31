@@ -37,7 +37,7 @@
             <img src="../../../_static/silicon-labs-logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                ver_1.3.0
+                ver_1.3.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -25530,6 +25530,303 @@ The following attribute topics are used to retrieve the OccupancySensing cluster
 <!-- NEW Page Cluster Support -->
 <!-- -->
 <!-- -->
+<p>\page soil_moisture SoilMoisture Cluster
+The following commands and attributes are accepted as JSON payloads for the
+SoilMoisture cluster.</p>
+<p><br><br></p>
+<!-- -->
+<!--  START OF SoilMoisture Attributes Section -->
+<!-- -->
+<p>\section soil_moisture_attrs SoilMoisture Attributes
+The following attribute topics are used to retrieve the SoilMoisture cluster state.</p>
+<br>
+<p>\subsection soil_moisture_attr_measured_value SoilMoisture/MeasuredValue Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MeasuredValue</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MeasuredValue</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SoilMoisture Cluster MeasuredValue Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for MeasuredValue attribute under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/SoilMoisture/Attributes/MeasuredValue/+&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MeasuredValue</span><span class="o">/</span><span class="n">Desired</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DESIRED_MEASURED_VALUE</span><span class="o">&gt;</span> <span class="p">}</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MeasuredValue</span><span class="o">/</span><span class="n">Reported</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REPORTED_MEASURED_VALUE</span><span class="o">&gt;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection soil_moisture_attr_min_measured_value SoilMoisture/MinMeasuredValue Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MinMeasuredValue</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MinMeasuredValue</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SoilMoisture Cluster MinMeasuredValue Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for MinMeasuredValue attribute under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/SoilMoisture/Attributes/MinMeasuredValue/+&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MinMeasuredValue</span><span class="o">/</span><span class="n">Desired</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DESIRED_MIN_MEASURED_VALUE</span><span class="o">&gt;</span> <span class="p">}</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MinMeasuredValue</span><span class="o">/</span><span class="n">Reported</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REPORTED_MIN_MEASURED_VALUE</span><span class="o">&gt;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection soil_moisture_attr_max_measured_value SoilMoisture/MaxMeasuredValue Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MaxMeasuredValue</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MaxMeasuredValue</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SoilMoisture Cluster MaxMeasuredValue Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for MaxMeasuredValue attribute under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/SoilMoisture/Attributes/MaxMeasuredValue/+&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MaxMeasuredValue</span><span class="o">/</span><span class="n">Desired</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DESIRED_MAX_MEASURED_VALUE</span><span class="o">&gt;</span> <span class="p">}</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MaxMeasuredValue</span><span class="o">/</span><span class="n">Reported</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REPORTED_MAX_MEASURED_VALUE</span><span class="o">&gt;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection soil_moisture_attr_tolerance SoilMoisture/Tolerance Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">Tolerance</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">Tolerance</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SoilMoisture Cluster Tolerance Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for Tolerance attribute under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/SoilMoisture/Attributes/Tolerance/+&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">Tolerance</span><span class="o">/</span><span class="n">Desired</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DESIRED_TOLERANCE</span><span class="o">&gt;</span> <span class="p">}</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">Tolerance</span><span class="o">/</span><span class="n">Reported</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REPORTED_TOLERANCE</span><span class="o">&gt;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection soil_moisture_attr_cluster_revision SoilMoisture/ClusterRevision Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ClusterRevision</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ClusterRevision</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SoilMoisture Cluster ClusterRevision Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for ClusterRevision attribute under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/SoilMoisture/Attributes/ClusterRevision/+&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ClusterRevision</span><span class="o">/</span><span class="n">Desired</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DESIRED_CLUSTER_REVISION</span><span class="o">&gt;</span> <span class="p">}</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ClusterRevision</span><span class="o">/</span><span class="n">Reported</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REPORTED_CLUSTER_REVISION</span><span class="o">&gt;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!--  END OF SoilMoisture Attributes Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF SoilMoisture Supported Commands Section -->
+<!-- -->
+<p>\section soil_moisture_recv_cmd_support SoilMoisture Command Support</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">SupportedCommands</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">SupportedGeneratedCommands</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SoilMoisture Command Support Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;items&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see supported commands for SoilMoisture cluster under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/SoilMoisture/SupportedCommands&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">SupportedCommands</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>To see supported generated commands for SoilMoisture cluster under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/SoilMoisture/SupportedGeneratedCommands&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">SupportedGeneratedCommands</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF SoilMoisture Supported Commands Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF SoilMoisture Commands Section -->
+<!-- -->
+<p>\section soil_moisture_cmds SoilMoisture Commands</p>
+<p><br><br></p>
+<p>\subsection soil_moisture_write_attr_cmd SoilMoisture/WriteAttributes Command</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Commands</span><span class="o">/</span><span class="n">WriteAttributes</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SoilMoisture Cluster WriteAttributes Command Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To update all SoilMoisture attributes under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_pub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/SoilMoisture/Commands/WriteAttributes&#39;</span> <span class="o">-</span><span class="n">m</span>  <span class="s1">&#39;{  }&#39;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>NOTE: Attribute values can be written one at a time as well by only including the desired JSON key to update.</p>
+</div></blockquote>
+<p><br><br></p>
+<p>\subsection soil_moisture_force_read_attr_cmd SoilMoisture/ForceReadAttributes Command</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">SoilMoisture</span><span class="o">/</span><span class="n">Commands</span><span class="o">/</span><span class="n">ForceReadAttributes</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SoilMoisture Cluster ForceReadAttributes Command Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;array&quot;</span>
+<span class="w">      </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;MeasuredValue&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;MinMeasuredValue&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;MaxMeasuredValue&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;Tolerance&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To force read all SoilMoisture attributes under the by-unid topic space (by sending an empty array):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_pub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/SoilMoisture/Commands/ForceReadAttributes&#39;</span> <span class="o">-</span><span class="n">m</span>  <span class="s1">&#39;{ &quot;value&quot;: [] }&#39;</span>
+</pre></div>
+</div>
+<p>To force read one of the SoilMoisture attributes under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_pub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/SoilMoisture/Commands/ForceReadAttributes&#39;</span> <span class="o">-</span><span class="n">m</span>  <span class="s1">&#39;{ &quot;value&quot;: [&quot;MeasuredValue&quot;] }&#39;</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF SoilMoisture Commands Section -->
+<!-- -->
+<p><br><br><br></p>
+<!-- -->
+<!-- -->
+<!-- NEW Page Cluster Support -->
+<!-- -->
+<!-- -->
 <p>\page ph_measurement PhMeasurement Cluster
 The following commands and attributes are accepted as JSON payloads for the
 PhMeasurement cluster.</p>
@@ -26711,6 +27008,600 @@ The following attribute topics are used to retrieve the CarbonMonoxide cluster s
 </div>
 <!-- -->
 <!-- END OF CarbonMonoxide Commands Section -->
+<!-- -->
+<p><br><br><br></p>
+<!-- -->
+<!-- -->
+<!-- NEW Page Cluster Support -->
+<!-- -->
+<!-- -->
+<p>\page carbon_dioxide CarbonDioxide Cluster
+The following commands and attributes are accepted as JSON payloads for the
+CarbonDioxide cluster.</p>
+<p><br><br></p>
+<!-- -->
+<!--  START OF CarbonDioxide Attributes Section -->
+<!-- -->
+<p>\section carbon_dioxide_attrs CarbonDioxide Attributes
+The following attribute topics are used to retrieve the CarbonDioxide cluster state.</p>
+<br>
+<p>\subsection carbon_dioxide_attr_measured_value CarbonDioxide/MeasuredValue Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MeasuredValue</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MeasuredValue</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CarbonDioxide Cluster MeasuredValue Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for MeasuredValue attribute under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/CarbonDioxide/Attributes/MeasuredValue/+&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MeasuredValue</span><span class="o">/</span><span class="n">Desired</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DESIRED_MEASURED_VALUE</span><span class="o">&gt;</span> <span class="p">}</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MeasuredValue</span><span class="o">/</span><span class="n">Reported</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REPORTED_MEASURED_VALUE</span><span class="o">&gt;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection carbon_dioxide_attr_min_measured_value CarbonDioxide/MinMeasuredValue Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MinMeasuredValue</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MinMeasuredValue</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CarbonDioxide Cluster MinMeasuredValue Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for MinMeasuredValue attribute under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/CarbonDioxide/Attributes/MinMeasuredValue/+&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MinMeasuredValue</span><span class="o">/</span><span class="n">Desired</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DESIRED_MIN_MEASURED_VALUE</span><span class="o">&gt;</span> <span class="p">}</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MinMeasuredValue</span><span class="o">/</span><span class="n">Reported</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REPORTED_MIN_MEASURED_VALUE</span><span class="o">&gt;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection carbon_dioxide_attr_max_measured_value CarbonDioxide/MaxMeasuredValue Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MaxMeasuredValue</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MaxMeasuredValue</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CarbonDioxide Cluster MaxMeasuredValue Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for MaxMeasuredValue attribute under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/CarbonDioxide/Attributes/MaxMeasuredValue/+&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MaxMeasuredValue</span><span class="o">/</span><span class="n">Desired</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DESIRED_MAX_MEASURED_VALUE</span><span class="o">&gt;</span> <span class="p">}</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MaxMeasuredValue</span><span class="o">/</span><span class="n">Reported</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REPORTED_MAX_MEASURED_VALUE</span><span class="o">&gt;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection carbon_dioxide_attr_tolerance CarbonDioxide/Tolerance Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">Tolerance</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">Tolerance</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CarbonDioxide Cluster Tolerance Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for Tolerance attribute under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/CarbonDioxide/Attributes/Tolerance/+&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">Tolerance</span><span class="o">/</span><span class="n">Desired</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DESIRED_TOLERANCE</span><span class="o">&gt;</span> <span class="p">}</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">Tolerance</span><span class="o">/</span><span class="n">Reported</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REPORTED_TOLERANCE</span><span class="o">&gt;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection carbon_dioxide_attr_cluster_revision CarbonDioxide/ClusterRevision Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ClusterRevision</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ClusterRevision</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CarbonDioxide Cluster ClusterRevision Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for ClusterRevision attribute under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/CarbonDioxide/Attributes/ClusterRevision/+&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ClusterRevision</span><span class="o">/</span><span class="n">Desired</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DESIRED_CLUSTER_REVISION</span><span class="o">&gt;</span> <span class="p">}</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ClusterRevision</span><span class="o">/</span><span class="n">Reported</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REPORTED_CLUSTER_REVISION</span><span class="o">&gt;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!--  END OF CarbonDioxide Attributes Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF CarbonDioxide Supported Commands Section -->
+<!-- -->
+<p>\section carbon_dioxide_recv_cmd_support CarbonDioxide Command Support</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">SupportedCommands</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">SupportedGeneratedCommands</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CarbonDioxide Command Support Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;items&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see supported commands for CarbonDioxide cluster under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/CarbonDioxide/SupportedCommands&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">SupportedCommands</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>To see supported generated commands for CarbonDioxide cluster under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/CarbonDioxide/SupportedGeneratedCommands&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">SupportedGeneratedCommands</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF CarbonDioxide Supported Commands Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF CarbonDioxide Commands Section -->
+<!-- -->
+<p>\section carbon_dioxide_cmds CarbonDioxide Commands</p>
+<p><br><br></p>
+<p>\subsection carbon_dioxide_write_attr_cmd CarbonDioxide/WriteAttributes Command</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Commands</span><span class="o">/</span><span class="n">WriteAttributes</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CarbonDioxide Cluster WriteAttributes Command Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To update all CarbonDioxide attributes under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_pub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/CarbonDioxide/Commands/WriteAttributes&#39;</span> <span class="o">-</span><span class="n">m</span>  <span class="s1">&#39;{  }&#39;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>NOTE: Attribute values can be written one at a time as well by only including the desired JSON key to update.</p>
+</div></blockquote>
+<p><br><br></p>
+<p>\subsection carbon_dioxide_force_read_attr_cmd CarbonDioxide/ForceReadAttributes Command</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">CarbonDioxide</span><span class="o">/</span><span class="n">Commands</span><span class="o">/</span><span class="n">ForceReadAttributes</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CarbonDioxide Cluster ForceReadAttributes Command Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;array&quot;</span>
+<span class="w">      </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;MeasuredValue&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;MinMeasuredValue&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;MaxMeasuredValue&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;Tolerance&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To force read all CarbonDioxide attributes under the by-unid topic space (by sending an empty array):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_pub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/CarbonDioxide/Commands/ForceReadAttributes&#39;</span> <span class="o">-</span><span class="n">m</span>  <span class="s1">&#39;{ &quot;value&quot;: [] }&#39;</span>
+</pre></div>
+</div>
+<p>To force read one of the CarbonDioxide attributes under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_pub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/CarbonDioxide/Commands/ForceReadAttributes&#39;</span> <span class="o">-</span><span class="n">m</span>  <span class="s1">&#39;{ &quot;value&quot;: [&quot;MeasuredValue&quot;] }&#39;</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF CarbonDioxide Commands Section -->
+<!-- -->
+<p><br><br><br></p>
+<!-- -->
+<!-- -->
+<!-- NEW Page Cluster Support -->
+<!-- -->
+<!-- -->
+<p>\page pm25 PM25 Cluster
+The following commands and attributes are accepted as JSON payloads for the
+PM25 cluster.</p>
+<p><br><br></p>
+<!-- -->
+<!--  START OF PM25 Attributes Section -->
+<!-- -->
+<p>\section pm25_attrs PM25 Attributes
+The following attribute topics are used to retrieve the PM25 cluster state.</p>
+<br>
+<p>\subsection pm25_attr_measured_value PM25/MeasuredValue Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MeasuredValue</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MeasuredValue</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PM25 Cluster MeasuredValue Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for MeasuredValue attribute under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/PM25/Attributes/MeasuredValue/+&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MeasuredValue</span><span class="o">/</span><span class="n">Desired</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DESIRED_MEASURED_VALUE</span><span class="o">&gt;</span> <span class="p">}</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MeasuredValue</span><span class="o">/</span><span class="n">Reported</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REPORTED_MEASURED_VALUE</span><span class="o">&gt;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection pm25_attr_min_measured_value PM25/MinMeasuredValue Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MinMeasuredValue</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MinMeasuredValue</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PM25 Cluster MinMeasuredValue Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for MinMeasuredValue attribute under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/PM25/Attributes/MinMeasuredValue/+&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MinMeasuredValue</span><span class="o">/</span><span class="n">Desired</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DESIRED_MIN_MEASURED_VALUE</span><span class="o">&gt;</span> <span class="p">}</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MinMeasuredValue</span><span class="o">/</span><span class="n">Reported</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REPORTED_MIN_MEASURED_VALUE</span><span class="o">&gt;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection pm25_attr_max_measured_value PM25/MaxMeasuredValue Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MaxMeasuredValue</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MaxMeasuredValue</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PM25 Cluster MaxMeasuredValue Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for MaxMeasuredValue attribute under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/PM25/Attributes/MaxMeasuredValue/+&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MaxMeasuredValue</span><span class="o">/</span><span class="n">Desired</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DESIRED_MAX_MEASURED_VALUE</span><span class="o">&gt;</span> <span class="p">}</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">MaxMeasuredValue</span><span class="o">/</span><span class="n">Reported</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REPORTED_MAX_MEASURED_VALUE</span><span class="o">&gt;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection pm25_attr_tolerance PM25/Tolerance Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">Tolerance</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">Tolerance</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PM25 Cluster Tolerance Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;number&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for Tolerance attribute under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/PM25/Attributes/Tolerance/+&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">Tolerance</span><span class="o">/</span><span class="n">Desired</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DESIRED_TOLERANCE</span><span class="o">&gt;</span> <span class="p">}</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">Tolerance</span><span class="o">/</span><span class="n">Reported</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REPORTED_TOLERANCE</span><span class="o">&gt;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection pm25_attr_cluster_revision PM25/ClusterRevision Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ClusterRevision</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ClusterRevision</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PM25 Cluster ClusterRevision Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for ClusterRevision attribute under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/PM25/Attributes/ClusterRevision/+&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ClusterRevision</span><span class="o">/</span><span class="n">Desired</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">DESIRED_CLUSTER_REVISION</span><span class="o">&gt;</span> <span class="p">}</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ClusterRevision</span><span class="o">/</span><span class="n">Reported</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">REPORTED_CLUSTER_REVISION</span><span class="o">&gt;</span> <span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!--  END OF PM25 Attributes Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF PM25 Supported Commands Section -->
+<!-- -->
+<p>\section pm25_recv_cmd_support PM25 Command Support</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">PM25</span><span class="o">/</span><span class="n">SupportedCommands</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">PM25</span><span class="o">/</span><span class="n">SupportedGeneratedCommands</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PM25 Command Support Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;items&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see supported commands for PM25 cluster under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/PM25/SupportedCommands&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">PM25</span><span class="o">/</span><span class="n">SupportedCommands</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>To see supported generated commands for PM25 cluster under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="n">mosquitto_sub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/PM25/SupportedGeneratedCommands&#39;</span>
+<span class="c1"># Example output</span>
+<span class="n">ucl</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">unid</span><span class="o">/&lt;</span><span class="n">UNID</span><span class="o">&gt;/&lt;</span><span class="n">EP</span><span class="o">&gt;/</span><span class="n">PM25</span><span class="o">/</span><span class="n">SupportedGeneratedCommands</span> <span class="p">{</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF PM25 Supported Commands Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF PM25 Commands Section -->
+<!-- -->
+<p>\section pm25_cmds PM25 Commands</p>
+<p><br><br></p>
+<p>\subsection pm25_write_attr_cmd PM25/WriteAttributes Command</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Commands</span><span class="o">/</span><span class="n">WriteAttributes</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PM25 Cluster WriteAttributes Command Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To update all PM25 attributes under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_pub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/PM25/Commands/WriteAttributes&#39;</span> <span class="o">-</span><span class="n">m</span>  <span class="s1">&#39;{  }&#39;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>NOTE: Attribute values can be written one at a time as well by only including the desired JSON key to update.</p>
+</div></blockquote>
+<p><br><br></p>
+<p>\subsection pm25_force_read_attr_cmd PM25/ForceReadAttributes Command</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">PM25</span><span class="o">/</span><span class="n">Commands</span><span class="o">/</span><span class="n">ForceReadAttributes</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PM25 Cluster ForceReadAttributes Command Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;array&quot;</span>
+<span class="w">      </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;MeasuredValue&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;MinMeasuredValue&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;MaxMeasuredValue&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;Tolerance&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To force read all PM25 attributes under the by-unid topic space (by sending an empty array):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_pub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/PM25/Commands/ForceReadAttributes&#39;</span> <span class="o">-</span><span class="n">m</span>  <span class="s1">&#39;{ &quot;value&quot;: [] }&#39;</span>
+</pre></div>
+</div>
+<p>To force read one of the PM25 attributes under the by-unid topic space:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mosquitto_pub</span> <span class="o">-</span><span class="n">t</span> <span class="s1">&#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/PM25/Commands/ForceReadAttributes&#39;</span> <span class="o">-</span><span class="n">m</span>  <span class="s1">&#39;{ &quot;value&quot;: [&quot;MeasuredValue&quot;] }&#39;</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF PM25 Commands Section -->
 <!-- -->
 <p><br><br><br></p>
 <!-- -->
