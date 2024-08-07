@@ -37,7 +37,7 @@
             <img src="../../../_static/silicon-labs-logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                ver_1.5.0
+                ver_1.6.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
@@ -49,7 +49,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../doc/introduction.html">Unify Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../doc/running_unify.html">Running Unify on Raspberry Pi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doc/getting_started_unify.html">Getting Started with Unify</a></li>
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../doc/UnifySDK.html">Unify Framework</a></li>
@@ -13005,7 +13005,7 @@ The following attribute topics are used to retrieve the DoorLock cluster state.<
 <span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="nt">&quot;UserStatus&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DrlkUserStatus&quot;</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DrlkSettableUserStatus&quot;</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="nt">&quot;UserType&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DrlkUserType&quot;</span>
@@ -13265,7 +13265,7 @@ The following attribute topics are used to retrieve the DoorLock cluster state.<
 <span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="nt">&quot;UserStatus&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DrlkUserStatus&quot;</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DrlkSettableUserStatus&quot;</span>
 <span class="w">    </span><span class="p">},</span>
 <span class="w">    </span><span class="nt">&quot;UserType&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DrlkUserType&quot;</span>
@@ -20969,7 +20969,7 @@ The following attribute topics are used to retrieve the ColorControl cluster sta
 <span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CCColorLoopDirection&quot;</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">},</span>
 <span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
@@ -41474,6 +41474,1513 @@ Unspecified attributes will not be updated.</p>
 <p><br><br><br></p>
 <!-- -->
 <!-- -->
+<!-- NEW Page Cluster Support -->
+<!-- -->
+<!-- -->
+<p>\page unify_fan_control UnifyFanControl Cluster
+The following commands and attributes are accepted as JSON payloads for the
+UnifyFanControl cluster.</p>
+<p><br><br></p>
+<!-- -->
+<!--  START OF UnifyFanControl Attributes Section -->
+<!-- -->
+<p>\section unify_fan_control_attrs UnifyFanControl Attributes
+The following attribute topics are used to retrieve the UnifyFanControl cluster state.</p>
+<br>
+<p>\subsection unify_fan_control_attr_z_wave_fan_mode UnifyFanControl/ZWaveFanMode Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyFanControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ZWaveFanMode</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyFanControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ZWaveFanMode</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyFanControl Cluster ZWaveFanMode Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ZWaveFanModeEnum&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for ZWaveFanMode attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyFanControl/Attributes/ZWaveFanMode/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyFanControl/Attributes/ZWaveFanMode/Desired { &quot;value&quot;: &lt;DESIRED_Z_WAVE_FAN_MODE&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyFanControl/Attributes/ZWaveFanMode/Reported { &quot;value&quot;: &lt;REPORTED_Z_WAVE_FAN_MODE&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_fan_control_attr_z_wave_supported_fan_mode UnifyFanControl/ZWaveSupportedFanMode Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyFanControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ZWaveSupportedFanMode</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyFanControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ZWaveSupportedFanMode</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyFanControl Cluster ZWaveSupportedFanMode Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyFanControlZWaveSupportedFanMode&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for ZWaveSupportedFanMode attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyFanControl/Attributes/ZWaveSupportedFanMode/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyFanControl/Attributes/ZWaveSupportedFanMode/Desired { &quot;value&quot;: &lt;DESIRED_Z_WAVE_SUPPORTED_FAN_MODE&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyFanControl/Attributes/ZWaveSupportedFanMode/Reported { &quot;value&quot;: &lt;REPORTED_Z_WAVE_SUPPORTED_FAN_MODE&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_fan_control_attr_z_wave_fan_state UnifyFanControl/ZWaveFanState Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyFanControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ZWaveFanState</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyFanControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ZWaveFanState</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyFanControl Cluster ZWaveFanState Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ZWaveFanStateEnum&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for ZWaveFanState attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyFanControl/Attributes/ZWaveFanState/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyFanControl/Attributes/ZWaveFanState/Desired { &quot;value&quot;: &lt;DESIRED_Z_WAVE_FAN_STATE&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyFanControl/Attributes/ZWaveFanState/Reported { &quot;value&quot;: &lt;REPORTED_Z_WAVE_FAN_STATE&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_fan_control_attr_cluster_revision UnifyFanControl/ClusterRevision Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyFanControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ClusterRevision</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyFanControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ClusterRevision</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyFanControl Cluster ClusterRevision Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for ClusterRevision attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyFanControl/Attributes/ClusterRevision/+&#39;</span>
+<span class="gp"># </span>Example<span class="w"> </span>output
+<span class="go">ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyFanControl/Attributes/ClusterRevision/Desired { &quot;value&quot;: &lt;DESIRED_CLUSTER_REVISION&gt; }</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyFanControl/Attributes/ClusterRevision/Reported { &quot;value&quot;: &lt;REPORTED_CLUSTER_REVISION&gt; }</span>
+</pre></div>
+</div>
+<!-- -->
+<!--  END OF UnifyFanControl Attributes Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF UnifyFanControl Supported Commands Section -->
+<!-- -->
+<p>\section unify_fan_control_recv_cmd_support UnifyFanControl Command Support</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyFanControl</span><span class="o">/</span><span class="n">SupportedCommands</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyFanControl</span><span class="o">/</span><span class="n">SupportedGeneratedCommands</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyFanControl Command Support Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;items&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">              </span><span class="s2">&quot;SetFanMode&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="s2">&quot;TurnOff&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="s2">&quot;WriteAttributes&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="s2">&quot;ForceReadAttributes&quot;</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see supported commands for UnifyFanControl cluster under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyFanControl/SupportedCommands&#39;</span>
+<span class="gp"># </span>Example<span class="w"> </span>output
+<span class="go">ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyFanControl/SupportedCommands { &quot;value&quot;: [&quot;SetFanMode&quot;,&quot;TurnOff&quot;,&quot;WriteAttributes&quot;, &quot;ForceReadAttributes&quot;] }</span>
+</pre></div>
+</div>
+<p>To see supported generated commands for UnifyFanControl cluster under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyFanControl/SupportedGeneratedCommands&#39;</span>
+<span class="gp"># </span>Example<span class="w"> </span>output
+<span class="go">ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyFanControl/SupportedGeneratedCommands { &quot;value&quot;: [] }</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF UnifyFanControl Supported Commands Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF UnifyFanControl Commands Section -->
+<!-- -->
+<p>\section unify_fan_control_cmds UnifyFanControl Commands</p>
+<p><br><br></p>
+<p>\subsection unify_fan_control_set_fan_mode_cmd UnifyFanControl/SetFanMode Command</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyFanControl</span><span class="o">/</span><span class="n">Commands</span><span class="o">/</span><span class="n">SetFanMode</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyFanControl</span><span class="o">/</span><span class="n">GeneratedCommands</span><span class="o">/</span><span class="n">SetFanMode</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyFanControl Cluster SetFanMode Command Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;FanMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ZWaveFanModeEnum&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;FanMode&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To send a UnifyFanControl/SetFanMode command under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_pub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyFanControl/Commands/SetFanMode&#39; -m  &#39;{ &quot;FanMode&quot;: &lt;FAN_MODE_VALUE&gt; }&#39;</span>
+</pre></div>
+</div>
+<p>To receive a UnifyFanControl/SetFanMode generated command from a UNID/endpoint:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyFanControl/GeneratedCommands/SetFanMode&#39;</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_fan_control_turn_off_cmd UnifyFanControl/TurnOff Command</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyFanControl</span><span class="o">/</span><span class="n">Commands</span><span class="o">/</span><span class="n">TurnOff</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyFanControl</span><span class="o">/</span><span class="n">GeneratedCommands</span><span class="o">/</span><span class="n">TurnOff</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyFanControl Cluster TurnOff Command Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To send a UnifyFanControl/TurnOff command under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_pub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyFanControl/Commands/TurnOff&#39; -m  &#39;{  }&#39;</span>
+</pre></div>
+</div>
+<p>To receive a UnifyFanControl/TurnOff generated command from a UNID/endpoint:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyFanControl/GeneratedCommands/TurnOff&#39;</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_fan_control_write_attr_cmd UnifyFanControl/WriteAttributes Command</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyFanControl</span><span class="o">/</span><span class="n">Commands</span><span class="o">/</span><span class="n">WriteAttributes</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyFanControl Cluster WriteAttributes Command Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;ZWaveFanMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ZWaveFanModeEnum&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To update all UnifyFanControl attributes under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_pub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyFanControl/Commands/WriteAttributes&#39; -m  &#39;{ &quot;ZWaveFanMode&quot;: &lt;Z_WAVE_FAN_MODE_VALUE&gt; , }&#39;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>NOTE: Specify only the list of attributes to write in this command.
+Unspecified attributes will not be updated.</p>
+</div></blockquote>
+<p><br><br></p>
+<p>\subsection unify_fan_control_force_read_attr_cmd UnifyFanControl/ForceReadAttributes Command</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyFanControl</span><span class="o">/</span><span class="n">Commands</span><span class="o">/</span><span class="n">ForceReadAttributes</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyFanControl Cluster ForceReadAttributes Command Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;array&quot;</span>
+<span class="w">      </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;ZWaveFanMode&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;ZWaveSupportedFanMode&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;ZWaveFanState&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To force read all UnifyFanControl attributes under the by-unid topic space (by sending an empty array):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_pub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyFanControl/Commands/ForceReadAttributes&#39; -m  &#39;{ &quot;value&quot;: [] }&#39;</span>
+</pre></div>
+</div>
+<p>To force read one of the UnifyFanControl attributes under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_pub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyFanControl/Commands/ForceReadAttributes&#39; -m  &#39;{ &quot;value&quot;: [&quot;ZWaveFanMode&quot;] }&#39;</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF UnifyFanControl Commands Section -->
+<!-- -->
+<p><br><br><br></p>
+<!-- -->
+<!-- -->
+<!-- NEW Page Cluster Support -->
+<!-- -->
+<!-- -->
+<p>\page unify_thermostat UnifyThermostat Cluster
+The following commands and attributes are accepted as JSON payloads for the
+UnifyThermostat cluster.</p>
+<p><br><br></p>
+<!-- -->
+<!--  START OF UnifyThermostat Attributes Section -->
+<!-- -->
+<p>\section unify_thermostat_attrs UnifyThermostat Attributes
+The following attribute topics are used to retrieve the UnifyThermostat cluster state.</p>
+<br>
+<p>\subsection unify_thermostat_attr_thermostat_mode UnifyThermostat/ThermostatMode Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyThermostat</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ThermostatMode</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyThermostat</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ThermostatMode</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyThermostat Cluster ThermostatMode Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyThermostatThermostatMode&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for ThermostatMode attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyThermostat/Attributes/ThermostatMode/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyThermostat/Attributes/ThermostatMode/Desired { &quot;value&quot;: &lt;DESIRED_THERMOSTAT_MODE&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyThermostat/Attributes/ThermostatMode/Reported { &quot;value&quot;: &lt;REPORTED_THERMOSTAT_MODE&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_thermostat_attr_supported_thermostat_mode UnifyThermostat/SupportedThermostatMode Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyThermostat</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">SupportedThermostatMode</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyThermostat</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">SupportedThermostatMode</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyThermostat Cluster SupportedThermostatMode Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyThermostatSupportedThermostatMode&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for SupportedThermostatMode attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyThermostat/Attributes/SupportedThermostatMode/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyThermostat/Attributes/SupportedThermostatMode/Desired { &quot;value&quot;: &lt;DESIRED_SUPPORTED_THERMOSTAT_MODE&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyThermostat/Attributes/SupportedThermostatMode/Reported { &quot;value&quot;: &lt;REPORTED_SUPPORTED_THERMOSTAT_MODE&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_thermostat_attr_operating_state UnifyThermostat/OperatingState Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyThermostat</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">OperatingState</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyThermostat</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">OperatingState</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyThermostat Cluster OperatingState Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyThermostatOperatingState&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for OperatingState attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyThermostat/Attributes/OperatingState/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyThermostat/Attributes/OperatingState/Desired { &quot;value&quot;: &lt;DESIRED_OPERATING_STATE&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyThermostat/Attributes/OperatingState/Reported { &quot;value&quot;: &lt;REPORTED_OPERATING_STATE&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_thermostat_attr_cluster_revision UnifyThermostat/ClusterRevision Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyThermostat</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ClusterRevision</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyThermostat</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ClusterRevision</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyThermostat Cluster ClusterRevision Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for ClusterRevision attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyThermostat/Attributes/ClusterRevision/+&#39;</span>
+<span class="gp"># </span>Example<span class="w"> </span>output
+<span class="go">ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyThermostat/Attributes/ClusterRevision/Desired { &quot;value&quot;: &lt;DESIRED_CLUSTER_REVISION&gt; }</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyThermostat/Attributes/ClusterRevision/Reported { &quot;value&quot;: &lt;REPORTED_CLUSTER_REVISION&gt; }</span>
+</pre></div>
+</div>
+<!-- -->
+<!--  END OF UnifyThermostat Attributes Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF UnifyThermostat Supported Commands Section -->
+<!-- -->
+<p>\section unify_thermostat_recv_cmd_support UnifyThermostat Command Support</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyThermostat</span><span class="o">/</span><span class="n">SupportedCommands</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyThermostat</span><span class="o">/</span><span class="n">SupportedGeneratedCommands</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyThermostat Command Support Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;items&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see supported commands for UnifyThermostat cluster under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyThermostat/SupportedCommands&#39;</span>
+<span class="gp"># </span>Example<span class="w"> </span>output
+<span class="go">ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyThermostat/SupportedCommands { &quot;value&quot;: [] }</span>
+</pre></div>
+</div>
+<p>To see supported generated commands for UnifyThermostat cluster under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyThermostat/SupportedGeneratedCommands&#39;</span>
+<span class="gp"># </span>Example<span class="w"> </span>output
+<span class="go">ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyThermostat/SupportedGeneratedCommands { &quot;value&quot;: [] }</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF UnifyThermostat Supported Commands Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF UnifyThermostat Commands Section -->
+<!-- -->
+<p>\section unify_thermostat_cmds UnifyThermostat Commands</p>
+<p><br><br></p>
+<p>\subsection unify_thermostat_write_attr_cmd UnifyThermostat/WriteAttributes Command</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyThermostat</span><span class="o">/</span><span class="n">Commands</span><span class="o">/</span><span class="n">WriteAttributes</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyThermostat Cluster WriteAttributes Command Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;ThermostatMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyThermostatThermostatMode&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To update all UnifyThermostat attributes under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_pub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyThermostat/Commands/WriteAttributes&#39; -m  &#39;{ &quot;ThermostatMode&quot;: &lt;THERMOSTAT_MODE_VALUE&gt; , }&#39;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>NOTE: Specify only the list of attributes to write in this command.
+Unspecified attributes will not be updated.</p>
+</div></blockquote>
+<p><br><br></p>
+<p>\subsection unify_thermostat_force_read_attr_cmd UnifyThermostat/ForceReadAttributes Command</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyThermostat</span><span class="o">/</span><span class="n">Commands</span><span class="o">/</span><span class="n">ForceReadAttributes</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyThermostat Cluster ForceReadAttributes Command Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;array&quot;</span>
+<span class="w">      </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;ThermostatMode&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;SupportedThermostatMode&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;OperatingState&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To force read all UnifyThermostat attributes under the by-unid topic space (by sending an empty array):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_pub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyThermostat/Commands/ForceReadAttributes&#39; -m  &#39;{ &quot;value&quot;: [] }&#39;</span>
+</pre></div>
+</div>
+<p>To force read one of the UnifyThermostat attributes under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_pub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyThermostat/Commands/ForceReadAttributes&#39; -m  &#39;{ &quot;value&quot;: [&quot;ThermostatMode&quot;] }&#39;</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF UnifyThermostat Commands Section -->
+<!-- -->
+<p><br><br><br></p>
+<!-- -->
+<!-- -->
+<!-- NEW Page Cluster Support -->
+<!-- -->
+<!-- -->
+<p>\page unify_humidity_control UnifyHumidityControl Cluster
+The following commands and attributes are accepted as JSON payloads for the
+UnifyHumidityControl cluster.</p>
+<p><br><br></p>
+<!-- -->
+<!--  START OF UnifyHumidityControl Attributes Section -->
+<!-- -->
+<p>\section unify_humidity_control_attrs UnifyHumidityControl Attributes
+The following attribute topics are used to retrieve the UnifyHumidityControl cluster state.</p>
+<br>
+<p>\subsection unify_humidity_control_attr_reporting_mode UnifyHumidityControl/ReportingMode Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ReportingMode</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ReportingMode</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster ReportingMode Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ModeType&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for ReportingMode attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/ReportingMode/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/ReportingMode/Desired { &quot;value&quot;: &lt;DESIRED_REPORTING_MODE&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/ReportingMode/Reported { &quot;value&quot;: &lt;REPORTED_REPORTING_MODE&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_supported_reporting_mode UnifyHumidityControl/SupportedReportingMode Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">SupportedReportingMode</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">SupportedReportingMode</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster SupportedReportingMode Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControlSupportedReportingMode&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for SupportedReportingMode attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/SupportedReportingMode/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/SupportedReportingMode/Desired { &quot;value&quot;: &lt;DESIRED_SUPPORTED_REPORTING_MODE&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/SupportedReportingMode/Reported { &quot;value&quot;: &lt;REPORTED_SUPPORTED_REPORTING_MODE&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_current_state UnifyHumidityControl/CurrentState Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">CurrentState</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">CurrentState</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster CurrentState Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControlCurrentState&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for CurrentState attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/CurrentState/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/CurrentState/Desired { &quot;value&quot;: &lt;DESIRED_CURRENT_STATE&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/CurrentState/Reported { &quot;value&quot;: &lt;REPORTED_CURRENT_STATE&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_supported_set_points UnifyHumidityControl/SupportedSetPoints Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">SupportedSetPoints</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">SupportedSetPoints</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster SupportedSetPoints Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControlSupportedSetPoints&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for SupportedSetPoints attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/SupportedSetPoints/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/SupportedSetPoints/Desired { &quot;value&quot;: &lt;DESIRED_SUPPORTED_SET_POINTS&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/SupportedSetPoints/Reported { &quot;value&quot;: &lt;REPORTED_SUPPORTED_SET_POINTS&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_humidifier_setpoint_min UnifyHumidityControl/HumidifierSetpointMin Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">HumidifierSetpointMin</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">HumidifierSetpointMin</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster HumidifierSetpointMin Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for HumidifierSetpointMin attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/HumidifierSetpointMin/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/HumidifierSetpointMin/Desired { &quot;value&quot;: &lt;DESIRED_HUMIDIFIER_SETPOINT_MIN&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/HumidifierSetpointMin/Reported { &quot;value&quot;: &lt;REPORTED_HUMIDIFIER_SETPOINT_MIN&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_humidifier_setpoint_max UnifyHumidityControl/HumidifierSetpointMax Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">HumidifierSetpointMax</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">HumidifierSetpointMax</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster HumidifierSetpointMax Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for HumidifierSetpointMax attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/HumidifierSetpointMax/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/HumidifierSetpointMax/Desired { &quot;value&quot;: &lt;DESIRED_HUMIDIFIER_SETPOINT_MAX&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/HumidifierSetpointMax/Reported { &quot;value&quot;: &lt;REPORTED_HUMIDIFIER_SETPOINT_MAX&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_humidifier_setpoint UnifyHumidityControl/HumidifierSetpoint Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">HumidifierSetpoint</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">HumidifierSetpoint</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster HumidifierSetpoint Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for HumidifierSetpoint attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/HumidifierSetpoint/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/HumidifierSetpoint/Desired { &quot;value&quot;: &lt;DESIRED_HUMIDIFIER_SETPOINT&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/HumidifierSetpoint/Reported { &quot;value&quot;: &lt;REPORTED_HUMIDIFIER_SETPOINT&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_humidifier_setpoint_scale UnifyHumidityControl/HumidifierSetpointScale Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">HumidifierSetpointScale</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">HumidifierSetpointScale</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster HumidifierSetpointScale Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ScaleType&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for HumidifierSetpointScale attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/HumidifierSetpointScale/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/HumidifierSetpointScale/Desired { &quot;value&quot;: &lt;DESIRED_HUMIDIFIER_SETPOINT_SCALE&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/HumidifierSetpointScale/Reported { &quot;value&quot;: &lt;REPORTED_HUMIDIFIER_SETPOINT_SCALE&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_humidifier_setpoint_precision UnifyHumidityControl/HumidifierSetpointPrecision Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">HumidifierSetpointPrecision</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">HumidifierSetpointPrecision</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster HumidifierSetpointPrecision Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for HumidifierSetpointPrecision attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/HumidifierSetpointPrecision/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/HumidifierSetpointPrecision/Desired { &quot;value&quot;: &lt;DESIRED_HUMIDIFIER_SETPOINT_PRECISION&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/HumidifierSetpointPrecision/Reported { &quot;value&quot;: &lt;REPORTED_HUMIDIFIER_SETPOINT_PRECISION&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_dehumidifier_setpoint_min UnifyHumidityControl/DehumidifierSetpointMin Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">DehumidifierSetpointMin</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">DehumidifierSetpointMin</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster DehumidifierSetpointMin Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for DehumidifierSetpointMin attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/DehumidifierSetpointMin/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/DehumidifierSetpointMin/Desired { &quot;value&quot;: &lt;DESIRED_DEHUMIDIFIER_SETPOINT_MIN&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/DehumidifierSetpointMin/Reported { &quot;value&quot;: &lt;REPORTED_DEHUMIDIFIER_SETPOINT_MIN&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_dehumidifier_setpoint_max UnifyHumidityControl/DehumidifierSetpointMax Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">DehumidifierSetpointMax</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">DehumidifierSetpointMax</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster DehumidifierSetpointMax Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for DehumidifierSetpointMax attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/DehumidifierSetpointMax/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/DehumidifierSetpointMax/Desired { &quot;value&quot;: &lt;DESIRED_DEHUMIDIFIER_SETPOINT_MAX&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/DehumidifierSetpointMax/Reported { &quot;value&quot;: &lt;REPORTED_DEHUMIDIFIER_SETPOINT_MAX&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_dehumidifier_setpoint UnifyHumidityControl/DehumidifierSetpoint Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">DehumidifierSetpoint</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">DehumidifierSetpoint</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster DehumidifierSetpoint Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for DehumidifierSetpoint attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/DehumidifierSetpoint/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/DehumidifierSetpoint/Desired { &quot;value&quot;: &lt;DESIRED_DEHUMIDIFIER_SETPOINT&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/DehumidifierSetpoint/Reported { &quot;value&quot;: &lt;REPORTED_DEHUMIDIFIER_SETPOINT&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_dehumidifier_setpoint_scale UnifyHumidityControl/DehumidifierSetpointScale Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">DehumidifierSetpointScale</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">DehumidifierSetpointScale</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster DehumidifierSetpointScale Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ScaleType&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for DehumidifierSetpointScale attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/DehumidifierSetpointScale/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/DehumidifierSetpointScale/Desired { &quot;value&quot;: &lt;DESIRED_DEHUMIDIFIER_SETPOINT_SCALE&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/DehumidifierSetpointScale/Reported { &quot;value&quot;: &lt;REPORTED_DEHUMIDIFIER_SETPOINT_SCALE&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_dehumidifier_setpoint_precision UnifyHumidityControl/DehumidifierSetpointPrecision Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">DehumidifierSetpointPrecision</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">DehumidifierSetpointPrecision</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster DehumidifierSetpointPrecision Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for DehumidifierSetpointPrecision attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/DehumidifierSetpointPrecision/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/DehumidifierSetpointPrecision/Desired { &quot;value&quot;: &lt;DESIRED_DEHUMIDIFIER_SETPOINT_PRECISION&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/DehumidifierSetpointPrecision/Reported { &quot;value&quot;: &lt;REPORTED_DEHUMIDIFIER_SETPOINT_PRECISION&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_auto_setpoint_min UnifyHumidityControl/AutoSetpointMin Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">AutoSetpointMin</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">AutoSetpointMin</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster AutoSetpointMin Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for AutoSetpointMin attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/AutoSetpointMin/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/AutoSetpointMin/Desired { &quot;value&quot;: &lt;DESIRED_AUTO_SETPOINT_MIN&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/AutoSetpointMin/Reported { &quot;value&quot;: &lt;REPORTED_AUTO_SETPOINT_MIN&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_auto_setpoint_max UnifyHumidityControl/AutoSetpointMax Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">AutoSetpointMax</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">AutoSetpointMax</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster AutoSetpointMax Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for AutoSetpointMax attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/AutoSetpointMax/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/AutoSetpointMax/Desired { &quot;value&quot;: &lt;DESIRED_AUTO_SETPOINT_MAX&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/AutoSetpointMax/Reported { &quot;value&quot;: &lt;REPORTED_AUTO_SETPOINT_MAX&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_auto_setpoint UnifyHumidityControl/AutoSetpoint Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">AutoSetpoint</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">AutoSetpoint</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster AutoSetpoint Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for AutoSetpoint attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/AutoSetpoint/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/AutoSetpoint/Desired { &quot;value&quot;: &lt;DESIRED_AUTO_SETPOINT&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/AutoSetpoint/Reported { &quot;value&quot;: &lt;REPORTED_AUTO_SETPOINT&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_auto_setpoint_scale UnifyHumidityControl/AutoSetpointScale Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">AutoSetpointScale</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">AutoSetpointScale</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster AutoSetpointScale Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ScaleType&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for AutoSetpointScale attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/AutoSetpointScale/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/AutoSetpointScale/Desired { &quot;value&quot;: &lt;DESIRED_AUTO_SETPOINT_SCALE&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/AutoSetpointScale/Reported { &quot;value&quot;: &lt;REPORTED_AUTO_SETPOINT_SCALE&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_auto_setpoint_precision UnifyHumidityControl/AutoSetpointPrecision Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">AutoSetpointPrecision</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">AutoSetpointPrecision</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster AutoSetpointPrecision Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for AutoSetpointPrecision attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/+/+/UnifyHumidityControl/Attributes/AutoSetpointPrecision/+&#39;</span>
+
+<span class="gp"># </span>Example<span class="w"> </span>output
+
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/AutoSetpointPrecision/Desired { &quot;value&quot;: &lt;DESIRED_AUTO_SETPOINT_PRECISION&gt;}</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/ep0/UnifyHumidityControl/Attributes/AutoSetpointPrecision/Reported { &quot;value&quot;: &lt;REPORTED_AUTO_SETPOINT_PRECISION&gt;}</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_attr_cluster_revision UnifyHumidityControl/ClusterRevision Attribute</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ClusterRevision</span><span class="o">/</span><span class="n">Reported</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Attributes</span><span class="o">/</span><span class="n">ClusterRevision</span><span class="o">/</span><span class="n">Desired</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster ClusterRevision Attribute Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see desired/reported value for ClusterRevision attribute under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyHumidityControl/Attributes/ClusterRevision/+&#39;</span>
+<span class="gp"># </span>Example<span class="w"> </span>output
+<span class="go">ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyHumidityControl/Attributes/ClusterRevision/Desired { &quot;value&quot;: &lt;DESIRED_CLUSTER_REVISION&gt; }</span>
+<span class="go">ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyHumidityControl/Attributes/ClusterRevision/Reported { &quot;value&quot;: &lt;REPORTED_CLUSTER_REVISION&gt; }</span>
+</pre></div>
+</div>
+<!-- -->
+<!--  END OF UnifyHumidityControl Attributes Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF UnifyHumidityControl Supported Commands Section -->
+<!-- -->
+<p>\section unify_humidity_control_recv_cmd_support UnifyHumidityControl Command Support</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">SupportedCommands</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">SupportedGeneratedCommands</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Command Support Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;array&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;items&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">              </span><span class="s2">&quot;ModeSet&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="s2">&quot;SetpointSet&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="s2">&quot;WriteAttributes&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="s2">&quot;ForceReadAttributes&quot;</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To see supported commands for UnifyHumidityControl cluster under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyHumidityControl/SupportedCommands&#39;</span>
+<span class="gp"># </span>Example<span class="w"> </span>output
+<span class="go">ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyHumidityControl/SupportedCommands { &quot;value&quot;: [&quot;ModeSet&quot;,&quot;SetpointSet&quot;,&quot;WriteAttributes&quot;, &quot;ForceReadAttributes&quot;] }</span>
+</pre></div>
+</div>
+<p>To see supported generated commands for UnifyHumidityControl cluster under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyHumidityControl/SupportedGeneratedCommands&#39;</span>
+<span class="gp"># </span>Example<span class="w"> </span>output
+<span class="go">ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyHumidityControl/SupportedGeneratedCommands { &quot;value&quot;: [] }</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF UnifyHumidityControl Supported Commands Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF UnifyHumidityControl Commands Section -->
+<!-- -->
+<p>\section unify_humidity_control_cmds UnifyHumidityControl Commands</p>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_mode_set_cmd UnifyHumidityControl/ModeSet Command</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Commands</span><span class="o">/</span><span class="n">ModeSet</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">GeneratedCommands</span><span class="o">/</span><span class="n">ModeSet</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster ModeSet Command Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ModeType&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;Mode&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To send a UnifyHumidityControl/ModeSet command under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_pub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyHumidityControl/Commands/ModeSet&#39; -m  &#39;{ &quot;Mode&quot;: &lt;MODE_VALUE&gt; }&#39;</span>
+</pre></div>
+</div>
+<p>To receive a UnifyHumidityControl/ModeSet generated command from a UNID/endpoint:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyHumidityControl/GeneratedCommands/ModeSet&#39;</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_setpoint_set_cmd UnifyHumidityControl/SetpointSet Command</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Commands</span><span class="o">/</span><span class="n">SetpointSet</span>
+<span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">GeneratedCommands</span><span class="o">/</span><span class="n">SetpointSet</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster SetpointSet Command Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SetpointType&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Precision&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Scale&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;Type&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Precision&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Scale&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To send a UnifyHumidityControl/SetpointSet command under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_pub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyHumidityControl/Commands/SetpointSet&#39; -m  &#39;{ &quot;Type&quot;: &lt;TYPE_VALUE&gt;,&quot;Precision&quot;: &lt;PRECISION_VALUE&gt;,&quot;Scale&quot;: &lt;SCALE_VALUE&gt;,&quot;Value&quot;: &lt;VALUE_VALUE&gt; }&#39;</span>
+</pre></div>
+</div>
+<p>To receive a UnifyHumidityControl/SetpointSet generated command from a UNID/endpoint:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_sub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyHumidityControl/GeneratedCommands/SetpointSet&#39;</span>
+</pre></div>
+</div>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_write_attr_cmd UnifyHumidityControl/WriteAttributes Command</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Commands</span><span class="o">/</span><span class="n">WriteAttributes</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster WriteAttributes Command Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To update all UnifyHumidityControl attributes under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_pub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyHumidityControl/Commands/WriteAttributes&#39; -m  &#39;{  }&#39;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>NOTE: Specify only the list of attributes to write in this command.
+Unspecified attributes will not be updated.</p>
+</div></blockquote>
+<p><br><br></p>
+<p>\subsection unify_humidity_control_force_read_attr_cmd UnifyHumidityControl/ForceReadAttributes Command</p>
+<p><strong>MQTT Topic Pattern:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">PREFIX</span><span class="p">]</span><span class="o">/</span><span class="n">UnifyHumidityControl</span><span class="o">/</span><span class="n">Commands</span><span class="o">/</span><span class="n">ForceReadAttributes</span>
+</pre></div>
+</div>
+<p><strong>MQTT Payload JSON Schema:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControl Cluster ForceReadAttributes Command Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="nt">&quot;array&quot;</span>
+<span class="w">      </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="s2">&quot;ReportingMode&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;SupportedReportingMode&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;CurrentState&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;SupportedSetPoints&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;HumidifierSetpointMin&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;HumidifierSetpointMax&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;HumidifierSetpoint&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;HumidifierSetpointScale&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;HumidifierSetpointPrecision&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;DehumidifierSetpointMin&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;DehumidifierSetpointMax&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;DehumidifierSetpoint&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;DehumidifierSetpointScale&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;DehumidifierSetpointPrecision&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;AutoSetpointMin&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;AutoSetpointMax&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;AutoSetpoint&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;AutoSetpointScale&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="s2">&quot;AutoSetpointPrecision&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;required&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;value&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example Mosquitto CLI Tool Usage</strong></p>
+<p>To force read all UnifyHumidityControl attributes under the by-unid topic space (by sending an empty array):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_pub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyHumidityControl/Commands/ForceReadAttributes&#39; -m  &#39;{ &quot;value&quot;: [] }&#39;</span>
+</pre></div>
+</div>
+<p>To force read one of the UnifyHumidityControl attributes under the by-unid topic space:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mosquitto_pub -t &#39;ucl/by-unid/&lt;UNID&gt;/&lt;EP&gt;/UnifyHumidityControl/Commands/ForceReadAttributes&#39; -m  &#39;{ &quot;value&quot;: [&quot;ReportingMode&quot;] }&#39;</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF UnifyHumidityControl Commands Section -->
+<!-- -->
+<p><br><br><br></p>
+<!-- -->
+<!-- -->
 <!-- NEW Page UCL Structs -->
 <!-- -->
 <!-- -->
@@ -42406,8 +43913,8 @@ Unspecified attributes will not be updated.</p>
 <span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CCColorLoopDirection Enum Properties&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
 <span class="w">  </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="s2">&quot;DecrementEnhancedCurrentHue&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="s2">&quot;IncrementEnhancedCurrentHue&quot;</span>
+<span class="w">    </span><span class="s2">&quot;ColorLoopHueDecrement&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;ColorLoopHueIncrement&quot;</span>
 <span class="w">  </span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
@@ -42493,6 +44000,25 @@ Unspecified attributes will not be updated.</p>
 </div>
 <!-- -->
 <!-- END OF Enum ColorControlColorLoopActive Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF Enum ColorControlColorLoopDirection Section -->
+<!-- -->
+<p>\section enum_color_control_color_loop_direction ColorControlColorLoopDirection Enum</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ColorControlColorLoopDirection Enum Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;DecrementEnhancedCurrentHue&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;IncrementEnhancedCurrentHue&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF Enum ColorControlColorLoopDirection Section -->
 <!-- -->
 <p><br><br></p>
 <!-- -->
@@ -43651,6 +45177,27 @@ Unspecified attributes will not be updated.</p>
 <!-- -->
 <p><br><br></p>
 <!-- -->
+<!-- START OF Enum ModeType Section -->
+<!-- -->
+<p>\section enum_mode_type ModeType Enum</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ModeType Enum Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;Off&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Humidify&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Dehumidify&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Auto&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF Enum ModeType Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
 <!-- START OF Enum MoveStepMode Section -->
 <!-- -->
 <p>\section enum_move_step_mode MoveStepMode Enum</p>
@@ -44072,6 +45619,25 @@ Unspecified attributes will not be updated.</p>
 <!-- -->
 <p><br><br></p>
 <!-- -->
+<!-- START OF Enum ScaleType Section -->
+<!-- -->
+<p>\section enum_scale_type ScaleType Enum</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ScaleType Enum Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;Percentage&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Absolute&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF Enum ScaleType Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
 <!-- START OF Enum SetpointRaiseOrLowerMode Section -->
 <!-- -->
 <p>\section enum_setpoint_raise_or_lower_mode SetpointRaiseOrLowerMode Enum</p>
@@ -44089,6 +45655,26 @@ Unspecified attributes will not be updated.</p>
 </div>
 <!-- -->
 <!-- END OF Enum SetpointRaiseOrLowerMode Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF Enum SetpointType Section -->
+<!-- -->
+<p>\section enum_setpoint_type SetpointType Enum</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SetpointType Enum Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;Humidifier&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Dehumidifier&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Auto&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF Enum SetpointType Section -->
 <!-- -->
 <p><br><br></p>
 <!-- -->
@@ -44550,6 +46136,88 @@ Unspecified attributes will not be updated.</p>
 <!-- -->
 <p><br><br></p>
 <!-- -->
+<!-- START OF Enum UnifyHumidityControlCurrentState Section -->
+<!-- -->
+<p>\section enum_unify_humidity_control_current_state UnifyHumidityControlCurrentState Enum</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControlCurrentState Enum Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;Idle&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Humidifying&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Dehumidifying&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF Enum UnifyHumidityControlCurrentState Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF Enum UnifyThermostatOperatingState Section -->
+<!-- -->
+<p>\section enum_unify_thermostat_operating_state UnifyThermostatOperatingState Enum</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyThermostatOperatingState Enum Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;Off&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Heating&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Cooling&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;FanOnly&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;PendingHeat&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;PendingCool&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Vent/Economizer&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;AuxHeating&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;2ndStageHeating&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;2ndStageCooling&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;2ndStageAuxHeat&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;3rdStageAuxHeat&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF Enum UnifyThermostatOperatingState Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF Enum UnifyThermostatThermostatMode Section -->
+<!-- -->
+<p>\section enum_unify_thermostat_thermostat_mode UnifyThermostatThermostatMode Enum</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyThermostatThermostatMode Enum Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;Off&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Heat&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Cool&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Auto&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Auxiliary&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Resume&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Fan&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Furnace&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Dry&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Moist&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;AutoChangeover&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;EnergyHeat&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;EnergyCool&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Away&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;FullPower&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;ManufacturerSpecific&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF Enum UnifyThermostatThermostatMode Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
 <!-- START OF Enum WindowCoveringWindowCoveringType Section -->
 <!-- -->
 <p>\section enum_window_covering_window_covering_type WindowCoveringWindowCoveringType Enum</p>
@@ -44574,6 +46242,61 @@ Unspecified attributes will not be updated.</p>
 </div>
 <!-- -->
 <!-- END OF Enum WindowCoveringWindowCoveringType Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF Enum ZWaveFanModeEnum Section -->
+<!-- -->
+<p>\section enum_z_wave_fan_mode_enum ZWaveFanModeEnum Enum</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ZWaveFanModeEnum Enum Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;Auto&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Low&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;AutoHigh&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;High&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;AutoMedium&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Medium&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Circulation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;HumidityCirculation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;LeftRight&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;UpDown&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Quiet&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;ExternalCirculation&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF Enum ZWaveFanModeEnum Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF Enum ZWaveFanStateEnum Section -->
+<!-- -->
+<p>\section enum_z_wave_fan_state_enum ZWaveFanStateEnum Enum</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ZWaveFanStateEnum Enum Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;enum&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;Idle&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Running&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;RunningHigh&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;RunningMedium&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;Circulation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;HumidityCirculation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;RightLeftCirculation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;UpDownCirculation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;QuietCirculation&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF Enum ZWaveFanStateEnum Section -->
 <!-- -->
 <p><br><br></p>
 <!-- -->
@@ -46670,6 +48393,176 @@ Unspecified attributes will not be updated.</p>
 </div>
 <!-- -->
 <!-- END OF Bitmap TstatScheduleMode Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF Bitmap UnifyFanControlZWaveSupportedFanMode Section -->
+<!-- -->
+<p>\section enum_unify_fan_controlz_wave_supported_fan_mode UnifyFanControlZWaveSupportedFanMode Bitmap</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyFanControlZWaveSupportedFanMode Enum Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Auto&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Low&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;AutoHigh&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;High&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;AutoMedium&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Medium&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Circulation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;HumidityCirculation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;LeftRight&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;UpDown&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Quiet&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;ExternalCirculation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF Bitmap UnifyFanControlZWaveSupportedFanMode Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF Bitmap UnifyHumidityControlSupportedReportingMode Section -->
+<!-- -->
+<p>\section enum_unify_humidity_control_supported_reporting_mode UnifyHumidityControlSupportedReportingMode Bitmap</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControlSupportedReportingMode Enum Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Humidify&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Dehumidify&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Auto&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF Bitmap UnifyHumidityControlSupportedReportingMode Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF Bitmap UnifyHumidityControlSupportedSetPoints Section -->
+<!-- -->
+<p>\section enum_unify_humidity_control_supported_set_points UnifyHumidityControlSupportedSetPoints Bitmap</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyHumidityControlSupportedSetPoints Enum Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Humidifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Dehumidifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Auto&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF Bitmap UnifyHumidityControlSupportedSetPoints Section -->
+<!-- -->
+<p><br><br></p>
+<!-- -->
+<!-- START OF Bitmap UnifyThermostatSupportedThermostatMode Section -->
+<!-- -->
+<p>\section enum_unify_thermostat_supported_thermostat_mode UnifyThermostatSupportedThermostatMode Bitmap</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UnifyThermostatSupportedThermostatMode Enum Properties&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;object&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;Off&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Heat&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Cool&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Auto&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Auxiliary&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Resume&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Fan&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Furnace&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Dry&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Moist&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;AutoChangeover&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;EnergyHeat&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;EnergyCool&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;Away&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;FullPower&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;ManufacturerSpecific&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boolean&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<!-- -->
+<!-- END OF Bitmap UnifyThermostatSupportedThermostatMode Section -->
 <!-- -->
 <p><br><br></p>
 <!-- -->
