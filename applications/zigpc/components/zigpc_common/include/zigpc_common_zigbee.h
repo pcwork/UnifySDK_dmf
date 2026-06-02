@@ -91,13 +91,13 @@ extern "C" {
 /**
  * @brief Default string length for strings used in ZCL
 **/
-#define ZCL_DEFAULT_ARR_LENGTH 16
+#define ZCL_DEFAULT_ARR_LENGTH 32
 
 /**
  * @brief Expected length of a zigbee group name, as supported
  * in the ZCL specification
-**/ 
-#define ZCL_GROUP_NAME_LENGTH 16 
+**/
+#define ZCL_GROUP_NAME_LENGTH 16
 
 /**
  * ZCL Cluster ID Standard Ranges
@@ -376,7 +376,7 @@ typedef struct zcl_profile {
 
 } zcl_profile_t;
 
-typedef struct 
+typedef struct
 {
     zigbee_eui64_uint_t source_address;
     zigbee_endpoint_id_t source_endpoint;

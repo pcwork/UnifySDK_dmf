@@ -26,6 +26,10 @@
 #include "zigpc_gateway_notify.h"
 #include "zigpc_gateway_int.h"
 
+#ifndef MIN
+#define MIN(a,b) (((a)<(b))?(a):(b))
+#endif
+
 struct zigpc_observable zigpc_gateway_observable;
 
 sl_status_t
@@ -285,7 +289,7 @@ void zigpc_gateway_hdl_on_endpoint_clusters_discovered(
   endpoint_discovered.endpoint.endpoint_id   = endpointInfo->endpoint;
   endpoint_discovered.endpoint.cluster_count = endpointInfo->inClusterCount;
 
-  for (size_t cluster_index = 0; cluster_index < endpointInfo->inClusterCount;
+  for (size_t cluster_index = 0; cluster_index < MIN(endpointInfo->inClusterCount, ZCL_DEFAULT_ARR_LENGTH);
        cluster_index++) {
     endpoint_discovered.endpoint.cluster_list[cluster_index].cluster_id
       = endpointInfo->inClusterList[cluster_index];
@@ -293,7 +297,7 @@ void zigpc_gateway_hdl_on_endpoint_clusters_discovered(
 
   endpoint_discovered.endpoint.client_cluster_count
     = endpointInfo->outClusterCount;
-  for (size_t cluster_index = 0; cluster_index < endpointInfo->outClusterCount;
+  for (size_t cluster_index = 0; cluster_index < MIN(endpointInfo->outClusterCount, ZCL_DEFAULT_ARR_LENGTH);
        cluster_index++) {
     endpoint_discovered.endpoint.client_cluster_list[cluster_index].cluster_id
       = endpointInfo->outClusterList[cluster_index];
@@ -545,7 +549,7 @@ void zigpc_gateway_hdl_on_ota_update_started(const sl_802154_long_addr_t eui64,
     sl_log_warning(LOG_TAG, "OTA_UPDATE_STARTED notify failed: 0x%X", status);
   }
 }
-  
+
 void zigpc_gateway_hdl_on_ota_update_completed(const sl_802154_long_addr_t eui64,
                                                uint16_t manufacturerId,
                                                uint16_t imageTypeId,
@@ -573,7 +577,7 @@ void zigpc_gateway_hdl_on_ota_update_completed(const sl_802154_long_addr_t eui64
   }
 }
 
-void zigpc_gateway_hdl_bind_unbind_response( 
+void zigpc_gateway_hdl_bind_unbind_response(
         const sl_802154_long_addr_t sourceEui64,
         uint8_t sourceEndpoint,
         uint16_t clusterId,
@@ -583,7 +587,7 @@ void zigpc_gateway_hdl_bind_unbind_response(
         uint8_t zdoStatus)
 {
         static zigpc_gateway_on_bind_unbind_reponse_t response_event;
-    
+
         sl_status_t status = SL_STATUS_OK;
 
         zigbee_binding_t binding_data;
@@ -593,12 +597,12 @@ void zigpc_gateway_hdl_bind_unbind_response(
         /*status = */zigbee_eui64_copy_switch_endian(source_eui64, sourceEui64);
         /*status = */zigbee_eui64_copy_switch_endian(dest_eui64, destEui64);
 
-        binding_data.source_address = zigbee_eui64_to_uint(source_eui64); 
-        binding_data.dest_address = zigbee_eui64_to_uint(dest_eui64); 
+        binding_data.source_address = zigbee_eui64_to_uint(source_eui64);
+        binding_data.dest_address = zigbee_eui64_to_uint(dest_eui64);
         binding_data.source_endpoint = sourceEndpoint;
         binding_data.source_cluster = clusterId;
         binding_data.dest_endpoint = destEndpoint;
-  
+
         sl_log_info(LOG_TAG,
                "Binding SrcEUI64:%016" PRIX64 " Src end %u, Cluster 0x%04X, DestEUI64:%016" PRIX64 "Dest end %u",
                binding_data.source_address,
@@ -610,7 +614,7 @@ void zigpc_gateway_hdl_bind_unbind_response(
         response_event.binding = binding_data;
         response_event.is_bind_response = isBindResponse;
         response_event.zdo_status = zdoStatus;
-  
+
         status = zigpc_observable_notify(
                     &zigpc_gateway_observable,
                     ZIGPC_GATEWAY_NOTIFY_BIND_UNBIND_RESPONSE,

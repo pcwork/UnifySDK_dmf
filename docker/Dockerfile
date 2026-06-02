@@ -13,6 +13,8 @@ ENV HEADLESS_HOST=true
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+RUN sed -i  's@http://deb.debian.org@http://mirrors.aliyun.com@g'  /etc/apt/sources.list.d/debian.sources
+
 # configure additional arches in dpkg/apt
 RUN for arch in ${ARCH} ; do \
   dpkg --add-architecture $arch ; \
