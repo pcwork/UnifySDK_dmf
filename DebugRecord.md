@@ -170,3 +170,9 @@ docker run -it --rm \
   uic_arm64 \
   bash -c "export RUSTFLAGS='-C linker-plugin-lto=false' && cd build && ninja zigpc && touch applications/dev_ui/dev_gui/dev-gui-api applications/dev_ui/dev_gui/dev-gui-client && cpack -D CPackComponentsToInstall=uic-zigpc -G DEB"
 ```
+
+## ZigPC add node failure
+During the commissioning process, the NCP often be reset due to some error. They all point to the NCP configuration issue.
+The NCP network related parameters are not suitable for large network or large number of clusters/endpoints.
+Refer to applications\zigpc\Getting_Started.md, the configuration in NCP and ZigPC should be aligned. For example, if the NCP is built with EMBER_ADDRESS_TABLE_SIZE=32, the ZigPC should also be configured with 32 address table size. Otherwise, the NCP will reset when the address table is full.
+And SL_ZIGBEE_APS_UNICAST_MESSAGE_COUNT should also be increased since the ncp report 0x0C03 error which means no free unicast message buffers.
