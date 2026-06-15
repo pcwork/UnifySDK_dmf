@@ -21,12 +21,12 @@
 // <o SL_ZIGBEE_BINDING_TABLE_SIZE> Binding Table Size <0-127>
 // <i> Default: 2
 // <i> The number of entries that the binding table can hold.
-#define SL_ZIGBEE_BINDING_TABLE_SIZE   2
+#define SL_ZIGBEE_BINDING_TABLE_SIZE   32
 
 // <o SL_ZIGBEE_MAX_END_DEVICE_CHILDREN> Child Table Size <6-64>
 // <i> Default: 6
 // <i> The maximum number of ZigBee PRO End Devices that can be supported by a single device.
-#define SL_ZIGBEE_MAX_END_DEVICE_CHILDREN   6
+#define SL_ZIGBEE_MAX_END_DEVICE_CHILDREN   32
 
 // <o SL_ZIGBEE_END_DEVICE_KEEP_ALIVE_SUPPORT_MODE> End Device keep alive support mode
 // <i> End Device keep alive support mode
