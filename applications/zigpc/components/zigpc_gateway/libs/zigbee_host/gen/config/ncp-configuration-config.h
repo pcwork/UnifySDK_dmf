@@ -81,7 +81,7 @@
 // <o SL_ZIGBEE_APS_UNICAST_MESSAGE_COUNT> APS Unicast Message Queue Size <1-255>
 // <i> Default: 10
 // <i> The maximum number of APS unicast messages that can be queued up by the stack.  A message is considered queued when sl_zigbee_send_unicast() is called and is de-queued when the sl_zigbee_message_sent_handler() is called.
-#define SL_ZIGBEE_APS_UNICAST_MESSAGE_COUNT   10
+#define SL_ZIGBEE_APS_UNICAST_MESSAGE_COUNT   50
 
 // <o SL_ZIGBEE_APS_DUPLICATE_REJECTION_MAX_ENTRIES> APS unicast Message Duplicate Rejection table Size <1-255>
 // <i> Default: 5
@@ -92,7 +92,7 @@
 // <o SL_ZIGBEE_BROADCAST_TABLE_SIZE> Broadcast Table Size <15-254>
 // <i> Default: 15
 // <i> The size of the parametrized broadcast table.
-#define SL_ZIGBEE_BROADCAST_TABLE_SIZE   15
+#define SL_ZIGBEE_BROADCAST_TABLE_SIZE   200
 
 // <o SL_ZIGBEE_NEIGHBOR_TABLE_SIZE> Neighbor Table Size
 // <i> Neighbor Table Size
