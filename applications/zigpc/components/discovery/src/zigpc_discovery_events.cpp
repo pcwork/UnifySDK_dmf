@@ -382,10 +382,17 @@ sl_status_t EndpointDiscoverResponse::handle(void)
                                             endpoint_id,
                                             ZCL_CLUSTER_SERVER_SIDE,
                                             cluster_id);
-    sl_log_debug(LOG_TAG, 
-                "Added server cluster: 0x%04X", cluster_id);
-
-    if (status != SL_STATUS_OK) {
+    
+    // Treat ALREADY_EXISTS as success (idempotent operation)
+    if (status == SL_STATUS_ALREADY_EXISTS) {
+      sl_log_debug(LOG_TAG, 
+                  "Server cluster 0x%04X already exists for Endpoint:%u", 
+                  cluster_id, endpoint_id);
+      status = SL_STATUS_OK;
+    } else if (status == SL_STATUS_OK) {
+      sl_log_debug(LOG_TAG, 
+                  "Added server cluster: 0x%04X", cluster_id);
+    } else {
       sl_log_error(LOG_TAG,
                    LOG_FMT_CLUSTER_FAIL,
                    this->label,
@@ -404,10 +411,16 @@ sl_status_t EndpointDiscoverResponse::handle(void)
                                             ZCL_CLUSTER_CLIENT_SIDE,
                                             cluster_id);
     
-    sl_log_debug(LOG_TAG, 
-                "Added client cluster: 0x%04X", cluster_id);
-    
-    if (status != SL_STATUS_OK) {
+    // Treat ALREADY_EXISTS as success (idempotent operation)
+    if (status == SL_STATUS_ALREADY_EXISTS) {
+      sl_log_debug(LOG_TAG, 
+                  "Client cluster 0x%04X already exists for Endpoint:%u", 
+                  cluster_id, endpoint_id);
+      status = SL_STATUS_OK;
+    } else if (status == SL_STATUS_OK) {
+      sl_log_debug(LOG_TAG, 
+                  "Added client cluster: 0x%04X", cluster_id);
+    } else {
       sl_log_error(LOG_TAG,
                    LOG_FMT_CLUSTER_FAIL,
                    this->label,

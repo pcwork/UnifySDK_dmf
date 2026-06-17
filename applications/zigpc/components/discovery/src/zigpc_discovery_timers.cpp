@@ -150,12 +150,12 @@ sl_status_t remove(zigbee_eui64_uint_t eui64)
 
   auto found_entry = map.find(eui64);
   if (found_entry == map.end()) {
-    sl_log_warning(LOG_TAG,
-                   LOG_FMT_FOR_DEVICE,
-                   "Failed to find timer to remove",
-                   eui64,
-                   SL_STATUS_NOT_FOUND);
-    // NOTE: Ignore requests that haven't been stored
+    sl_log_debug(LOG_TAG,
+                 LOG_FMT_FOR_DEVICE,
+                 "Timer already removed or never created",
+                 eui64,
+                 SL_STATUS_NOT_FOUND);
+    // NOTE: Ignore requests that haven't been stored (idempotent operation)
     return SL_STATUS_OK;
   }
 
