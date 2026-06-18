@@ -1,3 +1,5 @@
+find_package(GeckoSDK 2024.6.0 REQUIRED)
+
 add_subdirectory(components)
 
 add_executable(zigpc main.c)
@@ -6,6 +8,7 @@ target_link_libraries(
   zigpc
   PUBLIC zigpc_config
          zigpc_datastore_fixt
+         zigpc_gateway
          unify)
 
 target_compile_definitions(

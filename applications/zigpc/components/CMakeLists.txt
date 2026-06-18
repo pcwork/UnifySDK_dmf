@@ -1,2 +1,6 @@
+add_subdirectory(zigpc_common)
+add_subdirectory(datastore)
+add_subdirectory(zcl_util)
 add_subdirectory(zigpc_config)
 add_subdirectory(zigpc_datastore_fixt)
+add_subdirectory(zigpc_gateway)
