@@ -8,6 +8,7 @@ target_link_libraries(
   zigpc
   PUBLIC zigpc_config
          zigpc_datastore_fixt
+         zigpc_discovery
          zigpc_gateway
          unify)
 
