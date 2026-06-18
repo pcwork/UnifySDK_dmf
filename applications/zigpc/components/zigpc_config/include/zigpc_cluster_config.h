@@ -18,6 +18,7 @@
 
 #include <stdbool.h>
 #include <stddef.h>
+#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -41,9 +42,13 @@ bool zigpc_cluster_is_supported(const char *cluster_name);
  */
 size_t zigpc_cluster_count(void);
 
+/**
+ * @brief Return the active configured cluster IDs.
+ */
+const uint16_t *zigpc_cluster_get_active_ids(void);
+
 #ifdef __cplusplus
 }
 #endif
 
 #endif  // ZIGPC_CLUSTER_CONFIG_H
-

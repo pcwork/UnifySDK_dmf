@@ -19,7 +19,7 @@
 #include <string>
 
 // Shared Unify includes
-#include "../inc/sl_status.h"
+#include <sl_status.h>
 #include <sl_log.h>
 
 

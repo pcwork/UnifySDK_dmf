@@ -14,6 +14,7 @@
 #include "zigpc_config.h"
 #include "zigpc_config_fixt.h"
 #include "zigpc_datastore_fixt.h"
+#include "zigpc_gateway.h"
 #include "zigpc_gateway_process.h"
 
 #include "attribute_store_fixt.h"
@@ -27,11 +28,17 @@
 
 #define LOG_TAG "zigpc_main"
 
+static sl_status_t zigpc_gateway_network_init_fixt_setup(void)
+{
+  return zigpc_gateway_network_init();
+}
+
 static uic_fixt_setup_step_t uic_fixt_setup_steps_list[]
-  = {  {&zigpc_config_fixt_setup, "ZigPC Configuration"},
+  = {{&zigpc_config_fixt_setup, "ZigPC Configuration"},
   {&zigpc_datastore_fixt_setup, "ZigPC Datastore"},
   {&attribute_store_init, "Attribute store"},
   {&zigpc_gateway_process_setup, "ZigPC Gateway"},
+  {&zigpc_gateway_network_init_fixt_setup, "ZigPC Network Init"},
   {&unify_dotdot_attribute_store_init, "Unify DotDot Attribute Store"},
   {&uic_mqtt_dotdot_init, "DotDot MQTT"},
      {NULL, "Terminator"}};

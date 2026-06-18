@@ -62,8 +62,10 @@ void test_zigpc_config_reads_runtime_settings()
       "    serial: /dev/ttyACM0\n"
       "    datastore_file: custom-zigpc.db\n"
       "    supported_clusters: OnOff,Level\n"
-      "mqtt:\n"
-      "    host: localhost\n"
+    "    ota_path: /tmp/ota\n"
+    "    tc_use_well_known_key: true\n"
+    "mqtt:\n"
+    "    host: localhost\n"
       "    port: 1884\n";
 
   TEST_ASSERT_TRUE(create_file_with_content(TEST_CONFIG_FILE, ini_content));
@@ -79,6 +81,8 @@ void test_zigpc_config_reads_runtime_settings()
   TEST_ASSERT_EQUAL(1884, zigpc_get_config()->mqtt_port);
   TEST_ASSERT_EQUAL_STRING("OnOff,Level",
                            zigpc_get_config()->supported_clusters);
+  TEST_ASSERT_EQUAL_STRING("/tmp/ota", zigpc_get_config()->ota_path);
+  TEST_ASSERT_TRUE(zigpc_get_config()->tc_use_well_known_key);
 }
 
 void test_zigpc_cluster_config_defaults_to_small_cluster_set()
@@ -90,6 +94,8 @@ void test_zigpc_cluster_config_defaults_to_small_cluster_set()
   TEST_ASSERT_FALSE(zigpc_cluster_is_supported("Level"));
   TEST_ASSERT_FALSE(zigpc_cluster_is_supported("Thermostat"));
   TEST_ASSERT_EQUAL(2, zigpc_cluster_count());
+  TEST_ASSERT_EQUAL_HEX16(0x0000, zigpc_cluster_get_active_ids()[0]);
+  TEST_ASSERT_EQUAL_HEX16(0x0006, zigpc_cluster_get_active_ids()[1]);
 }
 
 void test_zigpc_cluster_config_accepts_explicit_cluster_list()
@@ -100,6 +106,8 @@ void test_zigpc_cluster_config_accepts_explicit_cluster_list()
   TEST_ASSERT_TRUE(zigpc_cluster_is_supported("Level"));
   TEST_ASSERT_FALSE(zigpc_cluster_is_supported("Basic"));
   TEST_ASSERT_EQUAL(2, zigpc_cluster_count());
+  TEST_ASSERT_EQUAL_HEX16(0x0006, zigpc_cluster_get_active_ids()[0]);
+  TEST_ASSERT_EQUAL_HEX16(0x0008, zigpc_cluster_get_active_ids()[1]);
 }
 
 void test_zigpc_cluster_config_rejects_unknown_cluster()

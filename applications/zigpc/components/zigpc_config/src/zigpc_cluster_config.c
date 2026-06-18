@@ -37,6 +37,7 @@ static const char *const default_cluster_names[] = {"Basic", "OnOff"};
 
 static const zigpc_cluster_definition_t
   *active_clusters[ZIGPC_MAX_ACTIVE_CLUSTERS];
+static uint16_t active_cluster_ids[ZIGPC_MAX_ACTIVE_CLUSTERS];
 static size_t active_cluster_count;
 
 static const zigpc_cluster_definition_t *find_cluster(const char *cluster_name)
@@ -148,6 +149,9 @@ sl_status_t zigpc_cluster_configure(const char *cluster_list)
 
   memcpy(active_clusters, new_clusters, sizeof(active_clusters));
   active_cluster_count = new_cluster_count;
+  for (size_t i = 0; i < active_cluster_count; i++) {
+    active_cluster_ids[i] = (uint16_t)active_clusters[i]->cluster_id;
+  }
 
   return SL_STATUS_OK;
 }
@@ -172,3 +176,7 @@ size_t zigpc_cluster_count(void)
   return active_cluster_count;
 }
 
+const uint16_t *zigpc_cluster_get_active_ids(void)
+{
+  return active_cluster_ids;
+}
