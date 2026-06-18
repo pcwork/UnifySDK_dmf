@@ -41,7 +41,7 @@ if ! grep -q "^zigpc:" $UIC_CONFFILE; then
 zigpc:
   serial: $SERIAL_PORT
   datastore_file: $DATASTORE_FILE
-  supported_clusters: $SUPPORTED_CLUSTERS
+  supported_clusters: "$SUPPORTED_CLUSTERS"
 EOF
 fi
 
