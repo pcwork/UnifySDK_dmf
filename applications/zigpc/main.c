@@ -13,6 +13,7 @@
 
 #include "zigpc_config.h"
 #include "zigpc_config_fixt.h"
+#include "zigpc_basic_cluster_mqtt.h"
 #include "zigpc_datastore_fixt.h"
 #include "zigpc_discovery.h"
 #include "zigpc_gateway.h"
@@ -45,10 +46,12 @@ static uic_fixt_setup_step_t uic_fixt_setup_steps_list[]
   {&zigpc_gateway_network_init_fixt_setup, "ZigPC Network Init"},
   {&unify_dotdot_attribute_store_init, "Unify DotDot Attribute Store"},
   {&uic_mqtt_dotdot_init, "DotDot MQTT"},
+  {&zigpc_basic_cluster_mqtt_fixt_setup, "Basic Cluster MQTT Example"},
      {NULL, "Terminator"}};
 
 static uic_fixt_shutdown_step_t uic_fixt_shutdown_steps_list[]
-  = {{&zigpc_onboarding_fixt_shutdown, "ZigPC Onboarding"},
+  = {{&zigpc_basic_cluster_mqtt_fixt_shutdown, "Basic Cluster MQTT Example"},
+     {&zigpc_onboarding_fixt_shutdown, "ZigPC Onboarding"},
      {&zigpc_discovery_fixt_shutdown, "ZigPC Discovery"},
      {&zigpc_gateway_process_shutdown, "ZigPC Gateway"},
      {&attribute_store_teardown, "Attribute store"},

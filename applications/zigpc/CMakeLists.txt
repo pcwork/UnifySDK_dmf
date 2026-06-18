@@ -7,6 +7,7 @@ add_executable(zigpc main.c)
 target_link_libraries(
   zigpc
   PUBLIC zigpc_config
+         zigpc_basic_cluster_mqtt
          zigpc_datastore_fixt
          zigpc_discovery
          zigpc_gateway
