@@ -1,0 +1,31 @@
+#!/bin/sh -e
+
+. /usr/share/debconf/confmodule
+
+UIC_CONFDIR=${CPACK_PACKAGING_INSTALL_PREFIX}/etc/uic
+UIC_CONFFILE=$UIC_CONFDIR/uic.cfg
+
+db_get uic-zigpc/serial_port
+SERIAL_PORT="$RET"
+db_get uic-zigpc/datastore_file
+DATASTORE_FILE="$RET"
+db_get uic-zigpc/supported_clusters
+SUPPORTED_CLUSTERS="$RET"
+
+mkdir -p $UIC_CONFDIR
+
+if [ ! -e $UIC_CONFFILE ]; then
+  touch $UIC_CONFFILE
+fi
+
+if ! grep -q "^zigpc:" $UIC_CONFFILE; then
+  cat <<EOF >> $UIC_CONFFILE
+zigpc:
+  serial: $SERIAL_PORT
+  datastore_file: $DATASTORE_FILE
+  supported_clusters: $SUPPORTED_CLUSTERS
+EOF
+fi
+
+systemctl daemon-reload || true
+
