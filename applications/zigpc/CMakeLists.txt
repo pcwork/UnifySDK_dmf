@@ -2,7 +2,11 @@ add_subdirectory(components)
 
 add_executable(zigpc main.c)
 
-target_link_libraries(zigpc PUBLIC zigpc_config zigpc_datastore unify)
+target_link_libraries(
+  zigpc
+  PUBLIC zigpc_config
+         zigpc_datastore_fixt
+         unify)
 
 target_compile_definitions(
   zigpc PRIVATE CMAKE_INSTALL_PREFIX="${CMAKE_INSTALL_PREFIX}"
@@ -45,4 +49,3 @@ add_component_to_uic(
     ${CMAKE_BINARY_DIR}/applications/zigpc/debconf/conffiles;\
     ${CMAKE_BINARY_DIR}/applications/zigpc/debconf/postinst;\
     ${CMAKE_BINARY_DIR}/applications/zigpc/debconf/prerm")
-

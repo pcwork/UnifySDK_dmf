@@ -27,11 +27,11 @@
 #define LOG_TAG "zigpc_main"
 
 static uic_fixt_setup_step_t uic_fixt_setup_steps_list[]
-  = {{&zigpc_config_fixt_setup, "ZigPC Configuration"},
-     {&zigpc_datastore_fixt_setup, "ZigPC Datastore"},
-     {&attribute_store_init, "Attribute store"},
-     {&unify_dotdot_attribute_store_init, "Unify DotDot Attribute Store"},
-     {&uic_mqtt_dotdot_init, "DotDot MQTT"},
+  = {  {&zigpc_config_fixt_setup, "ZigPC Configuration"},
+  {&zigpc_datastore_fixt_setup, "ZigPC Datastore"},
+  {&attribute_store_init, "Attribute store"},
+  {&unify_dotdot_attribute_store_init, "Unify DotDot Attribute Store"},
+  {&uic_mqtt_dotdot_init, "DotDot MQTT"},
      {NULL, "Terminator"}};
 
 static uic_fixt_shutdown_step_t uic_fixt_shutdown_steps_list[]
@@ -53,4 +53,3 @@ int main(int argc, char **argv)
                   argv,
                   CMAKE_PROJECT_VERSION);
 }
-
