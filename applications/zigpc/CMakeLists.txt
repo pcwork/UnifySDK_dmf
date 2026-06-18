@@ -10,6 +10,7 @@ target_link_libraries(
          zigpc_datastore_fixt
          zigpc_discovery
          zigpc_gateway
+         zigpc_onboarding
          unify)
 
 target_compile_definitions(

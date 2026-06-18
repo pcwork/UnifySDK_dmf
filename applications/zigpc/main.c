@@ -17,6 +17,7 @@
 #include "zigpc_discovery.h"
 #include "zigpc_gateway.h"
 #include "zigpc_gateway_process.h"
+#include "zigpc_onboarding.h"
 
 #include "attribute_store_fixt.h"
 #include "datastore_fixt.h"
@@ -40,13 +41,15 @@ static uic_fixt_setup_step_t uic_fixt_setup_steps_list[]
   {&attribute_store_init, "Attribute store"},
   {&zigpc_gateway_process_setup, "ZigPC Gateway"},
   {&zigpc_discovery_fixt_setup, "ZigPC Discovery"},
+  {&zigpc_onboarding_fixt_setup, "ZigPC Onboarding"},
   {&zigpc_gateway_network_init_fixt_setup, "ZigPC Network Init"},
   {&unify_dotdot_attribute_store_init, "Unify DotDot Attribute Store"},
   {&uic_mqtt_dotdot_init, "DotDot MQTT"},
      {NULL, "Terminator"}};
 
 static uic_fixt_shutdown_step_t uic_fixt_shutdown_steps_list[]
-  = {{&zigpc_discovery_fixt_shutdown, "ZigPC Discovery"},
+  = {{&zigpc_onboarding_fixt_shutdown, "ZigPC Onboarding"},
+     {&zigpc_discovery_fixt_shutdown, "ZigPC Discovery"},
      {&zigpc_gateway_process_shutdown, "ZigPC Gateway"},
      {&attribute_store_teardown, "Attribute store"},
      {&datastore_fixt_teardown, "Datastore"},
