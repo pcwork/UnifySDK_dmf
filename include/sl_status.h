@@ -112,6 +112,9 @@
 #define SL_STATUS_OBJECT_WRITE          ((sl_status_t)0x0037)  ///< Failed to write on/via given object.
 #define SL_STATUS_MESSAGE_TOO_LONG      ((sl_status_t)0x0038)  ///< Message is too long.
 
+// Zigbee-specific communication errors
+#define SL_STATUS_ZIGBEE_MAX_MESSAGE_LIMIT_REACHED ((sl_status_t)0x0C03)  ///< The maximum number of in-flight Zigbee APS unicast messages has been reached.
+
 // ANSI C/POSIX codes
 #define SL_STATUS_ERRNO                   ((sl_status_t)0x0101) ///< System error: errno is set and strerror can be used to fetch the error-message.
 
