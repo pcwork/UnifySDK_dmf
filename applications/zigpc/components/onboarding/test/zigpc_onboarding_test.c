@@ -7,7 +7,7 @@
 
 #include "zigpc_datastore_mock.h"
 #include "zigpc_discovery_mock.h"
-#include "zigpc_gateway_mock.h"
+#include "zigpc_gateway_notify_mock.h"
 
 typedef void (*observer_callback_t)(void *event_data);
 
@@ -16,7 +16,7 @@ static observer_callback_t node_add_cb     = NULL;
 static observer_callback_t node_remove_cb  = NULL;
 
 static sl_status_t capture_registered_observers(
-  enum zigpc_gateway_notify_event event, zigpc_observer_function_t callback, int num_calls)
+  enum zigpc_gateway_notify_event event, zigpc_observer_callback_t callback, int num_calls)
 {
   (void)num_calls;
   if (event == ZIGPC_GATEWAY_NOTIFY_NETWORK_INIT) {
@@ -47,7 +47,7 @@ void tearDown(void) {}
 
 void test_setup_registers_required_gateway_observers(void)
 {
-  zigpc_gateway_register_observer_Stub(capture_registered_observers);
+  zigpc_gateway_register_observer_AddCallback(capture_registered_observers);
 
   TEST_ASSERT_EQUAL(SL_STATUS_OK, zigpc_onboarding_fixt_setup());
   TEST_ASSERT_NOT_NULL(network_init_cb);
@@ -68,7 +68,7 @@ void test_node_add_complete_creates_device_and_starts_interview(void)
 
   memcpy(event_data.eui64, eui64, sizeof(zigbee_eui64_t));
 
-  zigpc_gateway_register_observer_Stub(capture_registered_observers);
+  zigpc_gateway_register_observer_AddCallback(capture_registered_observers);
   TEST_ASSERT_EQUAL(SL_STATUS_OK, zigpc_onboarding_fixt_setup());
 
   zigpc_datastore_remove_device_ExpectWithArrayAndReturn(
@@ -120,7 +120,7 @@ void test_network_init_persists_gateway_network_and_endpoint(void)
   memcpy(network_data.gateway_eui64, gateway_eui64, sizeof(zigbee_eui64_t));
   memcpy(network_data.ext_panid, ext_panid, sizeof(zigbee_ext_panid_t));
 
-  zigpc_gateway_register_observer_Stub(capture_registered_observers);
+  zigpc_gateway_register_observer_AddCallback(capture_registered_observers);
   TEST_ASSERT_EQUAL(SL_STATUS_OK, zigpc_onboarding_fixt_setup());
 
   zigpc_datastore_create_network_ExpectAndReturn(SL_STATUS_OK);
@@ -156,7 +156,7 @@ void test_node_removed_deletes_device_from_datastore(void)
 
   memcpy(event_data.eui64, eui64, sizeof(zigbee_eui64_t));
 
-  zigpc_gateway_register_observer_Stub(capture_registered_observers);
+  zigpc_gateway_register_observer_AddCallback(capture_registered_observers);
   TEST_ASSERT_EQUAL(SL_STATUS_OK, zigpc_onboarding_fixt_setup());
 
   zigpc_datastore_remove_device_ExpectWithArrayAndReturn(

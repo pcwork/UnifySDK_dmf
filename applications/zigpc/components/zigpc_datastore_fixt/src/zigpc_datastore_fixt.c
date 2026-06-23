@@ -12,6 +12,7 @@
  *
  ******************************************************************************/
 
+#include <stddef.h>
 #include "zigpc_datastore_fixt.h"
 
 #include "datastore_fixt.h"

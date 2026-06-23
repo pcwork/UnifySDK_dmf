@@ -8,7 +8,8 @@
 
 #include "uic_mqtt_mock.h"
 #include "zigpc_gateway_mock.h"
-#include "zigpc_zcl_util_mock.h"
+#include "zigpc_gateway_notify_mock.h"
+#include "zcl_util_mock.h"
 
 sl_status_t zigpc_basic_cluster_mqtt_fixt_setup(void);
 int zigpc_basic_cluster_mqtt_fixt_shutdown(void);
@@ -27,7 +28,7 @@ static void capture_mqtt_subscription(const char *topic, mqtt_message_callback_t
 }
 
 static sl_status_t capture_gateway_observer(
-  enum zigpc_gateway_notify_event event, zigpc_observer_function_t callback, int num_calls)
+  enum zigpc_gateway_notify_event event, zigpc_observer_callback_t callback, int num_calls)
 {
   (void)num_calls;
   if (event == ZIGPC_GATEWAY_NOTIFY_ZCL_COMMAND_RECEIVED) {
@@ -46,8 +47,8 @@ void tearDown(void) {}
 
 void test_setup_subscribes_and_registers_basic_command_observer(void)
 {
-  uic_mqtt_subscribe_Stub(capture_mqtt_subscription);
-  zigpc_gateway_register_observer_Stub(capture_gateway_observer);
+  uic_mqtt_subscribe_AddCallback(capture_mqtt_subscription);
+  zigpc_gateway_register_observer_AddCallback(capture_gateway_observer);
 
   TEST_ASSERT_EQUAL(SL_STATUS_OK, zigpc_basic_cluster_mqtt_fixt_setup());
   TEST_ASSERT_NOT_NULL(mqtt_command_callback);
@@ -57,11 +58,10 @@ void test_setup_subscribes_and_registers_basic_command_observer(void)
 void test_mqtt_reset_to_factory_defaults_sends_basic_cluster_command(void)
 {
   const char *topic = "ucl/by-unid/zb-0102030405060708/ep1/Basic/Commands/ResetToFactoryDefaults";
-  zcl_frame_t frame = {0};
   zigbee_eui64_t eui64 = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08};
 
-  uic_mqtt_subscribe_Stub(capture_mqtt_subscription);
-  zigpc_gateway_register_observer_Stub(capture_gateway_observer);
+  uic_mqtt_subscribe_AddCallback(capture_mqtt_subscription);
+  zigpc_gateway_register_observer_AddCallback(capture_gateway_observer);
   TEST_ASSERT_EQUAL(SL_STATUS_OK, zigpc_basic_cluster_mqtt_fixt_setup());
 
   zigpc_zcl_build_command_frame_ExpectAndReturn(NULL,
@@ -98,8 +98,8 @@ void test_received_basic_reset_to_factory_defaults_publishes_custom_topic(void)
          (zigbee_eui64_t){0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08},
          sizeof(zigbee_eui64_t));
 
-  uic_mqtt_subscribe_Stub(capture_mqtt_subscription);
-  zigpc_gateway_register_observer_Stub(capture_gateway_observer);
+  uic_mqtt_subscribe_AddCallback(capture_mqtt_subscription);
+  zigpc_gateway_register_observer_AddCallback(capture_gateway_observer);
   TEST_ASSERT_EQUAL(SL_STATUS_OK, zigpc_basic_cluster_mqtt_fixt_setup());
 
   uic_mqtt_publish_Expect(expected_topic, "{}", 2, false);
