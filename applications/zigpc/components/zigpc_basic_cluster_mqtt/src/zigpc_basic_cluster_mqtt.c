@@ -28,7 +28,7 @@
 #define BASIC_CLUSTER_ID 0x0000
 #define BASIC_RESET_TO_FACTORY_DEFAULTS_COMMAND_ID 0x00
 #define BASIC_RESET_TO_FACTORY_DEFAULTS_SUBSCRIPTION \
-  "ucl/by-unid/+/ep+/Basic/Commands/ResetToFactoryDefaults"
+  "ucl/by-unid/+/+/Basic/Commands/ResetToFactoryDefaults"
 
 static void on_mqtt_reset_to_factory_defaults(const char *topic,
                                               const char *message,

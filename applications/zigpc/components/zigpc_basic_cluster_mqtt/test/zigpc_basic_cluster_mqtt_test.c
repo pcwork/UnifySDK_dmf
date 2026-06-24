@@ -23,7 +23,7 @@ static observer_cb_t command_observer_callback = NULL;
 static void capture_mqtt_subscription(const char *topic, mqtt_message_callback_t callback, int num_calls)
 {
   (void)num_calls;
-  TEST_ASSERT_EQUAL_STRING("ucl/by-unid/+/ep+/Basic/Commands/ResetToFactoryDefaults", topic);
+  TEST_ASSERT_EQUAL_STRING("ucl/by-unid/+/+/Basic/Commands/ResetToFactoryDefaults", topic);
   mqtt_command_callback = callback;
 }
 
