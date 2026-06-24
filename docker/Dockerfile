@@ -16,6 +16,18 @@ ENV HEADLESS_HOST=true
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+# ========= Change mirror =========
+RUN echo 'deb http://mirrors.tuna.tsinghua.edu.cn/debian bullseye main contrib non-free' > /etc/apt/sources.list \
+ && echo 'deb http://mirrors.tuna.tsinghua.edu.cn/debian bullseye-updates main contrib non-free' >> /etc/apt/sources.list \
+ && echo 'deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main contrib non-free' >> /etc/apt/sources.list \
+ && apt-get update \
+ && apt-get install -y --no-install-recommends ca-certificates \
+ && rm -rf /var/lib/apt/lists/*
+
+# 第2步：证书到位后，切回 HTTPS（可选但更规范）
+RUN sed -i 's|http://mirrors.tuna.tsinghua.edu.cn|https://mirrors.tuna.tsinghua.edu.cn|g' /etc/apt/sources.list
+# ================================
+
 # configure additional arches in dpkg/apt
 RUN for arch in ${ARCH} ; do \
   dpkg --add-architecture $arch ; \
@@ -123,6 +135,10 @@ RUN if [ "$CLANG" = true ] ; then \
   chmod +x /tmp/llvm.sh; \
   /tmp/llvm.sh 12; \
   fi
+
+# Install Node.js 18.x from NodeSource (Debian bullseye default is v12, too old)
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+  && apt-get install -y nodejs
 
 # Install yarn
 RUN npm install yarn -g

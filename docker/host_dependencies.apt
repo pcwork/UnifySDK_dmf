@@ -16,8 +16,6 @@ libasound2                      // ZAP generation
 libgbm1                         // ZAP generation
 ninja-build                     // Build system
 nlohmann-json3-dev              // ZPC, testframework, uic_dotdot_mqtt, uic_smartstart_management. Read JSON from a file.
-nodejs                          // DevGUI. JavaScript runtime built on Chrome`s
-npm                             // DevGUI. package manager for the JavaScript runtime environment Node.js
 default-jre                     // For docs generation across supported Debian releases
 parted                          // For Make SD card in jenkinsfile in Release builds
 pkg-config                      // PortableRuntime, Nal, Gms. insert the compiler options on the command line
