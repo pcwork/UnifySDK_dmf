@@ -1,9 +1,7 @@
 add_library(
   zigpc_discovery
-  src/zigpc_discovery.cpp
-  src/zigpc_discovery_callbacks.cpp
-  src/zigpc_discovery_events.cpp
-  src/zigpc_discovery_process.cpp
+  src/zigpc_discovery.cpp src/zigpc_discovery_callbacks.cpp
+  src/zigpc_discovery_events.cpp src/zigpc_discovery_process.cpp
   src/zigpc_discovery_timers.cpp)
 
 target_include_directories(
@@ -18,5 +16,6 @@ target_link_libraries(
 
 if(BUILD_TESTING)
   target_add_mock(zigpc_discovery)
+
   add_subdirectory(test)
 endif()

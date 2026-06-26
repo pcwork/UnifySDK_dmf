@@ -1,6 +1,5 @@
-#!/bin/sh -e
-
-if command -v systemctl >/dev/null 2>&1; then
-  systemctl stop uic-zigpc.service || true
+#!/bin/sh
+if type "systemctl" > /dev/null; then
+    systemctl stop uic-zigpc.service
+    systemctl disable uic-zigpc.service
 fi
-

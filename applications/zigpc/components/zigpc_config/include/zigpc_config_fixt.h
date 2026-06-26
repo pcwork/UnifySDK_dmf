@@ -1,6 +1,6 @@
 /******************************************************************************
  * # License
- * <b>Copyright 2026 Silicon Laboratories Inc. www.silabs.com</b>
+ * <b>Copyright 2020 Silicon Laboratories Inc. www.silabs.com</b>
  ******************************************************************************
  * The licensor of this software is Silicon Laboratories Inc. Your use of this
  * software is governed by the terms of Silicon Labs Master Software License
@@ -11,23 +11,29 @@
  *
  *****************************************************************************/
 
+/**
+ * @file zigpc_config_fixt.h
+ * @addtogroup zigpc_config
+ * @brief ZIGPC Config Fixture
+ *
+ * Fixture to initialize the zigpc_config from uic_main,
+ * to be used in \ref zigpc_config
+ *
+ * @{
+ */
+
 #ifndef ZIGPC_CONFIG_FIXT_H
 #define ZIGPC_CONFIG_FIXT_H
 
 #include "sl_status.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /**
- * @brief Read and validate ZigPC configuration after config_parse().
+ * @brief Fixture for setting up the zigpc_config component
+ *
+ * This will read configurations from \ref config, and store it in zigpc_config.
+ *
+ * @return SL_STATUS_OK for success, SL_STATUS_FAIL if an error occurred
  */
 sl_status_t zigpc_config_fixt_setup(void);
 
-#ifdef __cplusplus
-}
-#endif
-
+/** @} end of zigpc_config */
 #endif  // ZIGPC_CONFIG_FIXT_H
-
