@@ -33,6 +33,7 @@
 #define ZCL_CLUSTER_SPECIFIC_COMMAND BIT(0)
 
 #define ZCL_FRAME_CONTROL_CLIENT_TO_SERVER 0u
+#define ZCL_DIRECTION_CLIENT_TO_SERVER     0u
 #define ZCL_DISABLE_DEFAULT_RESPONSE_MASK     BIT(4)
 
 /**
@@ -171,6 +172,13 @@ sl_status_t
  * to use the LAST received sequence number.
  */
 sl_status_t sl_zigbee_af_send_response(void);
+
+sl_status_t sl_zigbee_subscribe_to_zcl_commands(uint16_t cluster_id,
+                                                uint16_t manufacturer_id,
+                                                uint8_t direction,
+                                                sl_service_function_t service_function);
+
+void sl_zigbee_af_core_flush(void);
 
 /**
  * @brief Function that fills in the buffer with command.
