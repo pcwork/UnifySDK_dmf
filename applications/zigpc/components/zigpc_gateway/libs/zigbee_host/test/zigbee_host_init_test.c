@@ -39,14 +39,6 @@ bool sl_zigbee_ezsp_process_command_options(int argc, char *argv[])
   return true;
 }
 
-sl_status_t zigbeeHostRegisterClusters(const uint16_t *cluster_list,
-                                       unsigned int cluster_list_size)
-{
-  (void)cluster_list;
-  (void)cluster_list_size;
-  return SL_STATUS_OK;
-}
-
 void sl_system_init(void) {}
 
 void sl_system_process_action(void) {}
@@ -123,6 +115,11 @@ void test_zigbeeHostInit_uses_hardware_flow_control_flag(void)
 
   TEST_ASSERT_EQUAL(SL_STATUS_OK, zigbeeHostInit(&opts));
   TEST_ASSERT_EQUAL(7, captured_argc);
+  TEST_ASSERT_EQUAL_STRING("zigbeeHost", captured_argv[0]);
+  TEST_ASSERT_EQUAL_STRING("-p", captured_argv[1]);
+  TEST_ASSERT_EQUAL_STRING("/dev/ttyUSB0", captured_argv[2]);
+  TEST_ASSERT_EQUAL_STRING("-d", captured_argv[3]);
+  TEST_ASSERT_EQUAL_STRING("/tmp/ota", captured_argv[4]);
   TEST_ASSERT_EQUAL_STRING("-f", captured_argv[5]);
   TEST_ASSERT_EQUAL_STRING("r", captured_argv[6]);
 }
@@ -140,6 +137,11 @@ void test_zigbeeHostInit_uses_software_flow_control_flag(void)
 
   TEST_ASSERT_EQUAL(SL_STATUS_OK, zigbeeHostInit(&opts));
   TEST_ASSERT_EQUAL(7, captured_argc);
+  TEST_ASSERT_EQUAL_STRING("zigbeeHost", captured_argv[0]);
+  TEST_ASSERT_EQUAL_STRING("-p", captured_argv[1]);
+  TEST_ASSERT_EQUAL_STRING("/dev/ttyUSB0", captured_argv[2]);
+  TEST_ASSERT_EQUAL_STRING("-d", captured_argv[3]);
+  TEST_ASSERT_EQUAL_STRING("/tmp/ota", captured_argv[4]);
   TEST_ASSERT_EQUAL_STRING("-f", captured_argv[5]);
   TEST_ASSERT_EQUAL_STRING("x", captured_argv[6]);
 }

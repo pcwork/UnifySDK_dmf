@@ -49,16 +49,30 @@ sl_status_t zigpc_gateway_process_setup(void)
   if (result == SL_STATUS_OK) {
     zigpc_config = zigpc_get_config();
 
+    switch (zigpc_config->flow_control) {
+      case ZIGPC_FC_HARDWARE:
+        z3gw_opts.flowControl = ZIGBEE_HOST_FC_HARDWARE;
+        break;
+      case ZIGPC_FC_SOFTWARE:
+        z3gw_opts.flowControl = ZIGBEE_HOST_FC_SOFTWARE;
+        break;
+      default:
+        sl_log_error(LOG_TAG,
+                     "Unsupported zigpc.flow_control value: %u",
+                     static_cast<unsigned int>(zigpc_config->flow_control));
+        return SL_STATUS_FAIL;
+    }
+
     std::string serial_port(zigpc_config->serial_port);
     z3gw_opts.serialPort = serial_port.data();
-    z3gw_opts.flowControl = ZIGBEE_HOST_FC_HARDWARE;
 
     z3gw_opts.callbacks = &zigpc_gateway_zigbee_host_callbacks;
 
     std::string ota_path(zigpc_config->ota_path);
     z3gw_opts.otaPath = ota_path.data();
 
-    z3gw_opts.supportedClusterListSize = zigpc_zcl_get_number_supported_clusters();
+    z3gw_opts.supportedClusterListSize
+      = zigpc_zcl_get_number_supported_clusters();
     z3gw_opts.supportedClusterList = zigpc_zcl_get_supported_cluster_list();
 
     result = (zigbeeHostInit(&z3gw_opts) == SL_STATUS_OK) ? SL_STATUS_OK
