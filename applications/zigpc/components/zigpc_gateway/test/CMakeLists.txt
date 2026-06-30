@@ -22,6 +22,19 @@ target_add_unittest(
   zigpc_datastore_mock
   uic_contiki_stub)
 
+target_add_unittest(
+  zigpc_gateway
+  NAME
+  zigpc_gateway_process_test
+  SOURCES
+  zigpc_gateway_process_test.c
+  DEPENDS
+  zigbee_host_mock
+  zigpc_config_mock
+  zigpc_datastore_mock
+  zigpc_zcl_util_mock
+  uic_contiki_stub)
+
 # Datastore Tests
 target_add_unittest(
   zigpc_gateway
