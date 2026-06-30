@@ -32,11 +32,20 @@ extern "C" {
 #endif
 
 /**
+ * @brief Flow control mode to use for EZSP host serial setup.
+ */
+typedef enum {
+  ZIGBEE_HOST_FC_HARDWARE = 0,
+  ZIGBEE_HOST_FC_SOFTWARE,
+} zigbeeHostFlowControl_t;
+
+/**
  * @brief Options setup to establish communications with ZigbeeHost
  */
 struct zigbeeHostOpts {
   char *serialPort;
   char *otaPath;
+  zigbeeHostFlowControl_t flowControl;
   struct zigbeeHostCallbacks *callbacks;
   const uint16_t *supportedClusterList;
   unsigned int supportedClusterListSize;

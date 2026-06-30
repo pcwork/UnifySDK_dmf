@@ -54,6 +54,16 @@ add_dependencies(geckosdk_mock zigbee_host)
 target_add_unittest(
   zigbee_host
   NAME
+  zigbee_host_init_test
+  SOURCES
+  zigbee_host_init_test.c
+  ../src/zigbee_host.c
+  DEPENDS
+  geckosdk_mock)
+
+target_add_unittest(
+  zigbee_host
+  NAME
   zigbee_host_trust_center_init_test
   SOURCES
   zigbee_host_trust_center_init_test.c
@@ -161,4 +171,3 @@ target_add_unittest(
 target_compile_definitions(
   zigbee_host_poll_checkin_test
   PRIVATE SL_ZIGBEE_AF_PLUGIN_POLL_CONTROL_CLIENT_DEFAULT_FAST_POLL_TIMEOUT=32)
-
