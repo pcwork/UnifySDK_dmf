@@ -178,17 +178,25 @@ sudo systemctl status uic-zigpc
 
 The configuration used by the service can be found at `etc/uic/uic.cfg`
 
+```yaml
+zigpc:
+  - serial: /dev/ttyACM0
+  - flow_control: hardware
+```
+
 **Running ZigPC on the command line**
 If ZigPC is not running a system service
 
 ```bash
-zigpc --zigpc.serial /dev/ttyACM0 --mqtt.host 0.0.0.0 --mqtt.port 1883 --zigpc.datastore_file zigpc.db
+zigpc --zigpc.serial /dev/ttyACM0 --zigpc.flow_control hardware --mqtt.host 0.0.0.0 --mqtt.port 1883 --zigpc.datastore_file zigpc.db
 
 ```
 
 > _NOTE: Run `zigpc --help` to see a full list of supported parameters_
 
 > _NOTE: ZigPC serial argument point to the UART-EZSP port exposed by the Zigbee NCP. This path will be different based on the configuration of tty devices connected to your Raspberry Pi_
+
+> _NOTE: Use `software` for `zigpc.flow_control` when the selected USB serial path does not provide usable RTS/CTS lines._
 
 > _NOTE: Ensure ZigPC is only running as a system service or via the CLI and not both_
 
