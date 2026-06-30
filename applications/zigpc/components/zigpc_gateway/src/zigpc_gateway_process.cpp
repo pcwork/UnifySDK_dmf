@@ -42,7 +42,7 @@ sl_status_t zigpc_gateway_process_setup(void)
 {
   sl_status_t result = SL_STATUS_OK;
   const zigpc_config_t *zigpc_config;
-  struct zigbeeHostOpts z3gw_opts;
+  struct zigbeeHostOpts z3gw_opts = {};
 
   result = zigpc_gateway_reset_observers();
 
@@ -51,6 +51,7 @@ sl_status_t zigpc_gateway_process_setup(void)
 
     std::string serial_port(zigpc_config->serial_port);
     z3gw_opts.serialPort = serial_port.data();
+    z3gw_opts.flowControl = ZIGBEE_HOST_FC_HARDWARE;
 
     z3gw_opts.callbacks = &zigpc_gateway_zigbee_host_callbacks;
 
