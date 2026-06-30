@@ -30,7 +30,7 @@
 #include "zigbee_host.h"
 #include "zigbee_host_common.h"
 
-#define ZIGBEE_HOST_EMBERAF_ARGV_LEN 5
+#define ZIGBEE_HOST_EMBERAF_ARGV_LEN 7
 #define ZIGBEE_HOST_EMBERAF_ARG0     "zigbeeHost"
 
 struct zigbeeHostState z3gwState;
@@ -54,15 +54,26 @@ int zigbeeHostInit(struct zigbeeHostOpts *opts)
   /* build stdin arguments passed to Ember application framework */
   argv[0] = ZIGBEE_HOST_EMBERAF_ARG0;
   if (opts->serialPort != NULL) {
-    argv[1] = "-p";
-    argv[2] = opts->serialPort;
-    argc += 2;
+    argv[argc++] = "-p";
+    argv[argc++] = opts->serialPort;
   }
 
   if (opts->otaPath != NULL) {
-    argv[3] = "-d";
-    argv[4] = opts->otaPath;
-    argc += 2;
+    argv[argc++] = "-d";
+    argv[argc++] = opts->otaPath;
+  }
+
+  switch (opts->flowControl) {
+    case ZIGBEE_HOST_FC_HARDWARE:
+      argv[argc++] = "-f";
+      argv[argc++] = "r";
+      break;
+    case ZIGBEE_HOST_FC_SOFTWARE:
+      argv[argc++] = "-f";
+      argv[argc++] = "x";
+      break;
+    default:
+      return SL_STATUS_INVALID_PARAMETER;
   }
 
   // This will process EZSP command-line options
