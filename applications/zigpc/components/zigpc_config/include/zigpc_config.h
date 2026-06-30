@@ -35,6 +35,14 @@ extern "C" {
 #endif
 
 /**
+ * @brief Flow control mode used for the Zigbee NCP serial link.
+ */
+typedef enum {
+  ZIGPC_FC_HARDWARE = 0,
+  ZIGPC_FC_SOFTWARE,
+} zigpc_flow_control_t;
+
+/**
  * @brief Reference to options used by ZigPC.
  *
  */
@@ -42,6 +50,7 @@ typedef struct {
   const char *mqtt_host;      /**< Hostname of the MQTT broker */
   int mqtt_port;              /**< Port of the MQTT broker */
   const char *serial_port;    /**< Name of the serial port of the Zigbee NCP */
+  zigpc_flow_control_t flow_control; /**< Serial flow control mode */
   const char *datastore_file; /**< Path to the SQLite datastore used by ZigPC */
   bool tc_use_well_known_key; /**< Allow Trust Center joins using
                                            well-known link key */

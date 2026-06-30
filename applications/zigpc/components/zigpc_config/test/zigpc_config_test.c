@@ -35,6 +35,7 @@ void setUp()
 {
   // Ensure test config file doesn't exist
   remove_test_config_file();
+  config_reset();
 }
 
 void tearDown()
@@ -74,7 +75,7 @@ void test_init()
   config_parse(sizeof(argv_inject) / sizeof(char *),
                argv_inject,
                "test version");
-  zigpc_config_fixt_setup();
+  TEST_ASSERT_EQUAL_HEX(SL_STATUS_OK, zigpc_config_fixt_setup());
   TEST_ASSERT_EQUAL_STRING("localhost", zigpc_get_config()->mqtt_host);
   TEST_ASSERT_EQUAL(2000, zigpc_get_config()->mqtt_port);
   TEST_ASSERT_EQUAL_STRING("/dev/ttyUSB0", zigpc_get_config()->serial_port);
@@ -84,4 +85,61 @@ void test_init()
                            zigpc_get_config()->ota_path);
   TEST_ASSERT_EQUAL_INT(500,zigpc_get_config()->attr_polling_rate_ms);
   TEST_ASSERT_TRUE(zigpc_get_config()->tc_use_well_known_key);
+  TEST_ASSERT_EQUAL(ZIGPC_FC_HARDWARE, zigpc_get_config()->flow_control);
+}
+
+void test_init_with_software_flow_control()
+{
+  char *argv_inject[3]    = {"test_config", "--conf", TEST_CONFIG_FILE};
+  const char *ini_content = "zigpc:\n"
+                            "    - serial: /dev/ttyUSB0\n"
+                            "    - flow_control: software\n"
+                            "mqtt:\n"
+                            "    - host: localhost\n"
+                            "    - port: 2000\n";
+
+  TEST_ASSERT_TRUE(create_file_with_content(TEST_CONFIG_FILE, ini_content));
+  TEST_ASSERT_EQUAL(0, zigpc_config_init());
+  config_parse(sizeof(argv_inject) / sizeof(char *), argv_inject, "test version");
+
+  TEST_ASSERT_EQUAL_HEX(SL_STATUS_OK, zigpc_config_fixt_setup());
+  TEST_ASSERT_EQUAL(ZIGPC_FC_SOFTWARE, zigpc_get_config()->flow_control);
+}
+
+void test_init_with_cli_software_flow_control()
+{
+  char *argv_inject[5]    = {"test_config",
+                             "--conf",
+                             TEST_CONFIG_FILE,
+                             "--zigpc.flow_control",
+                             "software"};
+  const char *ini_content = "zigpc:\n"
+                            "    - serial: /dev/ttyUSB0\n"
+                            "mqtt:\n"
+                            "    - host: localhost\n"
+                            "    - port: 2000\n";
+
+  TEST_ASSERT_TRUE(create_file_with_content(TEST_CONFIG_FILE, ini_content));
+  TEST_ASSERT_EQUAL(0, zigpc_config_init());
+  config_parse(sizeof(argv_inject) / sizeof(char *), argv_inject, "test version");
+
+  TEST_ASSERT_EQUAL_HEX(SL_STATUS_OK, zigpc_config_fixt_setup());
+  TEST_ASSERT_EQUAL(ZIGPC_FC_SOFTWARE, zigpc_get_config()->flow_control);
+}
+
+void test_init_rejects_invalid_flow_control()
+{
+  char *argv_inject[3]    = {"test_config", "--conf", TEST_CONFIG_FILE};
+  const char *ini_content = "zigpc:\n"
+                            "    - serial: /dev/ttyUSB0\n"
+                            "    - flow_control: broken\n"
+                            "mqtt:\n"
+                            "    - host: localhost\n"
+                            "    - port: 2000\n";
+
+  TEST_ASSERT_TRUE(create_file_with_content(TEST_CONFIG_FILE, ini_content));
+  TEST_ASSERT_EQUAL(0, zigpc_config_init());
+  config_parse(sizeof(argv_inject) / sizeof(char *), argv_inject, "test version");
+
+  TEST_ASSERT_NOT_EQUAL(SL_STATUS_OK, zigpc_config_fixt_setup());
 }
