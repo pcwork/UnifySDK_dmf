@@ -47,7 +47,7 @@
 /** @brief This routine will initialize a Security Manager context correctly for use in subsequent function calls.
  *
  */
-void sl_zb_sec_man_init_context(sl_zigbee_sec_man_context_t* context);
+void sl_zigbee_sec_man_init_context(sl_zigbee_sec_man_context_t* context);
 
 /** @brief Import a key into storage. Certain keys are
  * indexed, while others are not, as described here.<br>
@@ -221,8 +221,8 @@ sl_status_t sl_zb_sec_man_export_transient_key_by_index(uint8_t index,
  *
  * @return SL_STATUS_OK upon success, a valid error code otherwise.
  */
-sl_status_t sl_zb_sec_man_export_key(sl_zigbee_sec_man_context_t* context,
-                                     sl_zigbee_sec_man_key_t* plaintext_key);
+sl_status_t sl_zigbee_sec_man_export_key(sl_zigbee_sec_man_context_t* context,
+                                         sl_zigbee_sec_man_key_t* plaintext_key);
 
 /**
  * @brief Search for a transient, or temporary, key
@@ -558,10 +558,14 @@ uint8_t zb_sec_man_version(void);
 
 #define emberImportKey sl_zb_sec_man_import_key
 
-#define emberInitSecurityManagerContext sl_zb_sec_man_init_context
+#define sl_zb_sec_man_init_context sl_zigbee_sec_man_init_context
+
+#define emberInitSecurityManagerContext sl_zigbee_sec_man_init_context
 
 #define emberExportKey(context, key, status) \
-  status = sl_zb_sec_man_export_key(context, key);
+  status = sl_zigbee_sec_man_export_key(context, key);
+
+#define sl_zb_sec_man_export_key sl_zigbee_sec_man_export_key
 
 #define emberGetNetworkKeyInfo sl_zb_sec_man_get_network_key_info
 

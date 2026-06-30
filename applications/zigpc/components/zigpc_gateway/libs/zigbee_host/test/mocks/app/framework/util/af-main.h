@@ -17,11 +17,17 @@
 #include <stdbool.h>
 #define SIGNED_ENUM
 #include "stack/include/sl_zigbee_types.h"
+#include "app/util/ezsp/ezsp-enum.h"
 
 /*  Refer to <GSDK>/protocol/zigbee/app/framework/util/af-main.h
     for more details.
 */
 
 sl_status_t sl_zigbee_af_permit_join(uint8_t duration, bool broadcastMgmtPermitJoin);
+
+sl_status_t sl_zigbee_af_set_ezsp_policy(sl_zigbee_ezsp_policy_id_t policyId,
+                                         sl_zigbee_ezsp_decision_id_t decisionId,
+                                         const char *policyName,
+                                         const char *decisionName);
 
 #endif  // SILABS_AF_MAIN_H

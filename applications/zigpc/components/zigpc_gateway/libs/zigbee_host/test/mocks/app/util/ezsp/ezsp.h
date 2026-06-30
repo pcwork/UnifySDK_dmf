@@ -34,4 +34,8 @@ sl_status_t ezspAddTransientLinkKey(sl_802154_long_addr_t partner,
 
 void ezspClearTransientLinkKeys(void);
 
+sl_status_t sl_zigbee_ezsp_launch_standalone_bootloader(bool enabled);
+
+void sl_zigbee_ezsp_close(void);
+
 #endif  // SILABS_EZSP_H

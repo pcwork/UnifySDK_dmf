@@ -58,6 +58,7 @@ set(ZIGBEE_HOST_STACK_INCLUDES
     ${GeckoSDK_ROOT_DIR}/platform/emlib/host/inc
     ${GeckoSDK_ROOT_DIR}/platform/radio/mac
     ${GeckoSDK_ROOT_DIR}/platform/service/legacy_hal/inc
+    ${GeckoSDK_ROOT_DIR}/platform/service/system/inc
     ${GeckoSDK_ROOT_DIR}/util/silicon_labs/silabs_core
     ${GeckoSDK_ROOT_DIR}/platform/common/inc)
 

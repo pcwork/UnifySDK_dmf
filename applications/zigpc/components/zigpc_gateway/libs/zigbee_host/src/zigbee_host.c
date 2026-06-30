@@ -24,6 +24,7 @@
 #include "app/framework/include/af.h"
 #include "app/framework/util/af-main.h"
 #include "app/ezsp-host/ezsp-host-ui.h"
+#include "app/util/ezsp/ezsp.h"
 #include "app/util/serial/linux-serial.h"
 
 // public includes
