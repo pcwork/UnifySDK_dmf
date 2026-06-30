@@ -25,6 +25,8 @@
 // List of default settings
 static const char *CONFIG_KEY_ZIGPC_SERIAL_PORT = "zigpc.serial";
 static const char *DEFAULT_SERIAL_PORT          = "/dev/ttyUSB0";
+static const char *CONFIG_KEY_ZIGPC_FLOW_CONTROL = "zigpc.flow_control";
+static const char *DEFAULT_ZIGPC_FLOW_CONTROL    = "hardware";
 static const char *CONFIG_KEY_ZIGPC_USE_TC_WELL_KNOWN_KEY
   = "zigpc.tc_use_well_known_key";
 static const bool DEFAULT_USE_TC_WELL_KNOWN_KEY = false;
@@ -48,6 +50,26 @@ static const char *CONFIG_NETWORK_CHANNEL  = "zigpc.network_channel";
 static const char *CONFIG_KEY_ZIGPC_POLLING_RATE = "zigpc.attr_polling_rate_ms";
 static const int ZIGPC_DEFAULT_POLLING_RATE_MS  = 10000;
 
+static config_status_t zigpc_parse_flow_control(const char *value,
+                                                zigpc_flow_control_t *result)
+{
+  if ((value == NULL) || (result == NULL)) {
+    return CONFIG_STATUS_ERROR;
+  }
+
+  if (strcmp(value, "hardware") == 0) {
+    *result = ZIGPC_FC_HARDWARE;
+    return CONFIG_STATUS_OK;
+  }
+
+  if (strcmp(value, "software") == 0) {
+    *result = ZIGPC_FC_SOFTWARE;
+    return CONFIG_STATUS_OK;
+  }
+
+  return CONFIG_STATUS_ERROR;
+}
+
 
 
 static zigpc_config_t config;
@@ -67,6 +89,9 @@ int zigpc_config_init()
   status |= config_add_string(CONFIG_KEY_ZIGPC_SERIAL_PORT,
                               "serial port to use",
                               DEFAULT_SERIAL_PORT);
+  status |= config_add_string(CONFIG_KEY_ZIGPC_FLOW_CONTROL,
+                              "Flow control to use for EZSP serial link",
+                              DEFAULT_ZIGPC_FLOW_CONTROL);
 
   status |= config_add_string(CONFIG_KEY_ZIGPC_DATASTORE_FILE,
                               "Datastore database file",
@@ -112,10 +137,14 @@ int zigpc_config_init()
 
 sl_status_t zigpc_config_fixt_setup()
 {
+  const char *flow_control = NULL;
   config_status_t status
     = config_get_as_string(
             CONFIG_KEY_ZIGPC_SERIAL_PORT,
             &config.serial_port);
+
+  status |= config_get_as_string(CONFIG_KEY_ZIGPC_FLOW_CONTROL, &flow_control);
+  status |= zigpc_parse_flow_control(flow_control, &config.flow_control);
 
   status |=
       config_get_as_string(
