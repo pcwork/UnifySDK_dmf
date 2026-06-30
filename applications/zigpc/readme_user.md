@@ -220,7 +220,14 @@ messages to the Zigbeed application.
 
 After Zigbeed and CPCd are both properly set up, ZigPC can then be started
 and used in a multiprotocol context by pointing '--zigpc.serial' at the virtual
-USB port (/dev/ttyZigbeeNCP) created in the previous step.
+USB port (/dev/ttyZigbeeNCP) created in the previous step and setting
+'--zigpc.flow_control software'.
+
+```yaml
+zigpc:
+  - serial: /dev/ttyZigbeeNCP
+  - flow_control: software
+```
 
 The user can then configure the other protocols alongside ZigPC to run many
 protocols using the same radio.
