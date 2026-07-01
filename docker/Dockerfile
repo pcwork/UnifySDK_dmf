@@ -5,6 +5,9 @@ SHELL ["/bin/bash", "-c"]
 
 ARG USER_ID=1000
 ARG GROUP_ID=1000
+ARG DEBIAN_CODENAME="bullseye"
+ARG CMAKE_VERSION="3.21.6"
+ARG CMAKE_SHA256="d460a33c42f248388a8f2249659ad2f5eab6854bebaf4f57c1df49ded404e593"
 # Set to true to install clang toolchain
 ARG CLANG=false
 # Architectures
@@ -12,6 +15,18 @@ ARG ARCH="arm64"
 ENV HEADLESS_HOST=true
 
 ARG DEBIAN_FRONTEND=noninteractive
+
+# ========= Change mirror =========
+RUN echo 'deb http://mirrors.tuna.tsinghua.edu.cn/debian bullseye main contrib non-free' > /etc/apt/sources.list \
+ && echo 'deb http://mirrors.tuna.tsinghua.edu.cn/debian bullseye-updates main contrib non-free' >> /etc/apt/sources.list \
+ && echo 'deb http://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main contrib non-free' >> /etc/apt/sources.list \
+ && apt-get update \
+ && apt-get install -y --no-install-recommends ca-certificates \
+ && rm -rf /var/lib/apt/lists/*
+
+# 第2步：证书到位后，切回 HTTPS（可选但更规范）
+RUN sed -i 's|http://mirrors.tuna.tsinghua.edu.cn|https://mirrors.tuna.tsinghua.edu.cn|g' /etc/apt/sources.list
+# ================================
 
 # configure additional arches in dpkg/apt
 RUN for arch in ${ARCH} ; do \
@@ -21,6 +36,16 @@ RUN for arch in ${ARCH} ; do \
 COPY host_dependencies.apt /tmp/host_dependencies.apt
 RUN readarray -d ' ' -t HOST_DEPS < <(cat /tmp/host_dependencies.apt | awk -F ' ' '{print $1}') \
   && apt update && xargs apt install --no-install-recommends -y < <(echo ${HOST_DEPS[@]})
+
+RUN if dpkg --compare-versions "$(cmake --version | awk 'NR==1 {print $3}')" ge "3.21"; then \
+    cmake --version; \
+  else \
+    curl -L "https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.sh" -o /tmp/cmake-installer.sh \
+    && echo "${CMAKE_SHA256}  /tmp/cmake-installer.sh" | sha256sum -c - \
+    && bash /tmp/cmake-installer.sh --prefix=/usr/local --skip-license \
+    && rm /tmp/cmake-installer.sh \
+    && cmake --version; \
+  fi
 
 COPY target_dependencies.apt /tmp/target_dependencies.apt
 RUN readarray -d ' ' -t TARGET_DEPS < <(cat /tmp/target_dependencies.apt | awk -F ' ' '{print $1}') \
@@ -32,17 +57,16 @@ RUN readarray -d ' ' -t TARGET_DEPS < <(cat /tmp/target_dependencies.apt | awk -
   && rm -rf /var/lib/apt/lists/*
 
 # Install pip3 packages
-# --break-system-packages : https://stackoverflow.com/a/75722775/7231626 needed since bookworm update
-#RUN pip3 install --break-system-packages gcovr==5.0 diff-cover==9.1.0 \
-#  pybars3==0.9.7 PyMeta3==0.5.1 xmltodict==0.12.0 \
-#  sphinx==5.1.0 breathe==4.34.0 myst-parser==0.18.0 linkify-it-py==2.0.0 sphinxcontrib-plantuml==0.24 sphinx-markdown-tables==0.0.17 sphinx-rtd-theme==1.0.0
-
-RUN pip3 install gcovr==5.0 diff-cover==9.1.0 \
+RUN PIP_INSTALL_ARGS="" \
+  && if pip3 install --help | grep -q -- '--break-system-packages'; then PIP_INSTALL_ARGS="--break-system-packages"; fi \
+  && pip3 install ${PIP_INSTALL_ARGS} gcovr==5.0 diff-cover==9.1.0 \
   pybars3==0.9.7 PyMeta3==0.5.1 xmltodict==0.12.0 \
   sphinx==5.1.0 breathe==4.34.0 myst-parser==0.18.0 linkify-it-py==2.0.0 sphinxcontrib-plantuml==0.24 sphinx-markdown-tables==0.0.17 sphinx-rtd-theme==1.0.0
 
 COPY ./fetch_build_mosquitto.sh /tmp
-RUN /tmp/fetch_build_mosquitto.sh "${ARCH}"
+RUN sed -i 's/\r$//' /tmp/fetch_build_mosquitto.sh \
+  && chmod +x /tmp/fetch_build_mosquitto.sh \
+  && /tmp/fetch_build_mosquitto.sh "${ARCH}"
 
 # ld.so.cache is causing segfault grief with qemu and endianness differences:
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=731082. Fortunately, qemu
@@ -111,6 +135,10 @@ RUN if [ "$CLANG" = true ] ; then \
   chmod +x /tmp/llvm.sh; \
   /tmp/llvm.sh 12; \
   fi
+
+# Install Node.js 18.x from NodeSource (Debian bullseye default is v12, too old)
+RUN curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash - \
+  && apt-get install -y nodejs
 
 # Install yarn
 RUN npm install yarn -g

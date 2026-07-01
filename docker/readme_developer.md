@@ -2,7 +2,8 @@
 
 This folder contains docker files with recipes for creating a docker image for building the various Unify applications.
 
-The *Dockerfile* is supporting building all target applications (protocol controllers, UPVL, Developer GUI, etc.).
+The *Dockerfile* supports building all target applications (protocol controllers, UPVL, Developer GUI, etc.).
+It now defaults to a Debian 11 (Bullseye) build environment so the generated arm64/armhf packages stay aligned with Bullseye-based targets such as ZigPC deployments.
 
 ## Install Docker
 
@@ -19,7 +20,13 @@ To build the docker image enter the `docker` folder and run:
 ./build_docker.sh arm64 uic_arm64
 ```
 
-This will build the Unify toolchain docker images and name it *uic_arm64*.
+This will build the Unify toolchain docker image and name it *uic_arm64*.
+
+If you need the newer Debian 12 / Bookworm build container instead, pass explicit build arguments:
+
+``` bash
+./build_docker.sh arm64 uic_arm64_bookworm --build-arg FROM=debian:bookworm --build-arg DEBIAN_CODENAME=bookworm
+```
 
 ## Dependencies
 
@@ -53,7 +60,7 @@ This will build the Unify toolchain docker images and name it *uic_arm64*.
 |nlohmann-json3-dev|ZPC<br>testframework<br> uic dotdot mqtt<br>uic smartstart management|Read JSON from a file.|
 |nodejs|Dev-GUI|JavaScript runtime built on Chrome`s|
 |npm|Dev-GUI|package manager for the JavaScript runtime environment Node.js|
-|openjdk-11-jre|build-system|For docs generation|
+|default-jre|build-system|For docs generation across supported Debian releases|
 |pkg-config|Portable Runtime<br>NAL<br>GMS|insert the compiler options on the command line|
 |python3-pip|Docker|Install pip3 packages|
 |ruby|testframework<br>zwave_transport|-|

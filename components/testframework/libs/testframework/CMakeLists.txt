@@ -83,10 +83,12 @@ if (NOT COMMAND ADD_UNITY_TEST)
       set(ADD_UNITY_TEST_FILES "${ADD_UNITY_TEST_UNPARSED_ARGUMENTS}")
     endif ("${ADD_UNITY_TEST_NAME}" STREQUAL "")
 
+    set(TEST_RUNNER_PATH "${CMAKE_CURRENT_BINARY_DIR}/${ADD_UNITY_TEST_NAME}_runner.${RUNNER_EXTENSION}")
+
     add_executable(${ADD_UNITY_TEST_NAME} ${ADD_UNITY_TEST_NAME}_runner.${RUNNER_EXTENSION} ${RUNNER_BASE} ${ADD_UNITY_TEST_FILES})
 
-    add_custom_command(OUTPUT ${ADD_UNITY_TEST_NAME}_runner.${RUNNER_EXTENSION}
-        COMMAND ${PYTHON_EXECUTABLE} ${TEST_TOOLS_DIR}/gen_test_runner.py  ${RUNNER_BASE} > ${CMAKE_CURRENT_BINARY_DIR}/${ADD_UNITY_TEST_NAME}_runner.${RUNNER_EXTENSION}
+    add_custom_command(OUTPUT ${TEST_RUNNER_PATH}
+        COMMAND ${Python3_EXECUTABLE} ${TEST_TOOLS_DIR}/gen_test_runner.py ${RUNNER_BASE} ${TEST_RUNNER_PATH}
         DEPENDS ${RUNNER_BASE} ${TEST_TOOLS_DIR}/gen_test_runner.py
       WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     )
@@ -102,6 +104,9 @@ if (NOT COMMAND ADD_UNITY_TEST)
       set_tests_properties(${TEST_NAME} PROPERTIES DISABLED True)
     endif()
   endfunction(ADD_UNITY_TEST)
+
+  add_test(NAME test_gen_test_runner
+           COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_LIST_DIR}/test_gen_test_runner.py)
 
   # compile the unity version bundled along with cmock sources.
   add_library(unity ../cmock/vendor/unity/src/unity.c)

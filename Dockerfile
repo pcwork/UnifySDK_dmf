@@ -1,8 +1,10 @@
-FROM debian:bullseye
+ARG FROM="debian:bullseye"
+FROM ${FROM}
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV LC_ALL en_US.UTF-8
 ENV LANG ${LC_ALL}
+ARG DEBIAN_CODENAME="bullseye"
 
 RUN echo "# log: Configuring locales" \
   && set -x  \
@@ -23,7 +25,7 @@ WORKDIR ${workdir}
 RUN echo "# log: Setup system" \
   && set -x  \
   && apt-get install -y make sudo \
-  && ./helper.mk help setup \
+  && ./helper.mk debian_codename=${DEBIAN_CODENAME} help setup \
   && date -u
 
 RUN echo "# log: Build" \
