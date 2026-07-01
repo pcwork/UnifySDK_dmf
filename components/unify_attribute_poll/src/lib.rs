@@ -11,6 +11,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 #![doc(html_no_source)]
+#![allow(static_mut_refs)]
 
 //! This library features an engine to poll reported values of attributes with a
 //! given time interval. The Poll Engine determines if an attribute shall be

@@ -1,4 +1,4 @@
-FROM debian:bookworm
+FROM debian:bullseye
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV LC_ALL en_US.UTF-8

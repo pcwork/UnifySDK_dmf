@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# 在你的debian环境里执行. 或者设置到你的shell的profile/bashrc文件里(以下是根据debian11_bullseye的真实环境设置的)
+GSDK_LOCATION=${PWD}/externals/GeckoSDK
+export GSDK_LOCATION
+export CARGO_HOME=/opt/cargo-home
+export RUSTUP_HOME=/opt/rustup-home
+export RUST_VERSION=1.95.0
+export SHLVL=1
+export PLANTUML_JAR_PATH=/opt/plantuml.jar
+export QEMU_LD_PREFIX=/dummyroot
+export PATH="/opt/slc_cli:/opt/sonar-scanner-cli/bin:/opt/cargo-home/bin:$PATH"
+export PLANTUML_JAR_PATH=/opt/plantuml.jar
+
+# 以下无效了，以后删除
+
+### 激活虚拟环境
+##. .venv/bin/activate
+##pushd cmake-build-debug-wsl_x64
+#
+## 先安装宿主机构建基础工具
+#sudo apt update
+#sudo apt install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
+#sudo apt install -y build-essential cmake wget pkg-config protobuf-compiler
+#sudo apt install -y clang libclang-dev llvm-dev
+#sudo apt install -y xsltproc docbook-xsl libxml2-utils
+#
+## 创建统一 sysroot 目录(避免编译产物污染宿主机)
+#sudo mkdir -p /opt/arm64-sysroot
+#sudo chown $USER:$USER /opt/arm64-sysroot
+#
+## 执行脚本
+#chmod +x build_all_arm64_deps.sh
+#./build_all_arm64_deps.sh
+#
+## 源码缓存到 ~/arm64_build_cache，重复执行不重复下载
+## 编译产物全部隔离在 /opt/arm64-sysroot，不污染系统

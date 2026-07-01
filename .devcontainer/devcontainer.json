@@ -14,21 +14,25 @@
     8030  // DevGui
   ],
   // Set *default* container specific settings.json values on container create.
-  "settings": {
-    "cmake.cmakePath": "cmake",
-    "cmake.buildDirectory": "${workspaceRoot}/build_docker",
-    "C_Cpp.default.cStandard": "c99",
-    "C_Cpp.default.cppStandard": "c++11",
-    "clang-format.executable": "/usr/bin/clang-format-12"
-  },
   // Install extensions for vscode
-  "extensions": [
-    "ms-vscode.cpptools",
-    "twxs.cmake",
-    "ms-vscode.cmake-tools",
-    "cheshirekow.cmake-format",
-    "xaver.clang-format"
-  ],
+  "customizations": {
+      "vscode": {
+          "settings": {
+              "cmake.cmakePath": "cmake",
+              "cmake.buildDirectory": "${containerWorkspaceFolder}/build_docker",
+              "C_Cpp.default.cStandard": "c99",
+              "C_Cpp.default.cppStandard": "c++11",
+              "clang-format.executable": "/usr/bin/clang-format-12"
+          },
+          "extensions": [
+              "ms-vscode.cpptools",
+              "twxs.cmake",
+              "ms-vscode.cmake-tools",
+              "cheshirekow.cmake-format",
+              "xaver.clang-format"
+          ]
+      }
+  },
   "containerUser": "user",
   "remoteUser": "user",
   "updateRemoteUserUID": true,

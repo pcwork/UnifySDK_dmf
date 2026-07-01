@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeSharedSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug-WSL_x64" ENABLED="false" CONFIG_NAME="Debug" TOOLCHAIN_NAME="WSL_x64" GENERATION_OPTIONS="-G Ninja -DPython3_EXECUTABLE=$VIRTUAL_ENV/bin/python3 -DCMAKE_VERBOSE_MAKEFILE=ON" BUILD_OPTIONS="-j 20">
+        <ADDITIONAL_GENERATION_ENVIRONMENT>
+          <envs>
+            <env name="VIRTUAL_ENV" value=".venv" />
+          </envs>
+        </ADDITIONAL_GENERATION_ENVIRONMENT>
+      </configuration>
+    </configurations>
+  </component>
+</project>

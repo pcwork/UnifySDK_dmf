@@ -1,4 +1,4 @@
-find_package(Ruby)
+find_program(RUBY_EXECUTABLE ruby)
 # The RUBY_EXECUTABLE variable does not exist when the ADD_MOCK function is
 # called So instaed store the value in cache and use the cached value
 set(CMOCK_RUBY_EXECUTABLE

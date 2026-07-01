@@ -3,4 +3,7 @@ linker = "arm-linux-gnueabihf-g++"
 
 [target.aarch64-unknown-linux-gnu]
 linker = "aarch64-linux-gnu-g++"
+ar = "aarch64-linux-gnu-ar"
 
+# rustflags = "-C prefer-dynamic" ## 如果想要动态连接rust标准库可以打开这个配置。
+#rustflags = ["-C", "link-arg=--sysroot=/opt/arm64-sysroot"]

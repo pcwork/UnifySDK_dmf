@@ -1,4 +1,4 @@
-ARG FROM="debian:bookworm"
+ARG FROM="debian:bullseye"
 FROM ${FROM}
 
 SHELL ["/bin/bash", "-c"]
@@ -33,7 +33,11 @@ RUN readarray -d ' ' -t TARGET_DEPS < <(cat /tmp/target_dependencies.apt | awk -
 
 # Install pip3 packages
 # --break-system-packages : https://stackoverflow.com/a/75722775/7231626 needed since bookworm update
-RUN pip3 install --break-system-packages gcovr==5.0 diff-cover==9.1.0 \
+#RUN pip3 install --break-system-packages gcovr==5.0 diff-cover==9.1.0 \
+#  pybars3==0.9.7 PyMeta3==0.5.1 xmltodict==0.12.0 \
+#  sphinx==5.1.0 breathe==4.34.0 myst-parser==0.18.0 linkify-it-py==2.0.0 sphinxcontrib-plantuml==0.24 sphinx-markdown-tables==0.0.17 sphinx-rtd-theme==1.0.0
+
+RUN pip3 install gcovr==5.0 diff-cover==9.1.0 \
   pybars3==0.9.7 PyMeta3==0.5.1 xmltodict==0.12.0 \
   sphinx==5.1.0 breathe==4.34.0 myst-parser==0.18.0 linkify-it-py==2.0.0 sphinxcontrib-plantuml==0.24 sphinx-markdown-tables==0.0.17 sphinx-rtd-theme==1.0.0
 
@@ -53,7 +57,7 @@ RUN touch /dummyroot/etc/ld.so.cache
 ENV QEMU_LD_PREFIX=/dummyroot
 
 # Rust Version to install
-ENV RUST_VERSION=1.71.0
+ENV RUST_VERSION=1.95.0
 # Rust and Cargo home directories
 ENV RUSTUP_HOME=/opt/rustup-home
 ENV CARGO_HOME=/opt/cargo-home
@@ -65,8 +69,8 @@ RUN curl https://sh.rustup.rs -sSf --output /tmp/sh.rustup.rs \
   && if [[ $ARCH == *"arm64"* ]]; then export RUST_TRIPLES="$RUST_TRIPLES aarch64-unknown-linux-gnu"; fi \
   && ./sh.rustup.rs -y --profile minimal --target ${RUST_TRIPLES} --default-toolchain ${RUST_VERSION}\
   && rm /tmp/sh.rustup.rs \
-  && /opt/cargo-home/bin/cargo install --version 0.1.13 --locked cargo2junit \
-  && /opt/cargo-home/bin/cargo install --version 1.44.0 --locked cargo-deb \
+  && /opt/cargo-home/bin/cargo install --version 0.1.15 --locked cargo2junit \
+  && /opt/cargo-home/bin/cargo install --version 3.7.0 --locked cargo-deb \
   && chmod -R a+rw ${RUSTUP_HOME} ${CARGO_HOME} \
   && find ${RUSTUP_HOME} ${CARGO_HOME} -type d -exec chmod a+x {} \;
 ENV PATH="${CARGO_HOME}/bin:${PATH}"

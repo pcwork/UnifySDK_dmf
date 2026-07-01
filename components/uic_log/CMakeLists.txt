@@ -18,8 +18,7 @@ endif()
 
 target_link_libraries(
   uic_log
-  PUBLIC uic_config
-  PRIVATE Boost::log Boost::log_setup pthread)
+  PUBLIC uic_config Boost::log Boost::log_setup pthread)
 
 if(BUILD_TESTING)
   target_add_unittest(uic_log SOURCES test/sl_log_test.c)

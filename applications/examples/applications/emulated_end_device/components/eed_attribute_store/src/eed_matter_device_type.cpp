@@ -72,6 +72,13 @@ const std::map<std::string, std::vector<DeviceClusterData>> matter_device_type_v
     { "flowsensor", {  
                     { "FlowMeasurement", true }, 
                     { "Identify", true } } },
+    {"colortemperaturelight", {
+                    { "ColorControl", true },
+                    { "Groups", true },
+                    { "Identify", true },
+                    { "Level", true },
+                    { "OnOff", true },
+                    {"Scenes", true}}},
     { "allclustersdevice", { { "Basic", true},
                     { "PowerConfiguration", true},
                     { "DeviceTemperatureConfiguration", true},

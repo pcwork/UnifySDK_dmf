@@ -57,7 +57,8 @@ message(STATUS "Installing to ${CMAKE_INSTALL_PREFIX}")
 ##########
 # Python #
 ##########
-find_package(Python3 REQUIRED)
+#find_package(Python3 REQUIRED)
+find_package(Python3 COMPONENTS Interpreter)
 
 ########
 # Rust #
