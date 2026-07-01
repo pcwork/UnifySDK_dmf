@@ -8,6 +8,14 @@ else()
   message(STATUS "UIC Demo, Emulated End Device (EED) and/or EPC will NOT build")
 endif()
 
+## Protocol Controllers
+if(BUILD_ZIGPC MATCHES ON)
+  add_subdirectory(zigpc)
+  message(STATUS "ZigPC will build")
+else()
+  message(STATUS "ZigPC will NOT build")
+endif()
+
 ## IoT services
 if(BUILD_DEV_GUI MATCHES ON)
   add_subdirectory(dev_ui/dev_gui)
@@ -58,5 +66,4 @@ if(BUILD_UPTI_WRITER MATCHES ON)
 else()
   message(STATUS "UPTI Writer will NOT build")
 endif()
-
 

@@ -24,11 +24,14 @@ if [ "$#" -gt 2 ]; then
 fi
 
 echo "info: Make sure that LFS assets are in tree before building"
-git lfs version || echo "warning: Please install git-lfs"
-count=$(git lfs status --porcelain  | grep '^D' | wc -l  || echo 0)
-if [ "0" != "$count" ] ; then
-    echo "warning: Attempt to fetch LFS assets from online"
-    git lfs pull
+if git lfs version >/dev/null 2>&1; then
+	count=$(git lfs status --porcelain | grep '^D' | wc -l || true)
+	if [ "0" != "$count" ] ; then
+		echo "warning: Attempt to fetch LFS assets from online"
+		git lfs pull
+	fi
+else
+	echo "warning: Please install git-lfs"
 fi
 
 # Build docker image
@@ -37,4 +40,3 @@ docker_build_command="docker build --network host -t ${tag} --build-arg ARCH=${a
 echo "=== Building Docker image:"
 echo $docker_build_command
 $docker_build_command
-

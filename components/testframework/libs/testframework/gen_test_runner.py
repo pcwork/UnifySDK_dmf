@@ -64,8 +64,8 @@ ${FUNCTION_CALLS}
 
 if __name__ == '__main__':
     
-    if len(sys.argv) != 2:
-        exit(f"usage: {sys.argv[0]} <filename>")
+    if len(sys.argv) not in (2, 3):
+        exit(f"usage: {sys.argv[0]} <filename> [output]")
     
     filename, file_type = os.path.splitext(sys.argv[1])
 
@@ -97,4 +97,8 @@ if __name__ == '__main__':
         'FUNCTION_CALLS':           function_calls
     })
 
-    print(t)
+    if len(sys.argv) == 3:
+        with open(sys.argv[2], 'w', encoding='utf-8') as output_file:
+            output_file.write(t)
+    else:
+        print(t)
