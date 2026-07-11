@@ -14,6 +14,9 @@ project?=unifysdk
 # mirror for debootstrap
 mirror_url?=https://mirrors.tuna.tsinghua.edu.cn/debian
 
+# GitHub download proxy
+GITHUB_PROXY?=https://ghproxy.net/
+
 # Allow overloading from env if needed
 # VERBOSE?=1
 BUILD_DEV_GUI?=OFF
@@ -73,7 +76,8 @@ CARGO_HOME?=${HOME}/.cargo
 export RUSTUP_HOME
 export CARGO_HOME
 export PATH := ${CARGO_HOME}/bin:${PATH}
-
+RUSTUP_DIST_SERVER?="https://mirrors.tuna.tsinghua.edu.cn/rustup"
+RUSTUP_UPDATE_ROOT?="https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup"
 
 # Allow overloading from env if needed
 ifdef VERBOSE
@@ -143,6 +147,7 @@ setup/debian: ${CURDIR}/docker/target_dependencies.apt ${CURDIR}/docker/host_dep
 	${sudo} rm -rf /var/lib/apt/lists/*
 	@echo "$@: TODO: Support debian stable rustc=1.96 https://tracker.debian.org/pkg/rustc"
 
+
 # setup/cross: Verify cross-compilation toolchain is functional
 # The actual installation (dpkg --add-arch, target deps with :arch suffix,
 # crossbuild-essential) is now handled by setup/debian.
@@ -165,6 +170,29 @@ rust_target_armhf=armv7-unknown-linux-gnueabihf
 rust_target_amd64=x86_64-unknown-linux-gnu
 rust_target=$(if $(filter arm64,$(target_arch)),$(rust_target_arm64),$(if $(filter armhf,$(target_arch)),$(rust_target_armhf),$(rust_target_amd64)))
 
+
+setup/cargo-mirror:
+	@echo "=== Injecting cargo mirror config into nspawn container ==="
+	mkdir -p /root/.cargo
+	# 覆盖写入头部
+	echo "[source.crates-io]" > /root/.cargo/config.toml
+	echo "replace-with = \"tuna\"" >> /root/.cargo/config.toml
+	echo "" >> /root/.cargo/config.toml
+	echo "[source.tuna]" >> /root/.cargo/config.toml
+	echo "registry = \"sparse+https://mirrors.tuna.tsinghua.edu.cn/crates.io-index/\"" >> /root/.cargo/config.toml
+	echo "" >> /root/.cargo/config.toml
+	echo "[net]" >> /root/.cargo/config.toml
+	echo "git-fetch-with-cli = true" >> /root/.cargo/config.toml
+	echo "retry = 3" >> /root/.cargo/config.toml
+	echo "" >> /root/.cargo/config.toml
+	echo "[http]" >> /root/.cargo/config.toml
+	echo "multiplexing = true" >> /root/.cargo/config.toml
+	echo "timeout = 300" >> /root/.cargo/config.toml
+	# 校验文件
+	# 校验文件是否写入成功
+	@echo "=== cargo mirror config injected ==="
+
+
 # Refer to docker/Dockerfile lines 64-76 for the Rust installation pattern
 # Key fixes:
 #   1. Export RUSTUP_HOME / CARGO_HOME to isolate from stale config (docker/Dockerfile L62-63)
@@ -185,7 +213,9 @@ setup/rust:
 		aarch64) HOST_TRIPLE="aarch64-unknown-linux-gnu" ;; \
 		arm*)    HOST_TRIPLE="armv7-unknown-linux-gnueabihf" ;; \
 		*)       HOST_TRIPLE="$$(uname -m)-unknown-linux-gnu" ;; \
-	esac;
+	esac; \
+	RUSTUP_UPDATE_ROOT=${RUSTUP_UPDATE_ROOT} \
+    RUSTUP_DIST_SERVER=${RUSTUP_DIST_SERVER} \
 	/tmp/sh.rustup.rs -y --default-toolchain ${RUST_VERSION}
 	rm -f /tmp/sh.rustup.rs
 	# Fix permissions to ensure toolchain is accessible (docker/Dockerfile L74-75)
@@ -246,7 +276,7 @@ _cmake:
 # setup/plantuml: Download PlantUML jar for Doxygen documentation (refer to docker/Dockerfile L87-91)
 setup/plantuml:
 	@echo "$@: Downloading PlantUML..."
-	curl -L https://github.com/plantuml/plantuml/releases/download/v1.2022.0/plantuml-1.2022.0.jar --output /tmp/plantuml.jar
+	curl -L ${GITHUB_PROXY}https://github.com/plantuml/plantuml/releases/download/v1.2022.0/plantuml-1.2022.0.jar --output /tmp/plantuml.jar
 	mv /tmp/plantuml.jar /opt/plantuml.jar
 	echo f1070c42b20e6a38015e52c10821a9db13bedca6b5d5bc6a6192fcab6e612691 /opt/plantuml.jar > /tmp/plantuml.jar.sha256
 	sha256sum -c /tmp/plantuml.jar.sha256
@@ -279,9 +309,9 @@ setup/clang:
 	@echo "$@: done"
 
 # setup/yarn: Install yarn package manager globally via npm (refer to docker/Dockerfile L116)
-setup/yarn:
+setup/yarn: setup/nodejs
 	@echo "$@: Installing yarn..."
-	npm install yarn -g
+	npm install yarn -g --force
 	@echo "$@: done"
 
 setup/nodejs:
@@ -303,7 +333,7 @@ setup/mosquitto:
 	bash fetch_build_mosquitto.sh "$(target_arch)"
 	@echo "$@: done"
 
-setup/debian/bullseye: setup/debian setup/rust setup/python setup/plantuml setup/zap setup/yarn setup/nodejs
+setup/debian/bullseye: setup/debian setup/rust setup/python setup/plantuml setup/zap setup/nodejs setup/yarn
 	date -u
 
 setup/debian/bookworm: setup/debian setup/rust setup/python setup/plantuml setup/zap setup/yarn
@@ -441,13 +471,18 @@ rootfs/%: ${rootfs_dir}
 		|| ${SELF} "${rootfs_dir}"
 	${rootfs_shell} apt-get update
 	${rootfs_shell} apt-get install -- make sudo
+	# Fix hostname resolution to prevent "sudo: unable to resolve host" errors
+	@if ! grep -q "${project}" "${rootfs_dir}/etc/hosts" 2>/dev/null; then \
+		echo "127.0.1.1 ${project}" | ${sudo} tee -a "${rootfs_dir}/etc/hosts" >/dev/null; \
+	fi
 	${rootfs_shell}	\
 		--bind="${CURDIR}:${CURDIR}" \
 		${MAKE} \
 			--directory="${CURDIR}" \
 			--file="${CURDIR}/helper.mk" \
-			HOME="${HOME}" \
-			USER="${USER}" \
+			HOME="/root" \
+			RUSTUP_HOME="/root/.rustup" \
+			CARGO_HOME="/root/.cargo" \
 			target_arch="${target_arch}" \
 			build_dir="${build_dir}" \
 			cmake_options="${cmake_options}" \
@@ -463,13 +498,18 @@ rootfs/cmake: ${rootfs_dir}
 		|| ${SELF} "${rootfs_dir}"
 	${rootfs_shell} apt-get update
 	${rootfs_shell} apt-get install -- make sudo curl
+	# Fix hostname resolution to prevent "sudo: unable to resolve host" errors
+	@if ! grep -q "${project}" "${rootfs_dir}/etc/hosts" 2>/dev/null; then \
+		echo "127.0.1.1 ${project}" | ${sudo} tee -a "${rootfs_dir}/etc/hosts" >/dev/null; \
+	fi
 	${rootfs_shell}	\
 		--bind="${CURDIR}:${CURDIR}" \
 		${MAKE} \
 			--directory="${CURDIR}" \
 			--file="${CURDIR}/helper.mk" \
-			HOME="${HOME}" \
-			USER="${USER}" \
+			HOME="/root" \
+			RUSTUP_HOME="/root/.rustup" \
+			CARGO_HOME="/root/.cargo" \
 			target_arch="${target_arch}" \
 			build_dir="${build_dir}" \
 			cmake_options="${cmake_options}" \
@@ -481,17 +521,22 @@ rootfs/setup-cross: ${rootfs_dir}
 		|| ${SELF} "${rootfs_dir}"
 	${rootfs_shell} apt-get update
 	${rootfs_shell} apt-get install -- make sudo
+	# Fix hostname resolution to prevent "sudo: unable to resolve host" errors
+	@if ! grep -q "${project}" "${rootfs_dir}/etc/hosts" 2>/dev/null; then \
+		echo "127.0.1.1 ${project}" | ${sudo} tee -a "${rootfs_dir}/etc/hosts" >/dev/null; \
+	fi
 	${rootfs_shell}	\
 		--bind="${CURDIR}:${CURDIR}" \
 		${MAKE} \
 			--directory="${CURDIR}" \
 			--file="${CURDIR}/helper.mk" \
-			HOME="${HOME}" \
-			USER="${USER}" \
+			HOME="/root" \
+			RUSTUP_HOME="/root/.rustup" \
+			CARGO_HOME="/root/.cargo" \
 			target_arch="${target_arch}" \
 			build_dir="${build_dir}" \
 			cmake_options="${cmake_options}" \
-			-- setup setup/cross setup/rust _cmake
+			-- setup setup/cargo-mirror setup/cross setup/rust _cmake
 
 test/rootfs: clean/rootfs rootfs/setup rootfs/distclean check/rootfs
 	@echo "# ${project}: log: $@: done: $^"
