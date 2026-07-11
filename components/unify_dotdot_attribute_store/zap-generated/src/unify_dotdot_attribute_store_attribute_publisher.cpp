@@ -21902,6 +21902,375 @@ static void diagnostics_cluster_cluster_revision_callback(
 
 /**
  * @brief Publishes the desired value of an updated attribute store node for
+ * the DMFBridgeConfig cluster.
+ * @param updated_node Updated attribute store node
+ * @param change       Type of change applied
+ */
+static void dmf_bridge_config_cluster_publish_desired_value_callback(
+   attribute_store_node_t updated_node, attribute_store_change_t change)
+{
+  // clang-format on
+  if (false == is_publish_desired_attribute_values_to_mqtt_enabled()) {
+    return;
+  }
+  if (change == ATTRIBUTE_DELETED || change == ATTRIBUTE_CREATED) {
+    return;
+  }
+  // Scene exception: check that the attribute is not under the Scene Table extension, which is a config and not the node's state.
+  if (ATTRIBUTE_STORE_INVALID_NODE
+      != attribute_store_get_first_parent_with_type(
+        updated_node,
+        DOTDOT_ATTRIBUTE_ID_SCENES_SCENE_TABLE)) {
+    return;
+  }
+
+  // Get the UNID and EndPoint, and prepare the basic topic
+  char unid[MAXIMUM_UNID_SIZE]     = {};
+  // clang-format off
+  // clang-format on
+  dotdot_endpoint_id_t endpoint_id = 0;
+  if (SL_STATUS_OK
+      != unify_dotdot_attributes_get_unid_endpoint()(updated_node,
+                                                     unid,
+                                                     &endpoint_id)) {
+    return;
+  }
+  // clang-format off
+  // clang-format on
+
+  std::string base_topic = "ucl/by-unid/" + std::string(unid);
+  // clang-format off
+  base_topic += "/ep" + std::to_string(endpoint_id);
+  // clang-format on
+
+  attribute_store_type_t type = attribute_store_get_node_type(updated_node);
+  if (type == ATTRIBUTE_STORE_INVALID_ATTRIBUTE_TYPE) {
+    sl_log_debug(LOG_TAG,
+                 "Warning: Invalid type for Attribute ID %d, "
+                 "this should not happen.",
+                 updated_node);
+    return;
+  }
+
+  // If the value got updated but both Reported and Desired undefined, we skip publication
+  if (false == attribute_store_is_reported_defined(updated_node)
+      && false == attribute_store_is_desired_defined(updated_node)) {
+    sl_log_debug(LOG_TAG,
+                 "Reported/Desired values are undefined. "
+                 "Skipping publication");
+    return;
+  }
+
+  // clang-format off
+  try {
+    attribute_store::attribute attr(updated_node);
+      if (type == DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_FIXTURE_TABLE_REVISION) {
+          uic_mqtt_dotdot_dmf_bridge_config_fixture_table_revision_publish(
+            base_topic.c_str(),
+            static_cast<uint16_t>(attr.desired_or_reported<uint16_t>()),
+            UCL_MQTT_PUBLISH_TYPE_DESIRED);
+        return;
+      }
+          if (type == DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_GROUP_TABLE_REVISION) {
+          uic_mqtt_dotdot_dmf_bridge_config_group_table_revision_publish(
+            base_topic.c_str(),
+            static_cast<uint16_t>(attr.desired_or_reported<uint16_t>()),
+            UCL_MQTT_PUBLISH_TYPE_DESIRED);
+        return;
+      }
+          if (type == DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_SCENE_TABLE_REVISION) {
+          uic_mqtt_dotdot_dmf_bridge_config_scene_table_revision_publish(
+            base_topic.c_str(),
+            static_cast<uint16_t>(attr.desired_or_reported<uint16_t>()),
+            UCL_MQTT_PUBLISH_TYPE_DESIRED);
+        return;
+      }
+          if (type == DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_LIGHT_MODE_TABLE_REVISION) {
+          uic_mqtt_dotdot_dmf_bridge_config_light_mode_table_revision_publish(
+            base_topic.c_str(),
+            static_cast<uint16_t>(attr.desired_or_reported<uint16_t>()),
+            UCL_MQTT_PUBLISH_TYPE_DESIRED);
+        return;
+      }
+          if (type == DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_SCHEDULE_TABLE_REVISION) {
+          uic_mqtt_dotdot_dmf_bridge_config_schedule_table_revision_publish(
+            base_topic.c_str(),
+            static_cast<uint16_t>(attr.desired_or_reported<uint16_t>()),
+            UCL_MQTT_PUBLISH_TYPE_DESIRED);
+        return;
+      }
+          if (type == DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_TOTAL_FIXTURES_COUNT) {
+          uic_mqtt_dotdot_dmf_bridge_config_total_fixtures_count_publish(
+            base_topic.c_str(),
+            static_cast<uint8_t>(attr.desired_or_reported<uint8_t>()),
+            UCL_MQTT_PUBLISH_TYPE_DESIRED);
+        return;
+      }
+          if (type == DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_DISCOVERY_STATUS) {
+          uic_mqtt_dotdot_dmf_bridge_config_discovery_status_publish(
+            base_topic.c_str(),
+            static_cast<DiscoveryStatus>(attr.desired_or_reported<DiscoveryStatus>()),
+            UCL_MQTT_PUBLISH_TYPE_DESIRED);
+        return;
+      }
+          if (type == DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_BLE_SESSION_STATUS) {
+          uic_mqtt_dotdot_dmf_bridge_config_ble_session_status_publish(
+            base_topic.c_str(),
+            static_cast<BLESessionStatus>(attr.desired_or_reported<BLESessionStatus>()),
+            UCL_MQTT_PUBLISH_TYPE_DESIRED);
+        return;
+      }
+      } catch (std::exception &ex) {
+    sl_log_warning(LOG_TAG, "Failed to publish the Desired attribute value: %s", ex.what());
+  }
+}
+
+/**
+ * @brief Publishes the reported value of an updated attribute store node for
+ * the DMFBridgeConfig cluster.
+ * @param updated_node Updated attribute store node
+ * @param change       Type of change applied
+ */
+static void dmf_bridge_config_cluster_publish_reported_value_callback(
+   attribute_store_node_t updated_node, attribute_store_change_t change)
+{
+  // clang-format on
+  if (false == is_publish_reported_attribute_values_to_mqtt_enabled()) {
+    return;
+  }
+  if (change == ATTRIBUTE_CREATED) {
+    return;
+  }
+  // Scene exception: check that the attribute is not under the Scene Table extension, which is a config and not the node's state.
+  if (ATTRIBUTE_STORE_INVALID_NODE
+      != attribute_store_get_first_parent_with_type(
+        updated_node,
+        DOTDOT_ATTRIBUTE_ID_SCENES_SCENE_TABLE)) {
+    return;
+  }
+
+  // Get the UNID and EndPoint, and prepare the basic topic
+  char unid[MAXIMUM_UNID_SIZE]     = {};
+  // clang-format off
+  // clang-format on
+  dotdot_endpoint_id_t endpoint_id = 0;
+  if (SL_STATUS_OK
+      != unify_dotdot_attributes_get_unid_endpoint()(updated_node,
+                                                     unid,
+                                                     &endpoint_id)) {
+    return;
+  }
+  // clang-format off
+  // clang-format on
+
+  std::string base_topic = "ucl/by-unid/" + std::string(unid);
+  // clang-format off
+  base_topic += "/ep" + std::to_string(endpoint_id);
+  // clang-format on
+
+  attribute_store_type_t type = attribute_store_get_node_type(updated_node);
+  if (type == ATTRIBUTE_STORE_INVALID_ATTRIBUTE_TYPE) {
+    sl_log_debug(LOG_TAG,
+                 "Warning: Invalid type for Attribute ID %d, "
+                 "this should not happen.",
+                 updated_node);
+    return;
+  }
+
+  // Deletion case:
+  if (change == ATTRIBUTE_DELETED) {
+    // clang-format off
+    switch(type) {
+     case DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_FIXTURE_TABLE_REVISION:
+        // clang-format on
+        sl_log_debug(LOG_TAG,
+                     "Unretaining DMFBridgeConfig::FixtureTableRevision under topic %s",
+                     base_topic.c_str());
+        // clang-format off
+      uic_mqtt_dotdot_dmf_bridge_config_fixture_table_revision_unretain(base_topic.c_str(), UCL_MQTT_PUBLISH_TYPE_ALL);
+      break;
+     case DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_GROUP_TABLE_REVISION:
+        // clang-format on
+        sl_log_debug(LOG_TAG,
+                     "Unretaining DMFBridgeConfig::GroupTableRevision under topic %s",
+                     base_topic.c_str());
+        // clang-format off
+      uic_mqtt_dotdot_dmf_bridge_config_group_table_revision_unretain(base_topic.c_str(), UCL_MQTT_PUBLISH_TYPE_ALL);
+      break;
+     case DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_SCENE_TABLE_REVISION:
+        // clang-format on
+        sl_log_debug(LOG_TAG,
+                     "Unretaining DMFBridgeConfig::SceneTableRevision under topic %s",
+                     base_topic.c_str());
+        // clang-format off
+      uic_mqtt_dotdot_dmf_bridge_config_scene_table_revision_unretain(base_topic.c_str(), UCL_MQTT_PUBLISH_TYPE_ALL);
+      break;
+     case DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_LIGHT_MODE_TABLE_REVISION:
+        // clang-format on
+        sl_log_debug(LOG_TAG,
+                     "Unretaining DMFBridgeConfig::LightModeTableRevision under topic %s",
+                     base_topic.c_str());
+        // clang-format off
+      uic_mqtt_dotdot_dmf_bridge_config_light_mode_table_revision_unretain(base_topic.c_str(), UCL_MQTT_PUBLISH_TYPE_ALL);
+      break;
+     case DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_SCHEDULE_TABLE_REVISION:
+        // clang-format on
+        sl_log_debug(LOG_TAG,
+                     "Unretaining DMFBridgeConfig::ScheduleTableRevision under topic %s",
+                     base_topic.c_str());
+        // clang-format off
+      uic_mqtt_dotdot_dmf_bridge_config_schedule_table_revision_unretain(base_topic.c_str(), UCL_MQTT_PUBLISH_TYPE_ALL);
+      break;
+     case DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_TOTAL_FIXTURES_COUNT:
+        // clang-format on
+        sl_log_debug(LOG_TAG,
+                     "Unretaining DMFBridgeConfig::TotalFixturesCount under topic %s",
+                     base_topic.c_str());
+        // clang-format off
+      uic_mqtt_dotdot_dmf_bridge_config_total_fixtures_count_unretain(base_topic.c_str(), UCL_MQTT_PUBLISH_TYPE_ALL);
+      break;
+     case DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_DISCOVERY_STATUS:
+        // clang-format on
+        sl_log_debug(LOG_TAG,
+                     "Unretaining DMFBridgeConfig::DiscoveryStatus under topic %s",
+                     base_topic.c_str());
+        // clang-format off
+      uic_mqtt_dotdot_dmf_bridge_config_discovery_status_unretain(base_topic.c_str(), UCL_MQTT_PUBLISH_TYPE_ALL);
+      break;
+     case DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_BLE_SESSION_STATUS:
+        // clang-format on
+        sl_log_debug(LOG_TAG,
+                     "Unretaining DMFBridgeConfig::BLESessionStatus under topic %s",
+                     base_topic.c_str());
+        // clang-format off
+      uic_mqtt_dotdot_dmf_bridge_config_ble_session_status_unretain(base_topic.c_str(), UCL_MQTT_PUBLISH_TYPE_ALL);
+      break;
+    default:
+    break;
+    }
+    // clang-format on
+    return;
+  }
+
+  // If the value got updated but undefined, we skip publication
+  if (false == attribute_store_is_reported_defined(updated_node)) {
+    sl_log_debug(LOG_TAG, "Reported value is undefined. Skipping publication");
+    return;
+  }
+
+  // Else we assume update case:
+  // clang-format off
+  try {
+    attribute_store::attribute attr(updated_node);
+      if (type == DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_FIXTURE_TABLE_REVISION) {
+          uic_mqtt_dotdot_dmf_bridge_config_fixture_table_revision_publish(
+            base_topic.c_str(),
+            static_cast<uint16_t>(attr.reported<uint16_t>()),
+            (attr.desired_exists() && !attribute_store_is_value_matched(updated_node)) ? UCL_MQTT_PUBLISH_TYPE_REPORTED : UCL_MQTT_PUBLISH_TYPE_ALL);
+        return;
+      }
+          if (type == DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_GROUP_TABLE_REVISION) {
+          uic_mqtt_dotdot_dmf_bridge_config_group_table_revision_publish(
+            base_topic.c_str(),
+            static_cast<uint16_t>(attr.reported<uint16_t>()),
+            (attr.desired_exists() && !attribute_store_is_value_matched(updated_node)) ? UCL_MQTT_PUBLISH_TYPE_REPORTED : UCL_MQTT_PUBLISH_TYPE_ALL);
+        return;
+      }
+          if (type == DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_SCENE_TABLE_REVISION) {
+          uic_mqtt_dotdot_dmf_bridge_config_scene_table_revision_publish(
+            base_topic.c_str(),
+            static_cast<uint16_t>(attr.reported<uint16_t>()),
+            (attr.desired_exists() && !attribute_store_is_value_matched(updated_node)) ? UCL_MQTT_PUBLISH_TYPE_REPORTED : UCL_MQTT_PUBLISH_TYPE_ALL);
+        return;
+      }
+          if (type == DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_LIGHT_MODE_TABLE_REVISION) {
+          uic_mqtt_dotdot_dmf_bridge_config_light_mode_table_revision_publish(
+            base_topic.c_str(),
+            static_cast<uint16_t>(attr.reported<uint16_t>()),
+            (attr.desired_exists() && !attribute_store_is_value_matched(updated_node)) ? UCL_MQTT_PUBLISH_TYPE_REPORTED : UCL_MQTT_PUBLISH_TYPE_ALL);
+        return;
+      }
+          if (type == DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_SCHEDULE_TABLE_REVISION) {
+          uic_mqtt_dotdot_dmf_bridge_config_schedule_table_revision_publish(
+            base_topic.c_str(),
+            static_cast<uint16_t>(attr.reported<uint16_t>()),
+            (attr.desired_exists() && !attribute_store_is_value_matched(updated_node)) ? UCL_MQTT_PUBLISH_TYPE_REPORTED : UCL_MQTT_PUBLISH_TYPE_ALL);
+        return;
+      }
+          if (type == DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_TOTAL_FIXTURES_COUNT) {
+          uic_mqtt_dotdot_dmf_bridge_config_total_fixtures_count_publish(
+            base_topic.c_str(),
+            static_cast<uint8_t>(attr.reported<uint8_t>()),
+            (attr.desired_exists() && !attribute_store_is_value_matched(updated_node)) ? UCL_MQTT_PUBLISH_TYPE_REPORTED : UCL_MQTT_PUBLISH_TYPE_ALL);
+        return;
+      }
+          if (type == DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_DISCOVERY_STATUS) {
+          uic_mqtt_dotdot_dmf_bridge_config_discovery_status_publish(
+            base_topic.c_str(),
+            static_cast<DiscoveryStatus>(attr.reported<DiscoveryStatus>()),
+            (attr.desired_exists() && !attribute_store_is_value_matched(updated_node)) ? UCL_MQTT_PUBLISH_TYPE_REPORTED : UCL_MQTT_PUBLISH_TYPE_ALL);
+        return;
+      }
+          if (type == DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_BLE_SESSION_STATUS) {
+          uic_mqtt_dotdot_dmf_bridge_config_ble_session_status_publish(
+            base_topic.c_str(),
+            static_cast<BLESessionStatus>(attr.reported<BLESessionStatus>()),
+            (attr.desired_exists() && !attribute_store_is_value_matched(updated_node)) ? UCL_MQTT_PUBLISH_TYPE_REPORTED : UCL_MQTT_PUBLISH_TYPE_ALL);
+        return;
+      }
+      } catch (std::exception &ex) {
+    sl_log_warning(LOG_TAG, "Failed to publish the Reported attribute value: %s", ex.what());
+  }
+}
+
+static void dmf_bridge_config_cluster_cluster_revision_callback(
+   attribute_store_node_t updated_node, attribute_store_change_t change)
+{
+  // clang-format on
+  if (false == is_publish_reported_attribute_values_to_mqtt_enabled()) {
+    return;
+  }
+
+  // Get the UNID and EndPoint, and prepare the basic topic
+  char unid[MAXIMUM_UNID_SIZE]     = {};
+  dotdot_endpoint_id_t endpoint_id = 0;
+  // clang-format off
+  // clang-format on
+  if (SL_STATUS_OK
+      != unify_dotdot_attributes_get_unid_endpoint()(updated_node,
+                                                     unid,
+                                                     &endpoint_id)) {
+    return;
+  }
+  // clang-format off
+  // clang-format on
+
+  std::string base_topic = "ucl/by-unid/" + std::string(unid);
+  // clang-format off
+  base_topic += "/ep" + std::to_string(endpoint_id);
+
+  if ((change == ATTRIBUTE_CREATED) || (change == ATTRIBUTE_UPDATED)) {
+    // On attribute creation, make sure to publish the attribute revision for the first time
+    std::string cluster_revision_topic = base_topic + "/DMFBridgeConfig/Attributes/ClusterRevision";
+    if (uic_mqtt_count_topics(cluster_revision_topic.c_str()) == 0) {
+      uic_mqtt_dotdot_dmf_bridge_config_publish_cluster_revision(base_topic.c_str(), 1);
+    }
+  }
+
+  if (change == ATTRIBUTE_DELETED) {
+    // Check if we just erased the last attribute under a cluster, if yes, unretain
+    // the Cluster revision too.
+    if (false == dotdot_is_any_dmf_bridge_config_attribute_supported(unid, endpoint_id)) {
+      base_topic +=  "/DMFBridgeConfig";
+      sl_log_debug(LOG_TAG, "No more attributes supported for DMFBridgeConfig cluster for UNID %s Endpoint %d. Unretaining leftover topics at %s",unid, endpoint_id, base_topic.c_str());
+      uic_mqtt_unretain(base_topic.c_str());
+    }
+  }
+}
+
+
+/**
+ * @brief Publishes the desired value of an updated attribute store node for
  * the ProtocolController-RFTelemetry cluster.
  * @param updated_node Updated attribute store node
  * @param change       Type of change applied
@@ -34872,6 +35241,118 @@ sl_status_t unify_dotdot_attribute_store_attribute_publisher_init()
     attribute_store_register_callback_by_type(
       diagnostics_cluster_cluster_revision_callback,
       DOTDOT_ATTRIBUTE_ID_DIAGNOSTICS_LAST_MESSAGERSSI);
+    //Desired attribute state
+    attribute_store_register_callback_by_type_and_state(
+      dmf_bridge_config_cluster_publish_desired_value_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_FIXTURE_TABLE_REVISION,
+      DESIRED_ATTRIBUTE);
+    //Reported attribute state
+    attribute_store_register_callback_by_type_and_state(
+      dmf_bridge_config_cluster_publish_reported_value_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_FIXTURE_TABLE_REVISION,
+      REPORTED_ATTRIBUTE);
+    //registering a callback when an attribute is created for publishing cluster revision
+    attribute_store_register_callback_by_type(
+      dmf_bridge_config_cluster_cluster_revision_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_FIXTURE_TABLE_REVISION);
+    //Desired attribute state
+    attribute_store_register_callback_by_type_and_state(
+      dmf_bridge_config_cluster_publish_desired_value_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_GROUP_TABLE_REVISION,
+      DESIRED_ATTRIBUTE);
+    //Reported attribute state
+    attribute_store_register_callback_by_type_and_state(
+      dmf_bridge_config_cluster_publish_reported_value_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_GROUP_TABLE_REVISION,
+      REPORTED_ATTRIBUTE);
+    //registering a callback when an attribute is created for publishing cluster revision
+    attribute_store_register_callback_by_type(
+      dmf_bridge_config_cluster_cluster_revision_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_GROUP_TABLE_REVISION);
+    //Desired attribute state
+    attribute_store_register_callback_by_type_and_state(
+      dmf_bridge_config_cluster_publish_desired_value_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_SCENE_TABLE_REVISION,
+      DESIRED_ATTRIBUTE);
+    //Reported attribute state
+    attribute_store_register_callback_by_type_and_state(
+      dmf_bridge_config_cluster_publish_reported_value_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_SCENE_TABLE_REVISION,
+      REPORTED_ATTRIBUTE);
+    //registering a callback when an attribute is created for publishing cluster revision
+    attribute_store_register_callback_by_type(
+      dmf_bridge_config_cluster_cluster_revision_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_SCENE_TABLE_REVISION);
+    //Desired attribute state
+    attribute_store_register_callback_by_type_and_state(
+      dmf_bridge_config_cluster_publish_desired_value_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_LIGHT_MODE_TABLE_REVISION,
+      DESIRED_ATTRIBUTE);
+    //Reported attribute state
+    attribute_store_register_callback_by_type_and_state(
+      dmf_bridge_config_cluster_publish_reported_value_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_LIGHT_MODE_TABLE_REVISION,
+      REPORTED_ATTRIBUTE);
+    //registering a callback when an attribute is created for publishing cluster revision
+    attribute_store_register_callback_by_type(
+      dmf_bridge_config_cluster_cluster_revision_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_LIGHT_MODE_TABLE_REVISION);
+    //Desired attribute state
+    attribute_store_register_callback_by_type_and_state(
+      dmf_bridge_config_cluster_publish_desired_value_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_SCHEDULE_TABLE_REVISION,
+      DESIRED_ATTRIBUTE);
+    //Reported attribute state
+    attribute_store_register_callback_by_type_and_state(
+      dmf_bridge_config_cluster_publish_reported_value_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_SCHEDULE_TABLE_REVISION,
+      REPORTED_ATTRIBUTE);
+    //registering a callback when an attribute is created for publishing cluster revision
+    attribute_store_register_callback_by_type(
+      dmf_bridge_config_cluster_cluster_revision_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_SCHEDULE_TABLE_REVISION);
+    //Desired attribute state
+    attribute_store_register_callback_by_type_and_state(
+      dmf_bridge_config_cluster_publish_desired_value_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_TOTAL_FIXTURES_COUNT,
+      DESIRED_ATTRIBUTE);
+    //Reported attribute state
+    attribute_store_register_callback_by_type_and_state(
+      dmf_bridge_config_cluster_publish_reported_value_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_TOTAL_FIXTURES_COUNT,
+      REPORTED_ATTRIBUTE);
+    //registering a callback when an attribute is created for publishing cluster revision
+    attribute_store_register_callback_by_type(
+      dmf_bridge_config_cluster_cluster_revision_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_TOTAL_FIXTURES_COUNT);
+    //Desired attribute state
+    attribute_store_register_callback_by_type_and_state(
+      dmf_bridge_config_cluster_publish_desired_value_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_DISCOVERY_STATUS,
+      DESIRED_ATTRIBUTE);
+    //Reported attribute state
+    attribute_store_register_callback_by_type_and_state(
+      dmf_bridge_config_cluster_publish_reported_value_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_DISCOVERY_STATUS,
+      REPORTED_ATTRIBUTE);
+    //registering a callback when an attribute is created for publishing cluster revision
+    attribute_store_register_callback_by_type(
+      dmf_bridge_config_cluster_cluster_revision_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_DISCOVERY_STATUS);
+    //Desired attribute state
+    attribute_store_register_callback_by_type_and_state(
+      dmf_bridge_config_cluster_publish_desired_value_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_BLE_SESSION_STATUS,
+      DESIRED_ATTRIBUTE);
+    //Reported attribute state
+    attribute_store_register_callback_by_type_and_state(
+      dmf_bridge_config_cluster_publish_reported_value_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_BLE_SESSION_STATUS,
+      REPORTED_ATTRIBUTE);
+    //registering a callback when an attribute is created for publishing cluster revision
+    attribute_store_register_callback_by_type(
+      dmf_bridge_config_cluster_cluster_revision_callback,
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_BLE_SESSION_STATUS);
     //Desired attribute state
     attribute_store_register_callback_by_type_and_state(
       protocol_controller_rf_telemetry_cluster_publish_desired_value_callback,

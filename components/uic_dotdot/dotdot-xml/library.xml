@@ -208,7 +208,7 @@ applicable to this document can be found in the LICENSE.md file.
   <!-- Collections -->
   <type:type id="50" short="set" name="Set" discrete="true" />
   <type:type id="51" short="bag" name="Bag" discrete="true" />
-  
+
   <!-- Time -->
   <type:type id="e0" short="ToD" name="Time of day">
     <restriction>
@@ -486,6 +486,7 @@ applicable to this document can be found in the LICENSE.md file.
   <xi:include href="ConcentrationMeasurement_CarbonDioxide.xml" parse="xml"/>
   <xi:include href="ConcentrationMeasurement_PM25.xml" parse="xml"/>
   <xi:include href="Metering.xml" parse="xml"/>
+  <xi:include href="DMFBridgeConfig.xml" parse="xml"/>
 
   <xi:include href="Unify_ProtocolController_RFTelemetry.xml" parse="xml"/>
   <xi:include href="Unify_ProtocolController_NetworkManagement.xml" parse="xml"/>

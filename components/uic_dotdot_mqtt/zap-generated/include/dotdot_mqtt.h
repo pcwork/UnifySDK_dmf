@@ -27892,7 +27892,7 @@ typedef sl_status_t (*uic_mqtt_dotdot_ias_zone_initiate_test_mode_callback_t)(
 
 typedef struct {
   uint8_t zone_state;
-  uint8_t zone_type;
+  uint16_t zone_type;
   uint16_t zone_status;
   uint64_t iascie_address;
   uint8_t zoneid;
@@ -35268,6 +35268,1010 @@ void uic_mqtt_dotdot_diagnostics_publish_supported_commands(
  * @param endpoint )
  */
 void uic_mqtt_dotdot_diagnostics_publish_empty_supported_commands(
+  const dotdot_unid_t unid
+  ,dotdot_endpoint_id_t endpoint);
+// Callback types used by the dmf_bridge_config cluster
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_t)(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t call_type
+);
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_t)(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t call_type,
+    const char* uid,
+
+    uint8_t identify_on
+
+);
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_t)(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t call_type,
+    uint8_t zoneid,
+
+    uint8_t identify_on
+
+);
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_t)(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t call_type,
+    uint8_t light_modeid
+
+);
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_t)(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t call_type,
+    uint16_t tableid,
+
+    uint8_t record_index
+
+);
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_t)(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t call_type,
+    uint16_t tableid,
+
+    uint8_t record_index,
+
+    uint16_t total_records,
+
+    const char* record_payload
+
+);
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_t)(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t call_type,
+    uint16_t tableid,
+
+    uint8_t record_index,
+
+    const char* record_payload
+
+);
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_t)(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t call_type,
+    uint16_t tableid,
+
+    uint8_t record_index
+
+);
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_t)(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t call_type,
+    uint16_t tableid,
+
+    uint16_t confirm_code
+
+);
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_t)(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t call_type,
+    uint16_t confirm_code
+
+);
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_t)(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t call_type,
+    const char* uid,
+
+    uint16_t modelid
+
+);
+
+typedef struct {
+  uint16_t fixture_table_revision;
+  uint16_t group_table_revision;
+  uint16_t scene_table_revision;
+  uint16_t light_mode_table_revision;
+  uint16_t schedule_table_revision;
+  uint8_t total_fixtures_count;
+  uint8_t discovery_status;
+  uint8_t ble_session_status;
+} uic_mqtt_dotdot_dmf_bridge_config_state_t;
+
+typedef struct {
+  bool fixture_table_revision;
+  bool group_table_revision;
+  bool scene_table_revision;
+  bool light_mode_table_revision;
+  bool schedule_table_revision;
+  bool total_fixtures_count;
+  bool discovery_status;
+  bool ble_session_status;
+} uic_mqtt_dotdot_dmf_bridge_config_updated_state_t;
+
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_write_attributes_callback_t)(
+    const dotdot_unid_t unid,
+    const dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t call_type,
+    uic_mqtt_dotdot_dmf_bridge_config_state_t,
+    uic_mqtt_dotdot_dmf_bridge_config_updated_state_t
+);
+
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_force_read_attributes_callback_t)(
+    const dotdot_unid_t unid,
+    const dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t call_type,
+    uic_mqtt_dotdot_dmf_bridge_config_updated_state_t
+);
+
+
+/**
+ * @brief Command fields for DMFBridgeConfig/IdentifyFixture
+ */
+typedef struct {
+  const char* uid;
+
+  uint8_t identify_on;
+} uic_mqtt_dotdot_dmf_bridge_config_command_identify_fixture_fields_t;
+
+/**
+ * @brief Command fields for DMFBridgeConfig/IdentifyZone
+ */
+typedef struct {
+  uint8_t zoneid;
+
+  uint8_t identify_on;
+} uic_mqtt_dotdot_dmf_bridge_config_command_identify_zone_fields_t;
+
+/**
+ * @brief Command fields for DMFBridgeConfig/PlayLightMode
+ */
+typedef struct {
+  uint8_t light_modeid;
+} uic_mqtt_dotdot_dmf_bridge_config_command_play_light_mode_fields_t;
+
+/**
+ * @brief Command fields for DMFBridgeConfig/GenericReadRecord
+ */
+typedef struct {
+  uint16_t tableid;
+
+  uint8_t record_index;
+} uic_mqtt_dotdot_dmf_bridge_config_command_generic_read_record_fields_t;
+
+/**
+ * @brief Command fields for DMFBridgeConfig/GenericReportRecord
+ */
+typedef struct {
+  uint16_t tableid;
+
+  uint8_t record_index;
+
+  uint16_t total_records;
+
+  const char* record_payload;
+} uic_mqtt_dotdot_dmf_bridge_config_command_generic_report_record_fields_t;
+
+/**
+ * @brief Command fields for DMFBridgeConfig/GenericWriteRecord
+ */
+typedef struct {
+  uint16_t tableid;
+
+  uint8_t record_index;
+
+  const char* record_payload;
+} uic_mqtt_dotdot_dmf_bridge_config_command_generic_write_record_fields_t;
+
+/**
+ * @brief Command fields for DMFBridgeConfig/GenericDeleteRecord
+ */
+typedef struct {
+  uint16_t tableid;
+
+  uint8_t record_index;
+} uic_mqtt_dotdot_dmf_bridge_config_command_generic_delete_record_fields_t;
+
+/**
+ * @brief Command fields for DMFBridgeConfig/ClearTable
+ */
+typedef struct {
+  uint16_t tableid;
+
+  uint16_t confirm_code;
+} uic_mqtt_dotdot_dmf_bridge_config_command_clear_table_fields_t;
+
+/**
+ * @brief Command fields for DMFBridgeConfig/ZBNetworkLeave
+ */
+typedef struct {
+  uint16_t confirm_code;
+} uic_mqtt_dotdot_dmf_bridge_config_command_zb_network_leave_fields_t;
+
+/**
+ * @brief Command fields for DMFBridgeConfig/RawFixtureNotification
+ */
+typedef struct {
+  const char* uid;
+
+  uint16_t modelid;
+} uic_mqtt_dotdot_dmf_bridge_config_command_raw_fixture_notification_fields_t;
+
+
+/**
+ * @brief Setup callback to be called when a
+ * DMFBridgeConfig/Commands/trigger_rdm_discovery is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * DMFBridgeConfig/Commands/trigger_rdm_discovery is received.
+ *
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * DMFBridgeConfig/Commands/trigger_rdm_discovery is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_clear();
+
+/**
+ * @brief Setup callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/trigger_rdm_discovery is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_trigger_rdm_discovery_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/trigger_rdm_discovery is received.
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_trigger_rdm_discovery_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * +/DMFBridgeConfig/GeneratedCommands/trigger_rdm_discovery is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_trigger_rdm_discovery_callback_clear();
+/**
+ * @brief Setup callback to be called when a
+ * DMFBridgeConfig/Commands/identify_fixture is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * DMFBridgeConfig/Commands/identify_fixture is received.
+ *
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * DMFBridgeConfig/Commands/identify_fixture is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_clear();
+
+/**
+ * @brief Setup callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/identify_fixture is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_identify_fixture_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/identify_fixture is received.
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_identify_fixture_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * +/DMFBridgeConfig/GeneratedCommands/identify_fixture is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_identify_fixture_callback_clear();
+/**
+ * @brief Setup callback to be called when a
+ * DMFBridgeConfig/Commands/identify_zone is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * DMFBridgeConfig/Commands/identify_zone is received.
+ *
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * DMFBridgeConfig/Commands/identify_zone is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_clear();
+
+/**
+ * @brief Setup callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/identify_zone is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_identify_zone_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/identify_zone is received.
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_identify_zone_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * +/DMFBridgeConfig/GeneratedCommands/identify_zone is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_identify_zone_callback_clear();
+/**
+ * @brief Setup callback to be called when a
+ * DMFBridgeConfig/Commands/play_light_mode is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * DMFBridgeConfig/Commands/play_light_mode is received.
+ *
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * DMFBridgeConfig/Commands/play_light_mode is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_clear();
+
+/**
+ * @brief Setup callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/play_light_mode is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_play_light_mode_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/play_light_mode is received.
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_play_light_mode_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * +/DMFBridgeConfig/GeneratedCommands/play_light_mode is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_play_light_mode_callback_clear();
+/**
+ * @brief Setup callback to be called when a
+ * DMFBridgeConfig/Commands/generic_read_record is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * DMFBridgeConfig/Commands/generic_read_record is received.
+ *
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * DMFBridgeConfig/Commands/generic_read_record is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_clear();
+
+/**
+ * @brief Setup callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/generic_read_record is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_generic_read_record_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/generic_read_record is received.
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_generic_read_record_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * +/DMFBridgeConfig/GeneratedCommands/generic_read_record is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_generic_read_record_callback_clear();
+/**
+ * @brief Setup callback to be called when a
+ * DMFBridgeConfig/Commands/generic_report_record is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * DMFBridgeConfig/Commands/generic_report_record is received.
+ *
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * DMFBridgeConfig/Commands/generic_report_record is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_clear();
+
+/**
+ * @brief Setup callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/generic_report_record is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_generic_report_record_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/generic_report_record is received.
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_generic_report_record_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * +/DMFBridgeConfig/GeneratedCommands/generic_report_record is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_generic_report_record_callback_clear();
+/**
+ * @brief Setup callback to be called when a
+ * DMFBridgeConfig/Commands/generic_write_record is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * DMFBridgeConfig/Commands/generic_write_record is received.
+ *
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * DMFBridgeConfig/Commands/generic_write_record is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_clear();
+
+/**
+ * @brief Setup callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/generic_write_record is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_generic_write_record_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/generic_write_record is received.
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_generic_write_record_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * +/DMFBridgeConfig/GeneratedCommands/generic_write_record is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_generic_write_record_callback_clear();
+/**
+ * @brief Setup callback to be called when a
+ * DMFBridgeConfig/Commands/generic_delete_record is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * DMFBridgeConfig/Commands/generic_delete_record is received.
+ *
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * DMFBridgeConfig/Commands/generic_delete_record is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_clear();
+
+/**
+ * @brief Setup callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/generic_delete_record is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_generic_delete_record_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/generic_delete_record is received.
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_generic_delete_record_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * +/DMFBridgeConfig/GeneratedCommands/generic_delete_record is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_generic_delete_record_callback_clear();
+/**
+ * @brief Setup callback to be called when a
+ * DMFBridgeConfig/Commands/clear_table is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * DMFBridgeConfig/Commands/clear_table is received.
+ *
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * DMFBridgeConfig/Commands/clear_table is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_clear();
+
+/**
+ * @brief Setup callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/clear_table is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_clear_table_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/clear_table is received.
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_clear_table_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * +/DMFBridgeConfig/GeneratedCommands/clear_table is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_clear_table_callback_clear();
+/**
+ * @brief Setup callback to be called when a
+ * DMFBridgeConfig/Commands/zb_network_leave is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * DMFBridgeConfig/Commands/zb_network_leave is received.
+ *
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * DMFBridgeConfig/Commands/zb_network_leave is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_clear();
+
+/**
+ * @brief Setup callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/zb_network_leave is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_zb_network_leave_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/zb_network_leave is received.
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_zb_network_leave_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * +/DMFBridgeConfig/GeneratedCommands/zb_network_leave is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_zb_network_leave_callback_clear();
+/**
+ * @brief Setup callback to be called when a
+ * DMFBridgeConfig/Commands/raw_fixture_notification is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * DMFBridgeConfig/Commands/raw_fixture_notification is received.
+ *
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * DMFBridgeConfig/Commands/raw_fixture_notification is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_clear();
+
+/**
+ * @brief Setup callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/raw_fixture_notification is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_raw_fixture_notification_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/raw_fixture_notification is received.
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_raw_fixture_notification_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * +/DMFBridgeConfig/GeneratedCommands/raw_fixture_notification is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_raw_fixture_notification_callback_clear();
+
+/**
+ * @brief Setup a callback for WriteAttribute to be called when a
+ * +/dmf_bridge_config/Commands/WriteAttributes is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_set_dmf_bridge_config_write_attributes_callback(
+  const uic_mqtt_dotdot_dmf_bridge_config_write_attributes_callback_t callback
+);
+/**
+ * @brief Unsets a callback for WriteAttribute to be called when a
+ * +/dmf_bridge_config/Commands/WriteAttributes is received.
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_unset_dmf_bridge_config_write_attributes_callback(
+  const uic_mqtt_dotdot_dmf_bridge_config_write_attributes_callback_t callback
+);
+/**
+ * @brief Clears all callbacks registered for when
+ * +/dmf_bridge_config/Commands/WriteAttributes is received.
+ */
+void uic_mqtt_dotdot_clear_dmf_bridge_config_write_attributes_callbacks();
+
+/**
+ * @brief Setup a callback for ForceReadAttributes to be called when a
+ * +/dmf_bridge_config/Commands/ForceReadAttributes is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_set_dmf_bridge_config_force_read_attributes_callback(
+  const uic_mqtt_dotdot_dmf_bridge_config_force_read_attributes_callback_t callback
+);
+/**
+ * @brief Unsets a callback for ForceReadAttributes to be called when a
+ * +/dmf_bridge_config/Commands/ForceReadAttributes is received.
+ *
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_unset_dmf_bridge_config_force_read_attributes_callback(
+  const uic_mqtt_dotdot_dmf_bridge_config_force_read_attributes_callback_t callback
+);
+/**
+ * @brief Clears all callbacks registered for when
+ * +/dmf_bridge_config/Commands/ForceReadAttributes is received.
+ */
+void uic_mqtt_dotdot_clear_dmf_bridge_config_force_read_attributes_callbacks();
+
+/**
+ * @brief Publish the attribute; DMFBridgeConfig/Attributes/FixtureTableRevision
+ *
+ * @param base_topic    topic prefix to publish, /fixture_table_revision
+ *                      will be appended
+ * @param value         Value to publish
+ * @param publish_type  Whether to publish as Desired, Reported, or Both.
+ *
+ * @returns SL_STATUS_OK on success
+ */
+sl_status_t uic_mqtt_dotdot_dmf_bridge_config_fixture_table_revision_publish(
+  const char *base_topic,
+  uint16_t value,
+  uic_mqtt_dotdot_attribute_publish_type_t publish_type
+);
+
+/**
+ * @brief Unretains a published attribute; DMFBridgeConfig/Attributes/FixtureTableRevision
+ *
+ * @param base_topic    topic prefix to publish, /fixture_table_revision
+ *                      will be appended
+ * @param publish_type  Whether to publish as Desired, Reported, or Both.
+ *
+ * @returns SL_STATUS_OK on success
+ */
+sl_status_t uic_mqtt_dotdot_dmf_bridge_config_fixture_table_revision_unretain(
+  const char *base_topic,
+  uic_mqtt_dotdot_attribute_publish_type_t publish_type
+);
+
+/**
+ * @brief Publish the attribute; DMFBridgeConfig/Attributes/GroupTableRevision
+ *
+ * @param base_topic    topic prefix to publish, /group_table_revision
+ *                      will be appended
+ * @param value         Value to publish
+ * @param publish_type  Whether to publish as Desired, Reported, or Both.
+ *
+ * @returns SL_STATUS_OK on success
+ */
+sl_status_t uic_mqtt_dotdot_dmf_bridge_config_group_table_revision_publish(
+  const char *base_topic,
+  uint16_t value,
+  uic_mqtt_dotdot_attribute_publish_type_t publish_type
+);
+
+/**
+ * @brief Unretains a published attribute; DMFBridgeConfig/Attributes/GroupTableRevision
+ *
+ * @param base_topic    topic prefix to publish, /group_table_revision
+ *                      will be appended
+ * @param publish_type  Whether to publish as Desired, Reported, or Both.
+ *
+ * @returns SL_STATUS_OK on success
+ */
+sl_status_t uic_mqtt_dotdot_dmf_bridge_config_group_table_revision_unretain(
+  const char *base_topic,
+  uic_mqtt_dotdot_attribute_publish_type_t publish_type
+);
+
+/**
+ * @brief Publish the attribute; DMFBridgeConfig/Attributes/SceneTableRevision
+ *
+ * @param base_topic    topic prefix to publish, /scene_table_revision
+ *                      will be appended
+ * @param value         Value to publish
+ * @param publish_type  Whether to publish as Desired, Reported, or Both.
+ *
+ * @returns SL_STATUS_OK on success
+ */
+sl_status_t uic_mqtt_dotdot_dmf_bridge_config_scene_table_revision_publish(
+  const char *base_topic,
+  uint16_t value,
+  uic_mqtt_dotdot_attribute_publish_type_t publish_type
+);
+
+/**
+ * @brief Unretains a published attribute; DMFBridgeConfig/Attributes/SceneTableRevision
+ *
+ * @param base_topic    topic prefix to publish, /scene_table_revision
+ *                      will be appended
+ * @param publish_type  Whether to publish as Desired, Reported, or Both.
+ *
+ * @returns SL_STATUS_OK on success
+ */
+sl_status_t uic_mqtt_dotdot_dmf_bridge_config_scene_table_revision_unretain(
+  const char *base_topic,
+  uic_mqtt_dotdot_attribute_publish_type_t publish_type
+);
+
+/**
+ * @brief Publish the attribute; DMFBridgeConfig/Attributes/LightModeTableRevision
+ *
+ * @param base_topic    topic prefix to publish, /light_mode_table_revision
+ *                      will be appended
+ * @param value         Value to publish
+ * @param publish_type  Whether to publish as Desired, Reported, or Both.
+ *
+ * @returns SL_STATUS_OK on success
+ */
+sl_status_t uic_mqtt_dotdot_dmf_bridge_config_light_mode_table_revision_publish(
+  const char *base_topic,
+  uint16_t value,
+  uic_mqtt_dotdot_attribute_publish_type_t publish_type
+);
+
+/**
+ * @brief Unretains a published attribute; DMFBridgeConfig/Attributes/LightModeTableRevision
+ *
+ * @param base_topic    topic prefix to publish, /light_mode_table_revision
+ *                      will be appended
+ * @param publish_type  Whether to publish as Desired, Reported, or Both.
+ *
+ * @returns SL_STATUS_OK on success
+ */
+sl_status_t uic_mqtt_dotdot_dmf_bridge_config_light_mode_table_revision_unretain(
+  const char *base_topic,
+  uic_mqtt_dotdot_attribute_publish_type_t publish_type
+);
+
+/**
+ * @brief Publish the attribute; DMFBridgeConfig/Attributes/ScheduleTableRevision
+ *
+ * @param base_topic    topic prefix to publish, /schedule_table_revision
+ *                      will be appended
+ * @param value         Value to publish
+ * @param publish_type  Whether to publish as Desired, Reported, or Both.
+ *
+ * @returns SL_STATUS_OK on success
+ */
+sl_status_t uic_mqtt_dotdot_dmf_bridge_config_schedule_table_revision_publish(
+  const char *base_topic,
+  uint16_t value,
+  uic_mqtt_dotdot_attribute_publish_type_t publish_type
+);
+
+/**
+ * @brief Unretains a published attribute; DMFBridgeConfig/Attributes/ScheduleTableRevision
+ *
+ * @param base_topic    topic prefix to publish, /schedule_table_revision
+ *                      will be appended
+ * @param publish_type  Whether to publish as Desired, Reported, or Both.
+ *
+ * @returns SL_STATUS_OK on success
+ */
+sl_status_t uic_mqtt_dotdot_dmf_bridge_config_schedule_table_revision_unretain(
+  const char *base_topic,
+  uic_mqtt_dotdot_attribute_publish_type_t publish_type
+);
+
+/**
+ * @brief Publish the attribute; DMFBridgeConfig/Attributes/TotalFixturesCount
+ *
+ * @param base_topic    topic prefix to publish, /total_fixtures_count
+ *                      will be appended
+ * @param value         Value to publish
+ * @param publish_type  Whether to publish as Desired, Reported, or Both.
+ *
+ * @returns SL_STATUS_OK on success
+ */
+sl_status_t uic_mqtt_dotdot_dmf_bridge_config_total_fixtures_count_publish(
+  const char *base_topic,
+  uint8_t value,
+  uic_mqtt_dotdot_attribute_publish_type_t publish_type
+);
+
+/**
+ * @brief Unretains a published attribute; DMFBridgeConfig/Attributes/TotalFixturesCount
+ *
+ * @param base_topic    topic prefix to publish, /total_fixtures_count
+ *                      will be appended
+ * @param publish_type  Whether to publish as Desired, Reported, or Both.
+ *
+ * @returns SL_STATUS_OK on success
+ */
+sl_status_t uic_mqtt_dotdot_dmf_bridge_config_total_fixtures_count_unretain(
+  const char *base_topic,
+  uic_mqtt_dotdot_attribute_publish_type_t publish_type
+);
+
+/**
+ * @brief Publish the attribute; DMFBridgeConfig/Attributes/DiscoveryStatus
+ *
+ * @param base_topic    topic prefix to publish, /discovery_status
+ *                      will be appended
+ * @param value         Value to publish
+ * @param publish_type  Whether to publish as Desired, Reported, or Both.
+ *
+ * @returns SL_STATUS_OK on success
+ */
+sl_status_t uic_mqtt_dotdot_dmf_bridge_config_discovery_status_publish(
+  const char *base_topic,
+  DiscoveryStatus value,
+  uic_mqtt_dotdot_attribute_publish_type_t publish_type
+);
+
+/**
+ * @brief Unretains a published attribute; DMFBridgeConfig/Attributes/DiscoveryStatus
+ *
+ * @param base_topic    topic prefix to publish, /discovery_status
+ *                      will be appended
+ * @param publish_type  Whether to publish as Desired, Reported, or Both.
+ *
+ * @returns SL_STATUS_OK on success
+ */
+sl_status_t uic_mqtt_dotdot_dmf_bridge_config_discovery_status_unretain(
+  const char *base_topic,
+  uic_mqtt_dotdot_attribute_publish_type_t publish_type
+);
+
+/**
+ * @brief Publish the attribute; DMFBridgeConfig/Attributes/BLESessionStatus
+ *
+ * @param base_topic    topic prefix to publish, /ble_session_status
+ *                      will be appended
+ * @param value         Value to publish
+ * @param publish_type  Whether to publish as Desired, Reported, or Both.
+ *
+ * @returns SL_STATUS_OK on success
+ */
+sl_status_t uic_mqtt_dotdot_dmf_bridge_config_ble_session_status_publish(
+  const char *base_topic,
+  BLESessionStatus value,
+  uic_mqtt_dotdot_attribute_publish_type_t publish_type
+);
+
+/**
+ * @brief Unretains a published attribute; DMFBridgeConfig/Attributes/BLESessionStatus
+ *
+ * @param base_topic    topic prefix to publish, /ble_session_status
+ *                      will be appended
+ * @param publish_type  Whether to publish as Desired, Reported, or Both.
+ *
+ * @returns SL_STATUS_OK on success
+ */
+sl_status_t uic_mqtt_dotdot_dmf_bridge_config_ble_session_status_unretain(
+  const char *base_topic,
+  uic_mqtt_dotdot_attribute_publish_type_t publish_type
+);
+
+
+/**
+ * @brief Publish the DMFBridgeConfig/ClusterRevision attribute
+ *
+ * @param base_topic    topic prefix to publish, /DMFBridgeConfig/Attributes/ClusterRevision
+ *                      will be appended.
+ * @param value         Value to publish.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_cluster_revision(const char* base_topic, uint16_t value);
+
+/**
+ * @brief Unretain a publication to DMFBridgeConfig/ClusterRevision attribute
+ *
+ * @param base_topic    topic prefix to publish, /DMFBridgeConfig/Attributes/ClusterRevision
+ *                      will be appended.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_unretain_cluster_revision(const char* base_topic);
+
+/**
+ * @brief Publish the SupportedCommands for UNID/EndPoint for the DMFBridgeConfig Cluster
+ *
+ * This function will iterate over all Commands in the DMFBridgeConfig Cluster and
+ * call all registered callback functions with UNID/endpoint, and
+ * callback_type = UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK.
+ * All Cluster Command callback functions that return SL_STATUS_OK
+ * will be added to the list of supported commands and published.
+ *
+ * @param unid
+ * @param endpoint
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_supported_commands(
+  const dotdot_unid_t unid,
+  dotdot_endpoint_id_t endpoint);
+
+/**
+ * @brief Publish an empty array of SupportedCommands for UNID/EndPoint for
+ * the DMFBridgeConfig Cluster
+ *
+ * @param unid
+ * @param endpoint )
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_empty_supported_commands(
   const dotdot_unid_t unid
   ,dotdot_endpoint_id_t endpoint);
 // Callback types used by the protocol_controller_rf_telemetry cluster

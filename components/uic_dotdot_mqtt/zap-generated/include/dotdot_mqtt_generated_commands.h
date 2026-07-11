@@ -4413,6 +4413,255 @@ void uic_mqtt_dotdot_diagnostics_publish_generated_write_attributes_command(
 );
 
 /**
+ * @brief Publishes an incoming/generated TriggerRDMDiscovery command for
+ * the DMFBridgeConfig cluster.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/GeneratedCommands/TriggerRDMDiscovery
+ *
+ * @param unid      The UNID of the node that sent us the command.
+ * 
+ * @param endpoint  The Endpoint ID of the node that sent us the command.
+ * 
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_trigger_rdm_discovery_command(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint
+);
+/**
+ * @brief Publishes an incoming/generated IdentifyFixture command for
+ * the DMFBridgeConfig cluster.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/GeneratedCommands/IdentifyFixture
+ *
+ * @param unid      The UNID of the node that sent us the command.
+ * 
+ * @param endpoint  The Endpoint ID of the node that sent us the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_identify_fixture_command(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_identify_fixture_fields_t *fields
+  
+);
+/**
+ * @brief Publishes an incoming/generated IdentifyZone command for
+ * the DMFBridgeConfig cluster.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/GeneratedCommands/IdentifyZone
+ *
+ * @param unid      The UNID of the node that sent us the command.
+ * 
+ * @param endpoint  The Endpoint ID of the node that sent us the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_identify_zone_command(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_identify_zone_fields_t *fields
+  
+);
+/**
+ * @brief Publishes an incoming/generated PlayLightMode command for
+ * the DMFBridgeConfig cluster.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/GeneratedCommands/PlayLightMode
+ *
+ * @param unid      The UNID of the node that sent us the command.
+ * 
+ * @param endpoint  The Endpoint ID of the node that sent us the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_play_light_mode_command(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_play_light_mode_fields_t *fields
+  
+);
+/**
+ * @brief Publishes an incoming/generated GenericReadRecord command for
+ * the DMFBridgeConfig cluster.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/GeneratedCommands/GenericReadRecord
+ *
+ * @param unid      The UNID of the node that sent us the command.
+ * 
+ * @param endpoint  The Endpoint ID of the node that sent us the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_generic_read_record_command(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_read_record_fields_t *fields
+  
+);
+/**
+ * @brief Publishes an incoming/generated GenericReportRecord command for
+ * the DMFBridgeConfig cluster.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/GeneratedCommands/GenericReportRecord
+ *
+ * @param unid      The UNID of the node that sent us the command.
+ * 
+ * @param endpoint  The Endpoint ID of the node that sent us the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_generic_report_record_command(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_report_record_fields_t *fields
+  
+);
+/**
+ * @brief Publishes an incoming/generated GenericWriteRecord command for
+ * the DMFBridgeConfig cluster.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/GeneratedCommands/GenericWriteRecord
+ *
+ * @param unid      The UNID of the node that sent us the command.
+ * 
+ * @param endpoint  The Endpoint ID of the node that sent us the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_generic_write_record_command(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_write_record_fields_t *fields
+  
+);
+/**
+ * @brief Publishes an incoming/generated GenericDeleteRecord command for
+ * the DMFBridgeConfig cluster.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/GeneratedCommands/GenericDeleteRecord
+ *
+ * @param unid      The UNID of the node that sent us the command.
+ * 
+ * @param endpoint  The Endpoint ID of the node that sent us the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_generic_delete_record_command(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_delete_record_fields_t *fields
+  
+);
+/**
+ * @brief Publishes an incoming/generated ClearTable command for
+ * the DMFBridgeConfig cluster.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/GeneratedCommands/ClearTable
+ *
+ * @param unid      The UNID of the node that sent us the command.
+ * 
+ * @param endpoint  The Endpoint ID of the node that sent us the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_clear_table_command(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_clear_table_fields_t *fields
+  
+);
+/**
+ * @brief Publishes an incoming/generated ZBNetworkLeave command for
+ * the DMFBridgeConfig cluster.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/GeneratedCommands/ZBNetworkLeave
+ *
+ * @param unid      The UNID of the node that sent us the command.
+ * 
+ * @param endpoint  The Endpoint ID of the node that sent us the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_zb_network_leave_command(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_zb_network_leave_fields_t *fields
+  
+);
+/**
+ * @brief Publishes an incoming/generated RawFixtureNotification command for
+ * the DMFBridgeConfig cluster.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/GeneratedCommands/RawFixtureNotification
+ *
+ * @param unid      The UNID of the node that sent us the command.
+ * 
+ * @param endpoint  The Endpoint ID of the node that sent us the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_raw_fixture_notification_command(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_raw_fixture_notification_fields_t *fields
+  
+);
+
+/**
+ * @brief Publishes an incoming/generated WriteAttributes command for
+ * the DMFBridgeConfig cluster.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/GeneratedCommands/WriteAttributes
+ *
+ * @param unid      The UNID of the node that sent us the command.
+ * 
+ * @param endpoint  The Endpoint ID of the node that sent us the command.
+ * 
+ * @param attribute_values  Values to assign to the attributes
+ * @param attribute_list    List of attributes that are written
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_write_attributes_command(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  uic_mqtt_dotdot_dmf_bridge_config_state_t attribute_values,
+  uic_mqtt_dotdot_dmf_bridge_config_updated_state_t attribute_list
+);
+
+/**
  * @brief Publishes an incoming/generated TxReport command for
  * the ProtocolController-RFTelemetry cluster.
  *

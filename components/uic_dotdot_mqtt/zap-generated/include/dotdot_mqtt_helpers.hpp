@@ -132,6 +132,23 @@ std::string arm_response_arm_notification_get_enum_value_name(
  */
 uint32_t arm_response_arm_notification_get_enum_value_number(const std::string &str);
 
+#define BLE_SESSION_STATUS_ENUM_NAME_AVAILABLE 1
+
+/**
+ * @brief Finds the name of a field for the BLESessionStatus enum
+ *
+ * @returns A string representation of the value.
+ */
+std::string ble_session_status_get_enum_value_name(
+  uint32_t value);
+
+/**
+ * @brief Finds the enum number of a string representation for the BLESessionStatus enum
+ *
+ * @returns A number enum value.
+ */
+uint32_t ble_session_status_get_enum_value_number(const std::string &str);
+
 #define BARRIER_CONTROL_MOVING_STATE_ENUM_NAME_AVAILABLE 1
 
 /**
@@ -607,6 +624,23 @@ std::string dev_type_id_get_enum_value_name(
  * @returns A number enum value.
  */
 uint32_t dev_type_id_get_enum_value_number(const std::string &str);
+
+#define DISCOVERY_STATUS_ENUM_NAME_AVAILABLE 1
+
+/**
+ * @brief Finds the name of a field for the DiscoveryStatus enum
+ *
+ * @returns A string representation of the value.
+ */
+std::string discovery_status_get_enum_value_name(
+  uint32_t value);
+
+/**
+ * @brief Finds the enum number of a string representation for the DiscoveryStatus enum
+ *
+ * @returns A number enum value.
+ */
+uint32_t discovery_status_get_enum_value_number(const std::string &str);
 
 #define DOOR_LOCK_DOOR_STATE_ENUM_NAME_AVAILABLE 1
 

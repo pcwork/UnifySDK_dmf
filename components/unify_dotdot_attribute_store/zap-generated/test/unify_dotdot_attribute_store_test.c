@@ -1126,6 +1126,60 @@ uic_mqtt_dotdot_diagnostics_write_attributes_callback_t get_uic_mqtt_dotdot_diag
   return test_uic_mqtt_dotdot_diagnostics_write_attributes_callback;
 }
 
+static uic_mqtt_dotdot_dmf_bridge_config_force_read_attributes_callback_t test_uic_mqtt_dotdot_dmf_bridge_config_force_read_attributes_callback = NULL;
+static uic_mqtt_dotdot_dmf_bridge_config_write_attributes_callback_t test_uic_mqtt_dotdot_dmf_bridge_config_write_attributes_callback = NULL;
+
+uic_mqtt_dotdot_dmf_bridge_config_force_read_attributes_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_force_read_attributes_callback(){
+  return test_uic_mqtt_dotdot_dmf_bridge_config_force_read_attributes_callback;
+}
+uic_mqtt_dotdot_dmf_bridge_config_write_attributes_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_write_attributes_callback(){
+  return test_uic_mqtt_dotdot_dmf_bridge_config_write_attributes_callback;
+}
+
+static uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_t test_uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback = NULL;
+uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback(){
+  return test_uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback;
+}
+static uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_t test_uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback = NULL;
+uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback(){
+  return test_uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback;
+}
+static uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_t test_uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback = NULL;
+uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback(){
+  return test_uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback;
+}
+static uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_t test_uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback = NULL;
+uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback(){
+  return test_uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback;
+}
+static uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_t test_uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback = NULL;
+uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback(){
+  return test_uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback;
+}
+static uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_t test_uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback = NULL;
+uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback(){
+  return test_uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback;
+}
+static uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_t test_uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback = NULL;
+uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback(){
+  return test_uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback;
+}
+static uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_t test_uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback = NULL;
+uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback(){
+  return test_uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback;
+}
+static uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_t test_uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback = NULL;
+uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback(){
+  return test_uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback;
+}
+static uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_t test_uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback = NULL;
+uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback(){
+  return test_uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback;
+}
+static uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_t test_uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback = NULL;
+uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback(){
+  return test_uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback;
+}
 static uic_mqtt_dotdot_protocol_controller_rf_telemetry_force_read_attributes_callback_t test_uic_mqtt_dotdot_protocol_controller_rf_telemetry_force_read_attributes_callback = NULL;
 static uic_mqtt_dotdot_protocol_controller_rf_telemetry_write_attributes_callback_t test_uic_mqtt_dotdot_protocol_controller_rf_telemetry_write_attributes_callback = NULL;
 
@@ -2706,6 +2760,71 @@ void set_uic_mqtt_dotdot_diagnostics_write_attributes_callback_stub(
 {
   test_uic_mqtt_dotdot_diagnostics_write_attributes_callback = callback;
 }
+void set_uic_mqtt_dotdot_dmf_bridge_config_force_read_attributes_callback_stub(
+  const uic_mqtt_dotdot_dmf_bridge_config_force_read_attributes_callback_t callback, int cmock_num_calls)
+{
+  test_uic_mqtt_dotdot_dmf_bridge_config_force_read_attributes_callback = callback;
+}
+void set_uic_mqtt_dotdot_dmf_bridge_config_write_attributes_callback_stub(
+  const uic_mqtt_dotdot_dmf_bridge_config_write_attributes_callback_t callback, int cmock_num_calls)
+{
+  test_uic_mqtt_dotdot_dmf_bridge_config_write_attributes_callback = callback;
+}
+void uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_set_stub(
+  const uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_t callback, int cmock_num_calls)
+{
+  test_uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback = callback;
+}
+void uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_set_stub(
+  const uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_t callback, int cmock_num_calls)
+{
+  test_uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback = callback;
+}
+void uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_set_stub(
+  const uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_t callback, int cmock_num_calls)
+{
+  test_uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback = callback;
+}
+void uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_set_stub(
+  const uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_t callback, int cmock_num_calls)
+{
+  test_uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback = callback;
+}
+void uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_set_stub(
+  const uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_t callback, int cmock_num_calls)
+{
+  test_uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback = callback;
+}
+void uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_set_stub(
+  const uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_t callback, int cmock_num_calls)
+{
+  test_uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback = callback;
+}
+void uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_set_stub(
+  const uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_t callback, int cmock_num_calls)
+{
+  test_uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback = callback;
+}
+void uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_set_stub(
+  const uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_t callback, int cmock_num_calls)
+{
+  test_uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback = callback;
+}
+void uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_set_stub(
+  const uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_t callback, int cmock_num_calls)
+{
+  test_uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback = callback;
+}
+void uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_set_stub(
+  const uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_t callback, int cmock_num_calls)
+{
+  test_uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback = callback;
+}
+void uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_set_stub(
+  const uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_t callback, int cmock_num_calls)
+{
+  test_uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback = callback;
+}
 void set_uic_mqtt_dotdot_protocol_controller_rf_telemetry_force_read_attributes_callback_stub(
   const uic_mqtt_dotdot_protocol_controller_rf_telemetry_force_read_attributes_callback_t callback, int cmock_num_calls)
 {
@@ -3728,6 +3847,45 @@ void setUp()
   test_uic_mqtt_dotdot_diagnostics_write_attributes_callback = NULL;
   uic_mqtt_dotdot_set_diagnostics_write_attributes_callback_Stub(
     &set_uic_mqtt_dotdot_diagnostics_write_attributes_callback_stub);
+  test_uic_mqtt_dotdot_dmf_bridge_config_force_read_attributes_callback = NULL;
+  uic_mqtt_dotdot_set_dmf_bridge_config_force_read_attributes_callback_Stub(
+    &set_uic_mqtt_dotdot_dmf_bridge_config_force_read_attributes_callback_stub);
+  test_uic_mqtt_dotdot_dmf_bridge_config_write_attributes_callback = NULL;
+  uic_mqtt_dotdot_set_dmf_bridge_config_write_attributes_callback_Stub(
+    &set_uic_mqtt_dotdot_dmf_bridge_config_write_attributes_callback_stub);
+  test_uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback = NULL;
+  uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_set_Stub(
+    &uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_set_stub);
+  test_uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback = NULL;
+  uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_set_Stub(
+    &uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_set_stub);
+  test_uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback = NULL;
+  uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_set_Stub(
+    &uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_set_stub);
+  test_uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback = NULL;
+  uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_set_Stub(
+    &uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_set_stub);
+  test_uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback = NULL;
+  uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_set_Stub(
+    &uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_set_stub);
+  test_uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback = NULL;
+  uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_set_Stub(
+    &uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_set_stub);
+  test_uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback = NULL;
+  uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_set_Stub(
+    &uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_set_stub);
+  test_uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback = NULL;
+  uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_set_Stub(
+    &uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_set_stub);
+  test_uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback = NULL;
+  uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_set_Stub(
+    &uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_set_stub);
+  test_uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback = NULL;
+  uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_set_Stub(
+    &uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_set_stub);
+  test_uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback = NULL;
+  uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_set_Stub(
+    &uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_set_stub);
   test_uic_mqtt_dotdot_protocol_controller_rf_telemetry_force_read_attributes_callback = NULL;
   uic_mqtt_dotdot_set_protocol_controller_rf_telemetry_force_read_attributes_callback_Stub(
     &set_uic_mqtt_dotdot_protocol_controller_rf_telemetry_force_read_attributes_callback_stub);
@@ -4541,6 +4699,14 @@ void test_automatic_deduction_of_supported_commands()
   TEST_ASSERT_EQUAL(SL_STATUS_OK, dotdot_create_diagnostics_average_mac_retry_per_aps_message_sent(expected_unid,expected_endpoint_id) );
   TEST_ASSERT_EQUAL(SL_STATUS_OK, dotdot_create_diagnostics_last_messagelqi(expected_unid,expected_endpoint_id) );
   TEST_ASSERT_EQUAL(SL_STATUS_OK, dotdot_create_diagnostics_last_messagerssi(expected_unid,expected_endpoint_id) );
+  TEST_ASSERT_EQUAL(SL_STATUS_OK, dotdot_create_dmf_bridge_config_fixture_table_revision(expected_unid,expected_endpoint_id) );
+  TEST_ASSERT_EQUAL(SL_STATUS_OK, dotdot_create_dmf_bridge_config_group_table_revision(expected_unid,expected_endpoint_id) );
+  TEST_ASSERT_EQUAL(SL_STATUS_OK, dotdot_create_dmf_bridge_config_scene_table_revision(expected_unid,expected_endpoint_id) );
+  TEST_ASSERT_EQUAL(SL_STATUS_OK, dotdot_create_dmf_bridge_config_light_mode_table_revision(expected_unid,expected_endpoint_id) );
+  TEST_ASSERT_EQUAL(SL_STATUS_OK, dotdot_create_dmf_bridge_config_schedule_table_revision(expected_unid,expected_endpoint_id) );
+  TEST_ASSERT_EQUAL(SL_STATUS_OK, dotdot_create_dmf_bridge_config_total_fixtures_count(expected_unid,expected_endpoint_id) );
+  TEST_ASSERT_EQUAL(SL_STATUS_OK, dotdot_create_dmf_bridge_config_discovery_status(expected_unid,expected_endpoint_id) );
+  TEST_ASSERT_EQUAL(SL_STATUS_OK, dotdot_create_dmf_bridge_config_ble_session_status(expected_unid,expected_endpoint_id) );
   TEST_ASSERT_EQUAL(SL_STATUS_OK, dotdot_create_protocol_controller_rf_telemetry_tx_report_enabled(expected_unid,expected_endpoint_id) );
   TEST_ASSERT_EQUAL(SL_STATUS_OK, dotdot_create_protocol_controller_rf_telemetry_pti_enabled(expected_unid,expected_endpoint_id) );
   TEST_ASSERT_EQUAL(SL_STATUS_OK, dotdot_create_state_endpoint_id_list(expected_unid,expected_endpoint_id) );
@@ -7440,6 +7606,167 @@ void test_automatic_deduction_of_supported_commands()
         start_time_value,
       
         number_of_intervals_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback) {
+    // Dummy command parameters
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_FAIL, test_uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback) {
+    // Dummy command parameters
+      const char* uid_value;
+      memset(&uid_value, 0x00, sizeof(uid_value));
+      uint8_t identify_on_value;
+      memset(&identify_on_value, 0x00, sizeof(identify_on_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_FAIL, test_uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        uid_value,
+      
+        identify_on_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback) {
+    // Dummy command parameters
+      uint8_t zoneid_value;
+      memset(&zoneid_value, 0x00, sizeof(zoneid_value));
+      uint8_t identify_on_value;
+      memset(&identify_on_value, 0x00, sizeof(identify_on_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_FAIL, test_uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        zoneid_value,
+      
+        identify_on_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback) {
+    // Dummy command parameters
+      uint8_t light_modeid_value;
+      memset(&light_modeid_value, 0x00, sizeof(light_modeid_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_FAIL, test_uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        light_modeid_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback) {
+    // Dummy command parameters
+      uint16_t tableid_value;
+      memset(&tableid_value, 0x00, sizeof(tableid_value));
+      uint8_t record_index_value;
+      memset(&record_index_value, 0x00, sizeof(record_index_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_FAIL, test_uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        tableid_value,
+      
+        record_index_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback) {
+    // Dummy command parameters
+      uint16_t tableid_value;
+      memset(&tableid_value, 0x00, sizeof(tableid_value));
+      uint8_t record_index_value;
+      memset(&record_index_value, 0x00, sizeof(record_index_value));
+      uint16_t total_records_value;
+      memset(&total_records_value, 0x00, sizeof(total_records_value));
+      const char* record_payload_value;
+      memset(&record_payload_value, 0x00, sizeof(record_payload_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_FAIL, test_uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        tableid_value,
+      
+        record_index_value,
+      
+        total_records_value,
+      
+        record_payload_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback) {
+    // Dummy command parameters
+      uint16_t tableid_value;
+      memset(&tableid_value, 0x00, sizeof(tableid_value));
+      uint8_t record_index_value;
+      memset(&record_index_value, 0x00, sizeof(record_index_value));
+      const char* record_payload_value;
+      memset(&record_payload_value, 0x00, sizeof(record_payload_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_FAIL, test_uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        tableid_value,
+      
+        record_index_value,
+      
+        record_payload_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback) {
+    // Dummy command parameters
+      uint16_t tableid_value;
+      memset(&tableid_value, 0x00, sizeof(tableid_value));
+      uint8_t record_index_value;
+      memset(&record_index_value, 0x00, sizeof(record_index_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_FAIL, test_uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        tableid_value,
+      
+        record_index_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback) {
+    // Dummy command parameters
+      uint16_t tableid_value;
+      memset(&tableid_value, 0x00, sizeof(tableid_value));
+      uint16_t confirm_code_value;
+      memset(&confirm_code_value, 0x00, sizeof(confirm_code_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_FAIL, test_uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        tableid_value,
+      
+        confirm_code_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback) {
+    // Dummy command parameters
+      uint16_t confirm_code_value;
+      memset(&confirm_code_value, 0x00, sizeof(confirm_code_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_FAIL, test_uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        confirm_code_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback) {
+    // Dummy command parameters
+      const char* uid_value;
+      memset(&uid_value, 0x00, sizeof(uid_value));
+      uint16_t modelid_value;
+      memset(&modelid_value, 0x00, sizeof(modelid_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_FAIL, test_uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        uid_value,
+      
+        modelid_value
       
       ));
   }
@@ -10555,6 +10882,167 @@ void test_automatic_deduction_of_supported_commands()
         start_time_value,
       
         number_of_intervals_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback) {
+    // Dummy command parameters
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_OK, test_uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback) {
+    // Dummy command parameters
+      const char* uid_value;
+      memset(&uid_value, 0x00, sizeof(uid_value));
+      uint8_t identify_on_value;
+      memset(&identify_on_value, 0x00, sizeof(identify_on_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_OK, test_uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        uid_value,
+      
+        identify_on_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback) {
+    // Dummy command parameters
+      uint8_t zoneid_value;
+      memset(&zoneid_value, 0x00, sizeof(zoneid_value));
+      uint8_t identify_on_value;
+      memset(&identify_on_value, 0x00, sizeof(identify_on_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_OK, test_uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        zoneid_value,
+      
+        identify_on_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback) {
+    // Dummy command parameters
+      uint8_t light_modeid_value;
+      memset(&light_modeid_value, 0x00, sizeof(light_modeid_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_OK, test_uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        light_modeid_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback) {
+    // Dummy command parameters
+      uint16_t tableid_value;
+      memset(&tableid_value, 0x00, sizeof(tableid_value));
+      uint8_t record_index_value;
+      memset(&record_index_value, 0x00, sizeof(record_index_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_OK, test_uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        tableid_value,
+      
+        record_index_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback) {
+    // Dummy command parameters
+      uint16_t tableid_value;
+      memset(&tableid_value, 0x00, sizeof(tableid_value));
+      uint8_t record_index_value;
+      memset(&record_index_value, 0x00, sizeof(record_index_value));
+      uint16_t total_records_value;
+      memset(&total_records_value, 0x00, sizeof(total_records_value));
+      const char* record_payload_value;
+      memset(&record_payload_value, 0x00, sizeof(record_payload_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_OK, test_uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        tableid_value,
+      
+        record_index_value,
+      
+        total_records_value,
+      
+        record_payload_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback) {
+    // Dummy command parameters
+      uint16_t tableid_value;
+      memset(&tableid_value, 0x00, sizeof(tableid_value));
+      uint8_t record_index_value;
+      memset(&record_index_value, 0x00, sizeof(record_index_value));
+      const char* record_payload_value;
+      memset(&record_payload_value, 0x00, sizeof(record_payload_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_OK, test_uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        tableid_value,
+      
+        record_index_value,
+      
+        record_payload_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback) {
+    // Dummy command parameters
+      uint16_t tableid_value;
+      memset(&tableid_value, 0x00, sizeof(tableid_value));
+      uint8_t record_index_value;
+      memset(&record_index_value, 0x00, sizeof(record_index_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_OK, test_uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        tableid_value,
+      
+        record_index_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback) {
+    // Dummy command parameters
+      uint16_t tableid_value;
+      memset(&tableid_value, 0x00, sizeof(tableid_value));
+      uint16_t confirm_code_value;
+      memset(&confirm_code_value, 0x00, sizeof(confirm_code_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_OK, test_uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        tableid_value,
+      
+        confirm_code_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback) {
+    // Dummy command parameters
+      uint16_t confirm_code_value;
+      memset(&confirm_code_value, 0x00, sizeof(confirm_code_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_OK, test_uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        confirm_code_value
+      
+      ));
+  }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback) {
+    // Dummy command parameters
+      const char* uid_value;
+      memset(&uid_value, 0x00, sizeof(uid_value));
+      uint16_t modelid_value;
+      memset(&modelid_value, 0x00, sizeof(modelid_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_OK, test_uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        uid_value,
+      
+        modelid_value
       
       ));
   }

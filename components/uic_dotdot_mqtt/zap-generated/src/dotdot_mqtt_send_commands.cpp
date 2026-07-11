@@ -12411,6 +12411,812 @@ void uic_mqtt_dotdot_electrical_measurement_publish_get_measurement_profile_comm
 }
 
 /**
+ * @brief Sends/Publishes a TriggerRDMDiscovery command for
+ * the DMFBridgeConfig cluster to a destination.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/Commands/TriggerRDMDiscovery
+ *
+ * @param destination_unid      The UNID of the node that should receive the command.
+ * 
+ * @param destination_endpoint  The Endpoint ID of the node that should receive the command.
+ * 
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_trigger_rdm_discovery_command(
+  const dotdot_unid_t destination_unid,
+  const dotdot_endpoint_id_t destination_endpoint
+) {
+  // Create the topic
+  std::string topic = "ucl/by-unid/"+ std::string(destination_unid) + "/ep" +
+                      std::to_string(destination_endpoint) + "/";
+  topic += "DMFBridgeConfig/Commands/TriggerRDMDiscovery";
+
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_trigger_rdm_discovery_command(
+    );
+
+  sl_log_debug(LOG_TAG, "Sending command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a TriggerRDMDiscovery command for
+ * the DMFBridgeConfig cluster to a group.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-group/GroupID/DMFBridgeConfig/Commands/TriggerRDMDiscovery
+ *
+ * @param destination_group_id  The GroupID that should receive the command.
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_trigger_rdm_discovery_command_to_group(
+  uint16_t destination_group_id
+){
+  // Create the topic
+  std::string topic = "ucl/by-group/"+ std::to_string(destination_group_id) +
+                      "/DMFBridgeConfig/Commands/TriggerRDMDiscovery";
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_trigger_rdm_discovery_command(
+    );
+
+  sl_log_info(LOG_TAG, "Sending group command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a IdentifyFixture command for
+ * the DMFBridgeConfig cluster to a destination.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/Commands/IdentifyFixture
+ *
+ * @param destination_unid      The UNID of the node that should receive the command.
+ * 
+ * @param destination_endpoint  The Endpoint ID of the node that should receive the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_identify_fixture_command(
+  const dotdot_unid_t destination_unid,
+  const dotdot_endpoint_id_t destination_endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_identify_fixture_fields_t *fields
+  
+) {
+  // Create the topic
+  std::string topic = "ucl/by-unid/"+ std::string(destination_unid) + "/ep" +
+                      std::to_string(destination_endpoint) + "/";
+  topic += "DMFBridgeConfig/Commands/IdentifyFixture";
+
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_identify_fixture_command(
+    fields);
+
+  sl_log_debug(LOG_TAG, "Sending command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a IdentifyFixture command for
+ * the DMFBridgeConfig cluster to a group.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-group/GroupID/DMFBridgeConfig/Commands/IdentifyFixture
+ *
+ * @param destination_group_id  The GroupID that should receive the command.
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_identify_fixture_command_to_group(
+  uint16_t destination_group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_identify_fixture_fields_t *fields
+  
+){
+  // Create the topic
+  std::string topic = "ucl/by-group/"+ std::to_string(destination_group_id) +
+                      "/DMFBridgeConfig/Commands/IdentifyFixture";
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_identify_fixture_command(
+    fields);
+
+  sl_log_info(LOG_TAG, "Sending group command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a IdentifyZone command for
+ * the DMFBridgeConfig cluster to a destination.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/Commands/IdentifyZone
+ *
+ * @param destination_unid      The UNID of the node that should receive the command.
+ * 
+ * @param destination_endpoint  The Endpoint ID of the node that should receive the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_identify_zone_command(
+  const dotdot_unid_t destination_unid,
+  const dotdot_endpoint_id_t destination_endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_identify_zone_fields_t *fields
+  
+) {
+  // Create the topic
+  std::string topic = "ucl/by-unid/"+ std::string(destination_unid) + "/ep" +
+                      std::to_string(destination_endpoint) + "/";
+  topic += "DMFBridgeConfig/Commands/IdentifyZone";
+
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_identify_zone_command(
+    fields);
+
+  sl_log_debug(LOG_TAG, "Sending command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a IdentifyZone command for
+ * the DMFBridgeConfig cluster to a group.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-group/GroupID/DMFBridgeConfig/Commands/IdentifyZone
+ *
+ * @param destination_group_id  The GroupID that should receive the command.
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_identify_zone_command_to_group(
+  uint16_t destination_group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_identify_zone_fields_t *fields
+  
+){
+  // Create the topic
+  std::string topic = "ucl/by-group/"+ std::to_string(destination_group_id) +
+                      "/DMFBridgeConfig/Commands/IdentifyZone";
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_identify_zone_command(
+    fields);
+
+  sl_log_info(LOG_TAG, "Sending group command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a PlayLightMode command for
+ * the DMFBridgeConfig cluster to a destination.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/Commands/PlayLightMode
+ *
+ * @param destination_unid      The UNID of the node that should receive the command.
+ * 
+ * @param destination_endpoint  The Endpoint ID of the node that should receive the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_play_light_mode_command(
+  const dotdot_unid_t destination_unid,
+  const dotdot_endpoint_id_t destination_endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_play_light_mode_fields_t *fields
+  
+) {
+  // Create the topic
+  std::string topic = "ucl/by-unid/"+ std::string(destination_unid) + "/ep" +
+                      std::to_string(destination_endpoint) + "/";
+  topic += "DMFBridgeConfig/Commands/PlayLightMode";
+
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_play_light_mode_command(
+    fields);
+
+  sl_log_debug(LOG_TAG, "Sending command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a PlayLightMode command for
+ * the DMFBridgeConfig cluster to a group.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-group/GroupID/DMFBridgeConfig/Commands/PlayLightMode
+ *
+ * @param destination_group_id  The GroupID that should receive the command.
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_play_light_mode_command_to_group(
+  uint16_t destination_group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_play_light_mode_fields_t *fields
+  
+){
+  // Create the topic
+  std::string topic = "ucl/by-group/"+ std::to_string(destination_group_id) +
+                      "/DMFBridgeConfig/Commands/PlayLightMode";
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_play_light_mode_command(
+    fields);
+
+  sl_log_info(LOG_TAG, "Sending group command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a GenericReadRecord command for
+ * the DMFBridgeConfig cluster to a destination.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/Commands/GenericReadRecord
+ *
+ * @param destination_unid      The UNID of the node that should receive the command.
+ * 
+ * @param destination_endpoint  The Endpoint ID of the node that should receive the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generic_read_record_command(
+  const dotdot_unid_t destination_unid,
+  const dotdot_endpoint_id_t destination_endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_read_record_fields_t *fields
+  
+) {
+  // Create the topic
+  std::string topic = "ucl/by-unid/"+ std::string(destination_unid) + "/ep" +
+                      std::to_string(destination_endpoint) + "/";
+  topic += "DMFBridgeConfig/Commands/GenericReadRecord";
+
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_generic_read_record_command(
+    fields);
+
+  sl_log_debug(LOG_TAG, "Sending command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a GenericReadRecord command for
+ * the DMFBridgeConfig cluster to a group.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-group/GroupID/DMFBridgeConfig/Commands/GenericReadRecord
+ *
+ * @param destination_group_id  The GroupID that should receive the command.
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generic_read_record_command_to_group(
+  uint16_t destination_group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_read_record_fields_t *fields
+  
+){
+  // Create the topic
+  std::string topic = "ucl/by-group/"+ std::to_string(destination_group_id) +
+                      "/DMFBridgeConfig/Commands/GenericReadRecord";
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_generic_read_record_command(
+    fields);
+
+  sl_log_info(LOG_TAG, "Sending group command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a GenericReportRecord command for
+ * the DMFBridgeConfig cluster to a destination.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/Commands/GenericReportRecord
+ *
+ * @param destination_unid      The UNID of the node that should receive the command.
+ * 
+ * @param destination_endpoint  The Endpoint ID of the node that should receive the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generic_report_record_command(
+  const dotdot_unid_t destination_unid,
+  const dotdot_endpoint_id_t destination_endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_report_record_fields_t *fields
+  
+) {
+  // Create the topic
+  std::string topic = "ucl/by-unid/"+ std::string(destination_unid) + "/ep" +
+                      std::to_string(destination_endpoint) + "/";
+  topic += "DMFBridgeConfig/Commands/GenericReportRecord";
+
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_generic_report_record_command(
+    fields);
+
+  sl_log_debug(LOG_TAG, "Sending command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a GenericReportRecord command for
+ * the DMFBridgeConfig cluster to a group.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-group/GroupID/DMFBridgeConfig/Commands/GenericReportRecord
+ *
+ * @param destination_group_id  The GroupID that should receive the command.
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generic_report_record_command_to_group(
+  uint16_t destination_group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_report_record_fields_t *fields
+  
+){
+  // Create the topic
+  std::string topic = "ucl/by-group/"+ std::to_string(destination_group_id) +
+                      "/DMFBridgeConfig/Commands/GenericReportRecord";
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_generic_report_record_command(
+    fields);
+
+  sl_log_info(LOG_TAG, "Sending group command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a GenericWriteRecord command for
+ * the DMFBridgeConfig cluster to a destination.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/Commands/GenericWriteRecord
+ *
+ * @param destination_unid      The UNID of the node that should receive the command.
+ * 
+ * @param destination_endpoint  The Endpoint ID of the node that should receive the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generic_write_record_command(
+  const dotdot_unid_t destination_unid,
+  const dotdot_endpoint_id_t destination_endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_write_record_fields_t *fields
+  
+) {
+  // Create the topic
+  std::string topic = "ucl/by-unid/"+ std::string(destination_unid) + "/ep" +
+                      std::to_string(destination_endpoint) + "/";
+  topic += "DMFBridgeConfig/Commands/GenericWriteRecord";
+
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_generic_write_record_command(
+    fields);
+
+  sl_log_debug(LOG_TAG, "Sending command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a GenericWriteRecord command for
+ * the DMFBridgeConfig cluster to a group.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-group/GroupID/DMFBridgeConfig/Commands/GenericWriteRecord
+ *
+ * @param destination_group_id  The GroupID that should receive the command.
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generic_write_record_command_to_group(
+  uint16_t destination_group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_write_record_fields_t *fields
+  
+){
+  // Create the topic
+  std::string topic = "ucl/by-group/"+ std::to_string(destination_group_id) +
+                      "/DMFBridgeConfig/Commands/GenericWriteRecord";
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_generic_write_record_command(
+    fields);
+
+  sl_log_info(LOG_TAG, "Sending group command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a GenericDeleteRecord command for
+ * the DMFBridgeConfig cluster to a destination.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/Commands/GenericDeleteRecord
+ *
+ * @param destination_unid      The UNID of the node that should receive the command.
+ * 
+ * @param destination_endpoint  The Endpoint ID of the node that should receive the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generic_delete_record_command(
+  const dotdot_unid_t destination_unid,
+  const dotdot_endpoint_id_t destination_endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_delete_record_fields_t *fields
+  
+) {
+  // Create the topic
+  std::string topic = "ucl/by-unid/"+ std::string(destination_unid) + "/ep" +
+                      std::to_string(destination_endpoint) + "/";
+  topic += "DMFBridgeConfig/Commands/GenericDeleteRecord";
+
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_generic_delete_record_command(
+    fields);
+
+  sl_log_debug(LOG_TAG, "Sending command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a GenericDeleteRecord command for
+ * the DMFBridgeConfig cluster to a group.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-group/GroupID/DMFBridgeConfig/Commands/GenericDeleteRecord
+ *
+ * @param destination_group_id  The GroupID that should receive the command.
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generic_delete_record_command_to_group(
+  uint16_t destination_group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_delete_record_fields_t *fields
+  
+){
+  // Create the topic
+  std::string topic = "ucl/by-group/"+ std::to_string(destination_group_id) +
+                      "/DMFBridgeConfig/Commands/GenericDeleteRecord";
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_generic_delete_record_command(
+    fields);
+
+  sl_log_info(LOG_TAG, "Sending group command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a ClearTable command for
+ * the DMFBridgeConfig cluster to a destination.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/Commands/ClearTable
+ *
+ * @param destination_unid      The UNID of the node that should receive the command.
+ * 
+ * @param destination_endpoint  The Endpoint ID of the node that should receive the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_clear_table_command(
+  const dotdot_unid_t destination_unid,
+  const dotdot_endpoint_id_t destination_endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_clear_table_fields_t *fields
+  
+) {
+  // Create the topic
+  std::string topic = "ucl/by-unid/"+ std::string(destination_unid) + "/ep" +
+                      std::to_string(destination_endpoint) + "/";
+  topic += "DMFBridgeConfig/Commands/ClearTable";
+
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_clear_table_command(
+    fields);
+
+  sl_log_debug(LOG_TAG, "Sending command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a ClearTable command for
+ * the DMFBridgeConfig cluster to a group.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-group/GroupID/DMFBridgeConfig/Commands/ClearTable
+ *
+ * @param destination_group_id  The GroupID that should receive the command.
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_clear_table_command_to_group(
+  uint16_t destination_group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_clear_table_fields_t *fields
+  
+){
+  // Create the topic
+  std::string topic = "ucl/by-group/"+ std::to_string(destination_group_id) +
+                      "/DMFBridgeConfig/Commands/ClearTable";
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_clear_table_command(
+    fields);
+
+  sl_log_info(LOG_TAG, "Sending group command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a ZBNetworkLeave command for
+ * the DMFBridgeConfig cluster to a destination.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/Commands/ZBNetworkLeave
+ *
+ * @param destination_unid      The UNID of the node that should receive the command.
+ * 
+ * @param destination_endpoint  The Endpoint ID of the node that should receive the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_zb_network_leave_command(
+  const dotdot_unid_t destination_unid,
+  const dotdot_endpoint_id_t destination_endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_zb_network_leave_fields_t *fields
+  
+) {
+  // Create the topic
+  std::string topic = "ucl/by-unid/"+ std::string(destination_unid) + "/ep" +
+                      std::to_string(destination_endpoint) + "/";
+  topic += "DMFBridgeConfig/Commands/ZBNetworkLeave";
+
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_zb_network_leave_command(
+    fields);
+
+  sl_log_debug(LOG_TAG, "Sending command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a ZBNetworkLeave command for
+ * the DMFBridgeConfig cluster to a group.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-group/GroupID/DMFBridgeConfig/Commands/ZBNetworkLeave
+ *
+ * @param destination_group_id  The GroupID that should receive the command.
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_zb_network_leave_command_to_group(
+  uint16_t destination_group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_zb_network_leave_fields_t *fields
+  
+){
+  // Create the topic
+  std::string topic = "ucl/by-group/"+ std::to_string(destination_group_id) +
+                      "/DMFBridgeConfig/Commands/ZBNetworkLeave";
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_zb_network_leave_command(
+    fields);
+
+  sl_log_info(LOG_TAG, "Sending group command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a RawFixtureNotification command for
+ * the DMFBridgeConfig cluster to a destination.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/Commands/RawFixtureNotification
+ *
+ * @param destination_unid      The UNID of the node that should receive the command.
+ * 
+ * @param destination_endpoint  The Endpoint ID of the node that should receive the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_raw_fixture_notification_command(
+  const dotdot_unid_t destination_unid,
+  const dotdot_endpoint_id_t destination_endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_raw_fixture_notification_fields_t *fields
+  
+) {
+  // Create the topic
+  std::string topic = "ucl/by-unid/"+ std::string(destination_unid) + "/ep" +
+                      std::to_string(destination_endpoint) + "/";
+  topic += "DMFBridgeConfig/Commands/RawFixtureNotification";
+
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_raw_fixture_notification_command(
+    fields);
+
+  sl_log_debug(LOG_TAG, "Sending command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a RawFixtureNotification command for
+ * the DMFBridgeConfig cluster to a group.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-group/GroupID/DMFBridgeConfig/Commands/RawFixtureNotification
+ *
+ * @param destination_group_id  The GroupID that should receive the command.
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_raw_fixture_notification_command_to_group(
+  uint16_t destination_group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_raw_fixture_notification_fields_t *fields
+  
+){
+  // Create the topic
+  std::string topic = "ucl/by-group/"+ std::to_string(destination_group_id) +
+                      "/DMFBridgeConfig/Commands/RawFixtureNotification";
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_raw_fixture_notification_command(
+    fields);
+
+  sl_log_info(LOG_TAG, "Sending group command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
  * @brief Sends/Publishes a TxReport command for
  * the ProtocolController-RFTelemetry cluster to a destination.
  *

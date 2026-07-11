@@ -5436,6 +5436,333 @@ void uic_mqtt_dotdot_parse_diagnostics_write_attributes(
 
 /**
  * @brief Private helper function that will create a JSON string based on the
+ * fields of a DMFBridgeConfig TriggerRDMDiscovery command
+ * 
+ * @returns std::string that contains JSON payload
+ */
+std::string get_json_payload_for_dmf_bridge_config_trigger_rdm_discovery_command(
+  
+);
+
+
+
+
+/**
+ * @brief Private helper function that will create a JSON string based on the
+ * fields of a DMFBridgeConfig IdentifyFixture command
+ * 
+ * @param fields       Struct pointer with the list of fields for the command
+ * 
+ * @returns std::string that contains JSON payload
+ */
+std::string get_json_payload_for_dmf_bridge_config_identify_fixture_command(
+  
+  const uic_mqtt_dotdot_dmf_bridge_config_command_identify_fixture_fields_t *fields
+  
+);
+
+
+/**
+ * @brief JSON parser for DMFBridgeConfig IdentifyFixture command arguments.
+ *
+ * Parse incoming JSON object to populate command arguments passed in by reference.
+ */
+void uic_mqtt_dotdot_parse_dmf_bridge_config_identify_fixture(
+  nlohmann::json &jsn,
+  std::string &uid,
+
+  uint8_t &identify_on
+
+);
+
+
+
+/**
+ * @brief Private helper function that will create a JSON string based on the
+ * fields of a DMFBridgeConfig IdentifyZone command
+ * 
+ * @param fields       Struct pointer with the list of fields for the command
+ * 
+ * @returns std::string that contains JSON payload
+ */
+std::string get_json_payload_for_dmf_bridge_config_identify_zone_command(
+  
+  const uic_mqtt_dotdot_dmf_bridge_config_command_identify_zone_fields_t *fields
+  
+);
+
+
+/**
+ * @brief JSON parser for DMFBridgeConfig IdentifyZone command arguments.
+ *
+ * Parse incoming JSON object to populate command arguments passed in by reference.
+ */
+void uic_mqtt_dotdot_parse_dmf_bridge_config_identify_zone(
+  nlohmann::json &jsn,
+  uint8_t &zoneid,
+
+  uint8_t &identify_on
+
+);
+
+
+
+/**
+ * @brief Private helper function that will create a JSON string based on the
+ * fields of a DMFBridgeConfig PlayLightMode command
+ * 
+ * @param fields       Struct pointer with the list of fields for the command
+ * 
+ * @returns std::string that contains JSON payload
+ */
+std::string get_json_payload_for_dmf_bridge_config_play_light_mode_command(
+  
+  const uic_mqtt_dotdot_dmf_bridge_config_command_play_light_mode_fields_t *fields
+  
+);
+
+
+/**
+ * @brief JSON parser for DMFBridgeConfig PlayLightMode command arguments.
+ *
+ * Parse incoming JSON object to populate command arguments passed in by reference.
+ */
+void uic_mqtt_dotdot_parse_dmf_bridge_config_play_light_mode(
+  nlohmann::json &jsn,
+  uint8_t &light_modeid
+
+);
+
+
+
+/**
+ * @brief Private helper function that will create a JSON string based on the
+ * fields of a DMFBridgeConfig GenericReadRecord command
+ * 
+ * @param fields       Struct pointer with the list of fields for the command
+ * 
+ * @returns std::string that contains JSON payload
+ */
+std::string get_json_payload_for_dmf_bridge_config_generic_read_record_command(
+  
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_read_record_fields_t *fields
+  
+);
+
+
+/**
+ * @brief JSON parser for DMFBridgeConfig GenericReadRecord command arguments.
+ *
+ * Parse incoming JSON object to populate command arguments passed in by reference.
+ */
+void uic_mqtt_dotdot_parse_dmf_bridge_config_generic_read_record(
+  nlohmann::json &jsn,
+  uint16_t &tableid,
+
+  uint8_t &record_index
+
+);
+
+
+
+/**
+ * @brief Private helper function that will create a JSON string based on the
+ * fields of a DMFBridgeConfig GenericReportRecord command
+ * 
+ * @param fields       Struct pointer with the list of fields for the command
+ * 
+ * @returns std::string that contains JSON payload
+ */
+std::string get_json_payload_for_dmf_bridge_config_generic_report_record_command(
+  
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_report_record_fields_t *fields
+  
+);
+
+
+/**
+ * @brief JSON parser for DMFBridgeConfig GenericReportRecord command arguments.
+ *
+ * Parse incoming JSON object to populate command arguments passed in by reference.
+ */
+void uic_mqtt_dotdot_parse_dmf_bridge_config_generic_report_record(
+  nlohmann::json &jsn,
+  uint16_t &tableid,
+
+  uint8_t &record_index,
+
+  uint16_t &total_records,
+
+  std::string &record_payload
+
+);
+
+
+
+/**
+ * @brief Private helper function that will create a JSON string based on the
+ * fields of a DMFBridgeConfig GenericWriteRecord command
+ * 
+ * @param fields       Struct pointer with the list of fields for the command
+ * 
+ * @returns std::string that contains JSON payload
+ */
+std::string get_json_payload_for_dmf_bridge_config_generic_write_record_command(
+  
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_write_record_fields_t *fields
+  
+);
+
+
+/**
+ * @brief JSON parser for DMFBridgeConfig GenericWriteRecord command arguments.
+ *
+ * Parse incoming JSON object to populate command arguments passed in by reference.
+ */
+void uic_mqtt_dotdot_parse_dmf_bridge_config_generic_write_record(
+  nlohmann::json &jsn,
+  uint16_t &tableid,
+
+  uint8_t &record_index,
+
+  std::string &record_payload
+
+);
+
+
+
+/**
+ * @brief Private helper function that will create a JSON string based on the
+ * fields of a DMFBridgeConfig GenericDeleteRecord command
+ * 
+ * @param fields       Struct pointer with the list of fields for the command
+ * 
+ * @returns std::string that contains JSON payload
+ */
+std::string get_json_payload_for_dmf_bridge_config_generic_delete_record_command(
+  
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_delete_record_fields_t *fields
+  
+);
+
+
+/**
+ * @brief JSON parser for DMFBridgeConfig GenericDeleteRecord command arguments.
+ *
+ * Parse incoming JSON object to populate command arguments passed in by reference.
+ */
+void uic_mqtt_dotdot_parse_dmf_bridge_config_generic_delete_record(
+  nlohmann::json &jsn,
+  uint16_t &tableid,
+
+  uint8_t &record_index
+
+);
+
+
+
+/**
+ * @brief Private helper function that will create a JSON string based on the
+ * fields of a DMFBridgeConfig ClearTable command
+ * 
+ * @param fields       Struct pointer with the list of fields for the command
+ * 
+ * @returns std::string that contains JSON payload
+ */
+std::string get_json_payload_for_dmf_bridge_config_clear_table_command(
+  
+  const uic_mqtt_dotdot_dmf_bridge_config_command_clear_table_fields_t *fields
+  
+);
+
+
+/**
+ * @brief JSON parser for DMFBridgeConfig ClearTable command arguments.
+ *
+ * Parse incoming JSON object to populate command arguments passed in by reference.
+ */
+void uic_mqtt_dotdot_parse_dmf_bridge_config_clear_table(
+  nlohmann::json &jsn,
+  uint16_t &tableid,
+
+  uint16_t &confirm_code
+
+);
+
+
+
+/**
+ * @brief Private helper function that will create a JSON string based on the
+ * fields of a DMFBridgeConfig ZBNetworkLeave command
+ * 
+ * @param fields       Struct pointer with the list of fields for the command
+ * 
+ * @returns std::string that contains JSON payload
+ */
+std::string get_json_payload_for_dmf_bridge_config_zb_network_leave_command(
+  
+  const uic_mqtt_dotdot_dmf_bridge_config_command_zb_network_leave_fields_t *fields
+  
+);
+
+
+/**
+ * @brief JSON parser for DMFBridgeConfig ZBNetworkLeave command arguments.
+ *
+ * Parse incoming JSON object to populate command arguments passed in by reference.
+ */
+void uic_mqtt_dotdot_parse_dmf_bridge_config_zb_network_leave(
+  nlohmann::json &jsn,
+  uint16_t &confirm_code
+
+);
+
+
+
+/**
+ * @brief Private helper function that will create a JSON string based on the
+ * fields of a DMFBridgeConfig RawFixtureNotification command
+ * 
+ * @param fields       Struct pointer with the list of fields for the command
+ * 
+ * @returns std::string that contains JSON payload
+ */
+std::string get_json_payload_for_dmf_bridge_config_raw_fixture_notification_command(
+  
+  const uic_mqtt_dotdot_dmf_bridge_config_command_raw_fixture_notification_fields_t *fields
+  
+);
+
+
+/**
+ * @brief JSON parser for DMFBridgeConfig RawFixtureNotification command arguments.
+ *
+ * Parse incoming JSON object to populate command arguments passed in by reference.
+ */
+void uic_mqtt_dotdot_parse_dmf_bridge_config_raw_fixture_notification(
+  nlohmann::json &jsn,
+  std::string &uid,
+
+  uint16_t &modelid
+
+);
+
+
+
+/**
+ * @brief JSON parser for DMFBridgeConfig WriteAttributes command arguments.
+ *
+ * Parse incoming JSON object to populate command arguments passed in by reference.
+ */
+void uic_mqtt_dotdot_parse_dmf_bridge_config_write_attributes(
+  nlohmann::json &jsn,
+  uic_mqtt_dotdot_dmf_bridge_config_state_t &new_state,
+  uic_mqtt_dotdot_dmf_bridge_config_updated_state_t &new_updated_state
+);
+
+
+/**
+ * @brief Private helper function that will create a JSON string based on the
  * fields of a ProtocolController/RFTelemetry TxReport command
  * 
  * @param fields       Struct pointer with the list of fields for the command

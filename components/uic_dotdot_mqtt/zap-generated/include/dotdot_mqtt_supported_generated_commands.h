@@ -1353,6 +1353,45 @@ void uic_mqtt_dotdot_diagnostics_publish_supported_generated_commands(
 
 
 /**
+ * @brief Struct containing the list of commands for DMFBridgeConfig
+ */
+typedef struct _uic_mqtt_dotdot_dmf_bridge_config_supported_commands_ {
+  bool trigger_rdm_discovery;
+  bool identify_fixture;
+  bool identify_zone;
+  bool play_light_mode;
+  bool generic_read_record;
+  bool generic_report_record;
+  bool generic_write_record;
+  bool generic_delete_record;
+  bool clear_table;
+  bool zb_network_leave;
+  bool raw_fixture_notification;
+  bool write_attributes;
+} uic_mqtt_dotdot_dmf_bridge_config_supported_commands_t;
+
+/**
+ * @brief Sends/Publishes a the SupportedGenerated commands for
+ * the DMFBridgeConfig cluster for a UNID/Endpoint
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/SupportedGeneratedCommands
+ *
+ * @param unid      The UNID of the node on behalf of which the advertisment is made
+ * 
+ * @param endpoint  The Endpoint ID of the node on behalf of which the advertisment is made
+ * 
+ * @param command_list      Struct pointer with the fields value indicating if
+ *                          individual commands can be generated.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_supported_generated_commands(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_supported_commands_t *command_list
+);
+
+
+/**
  * @brief Struct containing the list of commands for ProtocolController-RFTelemetry
  */
 typedef struct _uic_mqtt_dotdot_protocol_controller_rf_telemetry_supported_commands_ {

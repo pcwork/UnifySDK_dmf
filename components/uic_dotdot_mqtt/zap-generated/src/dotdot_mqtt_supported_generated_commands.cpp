@@ -2300,6 +2300,82 @@ void uic_mqtt_dotdot_diagnostics_publish_supported_generated_commands(
 
 /**
  * @brief Sends/Publishes a the SupportedGenerated commands for
+ * the DMFBridgeConfig cluster for a UNID/Endpoint
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/SupportedGeneratedCommands
+ *
+ * @param unid      The UNID of the node on behalf of which the advertisment is made
+ * 
+ * @param endpoint  The Endpoint ID of the node on behalf of which the advertisment is made
+ * 
+ * @param command_list      Struct pointer with the fields value indicating if
+ *                          individual commands can be generated.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_supported_generated_commands(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_supported_commands_t *command_list)
+{
+  std::string topic = "ucl/by-unid/" + std::string(unid);
+  topic +=  "/ep"+ std::to_string(endpoint);
+  topic +=  "/DMFBridgeConfig/SupportedGeneratedCommands";
+
+  // Assemble of vector of strings for the Supported Commands:
+  std::vector<std::string> command_vector;
+  if (command_list->trigger_rdm_discovery == true) {
+    command_vector.emplace_back("TriggerRDMDiscovery");
+  }
+  if (command_list->identify_fixture == true) {
+    command_vector.emplace_back("IdentifyFixture");
+  }
+  if (command_list->identify_zone == true) {
+    command_vector.emplace_back("IdentifyZone");
+  }
+  if (command_list->play_light_mode == true) {
+    command_vector.emplace_back("PlayLightMode");
+  }
+  if (command_list->generic_read_record == true) {
+    command_vector.emplace_back("GenericReadRecord");
+  }
+  if (command_list->generic_report_record == true) {
+    command_vector.emplace_back("GenericReportRecord");
+  }
+  if (command_list->generic_write_record == true) {
+    command_vector.emplace_back("GenericWriteRecord");
+  }
+  if (command_list->generic_delete_record == true) {
+    command_vector.emplace_back("GenericDeleteRecord");
+  }
+  if (command_list->clear_table == true) {
+    command_vector.emplace_back("ClearTable");
+  }
+  if (command_list->zb_network_leave == true) {
+    command_vector.emplace_back("ZBNetworkLeave");
+  }
+  if (command_list->raw_fixture_notification == true) {
+    command_vector.emplace_back("RawFixtureNotification");
+  }
+  if (command_list->write_attributes == true) {
+    command_vector.emplace_back("WriteAttributes");
+  }
+
+  // JSONify, then Stringify
+  nlohmann::json json_payload;
+  json_payload["value"] = command_vector;
+  std::string string_payload = json_payload.dump();
+
+  // Publish to MQTT
+  uic_mqtt_publish(topic.c_str(),
+                   string_payload.c_str(),
+                   string_payload.length(),
+                   true);
+
+}
+
+
+/**
+ * @brief Sends/Publishes a the SupportedGenerated commands for
  * the ProtocolController-RFTelemetry cluster for a UNID/Endpoint
  *
  * Publication will be made at the following topic

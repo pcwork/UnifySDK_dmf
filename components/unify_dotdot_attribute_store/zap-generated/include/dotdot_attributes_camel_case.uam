@@ -757,6 +757,16 @@ def zb_AverageMACRetryPerAPSMessageSent 0x0b05011b
 def zb_LastMessageLQI 0x0b05011c
 def zb_LastMessageRSSI 0x0b05011d
 
+// This represents short CamelCase labels the attributes in the DotDot DMFBridgeConfig cluster
+def zb_FixtureTableRevision 0xfc420001
+def zb_GroupTableRevision 0xfc420002
+def zb_SceneTableRevision 0xfc420003
+def zb_LightModeTableRevision 0xfc420004
+def zb_ScheduleTableRevision 0xfc420005
+def zb_TotalFixturesCount 0xfc420010
+def zb_DiscoveryStatus 0xfc420011
+def zb_BLESessionStatus 0xfc420012
+
 // This represents short CamelCase labels the attributes in the DotDot ProtocolController-RFTelemetry cluster
 def zb_TxReportEnabled 0xfd010000
 def zb_PTIEnabled 0xfd010001

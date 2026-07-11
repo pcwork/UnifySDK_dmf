@@ -4220,6 +4220,71 @@ static sl_status_t uic_mqtt_dotdot_diagnostics_force_read_attributes_callback (
   return SL_STATUS_OK;
 }
 ////////////////////////////////////////////////////////////////////////////////
+// Start of cluster DMFBridgeConfig
+////////////////////////////////////////////////////////////////////////////////
+static sl_status_t uic_mqtt_dotdot_dmf_bridge_config_force_read_attributes_callback (
+  const dotdot_unid_t unid,
+  dotdot_endpoint_id_t endpoint_id,
+  uic_mqtt_dotdot_callback_call_type_t call_type,
+  uic_mqtt_dotdot_dmf_bridge_config_updated_state_t attribute_list) {
+
+  if (false == is_force_read_attributes_enabled()){
+    return SL_STATUS_FAIL;
+  }
+
+  if (call_type == UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK) {
+    if (is_automatic_deduction_of_supported_commands_enabled()) {
+      return dotdot_is_any_dmf_bridge_config_attribute_supported(unid, endpoint_id) ?
+        SL_STATUS_OK : SL_STATUS_FAIL;
+    } else {
+      return SL_STATUS_FAIL;
+    }
+  }
+
+  // Go and undefine everything that needs to be read again:
+  if (true == attribute_list.fixture_table_revision) {
+    if (SL_STATUS_OK == dotdot_dmf_bridge_config_fixture_table_revision_undefine_reported(unid, endpoint_id)) {
+      sl_log_debug(LOG_TAG, "Undefined Reported value of DMFBridgeConfig::FixtureTableRevision under %s - Endpoint %d", unid, endpoint_id);
+    }
+  }
+  if (true == attribute_list.group_table_revision) {
+    if (SL_STATUS_OK == dotdot_dmf_bridge_config_group_table_revision_undefine_reported(unid, endpoint_id)) {
+      sl_log_debug(LOG_TAG, "Undefined Reported value of DMFBridgeConfig::GroupTableRevision under %s - Endpoint %d", unid, endpoint_id);
+    }
+  }
+  if (true == attribute_list.scene_table_revision) {
+    if (SL_STATUS_OK == dotdot_dmf_bridge_config_scene_table_revision_undefine_reported(unid, endpoint_id)) {
+      sl_log_debug(LOG_TAG, "Undefined Reported value of DMFBridgeConfig::SceneTableRevision under %s - Endpoint %d", unid, endpoint_id);
+    }
+  }
+  if (true == attribute_list.light_mode_table_revision) {
+    if (SL_STATUS_OK == dotdot_dmf_bridge_config_light_mode_table_revision_undefine_reported(unid, endpoint_id)) {
+      sl_log_debug(LOG_TAG, "Undefined Reported value of DMFBridgeConfig::LightModeTableRevision under %s - Endpoint %d", unid, endpoint_id);
+    }
+  }
+  if (true == attribute_list.schedule_table_revision) {
+    if (SL_STATUS_OK == dotdot_dmf_bridge_config_schedule_table_revision_undefine_reported(unid, endpoint_id)) {
+      sl_log_debug(LOG_TAG, "Undefined Reported value of DMFBridgeConfig::ScheduleTableRevision under %s - Endpoint %d", unid, endpoint_id);
+    }
+  }
+  if (true == attribute_list.total_fixtures_count) {
+    if (SL_STATUS_OK == dotdot_dmf_bridge_config_total_fixtures_count_undefine_reported(unid, endpoint_id)) {
+      sl_log_debug(LOG_TAG, "Undefined Reported value of DMFBridgeConfig::TotalFixturesCount under %s - Endpoint %d", unid, endpoint_id);
+    }
+  }
+  if (true == attribute_list.discovery_status) {
+    if (SL_STATUS_OK == dotdot_dmf_bridge_config_discovery_status_undefine_reported(unid, endpoint_id)) {
+      sl_log_debug(LOG_TAG, "Undefined Reported value of DMFBridgeConfig::DiscoveryStatus under %s - Endpoint %d", unid, endpoint_id);
+    }
+  }
+  if (true == attribute_list.ble_session_status) {
+    if (SL_STATUS_OK == dotdot_dmf_bridge_config_ble_session_status_undefine_reported(unid, endpoint_id)) {
+      sl_log_debug(LOG_TAG, "Undefined Reported value of DMFBridgeConfig::BLESessionStatus under %s - Endpoint %d", unid, endpoint_id);
+    }
+  }
+  return SL_STATUS_OK;
+}
+////////////////////////////////////////////////////////////////////////////////
 // Start of cluster Binding
 ////////////////////////////////////////////////////////////////////////////////
 static sl_status_t uic_mqtt_dotdot_binding_force_read_attributes_callback (
@@ -4646,6 +4711,8 @@ sl_status_t
   uic_mqtt_dotdot_set_electrical_measurement_force_read_attributes_callback(&uic_mqtt_dotdot_electrical_measurement_force_read_attributes_callback);
   
   uic_mqtt_dotdot_set_diagnostics_force_read_attributes_callback(&uic_mqtt_dotdot_diagnostics_force_read_attributes_callback);
+  
+  uic_mqtt_dotdot_set_dmf_bridge_config_force_read_attributes_callback(&uic_mqtt_dotdot_dmf_bridge_config_force_read_attributes_callback);
   
 
 

@@ -45,6 +45,7 @@ const SUPPORTED_CLUSTERS = [
     'PowerConfiguration',
     'WindowCovering',
     'TemperatureMeasurement',
+    'DMFBridgeConfig',
 ]
 
 const SUPPORTED_CLUSTER_ATTRIBUTES = [
@@ -67,6 +68,7 @@ const SUPPORTED_CLUSTER_ATTRIBUTES = [
     'PowerConfiguration',
     'WindowCovering',
     'TemperatureMeasurement',
+    'DMFBridgeConfig',
 ]
 
 const supportedCluster = (clusterName) => {
@@ -90,7 +92,10 @@ const supportedEnums = (enumLabel) => {
 const zigpc_zcl = {
     prefix: base_helpers.asSnakeCaseUpper(component_zigpc_zcl_prefix()),
     data_type: (type) => {
-        return zigpc_zcl.prefix + '_DATA_TYPE_' + base_helpers.asSnakeCaseUpper(type)
+        const resolved_type = base_helpers.resolveBaseType
+            ? base_helpers.resolveBaseType(type)
+            : type
+        return zigpc_zcl.prefix + '_DATA_TYPE_' + base_helpers.asSnakeCaseUpper(resolved_type)
     },
     cluster_type: (clusterObj) => {
         return zigpc_zcl.prefix + '_CLUSTER_' + base_helpers.asSnakeCaseUpper(clusterObj.label)

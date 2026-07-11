@@ -2152,6 +2152,36 @@ static sl_status_t diagnostics_cluster_write_attributes_callback(
   return SL_STATUS_OK;
 }
 ////////////////////////////////////////////////////////////////////////////////
+// Start of cluster DMFBridgeConfig
+////////////////////////////////////////////////////////////////////////////////
+// WriteAttribute Callbacks dmf_bridge_config
+static sl_status_t dmf_bridge_config_cluster_write_attributes_callback(
+  const dotdot_unid_t unid,
+  dotdot_endpoint_id_t endpoint_id,
+  uic_mqtt_dotdot_callback_call_type_t call_type,
+  uic_mqtt_dotdot_dmf_bridge_config_state_t attributes,
+  uic_mqtt_dotdot_dmf_bridge_config_updated_state_t updated_attributes)
+{
+  if (false == is_write_attributes_enabled()) {
+    return SL_STATUS_FAIL;
+  }
+
+  if (call_type == UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK) {
+    if (is_automatic_deduction_of_supported_commands_enabled()) {
+      return dotdot_is_any_dmf_bridge_config_writable_attribute_supported(unid, endpoint_id) ?
+        SL_STATUS_OK : SL_STATUS_FAIL;
+    } else {
+      return SL_STATUS_FAIL;
+    }
+  }
+
+  sl_log_debug(LOG_TAG,
+               "dmf_bridge_config: Incoming WriteAttributes command for %s, endpoint %d.\n",
+               unid,
+               endpoint_id);
+  return SL_STATUS_OK;
+}
+////////////////////////////////////////////////////////////////////////////////
 // Start of cluster ProtocolController-RFTelemetry
 ////////////////////////////////////////////////////////////////////////////////
 // WriteAttribute Callbacks protocol_controller_rf_telemetry
@@ -2688,6 +2718,9 @@ sl_status_t
   
   uic_mqtt_dotdot_set_diagnostics_write_attributes_callback(
     &diagnostics_cluster_write_attributes_callback);
+  
+  uic_mqtt_dotdot_set_dmf_bridge_config_write_attributes_callback(
+    &dmf_bridge_config_cluster_write_attributes_callback);
   
   uic_mqtt_dotdot_set_protocol_controller_rf_telemetry_write_attributes_callback(
     &protocol_controller_rf_telemetry_cluster_write_attributes_callback);

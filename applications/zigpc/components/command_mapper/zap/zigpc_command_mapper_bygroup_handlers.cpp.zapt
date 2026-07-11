@@ -106,8 +106,7 @@ void {{component_zigpc_cmdmapper_prefix}}_bygroup_{{asSnakeCaseLower parent.labe
  */
 void {{component_zigpc_cmdmapper_prefix}}_bygroup_{{asSnakeCaseLower parent.label}}_{{asSnakeCaseLower label}}_handler(
   const dotdot_group_id_t group_id{{#zcl_command_arguments}}{{#first}},
-  const {{asDotDotMqttCommandFieldsType parent}} *fields
-  {{/first}}{{/zcl_command_arguments}}
+  const {{asDotDotMqttCommandFieldsType parent}} *fields{{/first}}{{/zcl_command_arguments}}
 ) {
 
 {{! check for list argument validity}}

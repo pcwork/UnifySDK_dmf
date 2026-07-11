@@ -337,6 +337,20 @@ static uic_mqtt_dotdot_by_group_electrical_measurement_write_attributes_callback
 static uic_mqtt_dotdot_by_group_diagnostics_write_attributes_callback_t uic_mqtt_dotdot_by_group_diagnostics_write_attributes_callback = nullptr;
 
 
+static uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback_t uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback = nullptr;
+static uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback_t uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback = nullptr;
+static uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_zone_callback_t uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_zone_callback = nullptr;
+static uic_mqtt_dotdot_by_group_dmf_bridge_config_play_light_mode_callback_t uic_mqtt_dotdot_by_group_dmf_bridge_config_play_light_mode_callback = nullptr;
+static uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_read_record_callback_t uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_read_record_callback = nullptr;
+static uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_report_record_callback_t uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_report_record_callback = nullptr;
+static uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_write_record_callback_t uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_write_record_callback = nullptr;
+static uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_delete_record_callback_t uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_delete_record_callback = nullptr;
+static uic_mqtt_dotdot_by_group_dmf_bridge_config_clear_table_callback_t uic_mqtt_dotdot_by_group_dmf_bridge_config_clear_table_callback = nullptr;
+static uic_mqtt_dotdot_by_group_dmf_bridge_config_zb_network_leave_callback_t uic_mqtt_dotdot_by_group_dmf_bridge_config_zb_network_leave_callback = nullptr;
+static uic_mqtt_dotdot_by_group_dmf_bridge_config_raw_fixture_notification_callback_t uic_mqtt_dotdot_by_group_dmf_bridge_config_raw_fixture_notification_callback = nullptr;
+static uic_mqtt_dotdot_by_group_dmf_bridge_config_write_attributes_callback_t uic_mqtt_dotdot_by_group_dmf_bridge_config_write_attributes_callback = nullptr;
+
+
 static uic_mqtt_dotdot_by_group_binding_bind_callback_t uic_mqtt_dotdot_by_group_binding_bind_callback = nullptr;
 static uic_mqtt_dotdot_by_group_binding_unbind_callback_t uic_mqtt_dotdot_by_group_binding_unbind_callback = nullptr;
 static uic_mqtt_dotdot_by_group_binding_bind_to_protocol_controller_callback_t uic_mqtt_dotdot_by_group_binding_bind_to_protocol_controller_callback = nullptr;
@@ -1756,6 +1770,81 @@ void uic_mqtt_dotdot_by_group_diagnostics_write_attributes_callback_set(
   const uic_mqtt_dotdot_by_group_diagnostics_write_attributes_callback_t callback)
 {
   uic_mqtt_dotdot_by_group_diagnostics_write_attributes_callback = callback;
+}
+
+
+
+// Callbacks setters
+
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback_t callback)
+{
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback = callback;
+}
+
+
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback_t callback)
+{
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback = callback;
+}
+
+
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_zone_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_zone_callback_t callback)
+{
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_zone_callback = callback;
+}
+
+
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_play_light_mode_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_play_light_mode_callback_t callback)
+{
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_play_light_mode_callback = callback;
+}
+
+
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_read_record_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_read_record_callback_t callback)
+{
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_read_record_callback = callback;
+}
+
+
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_report_record_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_report_record_callback_t callback)
+{
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_report_record_callback = callback;
+}
+
+
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_write_record_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_write_record_callback_t callback)
+{
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_write_record_callback = callback;
+}
+
+
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_delete_record_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_delete_record_callback_t callback)
+{
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_delete_record_callback = callback;
+}
+
+
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_clear_table_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_clear_table_callback_t callback)
+{
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_clear_table_callback = callback;
+}
+
+
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_zb_network_leave_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_zb_network_leave_callback_t callback)
+{
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_zb_network_leave_callback = callback;
+}
+
+
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_raw_fixture_notification_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_raw_fixture_notification_callback_t callback)
+{
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_raw_fixture_notification_callback = callback;
+}
+
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_write_attributes_callback_set(
+  const uic_mqtt_dotdot_by_group_dmf_bridge_config_write_attributes_callback_t callback)
+{
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_write_attributes_callback = callback;
 }
 
 
@@ -21904,6 +21993,1133 @@ sl_status_t uic_mqtt_dotdot_by_group_diagnostics_init()
 
 
 
+// Callback function for incoming publications on ucl/by-group/+/DMFBridgeConfig/Commands/TriggerRDMDiscovery
+static void uic_mqtt_dotdot_on_by_group_dmf_bridge_config_trigger_rdm_discovery(
+  const char *topic,
+  const char *message,
+  const size_t message_length)
+{
+  if ((group_dispatch_callback == nullptr) && (uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback == nullptr)) {
+    return;
+  }
+  if (message_length == 0) {
+    return;
+  }
+
+  dotdot_group_id_t group_id = 0U;
+  if(!uic_dotdot_mqtt::parse_topic_group_id(topic,group_id)) {
+    sl_log_debug(LOG_TAG,
+                "Failed to parse GroupId from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Pass to command-specific callback if set. Otherwise, pass to
+  // group-dispatch callback
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback != nullptr) {
+
+    
+
+      nlohmann::json jsn;
+      try {
+        jsn = nlohmann::json::parse(std::string(message));
+
+      
+
+      // Populate list fields from vector or string types
+      
+
+      } catch (const nlohmann::json::parse_error& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_PARSE_FAIL, "DMFBridgeConfig", "TriggerRDMDiscovery");
+        return;
+      } catch (const nlohmann::json::exception& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "TriggerRDMDiscovery", e.what());
+        return;
+      } catch (const std::exception& e) {
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "TriggerRDMDiscovery", "");
+        return;
+      }
+
+      uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback(
+        group_id
+      );
+  } else if ((group_dispatch_callback != nullptr) && (!get_uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback().empty())) {
+    // group-dispatch callback only called if the command-specific by-unid
+    // callback is set
+    try {
+      nlohmann::json jsn = nlohmann::json::parse(std::string(message));
+
+      group_dispatch_callback(
+        group_id,
+        "DMFBridgeConfig",
+        "TriggerRDMDiscovery",
+        message,
+        message_length,
+        uic_mqtt_dotdot_on_dmf_bridge_config_trigger_rdm_discovery);
+
+    } catch (...) {
+      sl_log_debug(LOG_TAG, "TriggerRDMDiscovery: Unable to parse JSON payload.\n");
+      return;
+    }
+  }
+
+}
+
+// Callback function for incoming publications on ucl/by-group/+/DMFBridgeConfig/Commands/IdentifyFixture
+static void uic_mqtt_dotdot_on_by_group_dmf_bridge_config_identify_fixture(
+  const char *topic,
+  const char *message,
+  const size_t message_length)
+{
+  if ((group_dispatch_callback == nullptr) && (uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback == nullptr)) {
+    return;
+  }
+  if (message_length == 0) {
+    return;
+  }
+
+  dotdot_group_id_t group_id = 0U;
+  if(!uic_dotdot_mqtt::parse_topic_group_id(topic,group_id)) {
+    sl_log_debug(LOG_TAG,
+                "Failed to parse GroupId from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Pass to command-specific callback if set. Otherwise, pass to
+  // group-dispatch callback
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback != nullptr) {
+
+    
+    uic_mqtt_dotdot_dmf_bridge_config_command_identify_fixture_fields_t fields;
+      std::string uid;
+    
+
+      nlohmann::json jsn;
+      try {
+        jsn = nlohmann::json::parse(std::string(message));
+
+      
+        uic_mqtt_dotdot_parse_dmf_bridge_config_identify_fixture(
+          jsn,
+          uid,
+      
+          fields.identify_on
+              );
+
+      // Populate list fields from vector or string types
+              fields.uid = uid.c_str();
+      
+
+      } catch (const nlohmann::json::parse_error& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_PARSE_FAIL, "DMFBridgeConfig", "IdentifyFixture");
+        return;
+      } catch (const nlohmann::json::exception& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "IdentifyFixture", e.what());
+        return;
+      } catch (const std::exception& e) {
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "IdentifyFixture", "");
+        return;
+      }
+
+      uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback(
+        group_id,
+        &fields
+      );
+  } else if ((group_dispatch_callback != nullptr) && (!get_uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback().empty())) {
+    // group-dispatch callback only called if the command-specific by-unid
+    // callback is set
+    try {
+      nlohmann::json jsn = nlohmann::json::parse(std::string(message));
+      if (jsn.find("UID") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::IdentifyFixture: Missing command-argument: UID\n");
+        return;
+      }
+      if (jsn.find("IdentifyOn") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::IdentifyFixture: Missing command-argument: IdentifyOn\n");
+        return;
+      }
+
+      group_dispatch_callback(
+        group_id,
+        "DMFBridgeConfig",
+        "IdentifyFixture",
+        message,
+        message_length,
+        uic_mqtt_dotdot_on_dmf_bridge_config_identify_fixture);
+
+    } catch (...) {
+      sl_log_debug(LOG_TAG, "IdentifyFixture: Unable to parse JSON payload.\n");
+      return;
+    }
+  }
+
+}
+
+// Callback function for incoming publications on ucl/by-group/+/DMFBridgeConfig/Commands/IdentifyZone
+static void uic_mqtt_dotdot_on_by_group_dmf_bridge_config_identify_zone(
+  const char *topic,
+  const char *message,
+  const size_t message_length)
+{
+  if ((group_dispatch_callback == nullptr) && (uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_zone_callback == nullptr)) {
+    return;
+  }
+  if (message_length == 0) {
+    return;
+  }
+
+  dotdot_group_id_t group_id = 0U;
+  if(!uic_dotdot_mqtt::parse_topic_group_id(topic,group_id)) {
+    sl_log_debug(LOG_TAG,
+                "Failed to parse GroupId from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Pass to command-specific callback if set. Otherwise, pass to
+  // group-dispatch callback
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_zone_callback != nullptr) {
+
+    
+    uic_mqtt_dotdot_dmf_bridge_config_command_identify_zone_fields_t fields;
+
+
+      nlohmann::json jsn;
+      try {
+        jsn = nlohmann::json::parse(std::string(message));
+
+      
+        uic_mqtt_dotdot_parse_dmf_bridge_config_identify_zone(
+          jsn,
+          fields.zoneid,
+              
+          fields.identify_on
+              );
+
+      // Populate list fields from vector or string types
+      
+
+      } catch (const nlohmann::json::parse_error& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_PARSE_FAIL, "DMFBridgeConfig", "IdentifyZone");
+        return;
+      } catch (const nlohmann::json::exception& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "IdentifyZone", e.what());
+        return;
+      } catch (const std::exception& e) {
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "IdentifyZone", "");
+        return;
+      }
+
+      uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_zone_callback(
+        group_id,
+        &fields
+      );
+  } else if ((group_dispatch_callback != nullptr) && (!get_uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback().empty())) {
+    // group-dispatch callback only called if the command-specific by-unid
+    // callback is set
+    try {
+      nlohmann::json jsn = nlohmann::json::parse(std::string(message));
+      if (jsn.find("ZoneID") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::IdentifyZone: Missing command-argument: ZoneID\n");
+        return;
+      }
+      if (jsn.find("IdentifyOn") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::IdentifyZone: Missing command-argument: IdentifyOn\n");
+        return;
+      }
+
+      group_dispatch_callback(
+        group_id,
+        "DMFBridgeConfig",
+        "IdentifyZone",
+        message,
+        message_length,
+        uic_mqtt_dotdot_on_dmf_bridge_config_identify_zone);
+
+    } catch (...) {
+      sl_log_debug(LOG_TAG, "IdentifyZone: Unable to parse JSON payload.\n");
+      return;
+    }
+  }
+
+}
+
+// Callback function for incoming publications on ucl/by-group/+/DMFBridgeConfig/Commands/PlayLightMode
+static void uic_mqtt_dotdot_on_by_group_dmf_bridge_config_play_light_mode(
+  const char *topic,
+  const char *message,
+  const size_t message_length)
+{
+  if ((group_dispatch_callback == nullptr) && (uic_mqtt_dotdot_by_group_dmf_bridge_config_play_light_mode_callback == nullptr)) {
+    return;
+  }
+  if (message_length == 0) {
+    return;
+  }
+
+  dotdot_group_id_t group_id = 0U;
+  if(!uic_dotdot_mqtt::parse_topic_group_id(topic,group_id)) {
+    sl_log_debug(LOG_TAG,
+                "Failed to parse GroupId from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Pass to command-specific callback if set. Otherwise, pass to
+  // group-dispatch callback
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_play_light_mode_callback != nullptr) {
+
+    
+    uic_mqtt_dotdot_dmf_bridge_config_command_play_light_mode_fields_t fields;
+
+
+      nlohmann::json jsn;
+      try {
+        jsn = nlohmann::json::parse(std::string(message));
+
+      
+        uic_mqtt_dotdot_parse_dmf_bridge_config_play_light_mode(
+          jsn,
+          fields.light_modeid
+              );
+
+      // Populate list fields from vector or string types
+      
+
+      } catch (const nlohmann::json::parse_error& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_PARSE_FAIL, "DMFBridgeConfig", "PlayLightMode");
+        return;
+      } catch (const nlohmann::json::exception& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "PlayLightMode", e.what());
+        return;
+      } catch (const std::exception& e) {
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "PlayLightMode", "");
+        return;
+      }
+
+      uic_mqtt_dotdot_by_group_dmf_bridge_config_play_light_mode_callback(
+        group_id,
+        &fields
+      );
+  } else if ((group_dispatch_callback != nullptr) && (!get_uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback().empty())) {
+    // group-dispatch callback only called if the command-specific by-unid
+    // callback is set
+    try {
+      nlohmann::json jsn = nlohmann::json::parse(std::string(message));
+      if (jsn.find("LightModeID") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::PlayLightMode: Missing command-argument: LightModeID\n");
+        return;
+      }
+
+      group_dispatch_callback(
+        group_id,
+        "DMFBridgeConfig",
+        "PlayLightMode",
+        message,
+        message_length,
+        uic_mqtt_dotdot_on_dmf_bridge_config_play_light_mode);
+
+    } catch (...) {
+      sl_log_debug(LOG_TAG, "PlayLightMode: Unable to parse JSON payload.\n");
+      return;
+    }
+  }
+
+}
+
+// Callback function for incoming publications on ucl/by-group/+/DMFBridgeConfig/Commands/GenericReadRecord
+static void uic_mqtt_dotdot_on_by_group_dmf_bridge_config_generic_read_record(
+  const char *topic,
+  const char *message,
+  const size_t message_length)
+{
+  if ((group_dispatch_callback == nullptr) && (uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_read_record_callback == nullptr)) {
+    return;
+  }
+  if (message_length == 0) {
+    return;
+  }
+
+  dotdot_group_id_t group_id = 0U;
+  if(!uic_dotdot_mqtt::parse_topic_group_id(topic,group_id)) {
+    sl_log_debug(LOG_TAG,
+                "Failed to parse GroupId from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Pass to command-specific callback if set. Otherwise, pass to
+  // group-dispatch callback
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_read_record_callback != nullptr) {
+
+    
+    uic_mqtt_dotdot_dmf_bridge_config_command_generic_read_record_fields_t fields;
+
+
+      nlohmann::json jsn;
+      try {
+        jsn = nlohmann::json::parse(std::string(message));
+
+      
+        uic_mqtt_dotdot_parse_dmf_bridge_config_generic_read_record(
+          jsn,
+          fields.tableid,
+              
+          fields.record_index
+              );
+
+      // Populate list fields from vector or string types
+      
+
+      } catch (const nlohmann::json::parse_error& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_PARSE_FAIL, "DMFBridgeConfig", "GenericReadRecord");
+        return;
+      } catch (const nlohmann::json::exception& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "GenericReadRecord", e.what());
+        return;
+      } catch (const std::exception& e) {
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "GenericReadRecord", "");
+        return;
+      }
+
+      uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_read_record_callback(
+        group_id,
+        &fields
+      );
+  } else if ((group_dispatch_callback != nullptr) && (!get_uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback().empty())) {
+    // group-dispatch callback only called if the command-specific by-unid
+    // callback is set
+    try {
+      nlohmann::json jsn = nlohmann::json::parse(std::string(message));
+      if (jsn.find("TableID") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::GenericReadRecord: Missing command-argument: TableID\n");
+        return;
+      }
+      if (jsn.find("RecordIndex") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::GenericReadRecord: Missing command-argument: RecordIndex\n");
+        return;
+      }
+
+      group_dispatch_callback(
+        group_id,
+        "DMFBridgeConfig",
+        "GenericReadRecord",
+        message,
+        message_length,
+        uic_mqtt_dotdot_on_dmf_bridge_config_generic_read_record);
+
+    } catch (...) {
+      sl_log_debug(LOG_TAG, "GenericReadRecord: Unable to parse JSON payload.\n");
+      return;
+    }
+  }
+
+}
+
+// Callback function for incoming publications on ucl/by-group/+/DMFBridgeConfig/Commands/GenericReportRecord
+static void uic_mqtt_dotdot_on_by_group_dmf_bridge_config_generic_report_record(
+  const char *topic,
+  const char *message,
+  const size_t message_length)
+{
+  if ((group_dispatch_callback == nullptr) && (uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_report_record_callback == nullptr)) {
+    return;
+  }
+  if (message_length == 0) {
+    return;
+  }
+
+  dotdot_group_id_t group_id = 0U;
+  if(!uic_dotdot_mqtt::parse_topic_group_id(topic,group_id)) {
+    sl_log_debug(LOG_TAG,
+                "Failed to parse GroupId from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Pass to command-specific callback if set. Otherwise, pass to
+  // group-dispatch callback
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_report_record_callback != nullptr) {
+
+    
+    uic_mqtt_dotdot_dmf_bridge_config_command_generic_report_record_fields_t fields;
+      std::string record_payload;
+    
+
+      nlohmann::json jsn;
+      try {
+        jsn = nlohmann::json::parse(std::string(message));
+
+      
+        uic_mqtt_dotdot_parse_dmf_bridge_config_generic_report_record(
+          jsn,
+          fields.tableid,
+              
+          fields.record_index,
+              
+          fields.total_records,
+              
+          record_payload
+      );
+
+      // Populate list fields from vector or string types
+              fields.record_payload = record_payload.c_str();
+      
+
+      } catch (const nlohmann::json::parse_error& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_PARSE_FAIL, "DMFBridgeConfig", "GenericReportRecord");
+        return;
+      } catch (const nlohmann::json::exception& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "GenericReportRecord", e.what());
+        return;
+      } catch (const std::exception& e) {
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "GenericReportRecord", "");
+        return;
+      }
+
+      uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_report_record_callback(
+        group_id,
+        &fields
+      );
+  } else if ((group_dispatch_callback != nullptr) && (!get_uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback().empty())) {
+    // group-dispatch callback only called if the command-specific by-unid
+    // callback is set
+    try {
+      nlohmann::json jsn = nlohmann::json::parse(std::string(message));
+      if (jsn.find("TableID") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::GenericReportRecord: Missing command-argument: TableID\n");
+        return;
+      }
+      if (jsn.find("RecordIndex") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::GenericReportRecord: Missing command-argument: RecordIndex\n");
+        return;
+      }
+      if (jsn.find("TotalRecords") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::GenericReportRecord: Missing command-argument: TotalRecords\n");
+        return;
+      }
+      if (jsn.find("RecordPayload") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::GenericReportRecord: Missing command-argument: RecordPayload\n");
+        return;
+      }
+
+      group_dispatch_callback(
+        group_id,
+        "DMFBridgeConfig",
+        "GenericReportRecord",
+        message,
+        message_length,
+        uic_mqtt_dotdot_on_dmf_bridge_config_generic_report_record);
+
+    } catch (...) {
+      sl_log_debug(LOG_TAG, "GenericReportRecord: Unable to parse JSON payload.\n");
+      return;
+    }
+  }
+
+}
+
+// Callback function for incoming publications on ucl/by-group/+/DMFBridgeConfig/Commands/GenericWriteRecord
+static void uic_mqtt_dotdot_on_by_group_dmf_bridge_config_generic_write_record(
+  const char *topic,
+  const char *message,
+  const size_t message_length)
+{
+  if ((group_dispatch_callback == nullptr) && (uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_write_record_callback == nullptr)) {
+    return;
+  }
+  if (message_length == 0) {
+    return;
+  }
+
+  dotdot_group_id_t group_id = 0U;
+  if(!uic_dotdot_mqtt::parse_topic_group_id(topic,group_id)) {
+    sl_log_debug(LOG_TAG,
+                "Failed to parse GroupId from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Pass to command-specific callback if set. Otherwise, pass to
+  // group-dispatch callback
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_write_record_callback != nullptr) {
+
+    
+    uic_mqtt_dotdot_dmf_bridge_config_command_generic_write_record_fields_t fields;
+      std::string record_payload;
+    
+
+      nlohmann::json jsn;
+      try {
+        jsn = nlohmann::json::parse(std::string(message));
+
+      
+        uic_mqtt_dotdot_parse_dmf_bridge_config_generic_write_record(
+          jsn,
+          fields.tableid,
+              
+          fields.record_index,
+              
+          record_payload
+      );
+
+      // Populate list fields from vector or string types
+              fields.record_payload = record_payload.c_str();
+      
+
+      } catch (const nlohmann::json::parse_error& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_PARSE_FAIL, "DMFBridgeConfig", "GenericWriteRecord");
+        return;
+      } catch (const nlohmann::json::exception& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "GenericWriteRecord", e.what());
+        return;
+      } catch (const std::exception& e) {
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "GenericWriteRecord", "");
+        return;
+      }
+
+      uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_write_record_callback(
+        group_id,
+        &fields
+      );
+  } else if ((group_dispatch_callback != nullptr) && (!get_uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback().empty())) {
+    // group-dispatch callback only called if the command-specific by-unid
+    // callback is set
+    try {
+      nlohmann::json jsn = nlohmann::json::parse(std::string(message));
+      if (jsn.find("TableID") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::GenericWriteRecord: Missing command-argument: TableID\n");
+        return;
+      }
+      if (jsn.find("RecordIndex") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::GenericWriteRecord: Missing command-argument: RecordIndex\n");
+        return;
+      }
+      if (jsn.find("RecordPayload") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::GenericWriteRecord: Missing command-argument: RecordPayload\n");
+        return;
+      }
+
+      group_dispatch_callback(
+        group_id,
+        "DMFBridgeConfig",
+        "GenericWriteRecord",
+        message,
+        message_length,
+        uic_mqtt_dotdot_on_dmf_bridge_config_generic_write_record);
+
+    } catch (...) {
+      sl_log_debug(LOG_TAG, "GenericWriteRecord: Unable to parse JSON payload.\n");
+      return;
+    }
+  }
+
+}
+
+// Callback function for incoming publications on ucl/by-group/+/DMFBridgeConfig/Commands/GenericDeleteRecord
+static void uic_mqtt_dotdot_on_by_group_dmf_bridge_config_generic_delete_record(
+  const char *topic,
+  const char *message,
+  const size_t message_length)
+{
+  if ((group_dispatch_callback == nullptr) && (uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_delete_record_callback == nullptr)) {
+    return;
+  }
+  if (message_length == 0) {
+    return;
+  }
+
+  dotdot_group_id_t group_id = 0U;
+  if(!uic_dotdot_mqtt::parse_topic_group_id(topic,group_id)) {
+    sl_log_debug(LOG_TAG,
+                "Failed to parse GroupId from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Pass to command-specific callback if set. Otherwise, pass to
+  // group-dispatch callback
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_delete_record_callback != nullptr) {
+
+    
+    uic_mqtt_dotdot_dmf_bridge_config_command_generic_delete_record_fields_t fields;
+
+
+      nlohmann::json jsn;
+      try {
+        jsn = nlohmann::json::parse(std::string(message));
+
+      
+        uic_mqtt_dotdot_parse_dmf_bridge_config_generic_delete_record(
+          jsn,
+          fields.tableid,
+              
+          fields.record_index
+              );
+
+      // Populate list fields from vector or string types
+      
+
+      } catch (const nlohmann::json::parse_error& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_PARSE_FAIL, "DMFBridgeConfig", "GenericDeleteRecord");
+        return;
+      } catch (const nlohmann::json::exception& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "GenericDeleteRecord", e.what());
+        return;
+      } catch (const std::exception& e) {
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "GenericDeleteRecord", "");
+        return;
+      }
+
+      uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_delete_record_callback(
+        group_id,
+        &fields
+      );
+  } else if ((group_dispatch_callback != nullptr) && (!get_uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback().empty())) {
+    // group-dispatch callback only called if the command-specific by-unid
+    // callback is set
+    try {
+      nlohmann::json jsn = nlohmann::json::parse(std::string(message));
+      if (jsn.find("TableID") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::GenericDeleteRecord: Missing command-argument: TableID\n");
+        return;
+      }
+      if (jsn.find("RecordIndex") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::GenericDeleteRecord: Missing command-argument: RecordIndex\n");
+        return;
+      }
+
+      group_dispatch_callback(
+        group_id,
+        "DMFBridgeConfig",
+        "GenericDeleteRecord",
+        message,
+        message_length,
+        uic_mqtt_dotdot_on_dmf_bridge_config_generic_delete_record);
+
+    } catch (...) {
+      sl_log_debug(LOG_TAG, "GenericDeleteRecord: Unable to parse JSON payload.\n");
+      return;
+    }
+  }
+
+}
+
+// Callback function for incoming publications on ucl/by-group/+/DMFBridgeConfig/Commands/ClearTable
+static void uic_mqtt_dotdot_on_by_group_dmf_bridge_config_clear_table(
+  const char *topic,
+  const char *message,
+  const size_t message_length)
+{
+  if ((group_dispatch_callback == nullptr) && (uic_mqtt_dotdot_by_group_dmf_bridge_config_clear_table_callback == nullptr)) {
+    return;
+  }
+  if (message_length == 0) {
+    return;
+  }
+
+  dotdot_group_id_t group_id = 0U;
+  if(!uic_dotdot_mqtt::parse_topic_group_id(topic,group_id)) {
+    sl_log_debug(LOG_TAG,
+                "Failed to parse GroupId from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Pass to command-specific callback if set. Otherwise, pass to
+  // group-dispatch callback
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_clear_table_callback != nullptr) {
+
+    
+    uic_mqtt_dotdot_dmf_bridge_config_command_clear_table_fields_t fields;
+
+
+      nlohmann::json jsn;
+      try {
+        jsn = nlohmann::json::parse(std::string(message));
+
+      
+        uic_mqtt_dotdot_parse_dmf_bridge_config_clear_table(
+          jsn,
+          fields.tableid,
+              
+          fields.confirm_code
+              );
+
+      // Populate list fields from vector or string types
+      
+
+      } catch (const nlohmann::json::parse_error& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_PARSE_FAIL, "DMFBridgeConfig", "ClearTable");
+        return;
+      } catch (const nlohmann::json::exception& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "ClearTable", e.what());
+        return;
+      } catch (const std::exception& e) {
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "ClearTable", "");
+        return;
+      }
+
+      uic_mqtt_dotdot_by_group_dmf_bridge_config_clear_table_callback(
+        group_id,
+        &fields
+      );
+  } else if ((group_dispatch_callback != nullptr) && (!get_uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback().empty())) {
+    // group-dispatch callback only called if the command-specific by-unid
+    // callback is set
+    try {
+      nlohmann::json jsn = nlohmann::json::parse(std::string(message));
+      if (jsn.find("TableID") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::ClearTable: Missing command-argument: TableID\n");
+        return;
+      }
+      if (jsn.find("ConfirmCode") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::ClearTable: Missing command-argument: ConfirmCode\n");
+        return;
+      }
+
+      group_dispatch_callback(
+        group_id,
+        "DMFBridgeConfig",
+        "ClearTable",
+        message,
+        message_length,
+        uic_mqtt_dotdot_on_dmf_bridge_config_clear_table);
+
+    } catch (...) {
+      sl_log_debug(LOG_TAG, "ClearTable: Unable to parse JSON payload.\n");
+      return;
+    }
+  }
+
+}
+
+// Callback function for incoming publications on ucl/by-group/+/DMFBridgeConfig/Commands/ZBNetworkLeave
+static void uic_mqtt_dotdot_on_by_group_dmf_bridge_config_zb_network_leave(
+  const char *topic,
+  const char *message,
+  const size_t message_length)
+{
+  if ((group_dispatch_callback == nullptr) && (uic_mqtt_dotdot_by_group_dmf_bridge_config_zb_network_leave_callback == nullptr)) {
+    return;
+  }
+  if (message_length == 0) {
+    return;
+  }
+
+  dotdot_group_id_t group_id = 0U;
+  if(!uic_dotdot_mqtt::parse_topic_group_id(topic,group_id)) {
+    sl_log_debug(LOG_TAG,
+                "Failed to parse GroupId from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Pass to command-specific callback if set. Otherwise, pass to
+  // group-dispatch callback
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_zb_network_leave_callback != nullptr) {
+
+    
+    uic_mqtt_dotdot_dmf_bridge_config_command_zb_network_leave_fields_t fields;
+
+
+      nlohmann::json jsn;
+      try {
+        jsn = nlohmann::json::parse(std::string(message));
+
+      
+        uic_mqtt_dotdot_parse_dmf_bridge_config_zb_network_leave(
+          jsn,
+          fields.confirm_code
+              );
+
+      // Populate list fields from vector or string types
+      
+
+      } catch (const nlohmann::json::parse_error& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_PARSE_FAIL, "DMFBridgeConfig", "ZBNetworkLeave");
+        return;
+      } catch (const nlohmann::json::exception& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "ZBNetworkLeave", e.what());
+        return;
+      } catch (const std::exception& e) {
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "ZBNetworkLeave", "");
+        return;
+      }
+
+      uic_mqtt_dotdot_by_group_dmf_bridge_config_zb_network_leave_callback(
+        group_id,
+        &fields
+      );
+  } else if ((group_dispatch_callback != nullptr) && (!get_uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback().empty())) {
+    // group-dispatch callback only called if the command-specific by-unid
+    // callback is set
+    try {
+      nlohmann::json jsn = nlohmann::json::parse(std::string(message));
+      if (jsn.find("ConfirmCode") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::ZBNetworkLeave: Missing command-argument: ConfirmCode\n");
+        return;
+      }
+
+      group_dispatch_callback(
+        group_id,
+        "DMFBridgeConfig",
+        "ZBNetworkLeave",
+        message,
+        message_length,
+        uic_mqtt_dotdot_on_dmf_bridge_config_zb_network_leave);
+
+    } catch (...) {
+      sl_log_debug(LOG_TAG, "ZBNetworkLeave: Unable to parse JSON payload.\n");
+      return;
+    }
+  }
+
+}
+
+// Callback function for incoming publications on ucl/by-group/+/DMFBridgeConfig/Commands/RawFixtureNotification
+static void uic_mqtt_dotdot_on_by_group_dmf_bridge_config_raw_fixture_notification(
+  const char *topic,
+  const char *message,
+  const size_t message_length)
+{
+  if ((group_dispatch_callback == nullptr) && (uic_mqtt_dotdot_by_group_dmf_bridge_config_raw_fixture_notification_callback == nullptr)) {
+    return;
+  }
+  if (message_length == 0) {
+    return;
+  }
+
+  dotdot_group_id_t group_id = 0U;
+  if(!uic_dotdot_mqtt::parse_topic_group_id(topic,group_id)) {
+    sl_log_debug(LOG_TAG,
+                "Failed to parse GroupId from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Pass to command-specific callback if set. Otherwise, pass to
+  // group-dispatch callback
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_raw_fixture_notification_callback != nullptr) {
+
+    
+    uic_mqtt_dotdot_dmf_bridge_config_command_raw_fixture_notification_fields_t fields;
+      std::string uid;
+    
+
+      nlohmann::json jsn;
+      try {
+        jsn = nlohmann::json::parse(std::string(message));
+
+      
+        uic_mqtt_dotdot_parse_dmf_bridge_config_raw_fixture_notification(
+          jsn,
+          uid,
+      
+          fields.modelid
+              );
+
+      // Populate list fields from vector or string types
+              fields.uid = uid.c_str();
+      
+
+      } catch (const nlohmann::json::parse_error& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_PARSE_FAIL, "DMFBridgeConfig", "RawFixtureNotification");
+        return;
+      } catch (const nlohmann::json::exception& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "RawFixtureNotification", e.what());
+        return;
+      } catch (const std::exception& e) {
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "RawFixtureNotification", "");
+        return;
+      }
+
+      uic_mqtt_dotdot_by_group_dmf_bridge_config_raw_fixture_notification_callback(
+        group_id,
+        &fields
+      );
+  } else if ((group_dispatch_callback != nullptr) && (!get_uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback().empty())) {
+    // group-dispatch callback only called if the command-specific by-unid
+    // callback is set
+    try {
+      nlohmann::json jsn = nlohmann::json::parse(std::string(message));
+      if (jsn.find("UID") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::RawFixtureNotification: Missing command-argument: UID\n");
+        return;
+      }
+      if (jsn.find("ModelID") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::RawFixtureNotification: Missing command-argument: ModelID\n");
+        return;
+      }
+
+      group_dispatch_callback(
+        group_id,
+        "DMFBridgeConfig",
+        "RawFixtureNotification",
+        message,
+        message_length,
+        uic_mqtt_dotdot_on_dmf_bridge_config_raw_fixture_notification);
+
+    } catch (...) {
+      sl_log_debug(LOG_TAG, "RawFixtureNotification: Unable to parse JSON payload.\n");
+      return;
+    }
+  }
+
+}
+
+static void uic_mqtt_dotdot_on_by_group_dmf_bridge_config_WriteAttributes(
+  const char *topic,
+  const char *message,
+  const size_t message_length)
+{
+
+  if ((group_dispatch_callback == nullptr) && (uic_mqtt_dotdot_by_group_dmf_bridge_config_write_attributes_callback == nullptr)) {
+    return;
+  }
+  if (message_length == 0) {
+    return;
+  }
+
+  dotdot_group_id_t group_id = 0U;
+  if(!uic_dotdot_mqtt::parse_topic_group_id(topic,group_id)) {
+    sl_log_debug(LOG_TAG,
+                "Failed to parse GroupId from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  if ((group_dispatch_callback != nullptr) && (!get_uic_mqtt_dotdot_dmf_bridge_config_write_attributes_callback().empty())) {
+    try {
+      group_dispatch_callback(group_id,
+                              "DMFBridgeConfig",
+                              "WriteAttributes",
+                              message,
+                              message_length,
+                              uic_mqtt_dotdot_on_dmf_bridge_config_WriteAttributes);
+
+    } catch (...) {
+      sl_log_debug(LOG_TAG, "DMFBridgeConfig: Unable to parse JSON payload.\n");
+      return;
+    }
+  } else if (uic_mqtt_dotdot_by_group_dmf_bridge_config_write_attributes_callback != nullptr) {
+
+    uic_mqtt_dotdot_dmf_bridge_config_state_t new_state = {};
+    uic_mqtt_dotdot_dmf_bridge_config_updated_state_t new_updated_state = {};
+    
+
+    nlohmann::json jsn;
+    try {
+      jsn = nlohmann::json::parse(std::string(message));
+
+      uic_mqtt_dotdot_parse_dmf_bridge_config_write_attributes(
+        jsn,
+        new_state,
+        new_updated_state
+      );
+    } catch (const nlohmann::json::parse_error& e) {
+      // Catch JSON object field parsing errors
+      sl_log_debug(LOG_TAG, LOG_FMT_JSON_PARSE_FAIL, "DMFBridgeConfig", "WriteAttributes");
+      return;
+    } catch (const nlohmann::json::exception& e) {
+      // Catch JSON object field parsing errors
+      sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "WriteAttributes", e.what());
+      return;
+    } catch (const std::exception& e) {
+      sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "WriteAttributes", "");
+      return;
+    }
+
+    uic_mqtt_dotdot_by_group_dmf_bridge_config_write_attributes_callback(
+      group_id,
+      new_state,
+      new_updated_state
+    );
+  }
+}
+
+sl_status_t uic_mqtt_dotdot_by_group_dmf_bridge_config_init()
+{
+  std::string subscription_topic;
+  const std::string topic_bygroup = TOPIC_BY_GROUP_PREFIX;
+  if(uic_mqtt_dotdot_by_group_dmf_bridge_config_write_attributes_callback) {
+    subscription_topic = topic_bygroup + "DMFBridgeConfig/Commands/WriteAttributes";
+    uic_mqtt_subscribe(subscription_topic.c_str(), uic_mqtt_dotdot_on_by_group_dmf_bridge_config_WriteAttributes);
+  }
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback) {
+    subscription_topic = topic_bygroup + "DMFBridgeConfig/Commands/TriggerRDMDiscovery";
+    uic_mqtt_subscribe(subscription_topic.c_str(), uic_mqtt_dotdot_on_by_group_dmf_bridge_config_trigger_rdm_discovery);
+  }
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback) {
+    subscription_topic = topic_bygroup + "DMFBridgeConfig/Commands/IdentifyFixture";
+    uic_mqtt_subscribe(subscription_topic.c_str(), uic_mqtt_dotdot_on_by_group_dmf_bridge_config_identify_fixture);
+  }
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_zone_callback) {
+    subscription_topic = topic_bygroup + "DMFBridgeConfig/Commands/IdentifyZone";
+    uic_mqtt_subscribe(subscription_topic.c_str(), uic_mqtt_dotdot_on_by_group_dmf_bridge_config_identify_zone);
+  }
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_play_light_mode_callback) {
+    subscription_topic = topic_bygroup + "DMFBridgeConfig/Commands/PlayLightMode";
+    uic_mqtt_subscribe(subscription_topic.c_str(), uic_mqtt_dotdot_on_by_group_dmf_bridge_config_play_light_mode);
+  }
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_read_record_callback) {
+    subscription_topic = topic_bygroup + "DMFBridgeConfig/Commands/GenericReadRecord";
+    uic_mqtt_subscribe(subscription_topic.c_str(), uic_mqtt_dotdot_on_by_group_dmf_bridge_config_generic_read_record);
+  }
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_report_record_callback) {
+    subscription_topic = topic_bygroup + "DMFBridgeConfig/Commands/GenericReportRecord";
+    uic_mqtt_subscribe(subscription_topic.c_str(), uic_mqtt_dotdot_on_by_group_dmf_bridge_config_generic_report_record);
+  }
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_write_record_callback) {
+    subscription_topic = topic_bygroup + "DMFBridgeConfig/Commands/GenericWriteRecord";
+    uic_mqtt_subscribe(subscription_topic.c_str(), uic_mqtt_dotdot_on_by_group_dmf_bridge_config_generic_write_record);
+  }
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_delete_record_callback) {
+    subscription_topic = topic_bygroup + "DMFBridgeConfig/Commands/GenericDeleteRecord";
+    uic_mqtt_subscribe(subscription_topic.c_str(), uic_mqtt_dotdot_on_by_group_dmf_bridge_config_generic_delete_record);
+  }
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_clear_table_callback) {
+    subscription_topic = topic_bygroup + "DMFBridgeConfig/Commands/ClearTable";
+    uic_mqtt_subscribe(subscription_topic.c_str(), uic_mqtt_dotdot_on_by_group_dmf_bridge_config_clear_table);
+  }
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_zb_network_leave_callback) {
+    subscription_topic = topic_bygroup + "DMFBridgeConfig/Commands/ZBNetworkLeave";
+    uic_mqtt_subscribe(subscription_topic.c_str(), uic_mqtt_dotdot_on_by_group_dmf_bridge_config_zb_network_leave);
+  }
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_raw_fixture_notification_callback) {
+    subscription_topic = topic_bygroup + "DMFBridgeConfig/Commands/RawFixtureNotification";
+    uic_mqtt_subscribe(subscription_topic.c_str(), uic_mqtt_dotdot_on_by_group_dmf_bridge_config_raw_fixture_notification);
+  }
+
+  return SL_STATUS_OK;
+}
+
+
+
+
 // Callback function for incoming publications on ucl/by-group/+/Binding/Commands/Bind
 static void uic_mqtt_dotdot_on_by_group_binding_bind(
   const char *topic,
@@ -23867,6 +25083,19 @@ void uic_mqtt_dotdot_set_group_dispatch_callback(group_dispatch_t callback)
     uic_mqtt_subscribe("ucl/by-group/+/ElectricalMeasurement/Commands/GetMeasurementProfile", uic_mqtt_dotdot_on_by_group_electrical_measurement_get_measurement_profile);
 
     uic_mqtt_subscribe("ucl/by-group/+/Diagnostics/Commands/WriteAttributes", uic_mqtt_dotdot_on_by_group_diagnostics_WriteAttributes);
+
+    uic_mqtt_subscribe("ucl/by-group/+/DMFBridgeConfig/Commands/WriteAttributes", uic_mqtt_dotdot_on_by_group_dmf_bridge_config_WriteAttributes);
+    uic_mqtt_subscribe("ucl/by-group/+/DMFBridgeConfig/Commands/TriggerRDMDiscovery", uic_mqtt_dotdot_on_by_group_dmf_bridge_config_trigger_rdm_discovery);
+    uic_mqtt_subscribe("ucl/by-group/+/DMFBridgeConfig/Commands/IdentifyFixture", uic_mqtt_dotdot_on_by_group_dmf_bridge_config_identify_fixture);
+    uic_mqtt_subscribe("ucl/by-group/+/DMFBridgeConfig/Commands/IdentifyZone", uic_mqtt_dotdot_on_by_group_dmf_bridge_config_identify_zone);
+    uic_mqtt_subscribe("ucl/by-group/+/DMFBridgeConfig/Commands/PlayLightMode", uic_mqtt_dotdot_on_by_group_dmf_bridge_config_play_light_mode);
+    uic_mqtt_subscribe("ucl/by-group/+/DMFBridgeConfig/Commands/GenericReadRecord", uic_mqtt_dotdot_on_by_group_dmf_bridge_config_generic_read_record);
+    uic_mqtt_subscribe("ucl/by-group/+/DMFBridgeConfig/Commands/GenericReportRecord", uic_mqtt_dotdot_on_by_group_dmf_bridge_config_generic_report_record);
+    uic_mqtt_subscribe("ucl/by-group/+/DMFBridgeConfig/Commands/GenericWriteRecord", uic_mqtt_dotdot_on_by_group_dmf_bridge_config_generic_write_record);
+    uic_mqtt_subscribe("ucl/by-group/+/DMFBridgeConfig/Commands/GenericDeleteRecord", uic_mqtt_dotdot_on_by_group_dmf_bridge_config_generic_delete_record);
+    uic_mqtt_subscribe("ucl/by-group/+/DMFBridgeConfig/Commands/ClearTable", uic_mqtt_dotdot_on_by_group_dmf_bridge_config_clear_table);
+    uic_mqtt_subscribe("ucl/by-group/+/DMFBridgeConfig/Commands/ZBNetworkLeave", uic_mqtt_dotdot_on_by_group_dmf_bridge_config_zb_network_leave);
+    uic_mqtt_subscribe("ucl/by-group/+/DMFBridgeConfig/Commands/RawFixtureNotification", uic_mqtt_dotdot_on_by_group_dmf_bridge_config_raw_fixture_notification);
 
     uic_mqtt_subscribe("ucl/by-group/+/Binding/Commands/WriteAttributes", uic_mqtt_dotdot_on_by_group_binding_WriteAttributes);
     uic_mqtt_subscribe("ucl/by-group/+/Binding/Commands/Bind", uic_mqtt_dotdot_on_by_group_binding_bind);

@@ -334,3 +334,23 @@ void test_zcl_build_command_frame_string_arg_invalid(void)
   // 3 header (arg 1 & 2 not added)
   TEST_ASSERT_EQUAL(3, frame.size);
 }
+
+void test_supported_cluster_list_should_include_dmf_bridge_config(void)
+{
+  // ARRANGE
+  const uint16_t *cluster_list         = zigpc_zcl_get_supported_cluster_list();
+  size_t supported_cluster_count       = zigpc_zcl_get_number_supported_clusters();
+  const uint16_t dmf_bridge_cluster_id = 0xFC42;
+  bool cluster_found                   = false;
+
+  // ACT
+  for (size_t i = 0; i < supported_cluster_count; i++) {
+    if (cluster_list[i] == dmf_bridge_cluster_id) {
+      cluster_found = true;
+      break;
+    }
+  }
+
+  // ASSERT
+  TEST_ASSERT_TRUE(cluster_found);
+}

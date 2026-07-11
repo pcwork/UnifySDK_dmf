@@ -3172,7 +3172,7 @@ typedef sl_status_t (*uic_mqtt_dotdot_ias_zone_attribute_zone_type_callback_t)(
   dotdot_endpoint_id_t endpoint,
   bool unretained,
   uic_mqtt_dotdot_attribute_update_type_t update_type,
-  uint8_t zone_type
+  uint16_t zone_type
 );
 typedef sl_status_t (*uic_mqtt_dotdot_ias_zone_attribute_zone_status_callback_t)(
   dotdot_unid_t unid,
@@ -4514,6 +4514,63 @@ typedef sl_status_t (*uic_mqtt_dotdot_diagnostics_attribute_last_messagerssi_cal
   bool unretained,
   uic_mqtt_dotdot_attribute_update_type_t update_type,
   int8_t last_messagerssi
+);
+// Callback types used by the dmf_bridge_config cluster
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_attribute_fixture_table_revision_callback_t)(
+  dotdot_unid_t unid,
+  dotdot_endpoint_id_t endpoint,
+  bool unretained,
+  uic_mqtt_dotdot_attribute_update_type_t update_type,
+  uint16_t fixture_table_revision
+);
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_attribute_group_table_revision_callback_t)(
+  dotdot_unid_t unid,
+  dotdot_endpoint_id_t endpoint,
+  bool unretained,
+  uic_mqtt_dotdot_attribute_update_type_t update_type,
+  uint16_t group_table_revision
+);
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_attribute_scene_table_revision_callback_t)(
+  dotdot_unid_t unid,
+  dotdot_endpoint_id_t endpoint,
+  bool unretained,
+  uic_mqtt_dotdot_attribute_update_type_t update_type,
+  uint16_t scene_table_revision
+);
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_attribute_light_mode_table_revision_callback_t)(
+  dotdot_unid_t unid,
+  dotdot_endpoint_id_t endpoint,
+  bool unretained,
+  uic_mqtt_dotdot_attribute_update_type_t update_type,
+  uint16_t light_mode_table_revision
+);
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_attribute_schedule_table_revision_callback_t)(
+  dotdot_unid_t unid,
+  dotdot_endpoint_id_t endpoint,
+  bool unretained,
+  uic_mqtt_dotdot_attribute_update_type_t update_type,
+  uint16_t schedule_table_revision
+);
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_attribute_total_fixtures_count_callback_t)(
+  dotdot_unid_t unid,
+  dotdot_endpoint_id_t endpoint,
+  bool unretained,
+  uic_mqtt_dotdot_attribute_update_type_t update_type,
+  uint8_t total_fixtures_count
+);
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_attribute_discovery_status_callback_t)(
+  dotdot_unid_t unid,
+  dotdot_endpoint_id_t endpoint,
+  bool unretained,
+  uic_mqtt_dotdot_attribute_update_type_t update_type,
+  uint8_t discovery_status
+);
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_attribute_ble_session_status_callback_t)(
+  dotdot_unid_t unid,
+  dotdot_endpoint_id_t endpoint,
+  bool unretained,
+  uic_mqtt_dotdot_attribute_update_type_t update_type,
+  uint8_t ble_session_status
 );
 // Callback types used by the protocol_controller_rf_telemetry cluster
 typedef sl_status_t (*uic_mqtt_dotdot_protocol_controller_rf_telemetry_attribute_tx_report_enabled_callback_t)(
@@ -9303,6 +9360,62 @@ void uic_mqtt_dotdot_diagnostics_attribute_last_messagelqi_callback_set(const ui
  * this callback will overwrite the previous set callback
  */
 void uic_mqtt_dotdot_diagnostics_attribute_last_messagerssi_callback_set(const uic_mqtt_dotdot_diagnostics_attribute_last_messagerssi_callback_t callback);
+
+
+/**
+ *  Initializes the attributes features for the DMFBridgeConfig cluster,
+ *  allowing to receive attribute updates from other UNIDs.
+ */
+sl_status_t uic_mqtt_dotdot_dmf_bridge_config_attributes_init();
+
+/**
+ * Setup callback to be called when a
+ * DMFBridgeConfig/Attributes/fixture_table_revision/# is received. Setting
+ * this callback will overwrite the previous set callback
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_attribute_fixture_table_revision_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_attribute_fixture_table_revision_callback_t callback);
+/**
+ * Setup callback to be called when a
+ * DMFBridgeConfig/Attributes/group_table_revision/# is received. Setting
+ * this callback will overwrite the previous set callback
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_attribute_group_table_revision_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_attribute_group_table_revision_callback_t callback);
+/**
+ * Setup callback to be called when a
+ * DMFBridgeConfig/Attributes/scene_table_revision/# is received. Setting
+ * this callback will overwrite the previous set callback
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_attribute_scene_table_revision_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_attribute_scene_table_revision_callback_t callback);
+/**
+ * Setup callback to be called when a
+ * DMFBridgeConfig/Attributes/light_mode_table_revision/# is received. Setting
+ * this callback will overwrite the previous set callback
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_attribute_light_mode_table_revision_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_attribute_light_mode_table_revision_callback_t callback);
+/**
+ * Setup callback to be called when a
+ * DMFBridgeConfig/Attributes/schedule_table_revision/# is received. Setting
+ * this callback will overwrite the previous set callback
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_attribute_schedule_table_revision_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_attribute_schedule_table_revision_callback_t callback);
+/**
+ * Setup callback to be called when a
+ * DMFBridgeConfig/Attributes/total_fixtures_count/# is received. Setting
+ * this callback will overwrite the previous set callback
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_attribute_total_fixtures_count_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_attribute_total_fixtures_count_callback_t callback);
+/**
+ * Setup callback to be called when a
+ * DMFBridgeConfig/Attributes/discovery_status/# is received. Setting
+ * this callback will overwrite the previous set callback
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_attribute_discovery_status_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_attribute_discovery_status_callback_t callback);
+/**
+ * Setup callback to be called when a
+ * DMFBridgeConfig/Attributes/ble_session_status/# is received. Setting
+ * this callback will overwrite the previous set callback
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_attribute_ble_session_status_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_attribute_ble_session_status_callback_t callback);
 
 
 /**

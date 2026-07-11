@@ -323,6 +323,13 @@ sl_status_t uic_mqtt_dotdot_by_group_electrical_measurement_init();
 sl_status_t uic_mqtt_dotdot_by_group_diagnostics_init();
 
 /**
+ * @brief Initialize DMFBridgeConfig dotdot bygroup command handlers
+ *
+ * @returns SL_STATUS_OK on success, error otherwise.
+ */
+sl_status_t uic_mqtt_dotdot_by_group_dmf_bridge_config_init();
+
+/**
  * @brief Initialize Binding dotdot bygroup command handlers
  *
  * @returns SL_STATUS_OK on success, error otherwise.
@@ -4459,6 +4466,236 @@ std::set<uic_mqtt_dotdot_diagnostics_write_attributes_callback_t> & get_uic_mqtt
  */
 // clang-format off
 void uic_mqtt_dotdot_on_diagnostics_WriteAttributes(
+  const char *topic,
+  const char *message,
+  const size_t message_length);
+
+
+// clang-format on
+
+/**
+ * @brief Retrieves the container with callbacks pointer for
+ * by-unid DMFBridgeConfig/Commands/TriggerRDMDiscovery messages
+ *
+ * @returns std::set of callbacks.
+ */
+std::set<uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_t> &get_uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback();
+
+/**
+ * @brief MQTT Subscribe handler for incoming publications on:
+ * ucl/by-unid/+/+/DMFBridgeConfig/Commands/TriggerRDMDiscovery
+ */
+// clang-format off
+void uic_mqtt_dotdot_on_dmf_bridge_config_trigger_rdm_discovery(
+  const char *topic,
+  const char *message,
+  const size_t message_length);
+// clang-format on
+
+/**
+ * @brief Retrieves the container with callbacks pointer for
+ * by-unid DMFBridgeConfig/Commands/IdentifyFixture messages
+ *
+ * @returns std::set of callbacks.
+ */
+std::set<uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_t> &get_uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback();
+
+/**
+ * @brief MQTT Subscribe handler for incoming publications on:
+ * ucl/by-unid/+/+/DMFBridgeConfig/Commands/IdentifyFixture
+ */
+// clang-format off
+void uic_mqtt_dotdot_on_dmf_bridge_config_identify_fixture(
+  const char *topic,
+  const char *message,
+  const size_t message_length);
+// clang-format on
+
+/**
+ * @brief Retrieves the container with callbacks pointer for
+ * by-unid DMFBridgeConfig/Commands/IdentifyZone messages
+ *
+ * @returns std::set of callbacks.
+ */
+std::set<uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_t> &get_uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback();
+
+/**
+ * @brief MQTT Subscribe handler for incoming publications on:
+ * ucl/by-unid/+/+/DMFBridgeConfig/Commands/IdentifyZone
+ */
+// clang-format off
+void uic_mqtt_dotdot_on_dmf_bridge_config_identify_zone(
+  const char *topic,
+  const char *message,
+  const size_t message_length);
+// clang-format on
+
+/**
+ * @brief Retrieves the container with callbacks pointer for
+ * by-unid DMFBridgeConfig/Commands/PlayLightMode messages
+ *
+ * @returns std::set of callbacks.
+ */
+std::set<uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_t> &get_uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback();
+
+/**
+ * @brief MQTT Subscribe handler for incoming publications on:
+ * ucl/by-unid/+/+/DMFBridgeConfig/Commands/PlayLightMode
+ */
+// clang-format off
+void uic_mqtt_dotdot_on_dmf_bridge_config_play_light_mode(
+  const char *topic,
+  const char *message,
+  const size_t message_length);
+// clang-format on
+
+/**
+ * @brief Retrieves the container with callbacks pointer for
+ * by-unid DMFBridgeConfig/Commands/GenericReadRecord messages
+ *
+ * @returns std::set of callbacks.
+ */
+std::set<uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_t> &get_uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback();
+
+/**
+ * @brief MQTT Subscribe handler for incoming publications on:
+ * ucl/by-unid/+/+/DMFBridgeConfig/Commands/GenericReadRecord
+ */
+// clang-format off
+void uic_mqtt_dotdot_on_dmf_bridge_config_generic_read_record(
+  const char *topic,
+  const char *message,
+  const size_t message_length);
+// clang-format on
+
+/**
+ * @brief Retrieves the container with callbacks pointer for
+ * by-unid DMFBridgeConfig/Commands/GenericReportRecord messages
+ *
+ * @returns std::set of callbacks.
+ */
+std::set<uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_t> &get_uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback();
+
+/**
+ * @brief MQTT Subscribe handler for incoming publications on:
+ * ucl/by-unid/+/+/DMFBridgeConfig/Commands/GenericReportRecord
+ */
+// clang-format off
+void uic_mqtt_dotdot_on_dmf_bridge_config_generic_report_record(
+  const char *topic,
+  const char *message,
+  const size_t message_length);
+// clang-format on
+
+/**
+ * @brief Retrieves the container with callbacks pointer for
+ * by-unid DMFBridgeConfig/Commands/GenericWriteRecord messages
+ *
+ * @returns std::set of callbacks.
+ */
+std::set<uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_t> &get_uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback();
+
+/**
+ * @brief MQTT Subscribe handler for incoming publications on:
+ * ucl/by-unid/+/+/DMFBridgeConfig/Commands/GenericWriteRecord
+ */
+// clang-format off
+void uic_mqtt_dotdot_on_dmf_bridge_config_generic_write_record(
+  const char *topic,
+  const char *message,
+  const size_t message_length);
+// clang-format on
+
+/**
+ * @brief Retrieves the container with callbacks pointer for
+ * by-unid DMFBridgeConfig/Commands/GenericDeleteRecord messages
+ *
+ * @returns std::set of callbacks.
+ */
+std::set<uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_t> &get_uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback();
+
+/**
+ * @brief MQTT Subscribe handler for incoming publications on:
+ * ucl/by-unid/+/+/DMFBridgeConfig/Commands/GenericDeleteRecord
+ */
+// clang-format off
+void uic_mqtt_dotdot_on_dmf_bridge_config_generic_delete_record(
+  const char *topic,
+  const char *message,
+  const size_t message_length);
+// clang-format on
+
+/**
+ * @brief Retrieves the container with callbacks pointer for
+ * by-unid DMFBridgeConfig/Commands/ClearTable messages
+ *
+ * @returns std::set of callbacks.
+ */
+std::set<uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_t> &get_uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback();
+
+/**
+ * @brief MQTT Subscribe handler for incoming publications on:
+ * ucl/by-unid/+/+/DMFBridgeConfig/Commands/ClearTable
+ */
+// clang-format off
+void uic_mqtt_dotdot_on_dmf_bridge_config_clear_table(
+  const char *topic,
+  const char *message,
+  const size_t message_length);
+// clang-format on
+
+/**
+ * @brief Retrieves the container with callbacks pointer for
+ * by-unid DMFBridgeConfig/Commands/ZBNetworkLeave messages
+ *
+ * @returns std::set of callbacks.
+ */
+std::set<uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_t> &get_uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback();
+
+/**
+ * @brief MQTT Subscribe handler for incoming publications on:
+ * ucl/by-unid/+/+/DMFBridgeConfig/Commands/ZBNetworkLeave
+ */
+// clang-format off
+void uic_mqtt_dotdot_on_dmf_bridge_config_zb_network_leave(
+  const char *topic,
+  const char *message,
+  const size_t message_length);
+// clang-format on
+
+/**
+ * @brief Retrieves the container with callbacks pointer for
+ * by-unid DMFBridgeConfig/Commands/RawFixtureNotification messages
+ *
+ * @returns std::set of callbacks.
+ */
+std::set<uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_t> &get_uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback();
+
+/**
+ * @brief MQTT Subscribe handler for incoming publications on:
+ * ucl/by-unid/+/+/DMFBridgeConfig/Commands/RawFixtureNotification
+ */
+// clang-format off
+void uic_mqtt_dotdot_on_dmf_bridge_config_raw_fixture_notification(
+  const char *topic,
+  const char *message,
+  const size_t message_length);
+// clang-format on
+
+/**
+ * @brief Retrieves the container with callback pointers for by-unid
+ * /Commands/WriteAttributes messages
+ *
+ * @returns std::set of callbacks.
+ */
+std::set<uic_mqtt_dotdot_dmf_bridge_config_write_attributes_callback_t> & get_uic_mqtt_dotdot_dmf_bridge_config_write_attributes_callback();
+
+/**
+ * @brief MQTT Subscribe handler for incoming publications on:
+ * ucl/by-unid/+/+/DMFBridgeConfig/Commands/WriteAttributes
+ */
+// clang-format off
+void uic_mqtt_dotdot_on_dmf_bridge_config_WriteAttributes(
   const char *topic,
   const char *message,
   const size_t message_length);

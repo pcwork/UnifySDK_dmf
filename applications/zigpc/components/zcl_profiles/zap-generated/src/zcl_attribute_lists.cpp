@@ -4425,6 +4425,96 @@ const zcl_attribute_t electrical_measurement_attribute_list[] = {
 static const unsigned int electrical_measurement_num_attributes =
     sizeof(electrical_measurement_attribute_list)/ sizeof(zcl_attribute_t);
 
+/**
+ * @brief ZCL Attribute list for DMFBridgeConfig cluster
+**/
+const zcl_attribute_t dmf_bridge_config_attribute_list[] = {
+  {
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG, // cluster_id
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_FIXTURE_TABLE_REVISION, // attribute_id
+    (e_zcl_attribute_type) ZIGPC_ZCL_DATA_TYPE_UINT16, // type
+    false, // is_reportable
+    "FixtureTableRevision", // attribute_name
+    "", // desired_payload
+    "", // reported_payload
+  },
+  {
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG, // cluster_id
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_GROUP_TABLE_REVISION, // attribute_id
+    (e_zcl_attribute_type) ZIGPC_ZCL_DATA_TYPE_UINT16, // type
+    false, // is_reportable
+    "GroupTableRevision", // attribute_name
+    "", // desired_payload
+    "", // reported_payload
+  },
+  {
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG, // cluster_id
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_SCENE_TABLE_REVISION, // attribute_id
+    (e_zcl_attribute_type) ZIGPC_ZCL_DATA_TYPE_UINT16, // type
+    false, // is_reportable
+    "SceneTableRevision", // attribute_name
+    "", // desired_payload
+    "", // reported_payload
+  },
+  {
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG, // cluster_id
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_LIGHT_MODE_TABLE_REVISION, // attribute_id
+    (e_zcl_attribute_type) ZIGPC_ZCL_DATA_TYPE_UINT16, // type
+    false, // is_reportable
+    "LightModeTableRevision", // attribute_name
+    "", // desired_payload
+    "", // reported_payload
+  },
+  {
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG, // cluster_id
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_SCHEDULE_TABLE_REVISION, // attribute_id
+    (e_zcl_attribute_type) ZIGPC_ZCL_DATA_TYPE_UINT16, // type
+    false, // is_reportable
+    "ScheduleTableRevision", // attribute_name
+    "", // desired_payload
+    "", // reported_payload
+  },
+  {
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG, // cluster_id
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_TOTAL_FIXTURES_COUNT, // attribute_id
+    (e_zcl_attribute_type) ZIGPC_ZCL_DATA_TYPE_UINT8, // type
+    false, // is_reportable
+    "TotalFixturesCount", // attribute_name
+    "", // desired_payload
+    "", // reported_payload
+  },
+  {
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG, // cluster_id
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_DISCOVERY_STATUS, // attribute_id
+    (e_zcl_attribute_type) ZIGPC_ZCL_DATA_TYPE_ENUM8, // type
+    false, // is_reportable
+    "DiscoveryStatus", // attribute_name
+    "", // desired_payload
+    "", // reported_payload
+  },
+  {
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG, // cluster_id
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_BLE_SESSION_STATUS, // attribute_id
+    (e_zcl_attribute_type) ZIGPC_ZCL_DATA_TYPE_ENUM8, // type
+    false, // is_reportable
+    "BLESessionStatus", // attribute_name
+    "", // desired_payload
+    "", // reported_payload
+  },
+    {
+        ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG, // cluster_id
+        ZIGPC_ZCL_GLOBAL_ATTR_CLUSTER_REVISION, // attribute_id
+        (e_zcl_attribute_type) ZIGPC_ZCL_DATA_TYPE_UINT16, // type
+        false, // is_reportable
+        "ClusterRevision", // attribute_name
+        "", // desired_payload
+        "", // reported_payload
+    },
+};
+
+static const unsigned int dmf_bridge_config_num_attributes =
+    sizeof(dmf_bridge_config_attribute_list)/ sizeof(zcl_attribute_t);
+
 //Lists of zcl_profiles
 
 static const zcl_profile_t basic_profile = {
@@ -4571,6 +4661,14 @@ static const zcl_profile_t electrical_measurement_profile = {
 };
 
 
+static const zcl_profile_t dmf_bridge_config_profile = {
+    "DMFBridgeConfig", //Cluster Name
+    0xFC42, //Cluser ID
+    dmf_bridge_config_attribute_list,
+    dmf_bridge_config_num_attributes //number of attributes
+};
+
+
 //Add into the profile map from zcl_attribute_info.cpp
 sl_status_t zigpc_zcl_profiles_init()
 {
@@ -4594,6 +4692,7 @@ sl_status_t zigpc_zcl_profiles_init()
   profile_list.push_back(iaswd_profile);
   profile_list.push_back(metering_profile);
   profile_list.push_back(electrical_measurement_profile);
+  profile_list.push_back(dmf_bridge_config_profile);
 
   return SL_STATUS_OK;
 }

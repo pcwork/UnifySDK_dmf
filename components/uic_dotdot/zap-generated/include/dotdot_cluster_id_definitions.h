@@ -210,6 +210,10 @@
 #define DOTDOT_DIAGNOSTICS_CLUSTER_ID ((dotdot_cluster_id_t)0xB05)
 
 
+// Definitions for cluster: DMFBridgeConfig
+#define DOTDOT_DMF_BRIDGE_CONFIG_CLUSTER_ID ((dotdot_cluster_id_t)0xFC42)
+
+
 // Definitions for cluster: ProtocolController-RFTelemetry
 #define DOTDOT_PROTOCOL_CONTROLLER_RF_TELEMETRY_CLUSTER_ID ((dotdot_cluster_id_t)0xFD01)
 

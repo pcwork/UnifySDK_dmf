@@ -69,6 +69,13 @@ char *arm_response_arm_notification_get_enum_value_name_c(
   uint32_t value, char *result, size_t max_result_size);
 /** Get arm_response_arm_notification enum representation from string. */
 uint32_t arm_response_arm_notification_get_enum_value_number_c(const char *str);
+#define BLE_SESSION_STATUS_ENUM_NAME_AVAILABLE 1
+
+/** Get ble_session_status string representation from enum. */
+char *ble_session_status_get_enum_value_name_c(
+  uint32_t value, char *result, size_t max_result_size);
+/** Get ble_session_status enum representation from string. */
+uint32_t ble_session_status_get_enum_value_number_c(const char *str);
 #define BARRIER_CONTROL_MOVING_STATE_ENUM_NAME_AVAILABLE 1
 
 /** Get barrier_control_moving_state string representation from enum. */
@@ -265,6 +272,13 @@ char *dev_type_id_get_enum_value_name_c(
   uint32_t value, char *result, size_t max_result_size);
 /** Get dev_type_id enum representation from string. */
 uint32_t dev_type_id_get_enum_value_number_c(const char *str);
+#define DISCOVERY_STATUS_ENUM_NAME_AVAILABLE 1
+
+/** Get discovery_status string representation from enum. */
+char *discovery_status_get_enum_value_name_c(
+  uint32_t value, char *result, size_t max_result_size);
+/** Get discovery_status enum representation from string. */
+uint32_t discovery_status_get_enum_value_number_c(const char *str);
 #define DOOR_LOCK_DOOR_STATE_ENUM_NAME_AVAILABLE 1
 
 /** Get door_lock_door_state string representation from enum. */

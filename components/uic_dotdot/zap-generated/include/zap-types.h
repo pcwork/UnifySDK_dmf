@@ -220,6 +220,12 @@ typedef enum {
   ZCL_ARM_RESPONSE_ARM_NOTIFICATION_ALREADY_DISARMED = 6,
 } ArmResponseArmNotification;
 
+// Enum for BLESessionStatus
+typedef enum {
+  ZCL_BLE_SESSION_STATUS_FREE = 0,
+  ZCL_BLE_SESSION_STATUS_OCCUPIED_BY_BLE_MOBILE_APP = 1,
+} BLESessionStatus;
+
 // Enum for BarrierControlMovingState
 typedef enum {
   ZCL_BARRIER_CONTROL_MOVING_STATE_STOPPED = 0,
@@ -582,6 +588,14 @@ typedef enum {
   ZCL_DEV_TYPE_ID_CONTROL_BRIDGE = 2112,
   ZCL_DEV_TYPE_ID_ON_OFF_SENSOR = 2128,
 } DevTypeId;
+
+// Enum for DiscoveryStatus
+typedef enum {
+  ZCL_DISCOVERY_STATUS_IDLE = 0,
+  ZCL_DISCOVERY_STATUS_SCANNING = 1,
+  ZCL_DISCOVERY_STATUS_COMPLETED = 2,
+  ZCL_DISCOVERY_STATUS_ERROR = 3,
+} DiscoveryStatus;
 
 // Enum for DoorLockDoorState
 typedef enum {

@@ -3433,6 +3433,198 @@ void uic_mqtt_dotdot_by_group_diagnostics_write_attributes_callback_set(
 
 
 /**
+ * @brief Callback signature for by-group DMFBridgeConfig::TriggerRDMDiscovery command.
+ */
+typedef void (*uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback_t)(
+    const dotdot_group_id_t group_id
+);
+
+/**
+ * Setup handler to be called when a
+ * ucl/by-group/+/DMFBridgeConfig/trigger_rdm_discovery is received.
+ * Setting this callback will overwrite the previous set callback.
+ *
+ */
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback_t callback);
+
+/**
+ * @brief Callback signature for by-group DMFBridgeConfig::IdentifyFixture command.
+ */
+typedef void (*uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback_t)(
+    const dotdot_group_id_t group_id,
+    const uic_mqtt_dotdot_dmf_bridge_config_command_identify_fixture_fields_t *fields
+);
+
+/**
+ * Setup handler to be called when a
+ * ucl/by-group/+/DMFBridgeConfig/identify_fixture is received.
+ * Setting this callback will overwrite the previous set callback.
+ *
+ */
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback_t callback);
+
+/**
+ * @brief Callback signature for by-group DMFBridgeConfig::IdentifyZone command.
+ */
+typedef void (*uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_zone_callback_t)(
+    const dotdot_group_id_t group_id,
+    const uic_mqtt_dotdot_dmf_bridge_config_command_identify_zone_fields_t *fields
+);
+
+/**
+ * Setup handler to be called when a
+ * ucl/by-group/+/DMFBridgeConfig/identify_zone is received.
+ * Setting this callback will overwrite the previous set callback.
+ *
+ */
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_zone_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_zone_callback_t callback);
+
+/**
+ * @brief Callback signature for by-group DMFBridgeConfig::PlayLightMode command.
+ */
+typedef void (*uic_mqtt_dotdot_by_group_dmf_bridge_config_play_light_mode_callback_t)(
+    const dotdot_group_id_t group_id,
+    const uic_mqtt_dotdot_dmf_bridge_config_command_play_light_mode_fields_t *fields
+);
+
+/**
+ * Setup handler to be called when a
+ * ucl/by-group/+/DMFBridgeConfig/play_light_mode is received.
+ * Setting this callback will overwrite the previous set callback.
+ *
+ */
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_play_light_mode_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_play_light_mode_callback_t callback);
+
+/**
+ * @brief Callback signature for by-group DMFBridgeConfig::GenericReadRecord command.
+ */
+typedef void (*uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_read_record_callback_t)(
+    const dotdot_group_id_t group_id,
+    const uic_mqtt_dotdot_dmf_bridge_config_command_generic_read_record_fields_t *fields
+);
+
+/**
+ * Setup handler to be called when a
+ * ucl/by-group/+/DMFBridgeConfig/generic_read_record is received.
+ * Setting this callback will overwrite the previous set callback.
+ *
+ */
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_read_record_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_read_record_callback_t callback);
+
+/**
+ * @brief Callback signature for by-group DMFBridgeConfig::GenericReportRecord command.
+ */
+typedef void (*uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_report_record_callback_t)(
+    const dotdot_group_id_t group_id,
+    const uic_mqtt_dotdot_dmf_bridge_config_command_generic_report_record_fields_t *fields
+);
+
+/**
+ * Setup handler to be called when a
+ * ucl/by-group/+/DMFBridgeConfig/generic_report_record is received.
+ * Setting this callback will overwrite the previous set callback.
+ *
+ */
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_report_record_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_report_record_callback_t callback);
+
+/**
+ * @brief Callback signature for by-group DMFBridgeConfig::GenericWriteRecord command.
+ */
+typedef void (*uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_write_record_callback_t)(
+    const dotdot_group_id_t group_id,
+    const uic_mqtt_dotdot_dmf_bridge_config_command_generic_write_record_fields_t *fields
+);
+
+/**
+ * Setup handler to be called when a
+ * ucl/by-group/+/DMFBridgeConfig/generic_write_record is received.
+ * Setting this callback will overwrite the previous set callback.
+ *
+ */
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_write_record_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_write_record_callback_t callback);
+
+/**
+ * @brief Callback signature for by-group DMFBridgeConfig::GenericDeleteRecord command.
+ */
+typedef void (*uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_delete_record_callback_t)(
+    const dotdot_group_id_t group_id,
+    const uic_mqtt_dotdot_dmf_bridge_config_command_generic_delete_record_fields_t *fields
+);
+
+/**
+ * Setup handler to be called when a
+ * ucl/by-group/+/DMFBridgeConfig/generic_delete_record is received.
+ * Setting this callback will overwrite the previous set callback.
+ *
+ */
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_delete_record_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_delete_record_callback_t callback);
+
+/**
+ * @brief Callback signature for by-group DMFBridgeConfig::ClearTable command.
+ */
+typedef void (*uic_mqtt_dotdot_by_group_dmf_bridge_config_clear_table_callback_t)(
+    const dotdot_group_id_t group_id,
+    const uic_mqtt_dotdot_dmf_bridge_config_command_clear_table_fields_t *fields
+);
+
+/**
+ * Setup handler to be called when a
+ * ucl/by-group/+/DMFBridgeConfig/clear_table is received.
+ * Setting this callback will overwrite the previous set callback.
+ *
+ */
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_clear_table_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_clear_table_callback_t callback);
+
+/**
+ * @brief Callback signature for by-group DMFBridgeConfig::ZBNetworkLeave command.
+ */
+typedef void (*uic_mqtt_dotdot_by_group_dmf_bridge_config_zb_network_leave_callback_t)(
+    const dotdot_group_id_t group_id,
+    const uic_mqtt_dotdot_dmf_bridge_config_command_zb_network_leave_fields_t *fields
+);
+
+/**
+ * Setup handler to be called when a
+ * ucl/by-group/+/DMFBridgeConfig/zb_network_leave is received.
+ * Setting this callback will overwrite the previous set callback.
+ *
+ */
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_zb_network_leave_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_zb_network_leave_callback_t callback);
+
+/**
+ * @brief Callback signature for by-group DMFBridgeConfig::RawFixtureNotification command.
+ */
+typedef void (*uic_mqtt_dotdot_by_group_dmf_bridge_config_raw_fixture_notification_callback_t)(
+    const dotdot_group_id_t group_id,
+    const uic_mqtt_dotdot_dmf_bridge_config_command_raw_fixture_notification_fields_t *fields
+);
+
+/**
+ * Setup handler to be called when a
+ * ucl/by-group/+/DMFBridgeConfig/raw_fixture_notification is received.
+ * Setting this callback will overwrite the previous set callback.
+ *
+ */
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_raw_fixture_notification_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_raw_fixture_notification_callback_t callback);
+
+typedef void (*uic_mqtt_dotdot_by_group_dmf_bridge_config_write_attributes_callback_t)(
+    const dotdot_group_id_t group_id,
+    uic_mqtt_dotdot_dmf_bridge_config_state_t,
+    uic_mqtt_dotdot_dmf_bridge_config_updated_state_t
+);
+
+/**
+ * Setup a callback for WriteAttribute to be called when a
+ * ucl/by-group/+/dmf_bridge_config/Commands/WriteAttributes is received.
+ * Setting this callback will overwrite any previously set callback.
+ */
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_write_attributes_callback_set(
+  const uic_mqtt_dotdot_by_group_dmf_bridge_config_write_attributes_callback_t callback
+);
+
+
+
+/**
  * @brief Callback signature for by-group Binding::Bind command.
  */
 typedef void (*uic_mqtt_dotdot_by_group_binding_bind_callback_t)(

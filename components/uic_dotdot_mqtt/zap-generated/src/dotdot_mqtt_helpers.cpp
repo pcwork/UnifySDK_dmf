@@ -296,6 +296,43 @@ uint32_t arm_response_arm_notification_get_enum_value_number(const std::string &
   return std::numeric_limits<uint32_t>::max();
 }
 
+// Enum to string map for BLESessionStatus
+const std::map<uint32_t, std::string> ble_session_status_enum_id_to_string_map {
+  { 0, "Free" },
+  { 1, "OccupiedByBLEMobileApp" },
+};
+
+// String to enum map for BLESessionStatus
+const std::map<std::string, uint32_t> ble_session_status_enum_string_to_id_map {
+  { "Free", 0 },
+  { "OccupiedByBLEMobileApp", 1 },
+};
+
+std::string ble_session_status_get_enum_value_name(
+  uint32_t value)
+{
+  auto it = ble_session_status_enum_id_to_string_map.find(value);
+  if (it != ble_session_status_enum_id_to_string_map.end()){
+    return it->second;
+  }
+
+  // No known name value is set for this field.
+  // Set it to a string version of the value.
+  return std::to_string(value);
+}
+
+uint32_t ble_session_status_get_enum_value_number(const std::string &str)
+{
+  auto it = ble_session_status_enum_string_to_id_map.find(str);
+  if (it != ble_session_status_enum_string_to_id_map.end()){
+    return it->second;
+  }
+
+  // No known numeric value is set for this string.
+  // Return UINT32_MAX to indicate an error.
+  return std::numeric_limits<uint32_t>::max();
+}
+
 // Enum to string map for BarrierControlMovingState
 const std::map<uint32_t, std::string> barrier_control_moving_state_enum_id_to_string_map {
   { 0, "Stopped" },
@@ -1714,6 +1751,47 @@ uint32_t dev_type_id_get_enum_value_number(const std::string &str)
 {
   auto it = dev_type_id_enum_string_to_id_map.find(str);
   if (it != dev_type_id_enum_string_to_id_map.end()){
+    return it->second;
+  }
+
+  // No known numeric value is set for this string.
+  // Return UINT32_MAX to indicate an error.
+  return std::numeric_limits<uint32_t>::max();
+}
+
+// Enum to string map for DiscoveryStatus
+const std::map<uint32_t, std::string> discovery_status_enum_id_to_string_map {
+  { 0, "Idle" },
+  { 1, "Scanning" },
+  { 2, "Completed" },
+  { 3, "Error" },
+};
+
+// String to enum map for DiscoveryStatus
+const std::map<std::string, uint32_t> discovery_status_enum_string_to_id_map {
+  { "Idle", 0 },
+  { "Scanning", 1 },
+  { "Completed", 2 },
+  { "Error", 3 },
+};
+
+std::string discovery_status_get_enum_value_name(
+  uint32_t value)
+{
+  auto it = discovery_status_enum_id_to_string_map.find(value);
+  if (it != discovery_status_enum_id_to_string_map.end()){
+    return it->second;
+  }
+
+  // No known name value is set for this field.
+  // Set it to a string version of the value.
+  return std::to_string(value);
+}
+
+uint32_t discovery_status_get_enum_value_number(const std::string &str)
+{
+  auto it = discovery_status_enum_string_to_id_map.find(str);
+  if (it != discovery_status_enum_string_to_id_map.end()){
     return it->second;
   }
 
@@ -9794,6 +9872,57 @@ std::string get_enum_value_name(
   #endif
   }
 
+  if (64578 == cluster_id) {
+  #ifdef DMF_BRIDGE_CONFIG_FIXTURE_TABLE_REVISION_ENUM_NAME_AVAILABLE
+    if (1 == attribute_id) {
+      // FIXME: Some attributes don't work because multi-upper case names end up like this: dmf_bridge_configfixture_table_revision instead of this: dmf_bridge_config_fixture_table_revision
+      return dmf_bridge_config_fixture_table_revision_get_enum_value_name(value);
+    }
+  #endif
+  #ifdef DMF_BRIDGE_CONFIG_GROUP_TABLE_REVISION_ENUM_NAME_AVAILABLE
+    if (2 == attribute_id) {
+      // FIXME: Some attributes don't work because multi-upper case names end up like this: dmf_bridge_configgroup_table_revision instead of this: dmf_bridge_config_group_table_revision
+      return dmf_bridge_config_group_table_revision_get_enum_value_name(value);
+    }
+  #endif
+  #ifdef DMF_BRIDGE_CONFIG_SCENE_TABLE_REVISION_ENUM_NAME_AVAILABLE
+    if (3 == attribute_id) {
+      // FIXME: Some attributes don't work because multi-upper case names end up like this: dmf_bridge_configscene_table_revision instead of this: dmf_bridge_config_scene_table_revision
+      return dmf_bridge_config_scene_table_revision_get_enum_value_name(value);
+    }
+  #endif
+  #ifdef DMF_BRIDGE_CONFIG_LIGHT_MODE_TABLE_REVISION_ENUM_NAME_AVAILABLE
+    if (4 == attribute_id) {
+      // FIXME: Some attributes don't work because multi-upper case names end up like this: dmf_bridge_configlight_mode_table_revision instead of this: dmf_bridge_config_light_mode_table_revision
+      return dmf_bridge_config_light_mode_table_revision_get_enum_value_name(value);
+    }
+  #endif
+  #ifdef DMF_BRIDGE_CONFIG_SCHEDULE_TABLE_REVISION_ENUM_NAME_AVAILABLE
+    if (5 == attribute_id) {
+      // FIXME: Some attributes don't work because multi-upper case names end up like this: dmf_bridge_configschedule_table_revision instead of this: dmf_bridge_config_schedule_table_revision
+      return dmf_bridge_config_schedule_table_revision_get_enum_value_name(value);
+    }
+  #endif
+  #ifdef DMF_BRIDGE_CONFIG_TOTAL_FIXTURES_COUNT_ENUM_NAME_AVAILABLE
+    if (16 == attribute_id) {
+      // FIXME: Some attributes don't work because multi-upper case names end up like this: dmf_bridge_configtotal_fixtures_count instead of this: dmf_bridge_config_total_fixtures_count
+      return dmf_bridge_config_total_fixtures_count_get_enum_value_name(value);
+    }
+  #endif
+  #ifdef DMF_BRIDGE_CONFIG_DISCOVERY_STATUS_ENUM_NAME_AVAILABLE
+    if (17 == attribute_id) {
+      // FIXME: Some attributes don't work because multi-upper case names end up like this: dmf_bridge_configdiscovery_status instead of this: dmf_bridge_config_discovery_status
+      return dmf_bridge_config_discovery_status_get_enum_value_name(value);
+    }
+  #endif
+  #ifdef DMF_BRIDGE_CONFIG_BLE_SESSION_STATUS_ENUM_NAME_AVAILABLE
+    if (18 == attribute_id) {
+      // FIXME: Some attributes don't work because multi-upper case names end up like this: dmf_bridge_configble_session_status instead of this: dmf_bridge_config_ble_session_status
+      return dmf_bridge_config_ble_session_status_get_enum_value_name(value);
+    }
+  #endif
+  }
+
   if (64769 == cluster_id) {
   #ifdef PROTOCOL_CONTROLLER_RF_TELEMETRY_TX_REPORT_ENABLED_ENUM_NAME_AVAILABLE
     if (0 == attribute_id) {
@@ -14301,6 +14430,57 @@ uint32_t get_enum_name_value(
   #endif
   }
 
+  if (64578 == cluster_id) {
+  #ifdef DMF_BRIDGE_CONFIG_FIXTURE_TABLE_REVISION_ENUM_NAME_AVAILABLE
+    if (1 == attribute_id) {
+      // FIXME: Some attributes don't work because multi-upper case names end up like this: dmf_bridge_configfixture_table_revision instead of this: dmf_bridge_config_fixture_table_revision
+      return dmf_bridge_config_fixture_table_revision_get_enum_value_number(name);
+    }
+  #endif
+  #ifdef DMF_BRIDGE_CONFIG_GROUP_TABLE_REVISION_ENUM_NAME_AVAILABLE
+    if (2 == attribute_id) {
+      // FIXME: Some attributes don't work because multi-upper case names end up like this: dmf_bridge_configgroup_table_revision instead of this: dmf_bridge_config_group_table_revision
+      return dmf_bridge_config_group_table_revision_get_enum_value_number(name);
+    }
+  #endif
+  #ifdef DMF_BRIDGE_CONFIG_SCENE_TABLE_REVISION_ENUM_NAME_AVAILABLE
+    if (3 == attribute_id) {
+      // FIXME: Some attributes don't work because multi-upper case names end up like this: dmf_bridge_configscene_table_revision instead of this: dmf_bridge_config_scene_table_revision
+      return dmf_bridge_config_scene_table_revision_get_enum_value_number(name);
+    }
+  #endif
+  #ifdef DMF_BRIDGE_CONFIG_LIGHT_MODE_TABLE_REVISION_ENUM_NAME_AVAILABLE
+    if (4 == attribute_id) {
+      // FIXME: Some attributes don't work because multi-upper case names end up like this: dmf_bridge_configlight_mode_table_revision instead of this: dmf_bridge_config_light_mode_table_revision
+      return dmf_bridge_config_light_mode_table_revision_get_enum_value_number(name);
+    }
+  #endif
+  #ifdef DMF_BRIDGE_CONFIG_SCHEDULE_TABLE_REVISION_ENUM_NAME_AVAILABLE
+    if (5 == attribute_id) {
+      // FIXME: Some attributes don't work because multi-upper case names end up like this: dmf_bridge_configschedule_table_revision instead of this: dmf_bridge_config_schedule_table_revision
+      return dmf_bridge_config_schedule_table_revision_get_enum_value_number(name);
+    }
+  #endif
+  #ifdef DMF_BRIDGE_CONFIG_TOTAL_FIXTURES_COUNT_ENUM_NAME_AVAILABLE
+    if (16 == attribute_id) {
+      // FIXME: Some attributes don't work because multi-upper case names end up like this: dmf_bridge_configtotal_fixtures_count instead of this: dmf_bridge_config_total_fixtures_count
+      return dmf_bridge_config_total_fixtures_count_get_enum_value_number(name);
+    }
+  #endif
+  #ifdef DMF_BRIDGE_CONFIG_DISCOVERY_STATUS_ENUM_NAME_AVAILABLE
+    if (17 == attribute_id) {
+      // FIXME: Some attributes don't work because multi-upper case names end up like this: dmf_bridge_configdiscovery_status instead of this: dmf_bridge_config_discovery_status
+      return dmf_bridge_config_discovery_status_get_enum_value_number(name);
+    }
+  #endif
+  #ifdef DMF_BRIDGE_CONFIG_BLE_SESSION_STATUS_ENUM_NAME_AVAILABLE
+    if (18 == attribute_id) {
+      // FIXME: Some attributes don't work because multi-upper case names end up like this: dmf_bridge_configble_session_status instead of this: dmf_bridge_config_ble_session_status
+      return dmf_bridge_config_ble_session_status_get_enum_value_number(name);
+    }
+  #endif
+  }
+
   if (64769 == cluster_id) {
   #ifdef PROTOCOL_CONTROLLER_RF_TELEMETRY_TX_REPORT_ENABLED_ENUM_NAME_AVAILABLE
     if (0 == attribute_id) {
@@ -14951,6 +15131,17 @@ uint32_t arm_response_arm_notification_get_enum_value_number_c(const char *str)
 {
   return arm_response_arm_notification_get_enum_value_number(std::string(str));
 }
+char *ble_session_status_get_enum_value_name_c(
+  uint32_t value, char *result, size_t max_result_size)
+{
+  snprintf(result, max_result_size, "%s", ble_session_status_get_enum_value_name(value).c_str());
+  return result;
+}
+
+uint32_t ble_session_status_get_enum_value_number_c(const char *str)
+{
+  return ble_session_status_get_enum_value_number(std::string(str));
+}
 char *barrier_control_moving_state_get_enum_value_name_c(
   uint32_t value, char *result, size_t max_result_size)
 {
@@ -15258,6 +15449,17 @@ char *dev_type_id_get_enum_value_name_c(
 uint32_t dev_type_id_get_enum_value_number_c(const char *str)
 {
   return dev_type_id_get_enum_value_number(std::string(str));
+}
+char *discovery_status_get_enum_value_name_c(
+  uint32_t value, char *result, size_t max_result_size)
+{
+  snprintf(result, max_result_size, "%s", discovery_status_get_enum_value_name(value).c_str());
+  return result;
+}
+
+uint32_t discovery_status_get_enum_value_number_c(const char *str)
+{
+  return discovery_status_get_enum_value_number(std::string(str));
 }
 char *door_lock_door_state_get_enum_value_name_c(
   uint32_t value, char *result, size_t max_result_size)

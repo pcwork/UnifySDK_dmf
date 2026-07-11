@@ -42,7 +42,8 @@ function zcl_commands_filtered_add() {
 function zcl_commands_filtered_first(options) {
     if ((this.index != null) && (this.count != null) && (this.parent != null)) {
         const parent_label = this.parent.label || null
-        if ((parent_label != null) && (this.index === unique_parents[parent_label].firstIndex)) {
+        const parent_range = (parent_label != null) ? unique_parents[parent_label] : null
+        if ((parent_label != null) && (parent_range != null) && (this.index === parent_range.firstIndex)) {
             return options.fn(this)
         }
     }
@@ -57,7 +58,8 @@ function zcl_commands_filtered_first(options) {
 function zcl_commands_filtered_last(options) {
     if ((this.index != null) && (this.count != null) && (this.parent != null)) {
         const parent_label = this.parent.label || null
-        if ((parent_label != null) && (this.index === unique_parents[parent_label].lastIndex)) {
+        const parent_range = (parent_label != null) ? unique_parents[parent_label] : null
+        if ((parent_label != null) && (parent_range != null) && (this.index === parent_range.lastIndex)) {
             return options.fn(this)
         }
     }

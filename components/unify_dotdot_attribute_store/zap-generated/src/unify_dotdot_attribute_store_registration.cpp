@@ -15296,6 +15296,198 @@ sl_status_t unify_dotdot_attribute_store_registration_init()
   // clang-format on
 
   {
+    // uint16 // uint16 // uint16_t
+    std::string attribute_type_string           = "uint16_t";
+    attribute_store_storage_type_t storage_type = UNKNOWN_STORAGE_TYPE;
+
+    // clang-format off
+    storage_type = attribute_storage_type_conversion(attribute_type_string);
+
+    if (storage_type == UNKNOWN_STORAGE_TYPE) {
+      sl_log_warning(LOG_TAG,
+                     "Unkown storage type for ZCL DMFBridgeConfig FixtureTableRevision, "
+                     "type:  uint16 // uint16_t");
+    }
+
+    status |= attribute_store_register_type(
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_FIXTURE_TABLE_REVISION,
+      "ZCL DMFBridgeConfig FixtureTableRevision",
+      ATTRIBUTE_STORE_INVALID_ATTRIBUTE_TYPE,
+      storage_type);
+  }
+
+  // clang-format off
+  // clang-format on
+
+  {
+    // uint16 // uint16 // uint16_t
+    std::string attribute_type_string           = "uint16_t";
+    attribute_store_storage_type_t storage_type = UNKNOWN_STORAGE_TYPE;
+
+    // clang-format off
+    storage_type = attribute_storage_type_conversion(attribute_type_string);
+
+    if (storage_type == UNKNOWN_STORAGE_TYPE) {
+      sl_log_warning(LOG_TAG,
+                     "Unkown storage type for ZCL DMFBridgeConfig GroupTableRevision, "
+                     "type:  uint16 // uint16_t");
+    }
+
+    status |= attribute_store_register_type(
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_GROUP_TABLE_REVISION,
+      "ZCL DMFBridgeConfig GroupTableRevision",
+      ATTRIBUTE_STORE_INVALID_ATTRIBUTE_TYPE,
+      storage_type);
+  }
+
+  // clang-format off
+  // clang-format on
+
+  {
+    // uint16 // uint16 // uint16_t
+    std::string attribute_type_string           = "uint16_t";
+    attribute_store_storage_type_t storage_type = UNKNOWN_STORAGE_TYPE;
+
+    // clang-format off
+    storage_type = attribute_storage_type_conversion(attribute_type_string);
+
+    if (storage_type == UNKNOWN_STORAGE_TYPE) {
+      sl_log_warning(LOG_TAG,
+                     "Unkown storage type for ZCL DMFBridgeConfig SceneTableRevision, "
+                     "type:  uint16 // uint16_t");
+    }
+
+    status |= attribute_store_register_type(
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_SCENE_TABLE_REVISION,
+      "ZCL DMFBridgeConfig SceneTableRevision",
+      ATTRIBUTE_STORE_INVALID_ATTRIBUTE_TYPE,
+      storage_type);
+  }
+
+  // clang-format off
+  // clang-format on
+
+  {
+    // uint16 // uint16 // uint16_t
+    std::string attribute_type_string           = "uint16_t";
+    attribute_store_storage_type_t storage_type = UNKNOWN_STORAGE_TYPE;
+
+    // clang-format off
+    storage_type = attribute_storage_type_conversion(attribute_type_string);
+
+    if (storage_type == UNKNOWN_STORAGE_TYPE) {
+      sl_log_warning(LOG_TAG,
+                     "Unkown storage type for ZCL DMFBridgeConfig LightModeTableRevision, "
+                     "type:  uint16 // uint16_t");
+    }
+
+    status |= attribute_store_register_type(
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_LIGHT_MODE_TABLE_REVISION,
+      "ZCL DMFBridgeConfig LightModeTableRevision",
+      ATTRIBUTE_STORE_INVALID_ATTRIBUTE_TYPE,
+      storage_type);
+  }
+
+  // clang-format off
+  // clang-format on
+
+  {
+    // uint16 // uint16 // uint16_t
+    std::string attribute_type_string           = "uint16_t";
+    attribute_store_storage_type_t storage_type = UNKNOWN_STORAGE_TYPE;
+
+    // clang-format off
+    storage_type = attribute_storage_type_conversion(attribute_type_string);
+
+    if (storage_type == UNKNOWN_STORAGE_TYPE) {
+      sl_log_warning(LOG_TAG,
+                     "Unkown storage type for ZCL DMFBridgeConfig ScheduleTableRevision, "
+                     "type:  uint16 // uint16_t");
+    }
+
+    status |= attribute_store_register_type(
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_SCHEDULE_TABLE_REVISION,
+      "ZCL DMFBridgeConfig ScheduleTableRevision",
+      ATTRIBUTE_STORE_INVALID_ATTRIBUTE_TYPE,
+      storage_type);
+  }
+
+  // clang-format off
+  // clang-format on
+
+  {
+    // uint8 // uint8 // uint8_t
+    std::string attribute_type_string           = "uint8_t";
+    attribute_store_storage_type_t storage_type = UNKNOWN_STORAGE_TYPE;
+
+    // clang-format off
+    storage_type = attribute_storage_type_conversion(attribute_type_string);
+
+    if (storage_type == UNKNOWN_STORAGE_TYPE) {
+      sl_log_warning(LOG_TAG,
+                     "Unkown storage type for ZCL DMFBridgeConfig TotalFixturesCount, "
+                     "type:  uint8 // uint8_t");
+    }
+
+    status |= attribute_store_register_type(
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_TOTAL_FIXTURES_COUNT,
+      "ZCL DMFBridgeConfig TotalFixturesCount",
+      ATTRIBUTE_STORE_INVALID_ATTRIBUTE_TYPE,
+      storage_type);
+  }
+
+  // clang-format off
+  // clang-format on
+
+  {
+    // DiscoveryStatus // DiscoveryStatus // DiscoveryStatus
+    std::string attribute_type_string           = "DiscoveryStatus";
+    attribute_store_storage_type_t storage_type = UNKNOWN_STORAGE_TYPE;
+
+    // clang-format off
+    storage_type = attribute_storage_type_conversion(attribute_type_string);
+
+    if (storage_type == UNKNOWN_STORAGE_TYPE) {
+      sl_log_warning(LOG_TAG,
+                     "Unkown storage type for ZCL DMFBridgeConfig DiscoveryStatus, "
+                     "type:  DiscoveryStatus // DiscoveryStatus");
+    }
+
+    status |= attribute_store_register_type(
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_DISCOVERY_STATUS,
+      "ZCL DMFBridgeConfig DiscoveryStatus",
+      ATTRIBUTE_STORE_INVALID_ATTRIBUTE_TYPE,
+      storage_type);
+  }
+
+  // clang-format off
+  // clang-format on
+
+  {
+    // BLESessionStatus // BLESessionStatus // BLESessionStatus
+    std::string attribute_type_string           = "BLESessionStatus";
+    attribute_store_storage_type_t storage_type = UNKNOWN_STORAGE_TYPE;
+
+    // clang-format off
+    storage_type = attribute_storage_type_conversion(attribute_type_string);
+
+    if (storage_type == UNKNOWN_STORAGE_TYPE) {
+      sl_log_warning(LOG_TAG,
+                     "Unkown storage type for ZCL DMFBridgeConfig BLESessionStatus, "
+                     "type:  BLESessionStatus // BLESessionStatus");
+    }
+
+    status |= attribute_store_register_type(
+      DOTDOT_ATTRIBUTE_ID_DMF_BRIDGE_CONFIG_BLE_SESSION_STATUS,
+      "ZCL DMFBridgeConfig BLESessionStatus",
+      ATTRIBUTE_STORE_INVALID_ATTRIBUTE_TYPE,
+      storage_type);
+  }
+
+  // clang-format off
+  // clang-format on
+
+  {
     // bool // bool // bool
     std::string attribute_type_string           = "bool";
     attribute_store_storage_type_t storage_type = UNKNOWN_STORAGE_TYPE;

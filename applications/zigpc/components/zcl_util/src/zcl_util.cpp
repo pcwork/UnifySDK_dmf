@@ -232,7 +232,8 @@ static const uint16_t supported_cluster_list[] =
   0x0406,
   0x0500,
   0x0502,
-  0x0019
+  0x0019,
+  0xFC42
 };
 
 const uint16_t* zigpc_zcl_get_supported_cluster_list()

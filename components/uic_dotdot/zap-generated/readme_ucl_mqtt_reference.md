@@ -1667,7 +1667,7 @@ ucl/by-unid/<UNID>/ep0/PowerConfiguration/Attributes/BatteryManufacturer/Reporte
   "type": "object",
   "properties": {
     "value": {
-      "type": "BatterySize"
+      "type": "PowerConfigurationBatterySize"
     }
   },
   "required": [
@@ -1843,7 +1843,7 @@ ucl/by-unid/<UNID>/ep0/PowerConfiguration/Attributes/BatteryRatedVoltage/Reporte
   "type": "object",
   "properties": {
     "value": {
-      "type": "BatteryAlarmMask"
+      "type": "PowerConfigurationBatteryAlarmMask"
     }
   },
   "required": [
@@ -2239,7 +2239,7 @@ ucl/by-unid/<UNID>/ep0/PowerConfiguration/Attributes/BatteryPercentageThreshold3
   "type": "object",
   "properties": {
     "value": {
-      "type": "BatteryAlarmState"
+      "type": "PowerConfigurationBatteryAlarmState"
     }
   },
   "required": [
@@ -2415,7 +2415,7 @@ ucl/by-unid/<UNID>/ep0/PowerConfiguration/Attributes/Battery2Manufacturer/Report
   "type": "object",
   "properties": {
     "value": {
-      "type": "BatterySize"
+      "type": "PowerConfigurationBattery2Size"
     }
   },
   "required": [
@@ -2591,7 +2591,7 @@ ucl/by-unid/<UNID>/ep0/PowerConfiguration/Attributes/Battery2RatedVoltage/Report
   "type": "object",
   "properties": {
     "value": {
-      "type": "BatteryAlarmMask"
+      "type": "PowerConfigurationBattery2AlarmMask"
     }
   },
   "required": [
@@ -2987,7 +2987,7 @@ ucl/by-unid/<UNID>/ep0/PowerConfiguration/Attributes/Battery2PercentageThreshold
   "type": "object",
   "properties": {
     "value": {
-      "type": "BatteryAlarmState"
+      "type": "PowerConfigurationBattery2AlarmState"
     }
   },
   "required": [
@@ -3163,7 +3163,7 @@ ucl/by-unid/<UNID>/ep0/PowerConfiguration/Attributes/Battery3Manufacturer/Report
   "type": "object",
   "properties": {
     "value": {
-      "type": "BatterySize"
+      "type": "PowerConfigurationBattery3Size"
     }
   },
   "required": [
@@ -3339,7 +3339,7 @@ ucl/by-unid/<UNID>/ep0/PowerConfiguration/Attributes/Battery3RatedVoltage/Report
   "type": "object",
   "properties": {
     "value": {
-      "type": "BatteryAlarmMask"
+      "type": "PowerConfigurationBattery3AlarmMask"
     }
   },
   "required": [
@@ -3735,7 +3735,7 @@ ucl/by-unid/<UNID>/ep0/PowerConfiguration/Attributes/Battery3PercentageThreshold
   "type": "object",
   "properties": {
     "value": {
-      "type": "BatteryAlarmState"
+      "type": "PowerConfigurationBattery3AlarmState"
     }
   },
   "required": [
@@ -3905,7 +3905,7 @@ ucl/by-unid/<UNID>/<EP>/PowerConfiguration/SupportedGeneratedCommands { "value":
       "type": "string"
     },
     "BatterySize": {
-      "type": "BatterySize"
+      "type": "PowerConfigurationBatterySize"
     },
     "BatteryAHrRating": {
       "type": "integer"
@@ -3917,7 +3917,7 @@ ucl/by-unid/<UNID>/<EP>/PowerConfiguration/SupportedGeneratedCommands { "value":
       "type": "integer"
     },
     "BatteryAlarmMask": {
-      "type": "BatteryAlarmMask"
+      "type": "PowerConfigurationBatteryAlarmMask"
     },
     "BatteryVoltageMinThreshold": {
       "type": "integer"
@@ -3947,7 +3947,7 @@ ucl/by-unid/<UNID>/<EP>/PowerConfiguration/SupportedGeneratedCommands { "value":
       "type": "string"
     },
     "Battery2Size": {
-      "type": "BatterySize"
+      "type": "PowerConfigurationBattery2Size"
     },
     "Battery2AHrRating": {
       "type": "integer"
@@ -3959,7 +3959,7 @@ ucl/by-unid/<UNID>/<EP>/PowerConfiguration/SupportedGeneratedCommands { "value":
       "type": "integer"
     },
     "Battery2AlarmMask": {
-      "type": "BatteryAlarmMask"
+      "type": "PowerConfigurationBattery2AlarmMask"
     },
     "Battery2VoltageMinThreshold": {
       "type": "integer"
@@ -3989,7 +3989,7 @@ ucl/by-unid/<UNID>/<EP>/PowerConfiguration/SupportedGeneratedCommands { "value":
       "type": "string"
     },
     "Battery3Size": {
-      "type": "BatterySize"
+      "type": "PowerConfigurationBattery3Size"
     },
     "Battery3AHrRating": {
       "type": "integer"
@@ -4001,7 +4001,7 @@ ucl/by-unid/<UNID>/<EP>/PowerConfiguration/SupportedGeneratedCommands { "value":
       "type": "integer"
     },
     "Battery3AlarmMask": {
-      "type": "BatteryAlarmMask"
+      "type": "PowerConfigurationBattery3AlarmMask"
     },
     "Battery3VoltageMinThreshold": {
       "type": "integer"
@@ -6101,7 +6101,7 @@ ucl/by-unid/<UNID>/ep0/Scenes/Attributes/CurrentScene/Reported { "value": <REPOR
   "type": "object",
   "properties": {
     "value": {
-      "type": "SGroupId"
+      "type": "integer"
     }
   },
   "required": [
@@ -6457,7 +6457,7 @@ ucl/by-unid/<UNID>/<EP>/Scenes/SupportedGeneratedCommands { "value": ["AddSceneR
   "type": "object",
   "properties": {
     "GroupID": {
-      "type": "SGroupId"
+      "type": "integer"
     },
     "SceneID": {
       "type": "integer"
@@ -6466,7 +6466,7 @@ ucl/by-unid/<UNID>/<EP>/Scenes/SupportedGeneratedCommands { "value": ["AddSceneR
       "type": "integer"
     },
     "SceneName": {
-      "type": "SSceneName"
+      "type": "string"
     },
     "ExtensionFieldSets": {
       "type": "array",
@@ -6523,10 +6523,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/AddScene'
   "type": "object",
   "properties": {
     "Status": {
-      "type": "zclStatus"
+      "type": "AddSceneResponseStatus"
     },
     "GroupID": {
-      "type": "SGroupId"
+      "type": "integer"
     },
     "SceneID": {
       "type": "integer"
@@ -6574,7 +6574,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/AddSceneRespo
   "type": "object",
   "properties": {
     "GroupID": {
-      "type": "SGroupId"
+      "type": "integer"
     },
     "SceneID": {
       "type": "integer"
@@ -6621,10 +6621,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/ViewScene'
   "type": "object",
   "properties": {
     "Status": {
-      "type": "zclStatus"
+      "type": "ViewSceneResponseStatus"
     },
     "GroupID": {
-      "type": "SGroupId"
+      "type": "integer"
     },
     "SceneID": {
       "type": "integer"
@@ -6633,7 +6633,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/ViewScene'
       "type": "integer"
     },
     "SceneName": {
-      "type": "SSceneName"
+      "type": "string"
     },
     "ExtensionFieldSets": {
       "type": "array",
@@ -6687,7 +6687,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/ViewSceneResp
   "type": "object",
   "properties": {
     "GroupID": {
-      "type": "SGroupId"
+      "type": "integer"
     },
     "SceneID": {
       "type": "integer"
@@ -6734,10 +6734,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/RemoveScene'
   "type": "object",
   "properties": {
     "Status": {
-      "type": "zclStatus"
+      "type": "RemoveSceneResponseStatus"
     },
     "GroupID": {
-      "type": "SGroupId"
+      "type": "integer"
     },
     "SceneID": {
       "type": "integer"
@@ -6785,7 +6785,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/RemoveSceneRe
   "type": "object",
   "properties": {
     "GroupID": {
-      "type": "SGroupId"
+      "type": "integer"
     }
   },
   "required": [
@@ -6828,10 +6828,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/RemoveAllScen
   "type": "object",
   "properties": {
     "Status": {
-      "type": "zclStatus"
+      "type": "RemoveAllScenesResponseStatus"
     },
     "GroupID": {
-      "type": "SGroupId"
+      "type": "integer"
     }
   },
   "required": [
@@ -6875,7 +6875,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/RemoveAllScen
   "type": "object",
   "properties": {
     "GroupID": {
-      "type": "SGroupId"
+      "type": "integer"
     },
     "SceneID": {
       "type": "integer"
@@ -6922,10 +6922,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/StoreScene'
   "type": "object",
   "properties": {
     "Status": {
-      "type": "zclStatus"
+      "type": "StoreSceneResponseStatus"
     },
     "GroupID": {
-      "type": "SGroupId"
+      "type": "integer"
     },
     "SceneID": {
       "type": "integer"
@@ -6973,7 +6973,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/StoreSceneRes
   "type": "object",
   "properties": {
     "GroupID": {
-      "type": "SGroupId"
+      "type": "integer"
     },
     "SceneID": {
       "type": "integer"
@@ -7024,7 +7024,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/RecallScene'
   "type": "object",
   "properties": {
     "GroupID": {
-      "type": "SGroupId"
+      "type": "integer"
     }
   },
   "required": [
@@ -7067,13 +7067,13 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/GetSceneMembe
   "type": "object",
   "properties": {
     "Status": {
-      "type": "zclStatus"
+      "type": "GetSceneMembershipResponseStatus"
     },
     "Capacity": {
       "type": "integer"
     },
     "GroupID": {
-      "type": "SGroupId"
+      "type": "integer"
     },
     "SceneList": {
       "type": "array",
@@ -7125,7 +7125,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/GetSceneMembe
   "type": "object",
   "properties": {
     "GroupID": {
-      "type": "SGroupId"
+      "type": "integer"
     },
     "SceneID": {
       "type": "integer"
@@ -7134,7 +7134,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/GetSceneMembe
       "type": "integer"
     },
     "SceneName": {
-      "type": "SSceneName"
+      "type": "string"
     },
     "ExtensionFieldSets": {
       "type": "array",
@@ -7187,10 +7187,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/EnhancedAddSc
   "type": "object",
   "properties": {
     "Status": {
-      "type": "zclStatus"
+      "type": "EnhancedAddSceneResponseStatus"
     },
     "GroupID": {
-      "type": "SGroupId"
+      "type": "integer"
     },
     "SceneID": {
       "type": "integer"
@@ -7238,7 +7238,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/EnhancedAddSc
   "type": "object",
   "properties": {
     "GroupID": {
-      "type": "SGroupId"
+      "type": "integer"
     },
     "SceneID": {
       "type": "integer"
@@ -7285,10 +7285,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/EnhancedViewS
   "type": "object",
   "properties": {
     "Status": {
-      "type": "zclStatus"
+      "type": "EnhancedViewSceneResponseStatus"
     },
     "GroupID": {
-      "type": "SGroupId"
+      "type": "integer"
     },
     "SceneID": {
       "type": "integer"
@@ -7297,7 +7297,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/EnhancedViewS
       "type": "integer"
     },
     "SceneName": {
-      "type": "SSceneName"
+      "type": "string"
     },
     "ExtensionFieldSets": {
       "type": "array",
@@ -7354,13 +7354,13 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/EnhancedViewS
       "type": "CopySceneMode"
     },
     "GroupIdentifierFrom": {
-      "type": "SGroupId"
+      "type": "integer"
     },
     "SceneIdentifierFrom": {
       "type": "integer"
     },
     "GroupIdentifierTo": {
-      "type": "SGroupId"
+      "type": "integer"
     },
     "SceneIdentifierTo": {
       "type": "integer"
@@ -7410,10 +7410,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Scenes/GeneratedCommands/CopyScene'
   "type": "object",
   "properties": {
     "Status": {
-      "type": "zclStatus"
+      "type": "CopySceneResponseStatus"
     },
     "GroupIdentifierFrom": {
-      "type": "SGroupId"
+      "type": "integer"
     },
     "SceneIdentifierFrom": {
       "type": "integer"
@@ -9035,10 +9035,10 @@ ucl/by-unid/<UNID>/<EP>/Level/SupportedGeneratedCommands { "value": [] }
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "LevelOptions"
+      "type": "MoveToLevelOptionsMask"
     },
     "OptionsOverride": {
-      "type": "LevelOptions"
+      "type": "MoveToLevelOptionsOverride"
     }
   },
   "required": [
@@ -9084,16 +9084,16 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Level/GeneratedCommands/MoveToLevel'
   "type": "object",
   "properties": {
     "MoveMode": {
-      "type": "MoveStepMode"
+      "type": "MoveMoveMode"
     },
     "Rate": {
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "LevelOptions"
+      "type": "MoveOptionsMask"
     },
     "OptionsOverride": {
-      "type": "LevelOptions"
+      "type": "MoveOptionsOverride"
     }
   },
   "required": [
@@ -9139,7 +9139,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Level/GeneratedCommands/Move'
   "type": "object",
   "properties": {
     "StepMode": {
-      "type": "MoveStepMode"
+      "type": "StepStepMode"
     },
     "StepSize": {
       "type": "integer"
@@ -9148,10 +9148,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Level/GeneratedCommands/Move'
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "LevelOptions"
+      "type": "StepOptionsMask"
     },
     "OptionsOverride": {
-      "type": "LevelOptions"
+      "type": "StepOptionsOverride"
     }
   },
   "required": [
@@ -9198,10 +9198,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Level/GeneratedCommands/Step'
   "type": "object",
   "properties": {
     "OptionsMask": {
-      "type": "LevelOptions"
+      "type": "StopOptionsMask"
     },
     "OptionsOverride": {
-      "type": "LevelOptions"
+      "type": "StopOptionsOverride"
     }
   },
   "required": [
@@ -9251,10 +9251,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Level/GeneratedCommands/Stop'
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "LevelOptions"
+      "type": "MoveToLevelWithOnOffOptionsMask"
     },
     "OptionsOverride": {
-      "type": "LevelOptions"
+      "type": "MoveToLevelWithOnOffOptionsOverride"
     }
   },
   "required": [
@@ -9300,16 +9300,16 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Level/GeneratedCommands/MoveToLevelWit
   "type": "object",
   "properties": {
     "MoveMode": {
-      "type": "MoveStepMode"
+      "type": "MoveWithOnOffMoveMode"
     },
     "Rate": {
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "LevelOptions"
+      "type": "MoveWithOnOffOptionsMask"
     },
     "OptionsOverride": {
-      "type": "LevelOptions"
+      "type": "MoveWithOnOffOptionsOverride"
     }
   },
   "required": [
@@ -9355,7 +9355,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Level/GeneratedCommands/MoveWithOnOff'
   "type": "object",
   "properties": {
     "StepMode": {
-      "type": "MoveStepMode"
+      "type": "StepWithOnOffStepMode"
     },
     "StepSize": {
       "type": "integer"
@@ -9364,10 +9364,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Level/GeneratedCommands/MoveWithOnOff'
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "LevelOptions"
+      "type": "StepWithOnOffOptionsMask"
     },
     "OptionsOverride": {
-      "type": "LevelOptions"
+      "type": "StepWithOnOffOptionsOverride"
     }
   },
   "required": [
@@ -9414,10 +9414,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Level/GeneratedCommands/StepWithOnOff'
   "type": "object",
   "properties": {
     "OptionsMask": {
-      "type": "LevelOptions"
+      "type": "StopWithOnOffOptionsMask"
     },
     "OptionsOverride": {
-      "type": "LevelOptions"
+      "type": "StopWithOnOffOptionsOverride"
     }
   },
   "required": [
@@ -9943,7 +9943,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Alarms/GeneratedCommands/ResetAllAlarm
   "type": "object",
   "properties": {
     "Status": {
-      "type": "zclStatus"
+      "type": "GetAlarmResponseStatus"
     },
     "AlarmCode": {
       "type": "GetAlarmResponseAlarmCode"
@@ -13185,7 +13185,7 @@ ucl/by-unid/<UNID>/ep0/DoorLock/Attributes/SoundVolume/Reported { "value": <REPO
   "type": "object",
   "properties": {
     "value": {
-      "type": "DrlkOperMode"
+      "type": "DoorLockOperatingMode"
     }
   },
   "required": [
@@ -14418,7 +14418,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/LockDoor'
   "type": "object",
   "properties": {
     "Status": {
-      "type": "zclStatus"
+      "type": "LockDoorResponseStatus"
     }
   },
   "required": [
@@ -14504,7 +14504,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/UnlockDoor'
   "type": "object",
   "properties": {
     "Status": {
-      "type": "zclStatus"
+      "type": "UnlockDoorResponseStatus"
     }
   },
   "required": [
@@ -14590,7 +14590,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/Toggle'
   "type": "object",
   "properties": {
     "Status": {
-      "type": "zclStatus"
+      "type": "ToggleResponseStatus"
     }
   },
   "required": [
@@ -14680,7 +14680,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/UnlockWithT
   "type": "object",
   "properties": {
     "Status": {
-      "type": "zclStatus"
+      "type": "UnlockWithTimeoutResponseStatus"
     }
   },
   "required": [
@@ -14775,7 +14775,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/GetLogRecor
       "type": "GetLogRecordResponseEventType"
     },
     "SourceOperationEvent": {
-      "type": "DrlkOperEventSource"
+      "type": "integer"
     },
     "EventIDOrAlarmCode": {
       "type": "integer"
@@ -14833,13 +14833,13 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/GetLogRecor
   "type": "object",
   "properties": {
     "UserID": {
-      "type": "DrlkPINUserID"
+      "type": "integer"
     },
     "UserStatus": {
-      "type": "DrlkSettableUserStatus"
+      "type": "SetPINCodeUserStatus"
     },
     "UserType": {
-      "type": "DrlkUserType"
+      "type": "SetPINCodeUserType"
     },
     "PIN": {
       "type": "string"
@@ -14888,7 +14888,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/SetPINCode'
   "type": "object",
   "properties": {
     "Status": {
-      "type": "DrlkSetCodeStatus"
+      "type": "integer"
     }
   },
   "required": [
@@ -14931,7 +14931,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/SetPINCodeR
   "type": "object",
   "properties": {
     "UserID": {
-      "type": "DrlkPINUserID"
+      "type": "integer"
     }
   },
   "required": [
@@ -14977,10 +14977,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/GetPINCode'
       "type": "integer"
     },
     "UserStatus": {
-      "type": "DrlkUserStatus"
+      "type": "GetPINCodeResponseUserStatus"
     },
     "UserType": {
-      "type": "DrlkUserType"
+      "type": "GetPINCodeResponseUserType"
     },
     "Code": {
       "type": "string"
@@ -15029,7 +15029,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/GetPINCodeR
   "type": "object",
   "properties": {
     "UserID": {
-      "type": "DrlkPINUserID"
+      "type": "integer"
     }
   },
   "required": [
@@ -15072,7 +15072,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/ClearPINCod
   "type": "object",
   "properties": {
     "Status": {
-      "type": "DrlkPassFailStatus"
+      "type": "integer"
     }
   },
   "required": [
@@ -15154,7 +15154,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/ClearAllPIN
   "type": "object",
   "properties": {
     "Status": {
-      "type": "DrlkPassFailStatus"
+      "type": "integer"
     }
   },
   "required": [
@@ -15197,10 +15197,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/ClearAllPIN
   "type": "object",
   "properties": {
     "UserID": {
-      "type": "DrlkTotalUserID"
+      "type": "integer"
     },
     "UserStatus": {
-      "type": "DrlkSettableUserStatus"
+      "type": "SetUserStatusUserStatus"
     }
   },
   "required": [
@@ -15244,7 +15244,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/SetUserStat
   "type": "object",
   "properties": {
     "Status": {
-      "type": "DrlkPassFailStatus"
+      "type": "integer"
     }
   },
   "required": [
@@ -15287,7 +15287,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/SetUserStat
   "type": "object",
   "properties": {
     "UserID": {
-      "type": "DrlkTotalUserID"
+      "type": "integer"
     }
   },
   "required": [
@@ -15333,7 +15333,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/GetUserStat
       "type": "integer"
     },
     "UserStatus": {
-      "type": "DrlkUserStatus"
+      "type": "GetUserStatusResponseUserStatus"
     }
   },
   "required": [
@@ -15377,13 +15377,13 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/GetUserStat
   "type": "object",
   "properties": {
     "ScheduleID": {
-      "type": "DrlkWeekDayScheduleID"
+      "type": "integer"
     },
     "UserID": {
-      "type": "DrlkTotalUserID"
+      "type": "integer"
     },
     "DaysMask": {
-      "type": "DrlkDaysMask"
+      "type": "SetWeekdayScheduleDaysMask"
     },
     "StartHour": {
       "type": "integer"
@@ -15444,7 +15444,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/SetWeekdayS
   "type": "object",
   "properties": {
     "Status": {
-      "type": "DrlkPassFailStatus"
+      "type": "integer"
     }
   },
   "required": [
@@ -15487,10 +15487,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/SetWeekdayS
   "type": "object",
   "properties": {
     "ScheduleID": {
-      "type": "DrlkWeekDayScheduleID"
+      "type": "integer"
     },
     "UserID": {
-      "type": "DrlkTotalUserID"
+      "type": "integer"
     }
   },
   "required": [
@@ -15540,10 +15540,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/GetWeekdayS
       "type": "integer"
     },
     "Status": {
-      "type": "zclStatus"
+      "type": "GetWeekdayScheduleResponseStatus"
     },
     "DaysMask": {
-      "type": "DrlkDaysMask"
+      "type": "GetWeekdayScheduleResponseDaysMask"
     },
     "StartHour": {
       "type": "integer"
@@ -15605,10 +15605,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/GetWeekdayS
   "type": "object",
   "properties": {
     "ScheduleID": {
-      "type": "DrlkWeekDayScheduleID"
+      "type": "integer"
     },
     "UserID": {
-      "type": "DrlkTotalUserID"
+      "type": "integer"
     }
   },
   "required": [
@@ -15652,7 +15652,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/ClearWeekda
   "type": "object",
   "properties": {
     "Status": {
-      "type": "DrlkPassFailStatus"
+      "type": "integer"
     }
   },
   "required": [
@@ -15695,10 +15695,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/ClearWeekda
   "type": "object",
   "properties": {
     "ScheduleID": {
-      "type": "DrlkYearDayScheduleID"
+      "type": "integer"
     },
     "UserID": {
-      "type": "DrlkTotalUserID"
+      "type": "integer"
     },
     "LocalStartTime": {
       "type": "integer"
@@ -15750,7 +15750,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/SetYearDayS
   "type": "object",
   "properties": {
     "Status": {
-      "type": "DrlkPassFailStatus"
+      "type": "integer"
     }
   },
   "required": [
@@ -15793,10 +15793,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/SetYearDayS
   "type": "object",
   "properties": {
     "ScheduleID": {
-      "type": "DrlkYearDayScheduleID"
+      "type": "integer"
     },
     "UserID": {
-      "type": "DrlkTotalUserID"
+      "type": "integer"
     }
   },
   "required": [
@@ -15846,7 +15846,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/GetYearDayS
       "type": "integer"
     },
     "Status": {
-      "type": "zclStatus"
+      "type": "GetYearDayScheduleResponseStatus"
     },
     "LocalStartTime": {
       "type": "integer"
@@ -15899,10 +15899,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/GetYearDayS
   "type": "object",
   "properties": {
     "ScheduleID": {
-      "type": "DrlkYearDayScheduleID"
+      "type": "integer"
     },
     "UserID": {
-      "type": "DrlkTotalUserID"
+      "type": "integer"
     }
   },
   "required": [
@@ -15946,7 +15946,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/ClearYearDa
   "type": "object",
   "properties": {
     "Status": {
-      "type": "DrlkPassFailStatus"
+      "type": "integer"
     }
   },
   "required": [
@@ -15989,7 +15989,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/ClearYearDa
   "type": "object",
   "properties": {
     "HolidayScheduleID": {
-      "type": "DrlkHolidayScheduleID"
+      "type": "integer"
     },
     "LocalStartTime": {
       "type": "integer"
@@ -15998,7 +15998,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/ClearYearDa
       "type": "integer"
     },
     "OperatingModeDuringHoliday": {
-      "type": "DrlkOperMode"
+      "type": "SetHolidayScheduleOperatingModeDuringHoliday"
     }
   },
   "required": [
@@ -16044,7 +16044,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/SetHolidayS
   "type": "object",
   "properties": {
     "Status": {
-      "type": "DrlkPassFailStatus"
+      "type": "integer"
     }
   },
   "required": [
@@ -16087,7 +16087,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/SetHolidayS
   "type": "object",
   "properties": {
     "HolidayScheduleID": {
-      "type": "DrlkHolidayScheduleID"
+      "type": "integer"
     }
   },
   "required": [
@@ -16133,7 +16133,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/GetHolidayS
       "type": "integer"
     },
     "Status": {
-      "type": "zclStatus"
+      "type": "GetHolidayScheduleResponseStatus"
     },
     "LocalStartTime": {
       "type": "integer"
@@ -16142,7 +16142,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/GetHolidayS
       "type": "integer"
     },
     "OperatingModeDuringHoliday": {
-      "type": "DrlkOperMode"
+      "type": "GetHolidayScheduleResponseOperatingModeDuringHoliday"
     }
   },
   "required": [
@@ -16189,7 +16189,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/GetHolidayS
   "type": "object",
   "properties": {
     "HolidayScheduleID": {
-      "type": "DrlkHolidayScheduleID"
+      "type": "integer"
     }
   },
   "required": [
@@ -16232,7 +16232,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/ClearHolida
   "type": "object",
   "properties": {
     "Status": {
-      "type": "DrlkPassFailStatus"
+      "type": "integer"
     }
   },
   "required": [
@@ -16275,10 +16275,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/ClearHolida
   "type": "object",
   "properties": {
     "UserID": {
-      "type": "DrlkTotalUserID"
+      "type": "integer"
     },
     "UserType": {
-      "type": "DrlkUserType"
+      "type": "SetUserTypeUserType"
     }
   },
   "required": [
@@ -16322,7 +16322,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/SetUserType
   "type": "object",
   "properties": {
     "Status": {
-      "type": "DrlkPassFailStatus"
+      "type": "integer"
     }
   },
   "required": [
@@ -16365,7 +16365,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/SetUserType
   "type": "object",
   "properties": {
     "UserID": {
-      "type": "DrlkTotalUserID"
+      "type": "integer"
     }
   },
   "required": [
@@ -16411,7 +16411,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/GetUserType
       "type": "integer"
     },
     "UserType": {
-      "type": "DrlkUserType"
+      "type": "GetUserTypeResponseUserType"
     }
   },
   "required": [
@@ -16455,13 +16455,13 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/GetUserType
   "type": "object",
   "properties": {
     "UserID": {
-      "type": "DrlkRFIDUserID"
+      "type": "integer"
     },
     "UserStatus": {
-      "type": "DrlkSettableUserStatus"
+      "type": "SetRFIDCodeUserStatus"
     },
     "UserType": {
-      "type": "DrlkUserType"
+      "type": "SetRFIDCodeUserType"
     },
     "RFIDCode": {
       "type": "string"
@@ -16510,7 +16510,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/SetRFIDCode
   "type": "object",
   "properties": {
     "Status": {
-      "type": "DrlkSetCodeStatus"
+      "type": "integer"
     }
   },
   "required": [
@@ -16553,7 +16553,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/SetRFIDCode
   "type": "object",
   "properties": {
     "UserID": {
-      "type": "DrlkRFIDUserID"
+      "type": "integer"
     }
   },
   "required": [
@@ -16599,10 +16599,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/GetRFIDCode
       "type": "integer"
     },
     "UserStatus": {
-      "type": "DrlkUserStatus"
+      "type": "GetRFIDCodeResponseUserStatus"
     },
     "UserType": {
-      "type": "DrlkUserType"
+      "type": "GetRFIDCodeResponseUserType"
     },
     "RFIDCode": {
       "type": "string"
@@ -16651,7 +16651,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/GetRFIDCode
   "type": "object",
   "properties": {
     "UserID": {
-      "type": "DrlkRFIDUserID"
+      "type": "integer"
     }
   },
   "required": [
@@ -16694,7 +16694,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/ClearRFIDCo
   "type": "object",
   "properties": {
     "Status": {
-      "type": "DrlkPassFailStatus"
+      "type": "integer"
     }
   },
   "required": [
@@ -16776,7 +16776,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/ClearAllRFI
   "type": "object",
   "properties": {
     "Status": {
-      "type": "DrlkPassFailStatus"
+      "type": "integer"
     }
   },
   "required": [
@@ -16819,7 +16819,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/ClearAllRFI
   "type": "object",
   "properties": {
     "OperationType": {
-      "type": "DataOperationTypeEnum"
+      "type": "SetUserOperationType"
     },
     "UserIndex": {
       "type": "integer"
@@ -16831,13 +16831,13 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/ClearAllRFI
       "type": "integer"
     },
     "UserStatus": {
-      "type": "DrlkSettableUserStatus"
+      "type": "SetUserUserStatus"
     },
     "UserType": {
-      "type": "DrlkUserType"
+      "type": "SetUserUserType"
     },
     "CredentialRule": {
-      "type": "CredentialRuleEnum"
+      "type": "SetUserCredentialRule"
     }
   },
   "required": [
@@ -17011,7 +17011,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/ClearUser'
   "type": "object",
   "properties": {
     "OperationEventSource": {
-      "type": "DrlkOperEventSource"
+      "type": "integer"
     },
     "OperationEventCode": {
       "type": "OperatingEventNotificationOperationEventCode"
@@ -17086,10 +17086,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/OperatingEv
       "type": "string"
     },
     "UserType": {
-      "type": "DrlkUserType"
+      "type": "ProgrammingEventNotificationUserType"
     },
     "UserStatus": {
-      "type": "DrlkUserStatus"
+      "type": "ProgrammingEventNotificationUserStatus"
     },
     "LocalTime": {
       "type": "integer"
@@ -17145,7 +17145,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/Programming
   "type": "object",
   "properties": {
     "OperationType": {
-      "type": "DataOperationTypeEnum"
+      "type": "SetCredentialOperationType"
     },
     "Credential": {
       "type": "CredentialStruct"
@@ -17157,10 +17157,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/Programming
       "type": "integer"
     },
     "UserStatus": {
-      "type": "DrlkSettableUserStatus"
+      "type": "SetCredentialUserStatus"
     },
     "UserType": {
-      "type": "DrlkUserType"
+      "type": "SetCredentialUserType"
     }
   },
   "required": [
@@ -17438,7 +17438,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DoorLock/GeneratedCommands/UnboltDoor'
       "type": "integer"
     },
     "OperatingMode": {
-      "type": "DrlkOperMode"
+      "type": "DoorLockOperatingMode"
     },
     "EnableLocalProgramming": {
       "type": "boolean"
@@ -20469,7 +20469,7 @@ ucl/by-unid/<UNID>/ep0/PumpConfigurationAndControl/Attributes/PumpStatus/Reporte
   "type": "object",
   "properties": {
     "value": {
-      "type": "PumpOperationMode"
+      "type": "PumpConfigurationAndControlEffectiveOperationMode"
     }
   },
   "required": [
@@ -20513,7 +20513,7 @@ ucl/by-unid/<UNID>/ep0/PumpConfigurationAndControl/Attributes/EffectiveOperation
   "type": "object",
   "properties": {
     "value": {
-      "type": "PumpControlMode"
+      "type": "PumpConfigurationAndControlEffectiveControlMode"
     }
   },
   "required": [
@@ -20777,7 +20777,7 @@ ucl/by-unid/<UNID>/ep0/PumpConfigurationAndControl/Attributes/LifetimeEnergyCons
   "type": "object",
   "properties": {
     "value": {
-      "type": "PumpOperationMode"
+      "type": "PumpConfigurationAndControlOperationMode"
     }
   },
   "required": [
@@ -20821,7 +20821,7 @@ ucl/by-unid/<UNID>/ep0/PumpConfigurationAndControl/Attributes/OperationMode/Repo
   "type": "object",
   "properties": {
     "value": {
-      "type": "PumpControlMode"
+      "type": "PumpConfigurationAndControlControlMode"
     }
   },
   "required": [
@@ -21026,10 +21026,10 @@ ucl/by-unid/<UNID>/<EP>/PumpConfigurationAndControl/SupportedGeneratedCommands {
       "type": "integer"
     },
     "OperationMode": {
-      "type": "PumpOperationMode"
+      "type": "PumpConfigurationAndControlOperationMode"
     },
     "ControlMode": {
-      "type": "PumpControlMode"
+      "type": "PumpConfigurationAndControlControlMode"
     },
   },
   "required": [
@@ -23535,10 +23535,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Thermostat/GeneratedCommands/SetpointR
       "type": "integer"
     },
     "DayOfWeek": {
-      "type": "TstatScheduleDOW"
+      "type": "GetWeeklyScheduleResponseDayOfWeek"
     },
     "Mode": {
-      "type": "TstatScheduleMode"
+      "type": "GetWeeklyScheduleResponseMode"
     },
     "Transitions": {
       "type": "array",
@@ -23593,10 +23593,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Thermostat/GeneratedCommands/GetWeekly
       "type": "integer"
     },
     "DayOfWeek": {
-      "type": "TstatScheduleDOW"
+      "type": "SetWeeklyScheduleDayOfWeek"
     },
     "Mode": {
-      "type": "TstatScheduleMode"
+      "type": "SetWeeklyScheduleMode"
     },
     "Transitions": {
       "type": "array",
@@ -23711,10 +23711,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/Thermostat/GeneratedCommands/GetRelayS
   "type": "object",
   "properties": {
     "DaysToReturn": {
-      "type": "TstatScheduleDOW"
+      "type": "GetWeeklyScheduleDaysToReturn"
     },
     "ModeToReturn": {
-      "type": "TstatScheduleMode"
+      "type": "GetWeeklyScheduleModeToReturn"
     }
   },
   "required": [
@@ -25745,7 +25745,7 @@ ucl/by-unid/<UNID>/ep0/ColorControl/Attributes/ColorMode/Reported { "value": <RE
   "type": "object",
   "properties": {
     "value": {
-      "type": "CCColorOptions"
+      "type": "ColorControlOptions"
     }
   },
   "required": [
@@ -27773,16 +27773,16 @@ ucl/by-unid/<UNID>/<EP>/ColorControl/SupportedGeneratedCommands { "value": [] }
       "type": "integer"
     },
     "Direction": {
-      "type": "CCDirection"
+      "type": "MoveToHueDirection"
     },
     "TransitionTime": {
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "MoveToHueOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "MoveToHueOptionsOverride"
     }
   },
   "required": [
@@ -27829,16 +27829,16 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/MoveToH
   "type": "object",
   "properties": {
     "MoveMode": {
-      "type": "CCMoveMode"
+      "type": "MoveHueMoveMode"
     },
     "Rate": {
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "MoveHueOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "MoveHueOptionsOverride"
     }
   },
   "required": [
@@ -27884,7 +27884,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/MoveHue
   "type": "object",
   "properties": {
     "StepMode": {
-      "type": "CCStepMode"
+      "type": "StepHueStepMode"
     },
     "StepSize": {
       "type": "integer"
@@ -27893,10 +27893,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/MoveHue
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "StepHueOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "StepHueOptionsOverride"
     }
   },
   "required": [
@@ -27949,10 +27949,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/StepHue
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "MoveToSaturationOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "MoveToSaturationOptionsOverride"
     }
   },
   "required": [
@@ -27998,16 +27998,16 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/MoveToS
   "type": "object",
   "properties": {
     "MoveMode": {
-      "type": "CCMoveMode"
+      "type": "MoveSaturationMoveMode"
     },
     "Rate": {
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "MoveSaturationOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "MoveSaturationOptionsOverride"
     }
   },
   "required": [
@@ -28053,7 +28053,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/MoveSat
   "type": "object",
   "properties": {
     "StepMode": {
-      "type": "CCStepMode"
+      "type": "StepSaturationStepMode"
     },
     "StepSize": {
       "type": "integer"
@@ -28062,10 +28062,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/MoveSat
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "StepSaturationOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "StepSaturationOptionsOverride"
     }
   },
   "required": [
@@ -28121,10 +28121,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/StepSat
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "MoveToHueAndSaturationOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "MoveToHueAndSaturationOptionsOverride"
     }
   },
   "required": [
@@ -28180,10 +28180,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/MoveToH
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "MoveToColorOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "MoveToColorOptionsOverride"
     }
   },
   "required": [
@@ -28236,10 +28236,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/MoveToC
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "MoveColorOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "MoveColorOptionsOverride"
     }
   },
   "required": [
@@ -28294,10 +28294,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/MoveCol
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "StepColorOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "StepColorOptionsOverride"
     }
   },
   "required": [
@@ -28350,10 +28350,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/StepCol
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "MoveToColorTemperatureOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "MoveToColorTemperatureOptionsOverride"
     }
   },
   "required": [
@@ -28402,16 +28402,16 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/MoveToC
       "type": "integer"
     },
     "Direction": {
-      "type": "CCDirection"
+      "type": "EnhancedMoveToHueDirection"
     },
     "TransitionTime": {
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "EnhancedMoveToHueOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "EnhancedMoveToHueOptionsOverride"
     }
   },
   "required": [
@@ -28458,16 +28458,16 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/Enhance
   "type": "object",
   "properties": {
     "MoveMode": {
-      "type": "CCMoveMode"
+      "type": "EnhancedMoveHueMoveMode"
     },
     "Rate": {
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "EnhancedMoveHueOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "EnhancedMoveHueOptionsOverride"
     }
   },
   "required": [
@@ -28513,7 +28513,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/Enhance
   "type": "object",
   "properties": {
     "StepMode": {
-      "type": "CCStepMode"
+      "type": "EnhancedStepHueStepMode"
     },
     "StepSize": {
       "type": "integer"
@@ -28522,10 +28522,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/Enhance
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "EnhancedStepHueOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "EnhancedStepHueOptionsOverride"
     }
   },
   "required": [
@@ -28581,10 +28581,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/Enhance
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "EnhancedMoveToHueAndSaturationOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "EnhancedMoveToHueAndSaturationOptionsOverride"
     }
   },
   "required": [
@@ -28637,7 +28637,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/Enhance
       "type": "ColorLoopSetAction"
     },
     "Direction": {
-      "type": "CCColorLoopDirection"
+      "type": "ColorLoopSetDirection"
     },
     "Time": {
       "type": "integer"
@@ -28646,10 +28646,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/Enhance
       "type": "integer"
     },
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "ColorLoopSetOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "ColorLoopSetOptionsOverride"
     }
   },
   "required": [
@@ -28698,10 +28698,10 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/ColorLo
   "type": "object",
   "properties": {
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "StopMoveStepOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "StopMoveStepOptionsOverride"
     }
   },
   "required": [
@@ -28745,22 +28745,22 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/StopMov
   "type": "object",
   "properties": {
     "MoveMode": {
-      "type": "CCMoveMode"
+      "type": "MoveColorTemperatureMoveMode"
     },
     "Rate": {
       "type": "integer"
     },
     "ColorTemperatureMinimumMireds": {
-      "type": "CCMinMiredsField"
+      "type": "integer"
     },
     "ColorTemperatureMaximumMireds": {
-      "type": "CCMaxMiredsField"
+      "type": "integer"
     },
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "MoveColorTemperatureOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "MoveColorTemperatureOptionsOverride"
     }
   },
   "required": [
@@ -28808,7 +28808,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/MoveCol
   "type": "object",
   "properties": {
     "StepMode": {
-      "type": "CCStepMode"
+      "type": "StepColorTemperatureStepMode"
     },
     "StepSize": {
       "type": "integer"
@@ -28817,16 +28817,16 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/MoveCol
       "type": "integer"
     },
     "ColorTemperatureMinimumMireds": {
-      "type": "CCMinMiredsField"
+      "type": "integer"
     },
     "ColorTemperatureMaximumMireds": {
-      "type": "CCMaxMiredsField"
+      "type": "integer"
     },
     "OptionsMask": {
-      "type": "CCColorOptions"
+      "type": "StepColorTemperatureOptionsMask"
     },
     "OptionsOverride": {
-      "type": "CCColorOptions"
+      "type": "StepColorTemperatureOptionsOverride"
     }
   },
   "required": [
@@ -28874,7 +28874,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ColorControl/GeneratedCommands/StepCol
   "type": "object",
   "properties": {
     "Options": {
-      "type": "CCColorOptions"
+      "type": "ColorControlOptions"
     },
     "WhitePointX": {
       "type": "integer"
@@ -36293,7 +36293,7 @@ ucl/by-unid/<UNID>/ep0/IASZone/Attributes/ZoneState/Reported { "value": <REPORTE
   "type": "object",
   "properties": {
     "value": {
-      "type": "IasZoneType"
+      "type": "IASZoneZoneType"
     }
   },
   "required": [
@@ -36337,7 +36337,7 @@ ucl/by-unid/<UNID>/ep0/IASZone/Attributes/ZoneType/Reported { "value": <REPORTED
   "type": "object",
   "properties": {
     "value": {
-      "type": "IasZoneStatus"
+      "type": "IASZoneZoneStatus"
     }
   },
   "required": [
@@ -36723,7 +36723,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/IASZone/GeneratedCommands/ZoneEnrollRe
   "type": "object",
   "properties": {
     "ZoneStatus": {
-      "type": "IasZoneStatus"
+      "type": "ZoneStatusChangeNotificationZoneStatus"
     },
     "ExtendedStatus": {
       "type": "ZoneStatusChangeNotificationExtendedStatus"
@@ -36817,7 +36817,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/IASZone/GeneratedCommands/InitiateNorm
   "type": "object",
   "properties": {
     "ZoneType": {
-      "type": "IasZoneType"
+      "type": "ZoneEnrollRequestZoneType"
     },
     "ManufacturerCode": {
       "type": "integer"
@@ -37200,7 +37200,7 @@ ucl/by-unid/<UNID>/<EP>/IASWD/SupportedGeneratedCommands { "value": [] }
       "type": "integer"
     },
     "StrobeLevel": {
-      "type": "IaswdLevel"
+      "type": "StartWarningStrobeLevel"
     }
   },
   "required": [
@@ -44498,7 +44498,7 @@ ucl/by-unid/<UNID>/<EP>/ElectricalMeasurement/SupportedGeneratedCommands { "valu
       "type": "integer"
     },
     "ProfileIntervalPeriod": {
-      "type": "ProfileIntervalPeriod"
+      "type": "GetProfileInfoResponseProfileIntervalPeriod"
     },
     "MaxNumberOfIntervals": {
       "type": "integer"
@@ -44598,7 +44598,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/ElectricalMeasurement/GeneratedCommand
       "type": "GetMeasurementProfileResponseStatus"
     },
     "ProfileIntervalPeriod": {
-      "type": "ProfileIntervalPeriod"
+      "type": "GetMeasurementProfileResponseProfileIntervalPeriod"
     },
     "NumberOfIntervalsDelivered": {
       "type": "integer"
@@ -46651,6 +46651,1111 @@ mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/Diagnostics/Commands/ForceReadAttribut
 <!-- NEW Page Cluster Support -->
 <!-- -->
 <!-- -->
+\page dmf_bridge_config DMFBridgeConfig Cluster
+The following commands and attributes are accepted as JSON payloads for the
+DMFBridgeConfig cluster.
+
+<br><br>
+
+<!-- -->
+<!--  START OF DMFBridgeConfig Attributes Section -->
+<!-- -->
+\section dmf_bridge_config_attrs DMFBridgeConfig Attributes
+The following attribute topics are used to retrieve the DMFBridgeConfig cluster state.
+
+<br>
+
+\subsection dmf_bridge_config_attr_fixture_table_revision DMFBridgeConfig/FixtureTableRevision Attribute
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Attributes/FixtureTableRevision/Reported
+[PREFIX]/DMFBridgeConfig/Attributes/FixtureTableRevision/Desired
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster FixtureTableRevision Attribute Properties",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "value"
+  ]
+}
+```
+
+
+**Example Mosquitto CLI Tool Usage**
+
+To see desired/reported value for FixtureTableRevision attribute under the by-unid topic space:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/+/+/DMFBridgeConfig/Attributes/FixtureTableRevision/+'
+
+# Example output
+
+ucl/by-unid/<UNID>/ep0/DMFBridgeConfig/Attributes/FixtureTableRevision/Desired { "value": <DESIRED_FIXTURE_TABLE_REVISION>}
+ucl/by-unid/<UNID>/ep0/DMFBridgeConfig/Attributes/FixtureTableRevision/Reported { "value": <REPORTED_FIXTURE_TABLE_REVISION>}
+
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_attr_group_table_revision DMFBridgeConfig/GroupTableRevision Attribute
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Attributes/GroupTableRevision/Reported
+[PREFIX]/DMFBridgeConfig/Attributes/GroupTableRevision/Desired
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster GroupTableRevision Attribute Properties",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "value"
+  ]
+}
+```
+
+
+**Example Mosquitto CLI Tool Usage**
+
+To see desired/reported value for GroupTableRevision attribute under the by-unid topic space:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/+/+/DMFBridgeConfig/Attributes/GroupTableRevision/+'
+
+# Example output
+
+ucl/by-unid/<UNID>/ep0/DMFBridgeConfig/Attributes/GroupTableRevision/Desired { "value": <DESIRED_GROUP_TABLE_REVISION>}
+ucl/by-unid/<UNID>/ep0/DMFBridgeConfig/Attributes/GroupTableRevision/Reported { "value": <REPORTED_GROUP_TABLE_REVISION>}
+
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_attr_scene_table_revision DMFBridgeConfig/SceneTableRevision Attribute
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Attributes/SceneTableRevision/Reported
+[PREFIX]/DMFBridgeConfig/Attributes/SceneTableRevision/Desired
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster SceneTableRevision Attribute Properties",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "value"
+  ]
+}
+```
+
+
+**Example Mosquitto CLI Tool Usage**
+
+To see desired/reported value for SceneTableRevision attribute under the by-unid topic space:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/+/+/DMFBridgeConfig/Attributes/SceneTableRevision/+'
+
+# Example output
+
+ucl/by-unid/<UNID>/ep0/DMFBridgeConfig/Attributes/SceneTableRevision/Desired { "value": <DESIRED_SCENE_TABLE_REVISION>}
+ucl/by-unid/<UNID>/ep0/DMFBridgeConfig/Attributes/SceneTableRevision/Reported { "value": <REPORTED_SCENE_TABLE_REVISION>}
+
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_attr_light_mode_table_revision DMFBridgeConfig/LightModeTableRevision Attribute
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Attributes/LightModeTableRevision/Reported
+[PREFIX]/DMFBridgeConfig/Attributes/LightModeTableRevision/Desired
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster LightModeTableRevision Attribute Properties",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "value"
+  ]
+}
+```
+
+
+**Example Mosquitto CLI Tool Usage**
+
+To see desired/reported value for LightModeTableRevision attribute under the by-unid topic space:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/+/+/DMFBridgeConfig/Attributes/LightModeTableRevision/+'
+
+# Example output
+
+ucl/by-unid/<UNID>/ep0/DMFBridgeConfig/Attributes/LightModeTableRevision/Desired { "value": <DESIRED_LIGHT_MODE_TABLE_REVISION>}
+ucl/by-unid/<UNID>/ep0/DMFBridgeConfig/Attributes/LightModeTableRevision/Reported { "value": <REPORTED_LIGHT_MODE_TABLE_REVISION>}
+
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_attr_schedule_table_revision DMFBridgeConfig/ScheduleTableRevision Attribute
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Attributes/ScheduleTableRevision/Reported
+[PREFIX]/DMFBridgeConfig/Attributes/ScheduleTableRevision/Desired
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster ScheduleTableRevision Attribute Properties",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "value"
+  ]
+}
+```
+
+
+**Example Mosquitto CLI Tool Usage**
+
+To see desired/reported value for ScheduleTableRevision attribute under the by-unid topic space:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/+/+/DMFBridgeConfig/Attributes/ScheduleTableRevision/+'
+
+# Example output
+
+ucl/by-unid/<UNID>/ep0/DMFBridgeConfig/Attributes/ScheduleTableRevision/Desired { "value": <DESIRED_SCHEDULE_TABLE_REVISION>}
+ucl/by-unid/<UNID>/ep0/DMFBridgeConfig/Attributes/ScheduleTableRevision/Reported { "value": <REPORTED_SCHEDULE_TABLE_REVISION>}
+
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_attr_total_fixtures_count DMFBridgeConfig/TotalFixturesCount Attribute
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Attributes/TotalFixturesCount/Reported
+[PREFIX]/DMFBridgeConfig/Attributes/TotalFixturesCount/Desired
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster TotalFixturesCount Attribute Properties",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "value"
+  ]
+}
+```
+
+
+**Example Mosquitto CLI Tool Usage**
+
+To see desired/reported value for TotalFixturesCount attribute under the by-unid topic space:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/+/+/DMFBridgeConfig/Attributes/TotalFixturesCount/+'
+
+# Example output
+
+ucl/by-unid/<UNID>/ep0/DMFBridgeConfig/Attributes/TotalFixturesCount/Desired { "value": <DESIRED_TOTAL_FIXTURES_COUNT>}
+ucl/by-unid/<UNID>/ep0/DMFBridgeConfig/Attributes/TotalFixturesCount/Reported { "value": <REPORTED_TOTAL_FIXTURES_COUNT>}
+
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_attr_discovery_status DMFBridgeConfig/DiscoveryStatus Attribute
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Attributes/DiscoveryStatus/Reported
+[PREFIX]/DMFBridgeConfig/Attributes/DiscoveryStatus/Desired
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster DiscoveryStatus Attribute Properties",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "DMFBridgeConfigDiscoveryStatus"
+    }
+  },
+  "required": [
+    "value"
+  ]
+}
+```
+
+
+**Example Mosquitto CLI Tool Usage**
+
+To see desired/reported value for DiscoveryStatus attribute under the by-unid topic space:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/+/+/DMFBridgeConfig/Attributes/DiscoveryStatus/+'
+
+# Example output
+
+ucl/by-unid/<UNID>/ep0/DMFBridgeConfig/Attributes/DiscoveryStatus/Desired { "value": <DESIRED_DISCOVERY_STATUS>}
+ucl/by-unid/<UNID>/ep0/DMFBridgeConfig/Attributes/DiscoveryStatus/Reported { "value": <REPORTED_DISCOVERY_STATUS>}
+
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_attr_ble_session_status DMFBridgeConfig/BLESessionStatus Attribute
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Attributes/BLESessionStatus/Reported
+[PREFIX]/DMFBridgeConfig/Attributes/BLESessionStatus/Desired
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster BLESessionStatus Attribute Properties",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "DMFBridgeConfigBLESessionStatus"
+    }
+  },
+  "required": [
+    "value"
+  ]
+}
+```
+
+
+**Example Mosquitto CLI Tool Usage**
+
+To see desired/reported value for BLESessionStatus attribute under the by-unid topic space:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/+/+/DMFBridgeConfig/Attributes/BLESessionStatus/+'
+
+# Example output
+
+ucl/by-unid/<UNID>/ep0/DMFBridgeConfig/Attributes/BLESessionStatus/Desired { "value": <DESIRED_BLE_SESSION_STATUS>}
+ucl/by-unid/<UNID>/ep0/DMFBridgeConfig/Attributes/BLESessionStatus/Reported { "value": <REPORTED_BLE_SESSION_STATUS>}
+
+```
+
+<br><br>
+
+
+\subsection dmf_bridge_config_attr_cluster_revision DMFBridgeConfig/ClusterRevision Attribute
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Attributes/ClusterRevision/Reported
+[PREFIX]/DMFBridgeConfig/Attributes/ClusterRevision/Desired
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster ClusterRevision Attribute Properties",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "value"
+  ]
+}
+```
+
+**Example Mosquitto CLI Tool Usage**
+
+To see desired/reported value for ClusterRevision attribute under the by-unid topic space:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Attributes/ClusterRevision/+'
+# Example output
+ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Attributes/ClusterRevision/Desired { "value": <DESIRED_CLUSTER_REVISION> }
+ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Attributes/ClusterRevision/Reported { "value": <REPORTED_CLUSTER_REVISION> }
+```
+
+<!-- -->
+<!--  END OF DMFBridgeConfig Attributes Section -->
+<!-- -->
+
+<br><br>
+
+<!-- -->
+<!-- START OF DMFBridgeConfig Supported Commands Section -->
+<!-- -->
+\section dmf_bridge_config_recv_cmd_support DMFBridgeConfig Command Support
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/SupportedCommands
+[PREFIX]/DMFBridgeConfig/SupportedGeneratedCommands
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Command Support Properties",
+  "type": "object",
+  "properties": {
+      "value": {
+          "type": "array",
+          "items" : {
+            "type": "string",
+            "enum": [
+              "TriggerRDMDiscovery",
+              "IdentifyFixture",
+              "IdentifyZone",
+              "PlayLightMode",
+              "GenericReadRecord",
+              "GenericReportRecord",
+              "GenericWriteRecord",
+              "GenericDeleteRecord",
+              "ClearTable",
+              "ZBNetworkLeave",
+              "RawFixtureNotification",
+              "WriteAttributes",
+              "ForceReadAttributes"
+            ]
+          }
+        }
+      }
+  },
+  "required": [
+    "value"
+  ]
+}
+```
+
+**Example Mosquitto CLI Tool Usage**
+
+To see supported commands for DMFBridgeConfig cluster under the by-unid topic space:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/SupportedCommands'
+# Example output
+ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/SupportedCommands { "value": ["TriggerRDMDiscovery","IdentifyFixture","IdentifyZone","PlayLightMode","GenericReadRecord","GenericWriteRecord","GenericDeleteRecord","ClearTable","ZBNetworkLeave",] }
+```
+
+To see supported generated commands for DMFBridgeConfig cluster under the by-unid topic space:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/SupportedGeneratedCommands'
+# Example output
+ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/SupportedGeneratedCommands { "value": ["GenericReportRecord","RawFixtureNotification"] }
+```
+
+<!-- -->
+<!-- END OF DMFBridgeConfig Supported Commands Section -->
+<!-- -->
+
+<br><br>
+
+<!-- -->
+<!-- START OF DMFBridgeConfig Commands Section -->
+<!-- -->
+\section dmf_bridge_config_cmds DMFBridgeConfig Commands
+
+<br><br>
+
+\subsection dmf_bridge_config_trigger_rdm_discovery_cmd DMFBridgeConfig/TriggerRDMDiscovery Command
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Commands/TriggerRDMDiscovery
+[PREFIX]/DMFBridgeConfig/GeneratedCommands/TriggerRDMDiscovery
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster TriggerRDMDiscovery Command Properties",
+  "type": "object",
+  "properties": {
+  },
+  "required": [
+  ]
+}
+```
+
+**Example Mosquitto CLI Tool Usage**
+
+To send a DMFBridgeConfig/TriggerRDMDiscovery command under the by-unid topic space:
+
+```console
+mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/TriggerRDMDiscovery' -m  '{  }'
+```
+
+To receive a DMFBridgeConfig/TriggerRDMDiscovery generated command from a UNID/endpoint:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/GeneratedCommands/TriggerRDMDiscovery'
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_identify_fixture_cmd DMFBridgeConfig/IdentifyFixture Command
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Commands/IdentifyFixture
+[PREFIX]/DMFBridgeConfig/GeneratedCommands/IdentifyFixture
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster IdentifyFixture Command Properties",
+  "type": "object",
+  "properties": {
+    "UID": {
+      "type": "string"
+    },
+    "IdentifyOn": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "UID",
+    "IdentifyOn"
+  ]
+}
+```
+
+**Example Mosquitto CLI Tool Usage**
+
+To send a DMFBridgeConfig/IdentifyFixture command under the by-unid topic space:
+
+```console
+mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/IdentifyFixture' -m  '{ "UID": <UID_VALUE>,"IdentifyOn": <IDENTIFY_ON_VALUE> }'
+```
+
+To receive a DMFBridgeConfig/IdentifyFixture generated command from a UNID/endpoint:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/GeneratedCommands/IdentifyFixture'
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_identify_zone_cmd DMFBridgeConfig/IdentifyZone Command
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Commands/IdentifyZone
+[PREFIX]/DMFBridgeConfig/GeneratedCommands/IdentifyZone
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster IdentifyZone Command Properties",
+  "type": "object",
+  "properties": {
+    "ZoneID": {
+      "type": "integer"
+    },
+    "IdentifyOn": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ZoneID",
+    "IdentifyOn"
+  ]
+}
+```
+
+**Example Mosquitto CLI Tool Usage**
+
+To send a DMFBridgeConfig/IdentifyZone command under the by-unid topic space:
+
+```console
+mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/IdentifyZone' -m  '{ "ZoneID": <ZONEID_VALUE>,"IdentifyOn": <IDENTIFY_ON_VALUE> }'
+```
+
+To receive a DMFBridgeConfig/IdentifyZone generated command from a UNID/endpoint:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/GeneratedCommands/IdentifyZone'
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_play_light_mode_cmd DMFBridgeConfig/PlayLightMode Command
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Commands/PlayLightMode
+[PREFIX]/DMFBridgeConfig/GeneratedCommands/PlayLightMode
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster PlayLightMode Command Properties",
+  "type": "object",
+  "properties": {
+    "LightModeID": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "LightModeID"
+  ]
+}
+```
+
+**Example Mosquitto CLI Tool Usage**
+
+To send a DMFBridgeConfig/PlayLightMode command under the by-unid topic space:
+
+```console
+mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/PlayLightMode' -m  '{ "LightModeID": <LIGHT_MODEID_VALUE> }'
+```
+
+To receive a DMFBridgeConfig/PlayLightMode generated command from a UNID/endpoint:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/GeneratedCommands/PlayLightMode'
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_generic_read_record_cmd DMFBridgeConfig/GenericReadRecord Command
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Commands/GenericReadRecord
+[PREFIX]/DMFBridgeConfig/GeneratedCommands/GenericReadRecord
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster GenericReadRecord Command Properties",
+  "type": "object",
+  "properties": {
+    "TableID": {
+      "type": "integer"
+    },
+    "RecordIndex": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "TableID",
+    "RecordIndex"
+  ]
+}
+```
+
+**Example Mosquitto CLI Tool Usage**
+
+To send a DMFBridgeConfig/GenericReadRecord command under the by-unid topic space:
+
+```console
+mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/GenericReadRecord' -m  '{ "TableID": <TABLEID_VALUE>,"RecordIndex": <RECORD_INDEX_VALUE> }'
+```
+
+To receive a DMFBridgeConfig/GenericReadRecord generated command from a UNID/endpoint:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/GeneratedCommands/GenericReadRecord'
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_generic_report_record_cmd DMFBridgeConfig/GenericReportRecord Command
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Commands/GenericReportRecord
+[PREFIX]/DMFBridgeConfig/GeneratedCommands/GenericReportRecord
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster GenericReportRecord Command Properties",
+  "type": "object",
+  "properties": {
+    "TableID": {
+      "type": "integer"
+    },
+    "RecordIndex": {
+      "type": "integer"
+    },
+    "TotalRecords": {
+      "type": "integer"
+    },
+    "RecordPayload": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "TableID",
+    "RecordIndex",
+    "TotalRecords",
+    "RecordPayload"
+  ]
+}
+```
+
+**Example Mosquitto CLI Tool Usage**
+
+To send a DMFBridgeConfig/GenericReportRecord command under the by-unid topic space:
+
+```console
+mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/GenericReportRecord' -m  '{ "TableID": <TABLEID_VALUE>,"RecordIndex": <RECORD_INDEX_VALUE>,"TotalRecords": <TOTAL_RECORDS_VALUE>,"RecordPayload": <RECORD_PAYLOAD_VALUE> }'
+```
+
+To receive a DMFBridgeConfig/GenericReportRecord generated command from a UNID/endpoint:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/GeneratedCommands/GenericReportRecord'
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_generic_write_record_cmd DMFBridgeConfig/GenericWriteRecord Command
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Commands/GenericWriteRecord
+[PREFIX]/DMFBridgeConfig/GeneratedCommands/GenericWriteRecord
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster GenericWriteRecord Command Properties",
+  "type": "object",
+  "properties": {
+    "TableID": {
+      "type": "integer"
+    },
+    "RecordIndex": {
+      "type": "integer"
+    },
+    "RecordPayload": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "TableID",
+    "RecordIndex",
+    "RecordPayload"
+  ]
+}
+```
+
+**Example Mosquitto CLI Tool Usage**
+
+To send a DMFBridgeConfig/GenericWriteRecord command under the by-unid topic space:
+
+```console
+mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/GenericWriteRecord' -m  '{ "TableID": <TABLEID_VALUE>,"RecordIndex": <RECORD_INDEX_VALUE>,"RecordPayload": <RECORD_PAYLOAD_VALUE> }'
+```
+
+To receive a DMFBridgeConfig/GenericWriteRecord generated command from a UNID/endpoint:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/GeneratedCommands/GenericWriteRecord'
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_generic_delete_record_cmd DMFBridgeConfig/GenericDeleteRecord Command
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Commands/GenericDeleteRecord
+[PREFIX]/DMFBridgeConfig/GeneratedCommands/GenericDeleteRecord
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster GenericDeleteRecord Command Properties",
+  "type": "object",
+  "properties": {
+    "TableID": {
+      "type": "integer"
+    },
+    "RecordIndex": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "TableID",
+    "RecordIndex"
+  ]
+}
+```
+
+**Example Mosquitto CLI Tool Usage**
+
+To send a DMFBridgeConfig/GenericDeleteRecord command under the by-unid topic space:
+
+```console
+mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/GenericDeleteRecord' -m  '{ "TableID": <TABLEID_VALUE>,"RecordIndex": <RECORD_INDEX_VALUE> }'
+```
+
+To receive a DMFBridgeConfig/GenericDeleteRecord generated command from a UNID/endpoint:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/GeneratedCommands/GenericDeleteRecord'
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_clear_table_cmd DMFBridgeConfig/ClearTable Command
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Commands/ClearTable
+[PREFIX]/DMFBridgeConfig/GeneratedCommands/ClearTable
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster ClearTable Command Properties",
+  "type": "object",
+  "properties": {
+    "TableID": {
+      "type": "integer"
+    },
+    "ConfirmCode": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "TableID",
+    "ConfirmCode"
+  ]
+}
+```
+
+**Example Mosquitto CLI Tool Usage**
+
+To send a DMFBridgeConfig/ClearTable command under the by-unid topic space:
+
+```console
+mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/ClearTable' -m  '{ "TableID": <TABLEID_VALUE>,"ConfirmCode": <CONFIRM_CODE_VALUE> }'
+```
+
+To receive a DMFBridgeConfig/ClearTable generated command from a UNID/endpoint:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/GeneratedCommands/ClearTable'
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_zb_network_leave_cmd DMFBridgeConfig/ZBNetworkLeave Command
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Commands/ZBNetworkLeave
+[PREFIX]/DMFBridgeConfig/GeneratedCommands/ZBNetworkLeave
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster ZBNetworkLeave Command Properties",
+  "type": "object",
+  "properties": {
+    "ConfirmCode": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ConfirmCode"
+  ]
+}
+```
+
+**Example Mosquitto CLI Tool Usage**
+
+To send a DMFBridgeConfig/ZBNetworkLeave command under the by-unid topic space:
+
+```console
+mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/ZBNetworkLeave' -m  '{ "ConfirmCode": <CONFIRM_CODE_VALUE> }'
+```
+
+To receive a DMFBridgeConfig/ZBNetworkLeave generated command from a UNID/endpoint:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/GeneratedCommands/ZBNetworkLeave'
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_raw_fixture_notification_cmd DMFBridgeConfig/RawFixtureNotification Command
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Commands/RawFixtureNotification
+[PREFIX]/DMFBridgeConfig/GeneratedCommands/RawFixtureNotification
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster RawFixtureNotification Command Properties",
+  "type": "object",
+  "properties": {
+    "UID": {
+      "type": "string"
+    },
+    "ModelID": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "UID",
+    "ModelID"
+  ]
+}
+```
+
+**Example Mosquitto CLI Tool Usage**
+
+To send a DMFBridgeConfig/RawFixtureNotification command under the by-unid topic space:
+
+```console
+mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/RawFixtureNotification' -m  '{ "UID": <UID_VALUE>,"ModelID": <MODELID_VALUE> }'
+```
+
+To receive a DMFBridgeConfig/RawFixtureNotification generated command from a UNID/endpoint:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/GeneratedCommands/RawFixtureNotification'
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_write_attr_cmd DMFBridgeConfig/WriteAttributes Command
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Commands/WriteAttributes
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster WriteAttributes Command Properties",
+  "type": "object",
+  "properties": {
+  },
+  "required": [
+    "value"
+  ]
+}
+```
+
+**Example Mosquitto CLI Tool Usage**
+
+To update all DMFBridgeConfig attributes under the by-unid topic space:
+
+```console
+mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/WriteAttributes' -m  '{  }'
+```
+
+> NOTE: Specify only the list of attributes to write in this command.
+> Unspecified attributes will not be updated.
+
+<br><br>
+
+\subsection dmf_bridge_config_force_read_attr_cmd DMFBridgeConfig/ForceReadAttributes Command
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Commands/ForceReadAttributes
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster ForceReadAttributes Command Properties",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "array"
+      "items": {
+        "type": "string",
+        "enum": [
+          "FixtureTableRevision",
+          "GroupTableRevision",
+          "SceneTableRevision",
+          "LightModeTableRevision",
+          "ScheduleTableRevision",
+          "TotalFixturesCount",
+          "DiscoveryStatus",
+          "BLESessionStatus"
+        ]
+      }
+    }
+  },
+  "required": [
+    "value"
+  ]
+}
+```
+
+**Example Mosquitto CLI Tool Usage**
+
+To force read all DMFBridgeConfig attributes under the by-unid topic space (by sending an empty array):
+
+```console
+mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/ForceReadAttributes' -m  '{ "value": [] }'
+```
+
+To force read one of the DMFBridgeConfig attributes under the by-unid topic space:
+
+```console
+mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/ForceReadAttributes' -m  '{ "value": ["FixtureTableRevision"] }'
+```
+
+<!-- -->
+<!-- END OF DMFBridgeConfig Commands Section -->
+<!-- -->
+
+<br><br><br>
+
+
+<!-- -->
+<!-- -->
+<!-- NEW Page Cluster Support -->
+<!-- -->
+<!-- -->
 \page protocol_controller_rf_telemetry ProtocolController/RFTelemetry Cluster
 The following commands and attributes are accepted as JSON payloads for the
 ProtocolController-RFTelemetry cluster.
@@ -47169,7 +48274,7 @@ ucl/by-unid/<UNID>/State/Attributes/EndpointIdList/Reported { "value": [<REPORTE
   "type": "object",
   "properties": {
     "value": {
-      "type": "NodeStateNetworkStatus"
+      "type": "StateNetworkStatus"
     }
   },
   "required": [
@@ -47213,7 +48318,7 @@ ucl/by-unid/<UNID>/State/Attributes/NetworkStatus/Reported { "value": <REPORTED_
   "type": "object",
   "properties": {
     "value": {
-      "type": "NodeStateSecurity"
+      "type": "StateSecurity"
     }
   },
   "required": [
@@ -50231,7 +51336,7 @@ ucl/by-unid/<UNID>/ApplicationMonitoring/Attributes/MQTTLoggingEnabled/Reported 
   "type": "object",
   "properties": {
     "value": {
-      "type": "LoggingLevelEnum"
+      "type": "ApplicationMonitoringMQTTLoggingLevel"
     }
   },
   "required": [
@@ -50965,7 +52070,7 @@ ucl/by-unid/<UNID>/ApplicationMonitoring/SupportedGeneratedCommands { "value": [
       "type": "string"
     },
     "LogLevel": {
-      "type": "LoggingLevelEnum"
+      "type": "LogEntryLogLevel"
     },
     "LogTag": {
       "type": "string"
@@ -51019,7 +52124,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/ApplicationMonitoring/GeneratedCommands/Log
       "type": "boolean"
     },
     "MQTTLoggingLevel": {
-      "type": "LoggingLevelEnum"
+      "type": "ApplicationMonitoringMQTTLoggingLevel"
     },
     "MQTTStatisticsReportingIntervalSeconds": {
       "type": "integer"
@@ -52496,7 +53601,7 @@ The following attribute topics are used to retrieve the UnifyFanControl cluster 
   "type": "object",
   "properties": {
     "value": {
-      "type": "ZWaveFanModeEnum"
+      "type": "UnifyFanControlZWaveFanMode"
     }
   },
   "required": [
@@ -52584,7 +53689,7 @@ ucl/by-unid/<UNID>/ep0/UnifyFanControl/Attributes/ZWaveSupportedFanMode/Reported
   "type": "object",
   "properties": {
     "value": {
-      "type": "ZWaveFanStateEnum"
+      "type": "UnifyFanControlZWaveFanState"
     }
   },
   "required": [
@@ -52744,7 +53849,7 @@ ucl/by-unid/<UNID>/<EP>/UnifyFanControl/SupportedGeneratedCommands { "value": []
   "type": "object",
   "properties": {
     "FanMode": {
-      "type": "ZWaveFanModeEnum"
+      "type": "SetFanModeFanMode"
     }
   },
   "required": [
@@ -52825,7 +53930,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/UnifyFanControl/GeneratedCommands/Turn
   "type": "object",
   "properties": {
     "ZWaveFanMode": {
-      "type": "ZWaveFanModeEnum"
+      "type": "UnifyFanControlZWaveFanMode"
     },
   },
   "required": [
@@ -53296,7 +54401,7 @@ The following attribute topics are used to retrieve the UnifyHumidityControl clu
   "type": "object",
   "properties": {
     "value": {
-      "type": "ModeType"
+      "type": "UnifyHumidityControlReportingMode"
     }
   },
   "required": [
@@ -53604,7 +54709,7 @@ ucl/by-unid/<UNID>/ep0/UnifyHumidityControl/Attributes/HumidifierSetpoint/Report
   "type": "object",
   "properties": {
     "value": {
-      "type": "ScaleType"
+      "type": "UnifyHumidityControlHumidifierSetpointScale"
     }
   },
   "required": [
@@ -53824,7 +54929,7 @@ ucl/by-unid/<UNID>/ep0/UnifyHumidityControl/Attributes/DehumidifierSetpoint/Repo
   "type": "object",
   "properties": {
     "value": {
-      "type": "ScaleType"
+      "type": "UnifyHumidityControlDehumidifierSetpointScale"
     }
   },
   "required": [
@@ -54044,7 +55149,7 @@ ucl/by-unid/<UNID>/ep0/UnifyHumidityControl/Attributes/AutoSetpoint/Reported { "
   "type": "object",
   "properties": {
     "value": {
-      "type": "ScaleType"
+      "type": "UnifyHumidityControlAutoSetpointScale"
     }
   },
   "required": [
@@ -54248,7 +55353,7 @@ ucl/by-unid/<UNID>/<EP>/UnifyHumidityControl/SupportedGeneratedCommands { "value
   "type": "object",
   "properties": {
     "Mode": {
-      "type": "ModeType"
+      "type": "ModeSetMode"
     }
   },
   "required": [
@@ -54291,7 +55396,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/UnifyHumidityControl/GeneratedCommands
   "type": "object",
   "properties": {
     "Type": {
-      "type": "SetpointType"
+      "type": "SetpointSetType"
     },
     "Precision": {
       "type": "integer"
@@ -54458,7 +55563,7 @@ mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/UnifyHumidityControl/Commands/ForceRea
   "type": "object",
   "properties": {
     "State": {
-      "type": "NM_State"
+      "type": "State"
     }
     "SupportedStateList": {
       "type": "string"
@@ -54614,7 +55719,7 @@ mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/UnifyHumidityControl/Commands/ForceRea
   "type": "object",
   "properties": {
     "CredentialType": {
-      "type": "CredentialTypeEnum"
+      "type": "CredentialType"
     }
     "CredentialIndex": {
       "type": "integer"
@@ -54641,7 +55746,7 @@ mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/UnifyHumidityControl/Commands/ForceRea
   "type": "object",
   "properties": {
     "DeviceType": {
-      "type": "DevTypeId"
+      "type": "DeviceType"
     }
     "Revision": {
       "type": "integer"
@@ -55163,6 +56268,29 @@ mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/UnifyHumidityControl/Commands/ForceRea
 
 <!-- -->
 <!-- END OF Enum ArmResponseArmNotification Section -->
+<!-- -->
+
+<br><br>
+
+<!-- -->
+<!-- START OF Enum BLESessionStatus Section -->
+<!-- -->
+\section enum_ble_session_status BLESessionStatus Enum
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BLESessionStatus Enum Properties",
+  "type": "string",
+  "enum": [
+    "Free",
+    "OccupiedByBLEMobileApp"
+  ]
+}
+```
+
+<!-- -->
+<!-- END OF Enum BLESessionStatus Section -->
 <!-- -->
 
 <br><br>
@@ -56002,6 +57130,31 @@ mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/UnifyHumidityControl/Commands/ForceRea
 
 <!-- -->
 <!-- END OF Enum DevTypeId Section -->
+<!-- -->
+
+<br><br>
+
+<!-- -->
+<!-- START OF Enum DiscoveryStatus Section -->
+<!-- -->
+\section enum_discovery_status DiscoveryStatus Enum
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DiscoveryStatus Enum Properties",
+  "type": "string",
+  "enum": [
+    "Idle",
+    "Scanning",
+    "Completed",
+    "Error"
+  ]
+}
+```
+
+<!-- -->
+<!-- END OF Enum DiscoveryStatus Section -->
 <!-- -->
 
 <br><br>

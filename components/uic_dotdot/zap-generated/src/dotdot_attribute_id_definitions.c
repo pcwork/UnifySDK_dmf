@@ -1758,6 +1758,31 @@ const char *uic_dotdot_get_attribute_name(dotdot_cluster_id_t cluster_id,
           return "Unknown";
       }
       // clang-format off
+    case DOTDOT_DMF_BRIDGE_CONFIG_CLUSTER_ID:
+      // clang-format on
+      switch (attribute_id) {
+        // clang-format off
+        case DOTDOT_DMF_BRIDGE_CONFIG_FIXTURE_TABLE_REVISION_ATTRIBUTE_ID:
+          return "FixtureTableRevision";
+        case DOTDOT_DMF_BRIDGE_CONFIG_GROUP_TABLE_REVISION_ATTRIBUTE_ID:
+          return "GroupTableRevision";
+        case DOTDOT_DMF_BRIDGE_CONFIG_SCENE_TABLE_REVISION_ATTRIBUTE_ID:
+          return "SceneTableRevision";
+        case DOTDOT_DMF_BRIDGE_CONFIG_LIGHT_MODE_TABLE_REVISION_ATTRIBUTE_ID:
+          return "LightModeTableRevision";
+        case DOTDOT_DMF_BRIDGE_CONFIG_SCHEDULE_TABLE_REVISION_ATTRIBUTE_ID:
+          return "ScheduleTableRevision";
+        case DOTDOT_DMF_BRIDGE_CONFIG_TOTAL_FIXTURES_COUNT_ATTRIBUTE_ID:
+          return "TotalFixturesCount";
+        case DOTDOT_DMF_BRIDGE_CONFIG_DISCOVERY_STATUS_ATTRIBUTE_ID:
+          return "DiscoveryStatus";
+        case DOTDOT_DMF_BRIDGE_CONFIG_BLE_SESSION_STATUS_ATTRIBUTE_ID:
+          return "BLESessionStatus";
+          // clang-format on
+        default:
+          return "Unknown";
+      }
+      // clang-format off
     case DOTDOT_PROTOCOL_CONTROLLER_RF_TELEMETRY_CLUSTER_ID:
       // clang-format on
       switch (attribute_id) {
@@ -4212,6 +4237,32 @@ dotdot_attribute_id_t
         return DOTDOT_DIAGNOSTICS_LAST_MESSAGERSSI_ATTRIBUTE_ID;
       }
     break;
+    case DOTDOT_DMF_BRIDGE_CONFIG_CLUSTER_ID:
+      if (strcmp ("FixtureTableRevision", attribute_name) == 0) {
+        return DOTDOT_DMF_BRIDGE_CONFIG_FIXTURE_TABLE_REVISION_ATTRIBUTE_ID;
+      }
+      if (strcmp ("GroupTableRevision", attribute_name) == 0) {
+        return DOTDOT_DMF_BRIDGE_CONFIG_GROUP_TABLE_REVISION_ATTRIBUTE_ID;
+      }
+      if (strcmp ("SceneTableRevision", attribute_name) == 0) {
+        return DOTDOT_DMF_BRIDGE_CONFIG_SCENE_TABLE_REVISION_ATTRIBUTE_ID;
+      }
+      if (strcmp ("LightModeTableRevision", attribute_name) == 0) {
+        return DOTDOT_DMF_BRIDGE_CONFIG_LIGHT_MODE_TABLE_REVISION_ATTRIBUTE_ID;
+      }
+      if (strcmp ("ScheduleTableRevision", attribute_name) == 0) {
+        return DOTDOT_DMF_BRIDGE_CONFIG_SCHEDULE_TABLE_REVISION_ATTRIBUTE_ID;
+      }
+      if (strcmp ("TotalFixturesCount", attribute_name) == 0) {
+        return DOTDOT_DMF_BRIDGE_CONFIG_TOTAL_FIXTURES_COUNT_ATTRIBUTE_ID;
+      }
+      if (strcmp ("DiscoveryStatus", attribute_name) == 0) {
+        return DOTDOT_DMF_BRIDGE_CONFIG_DISCOVERY_STATUS_ATTRIBUTE_ID;
+      }
+      if (strcmp ("BLESessionStatus", attribute_name) == 0) {
+        return DOTDOT_DMF_BRIDGE_CONFIG_BLE_SESSION_STATUS_ATTRIBUTE_ID;
+      }
+    break;
     case DOTDOT_PROTOCOL_CONTROLLER_RF_TELEMETRY_CLUSTER_ID:
       if (strcmp ("TxReportEnabled", attribute_name) == 0) {
         return DOTDOT_PROTOCOL_CONTROLLER_RF_TELEMETRY_TX_REPORT_ENABLED_ATTRIBUTE_ID;
@@ -6317,6 +6368,31 @@ dotdot_attribute_json_type_t
           return JSON_TYPE_UNKNOWN;
       }
       // clang-format off
+    case DOTDOT_DMF_BRIDGE_CONFIG_CLUSTER_ID:
+      // clang-format on
+      switch (attribute_id) {
+        // clang-format off
+        case DOTDOT_DMF_BRIDGE_CONFIG_FIXTURE_TABLE_REVISION_ATTRIBUTE_ID:
+          return JSON_TYPE_NUMBER;
+                case DOTDOT_DMF_BRIDGE_CONFIG_GROUP_TABLE_REVISION_ATTRIBUTE_ID:
+          return JSON_TYPE_NUMBER;
+                case DOTDOT_DMF_BRIDGE_CONFIG_SCENE_TABLE_REVISION_ATTRIBUTE_ID:
+          return JSON_TYPE_NUMBER;
+                case DOTDOT_DMF_BRIDGE_CONFIG_LIGHT_MODE_TABLE_REVISION_ATTRIBUTE_ID:
+          return JSON_TYPE_NUMBER;
+                case DOTDOT_DMF_BRIDGE_CONFIG_SCHEDULE_TABLE_REVISION_ATTRIBUTE_ID:
+          return JSON_TYPE_NUMBER;
+                case DOTDOT_DMF_BRIDGE_CONFIG_TOTAL_FIXTURES_COUNT_ATTRIBUTE_ID:
+          return JSON_TYPE_NUMBER;
+                case DOTDOT_DMF_BRIDGE_CONFIG_DISCOVERY_STATUS_ATTRIBUTE_ID:
+          return JSON_TYPE_NUMBER;
+                case DOTDOT_DMF_BRIDGE_CONFIG_BLE_SESSION_STATUS_ATTRIBUTE_ID:
+          return JSON_TYPE_NUMBER;
+                  // clang-format on
+        default:
+          return JSON_TYPE_UNKNOWN;
+      }
+      // clang-format off
     case DOTDOT_PROTOCOL_CONTROLLER_RF_TELEMETRY_CLUSTER_ID:
       // clang-format on
       switch (attribute_id) {
@@ -6950,6 +7026,15 @@ bool uic_dotdot_attribute_is_enum(dotdot_cluster_id_t cluster_id,
   }
 
   if (2821 == cluster_id) {
+  }
+
+  if (64578 == cluster_id) {
+    if (17 == attribute_id) {
+      return true;
+    }
+    if (18 == attribute_id) {
+      return true;
+    }
   }
 
   if (64769 == cluster_id) {

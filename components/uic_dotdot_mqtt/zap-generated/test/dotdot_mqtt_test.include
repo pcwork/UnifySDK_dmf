@@ -2710,6 +2710,169 @@ static sl_status_t uic_mqtt_dotdot_electrical_measurement_get_measurement_profil
   return SL_STATUS_OK;
 }
 
+static unsigned int uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_count;
+static sl_status_t uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_func(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t callback_type
+) {
+  uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_count++;
+  num_command_callbacks++;
+  return SL_STATUS_OK;
+}
+
+static unsigned int uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_count;
+static sl_status_t uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_func(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t callback_type,
+    const char* uid,
+
+    uint8_t identify_on
+
+) {
+  uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_count++;
+  num_command_callbacks++;
+  return SL_STATUS_OK;
+}
+
+static unsigned int uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_count;
+static sl_status_t uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_func(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t callback_type,
+    uint8_t zoneid,
+
+    uint8_t identify_on
+
+) {
+  uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_count++;
+  num_command_callbacks++;
+  return SL_STATUS_OK;
+}
+
+static unsigned int uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_count;
+static sl_status_t uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_func(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t callback_type,
+    uint8_t light_modeid
+
+) {
+  uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_count++;
+  num_command_callbacks++;
+  return SL_STATUS_OK;
+}
+
+static unsigned int uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_count;
+static sl_status_t uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_func(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t callback_type,
+    uint16_t tableid,
+
+    uint8_t record_index
+
+) {
+  uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_count++;
+  num_command_callbacks++;
+  return SL_STATUS_OK;
+}
+
+static unsigned int uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_count;
+static sl_status_t uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_func(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t callback_type,
+    uint16_t tableid,
+
+    uint8_t record_index,
+
+    uint16_t total_records,
+
+    const char* record_payload
+
+) {
+  uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_count++;
+  num_command_callbacks++;
+  return SL_STATUS_OK;
+}
+
+static unsigned int uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_count;
+static sl_status_t uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_func(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t callback_type,
+    uint16_t tableid,
+
+    uint8_t record_index,
+
+    const char* record_payload
+
+) {
+  uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_count++;
+  num_command_callbacks++;
+  return SL_STATUS_OK;
+}
+
+static unsigned int uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_count;
+static sl_status_t uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_func(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t callback_type,
+    uint16_t tableid,
+
+    uint8_t record_index
+
+) {
+  uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_count++;
+  num_command_callbacks++;
+  return SL_STATUS_OK;
+}
+
+static unsigned int uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_count;
+static sl_status_t uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_func(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t callback_type,
+    uint16_t tableid,
+
+    uint16_t confirm_code
+
+) {
+  uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_count++;
+  num_command_callbacks++;
+  return SL_STATUS_OK;
+}
+
+static unsigned int uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_count;
+static sl_status_t uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_func(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t callback_type,
+    uint16_t confirm_code
+
+) {
+  uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_count++;
+  num_command_callbacks++;
+  return SL_STATUS_OK;
+}
+
+static unsigned int uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_count;
+static sl_status_t uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_func(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t callback_type,
+    const char* uid,
+
+    uint16_t modelid
+
+) {
+  uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_count++;
+  num_command_callbacks++;
+  return SL_STATUS_OK;
+}
+
 static unsigned int uic_mqtt_dotdot_protocol_controller_rf_telemetry_tx_report_callback_count;
 static sl_status_t uic_mqtt_dotdot_protocol_controller_rf_telemetry_tx_report_callback_func(
     dotdot_unid_t unid,
@@ -3371,6 +3534,28 @@ static unsigned int set_all_callbacks()
   num_callbacks++;
   uic_mqtt_dotdot_electrical_measurement_get_measurement_profile_callback_set(&uic_mqtt_dotdot_electrical_measurement_get_measurement_profile_callback_func);
   num_callbacks++;
+  uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_set(&uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_func);
+  num_callbacks++;
+  uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_set(&uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_func);
+  num_callbacks++;
+  uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_set(&uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_func);
+  num_callbacks++;
+  uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_set(&uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_func);
+  num_callbacks++;
+  uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_set(&uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_func);
+  num_callbacks++;
+  uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_set(&uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_func);
+  num_callbacks++;
+  uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_set(&uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_func);
+  num_callbacks++;
+  uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_set(&uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_func);
+  num_callbacks++;
+  uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_set(&uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_func);
+  num_callbacks++;
+  uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_set(&uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_func);
+  num_callbacks++;
+  uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_set(&uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_func);
+  num_callbacks++;
   uic_mqtt_dotdot_protocol_controller_rf_telemetry_tx_report_callback_set(&uic_mqtt_dotdot_protocol_controller_rf_telemetry_tx_report_callback_func);
   num_callbacks++;
   uic_mqtt_dotdot_state_remove_callback_set(&uic_mqtt_dotdot_state_remove_callback_func);
@@ -3630,6 +3815,18 @@ static void unset_all_callbacks()
   uic_mqtt_dotdot_electrical_measurement_get_measurement_profile_callback_clear();
   uic_mqtt_dotdot_clear_electrical_measurement_write_attributes_callbacks();
   uic_mqtt_dotdot_clear_diagnostics_write_attributes_callbacks();
+  uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_clear();
+  uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_clear();
+  uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_clear();
+  uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_clear();
+  uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_clear();
+  uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_clear();
+  uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_clear();
+  uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_clear();
+  uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_clear();
+  uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_clear();
+  uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_clear();
+  uic_mqtt_dotdot_clear_dmf_bridge_config_write_attributes_callbacks();
   uic_mqtt_dotdot_protocol_controller_rf_telemetry_tx_report_callback_clear();
   uic_mqtt_dotdot_clear_protocol_controller_rf_telemetry_write_attributes_callbacks();
   uic_mqtt_dotdot_state_remove_callback_clear();
@@ -3838,6 +4035,17 @@ static void reset_callback_counters()
   uic_mqtt_dotdot_electrical_measurement_get_profile_info_callback_count = 0;
   uic_mqtt_dotdot_electrical_measurement_get_measurement_profile_response_callback_count = 0;
   uic_mqtt_dotdot_electrical_measurement_get_measurement_profile_callback_count = 0;
+  uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_count = 0;
+  uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_count = 0;
+  uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_count = 0;
+  uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_count = 0;
+  uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_count = 0;
+  uic_mqtt_dotdot_dmf_bridge_config_generic_report_record_callback_count = 0;
+  uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_count = 0;
+  uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_count = 0;
+  uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_count = 0;
+  uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_count = 0;
+  uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_count = 0;
   uic_mqtt_dotdot_protocol_controller_rf_telemetry_tx_report_callback_count = 0;
   uic_mqtt_dotdot_state_remove_callback_count = 0;
   uic_mqtt_dotdot_state_remove_offline_callback_count = 0;

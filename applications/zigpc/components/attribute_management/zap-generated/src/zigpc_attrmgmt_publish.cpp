@@ -3644,6 +3644,85 @@ sl_status_t zigpc_attrmgmt_electrical_measurement_publish(const char* unid_ep_to
 
   return status;
 }
+sl_status_t zigpc_attrmgmt_dmf_bridge_config_publish(const char* unid_ep_topic, const zcl_attribute_id_t attr_id, const uint8_t *attr_value)
+{
+  sl_status_t status = SL_STATUS_OK;
+
+  // NOTE: Only server cluster attributes are supported to be published
+  switch(attr_id) {
+    case ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_FIXTURE_TABLE_REVISION:
+      {
+        uint16_t value;
+        memcpy(&value, attr_value, sizeof(uint16_t));
+        status = uic_mqtt_dotdot_dmf_bridge_config_fixture_table_revision_publish(unid_ep_topic, value, UCL_MQTT_PUBLISH_TYPE_REPORTED);
+      }
+      break;
+    case ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_GROUP_TABLE_REVISION:
+      {
+        uint16_t value;
+        memcpy(&value, attr_value, sizeof(uint16_t));
+        status = uic_mqtt_dotdot_dmf_bridge_config_group_table_revision_publish(unid_ep_topic, value, UCL_MQTT_PUBLISH_TYPE_REPORTED);
+      }
+      break;
+    case ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_SCENE_TABLE_REVISION:
+      {
+        uint16_t value;
+        memcpy(&value, attr_value, sizeof(uint16_t));
+        status = uic_mqtt_dotdot_dmf_bridge_config_scene_table_revision_publish(unid_ep_topic, value, UCL_MQTT_PUBLISH_TYPE_REPORTED);
+      }
+      break;
+    case ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_LIGHT_MODE_TABLE_REVISION:
+      {
+        uint16_t value;
+        memcpy(&value, attr_value, sizeof(uint16_t));
+        status = uic_mqtt_dotdot_dmf_bridge_config_light_mode_table_revision_publish(unid_ep_topic, value, UCL_MQTT_PUBLISH_TYPE_REPORTED);
+      }
+      break;
+    case ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_SCHEDULE_TABLE_REVISION:
+      {
+        uint16_t value;
+        memcpy(&value, attr_value, sizeof(uint16_t));
+        status = uic_mqtt_dotdot_dmf_bridge_config_schedule_table_revision_publish(unid_ep_topic, value, UCL_MQTT_PUBLISH_TYPE_REPORTED);
+      }
+      break;
+    case ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_TOTAL_FIXTURES_COUNT:
+      {
+        uint8_t value;
+        memcpy(&value, attr_value, sizeof(uint8_t));
+        status = uic_mqtt_dotdot_dmf_bridge_config_total_fixtures_count_publish(unid_ep_topic, value, UCL_MQTT_PUBLISH_TYPE_REPORTED);
+      }
+      break;
+    case ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_DISCOVERY_STATUS:
+      {
+        DiscoveryStatus value;
+        memcpy(&value, attr_value, sizeof(DiscoveryStatus));
+        status = uic_mqtt_dotdot_dmf_bridge_config_discovery_status_publish(unid_ep_topic, value, UCL_MQTT_PUBLISH_TYPE_REPORTED);
+      }
+      break;
+    case ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_BLE_SESSION_STATUS:
+      {
+        BLESessionStatus value;
+        memcpy(&value, attr_value, sizeof(BLESessionStatus));
+        status = uic_mqtt_dotdot_dmf_bridge_config_ble_session_status_publish(unid_ep_topic, value, UCL_MQTT_PUBLISH_TYPE_REPORTED);
+      }
+      break;
+    case ZIGPC_ZCL_GLOBAL_ATTR_CLUSTER_REVISION:
+      {
+        uint16_t value;
+        memcpy(&value, attr_value, sizeof(uint16_t));
+        if (value > 1) {
+          value = 1; // take min of: device-reported vs. dotdot-spec-based
+        }
+        uic_mqtt_dotdot_dmf_bridge_config_publish_cluster_revision(unid_ep_topic, value);
+      }
+      break;
+    default:
+      status = SL_STATUS_NOT_FOUND;
+      break;
+  }
+
+  return status;
+}
 
 sl_status_t zigpc_attrmgmt_publish_reported(const zigbee_eui64_uint_t eui64, const zigbee_endpoint_id_t endpoint_id, const zcl_cluster_id_t cluster_id, const zcl_attribute_id_t attr_id, const uint8_t *attr_value)
 {
@@ -3713,6 +3792,9 @@ sl_status_t zigpc_attrmgmt_publish_reported(const zigbee_eui64_uint_t eui64, con
       break;
     case ZIGPC_ZCL_CLUSTER_ELECTRICAL_MEASUREMENT:
       status = zigpc_attrmgmt_electrical_measurement_publish(unid_ep_topic.c_str(), attr_id, attr_value);
+      break;
+    case ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG:
+      status = zigpc_attrmgmt_dmf_bridge_config_publish(unid_ep_topic.c_str(), attr_id, attr_value);
       break;
     default:
       status = SL_STATUS_NOT_FOUND;

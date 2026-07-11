@@ -55414,6 +55414,729 @@ void uic_mqtt_dotdot_diagnostics_attribute_last_messagerssi_callback_set(const u
 // End of supported cluster.
 
 ///////////////////////////////////////////////////////////////////////////////
+// Callback pointers for DMFBridgeConfig
+///////////////////////////////////////////////////////////////////////////////
+static uic_mqtt_dotdot_dmf_bridge_config_attribute_fixture_table_revision_callback_t uic_mqtt_dotdot_dmf_bridge_config_attribute_fixture_table_revision_callback = nullptr;
+static uic_mqtt_dotdot_dmf_bridge_config_attribute_group_table_revision_callback_t uic_mqtt_dotdot_dmf_bridge_config_attribute_group_table_revision_callback = nullptr;
+static uic_mqtt_dotdot_dmf_bridge_config_attribute_scene_table_revision_callback_t uic_mqtt_dotdot_dmf_bridge_config_attribute_scene_table_revision_callback = nullptr;
+static uic_mqtt_dotdot_dmf_bridge_config_attribute_light_mode_table_revision_callback_t uic_mqtt_dotdot_dmf_bridge_config_attribute_light_mode_table_revision_callback = nullptr;
+static uic_mqtt_dotdot_dmf_bridge_config_attribute_schedule_table_revision_callback_t uic_mqtt_dotdot_dmf_bridge_config_attribute_schedule_table_revision_callback = nullptr;
+static uic_mqtt_dotdot_dmf_bridge_config_attribute_total_fixtures_count_callback_t uic_mqtt_dotdot_dmf_bridge_config_attribute_total_fixtures_count_callback = nullptr;
+static uic_mqtt_dotdot_dmf_bridge_config_attribute_discovery_status_callback_t uic_mqtt_dotdot_dmf_bridge_config_attribute_discovery_status_callback = nullptr;
+static uic_mqtt_dotdot_dmf_bridge_config_attribute_ble_session_status_callback_t uic_mqtt_dotdot_dmf_bridge_config_attribute_ble_session_status_callback = nullptr;
+
+///////////////////////////////////////////////////////////////////////////////
+// Attribute update handlers for DMFBridgeConfig
+///////////////////////////////////////////////////////////////////////////////
+static void uic_mqtt_dotdot_on_dmf_bridge_config_fixture_table_revision_attribute_update(
+  const char *topic,
+  const char *message,
+  const size_t message_length) {
+  if (uic_mqtt_dotdot_dmf_bridge_config_attribute_fixture_table_revision_callback == nullptr) {
+    return;
+  }
+
+  std::string unid;
+  uint8_t endpoint = 0; // Default value for endpoint-less topics.
+  if(! uic_dotdot_mqtt::parse_topic(topic,unid,endpoint)) {
+    sl_log_debug(LOG_TAG,
+                "Error parsing UNID / Endpoint ID from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  std::string last_item;
+  if (SL_STATUS_OK != uic_dotdot_mqtt::get_topic_last_item(topic,last_item)){
+    sl_log_debug(LOG_TAG,
+                "Error parsing last item from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  uic_mqtt_dotdot_attribute_update_type_t update_type;
+  if (last_item == "Reported") {
+    update_type = UCL_REPORTED_UPDATED;
+  } else if (last_item == "Desired") {
+    update_type = UCL_DESIRED_UPDATED;
+  } else {
+    sl_log_debug(LOG_TAG,
+                "Unknown value type (neither Desired/Reported) for topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Empty message means unretained value.
+  bool unretained = false;
+  if (message_length == 0) {
+    unretained = true;
+  }
+
+
+  uint16_t fixture_table_revision = {};
+
+  nlohmann::json json_payload;
+  try {
+
+    if (unretained == false) {
+      json_payload = nlohmann::json::parse(std::string(message));
+
+      if (json_payload.find("value") == json_payload.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::FixtureTableRevision: Missing attribute element: 'value'\n");
+        return;
+      }
+// Start parsing value
+      fixture_table_revision = json_payload.at("value").get<uint16_t>();
+    
+    // End parsing value
+    }
+
+  } catch (const std::exception& e) {
+    sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "value", message);
+    return;
+  }
+
+  uic_mqtt_dotdot_dmf_bridge_config_attribute_fixture_table_revision_callback(
+    static_cast<dotdot_unid_t>(unid.c_str()),
+    endpoint,
+    unretained,
+    update_type,
+    fixture_table_revision
+  );
+
+}
+static void uic_mqtt_dotdot_on_dmf_bridge_config_group_table_revision_attribute_update(
+  const char *topic,
+  const char *message,
+  const size_t message_length) {
+  if (uic_mqtt_dotdot_dmf_bridge_config_attribute_group_table_revision_callback == nullptr) {
+    return;
+  }
+
+  std::string unid;
+  uint8_t endpoint = 0; // Default value for endpoint-less topics.
+  if(! uic_dotdot_mqtt::parse_topic(topic,unid,endpoint)) {
+    sl_log_debug(LOG_TAG,
+                "Error parsing UNID / Endpoint ID from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  std::string last_item;
+  if (SL_STATUS_OK != uic_dotdot_mqtt::get_topic_last_item(topic,last_item)){
+    sl_log_debug(LOG_TAG,
+                "Error parsing last item from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  uic_mqtt_dotdot_attribute_update_type_t update_type;
+  if (last_item == "Reported") {
+    update_type = UCL_REPORTED_UPDATED;
+  } else if (last_item == "Desired") {
+    update_type = UCL_DESIRED_UPDATED;
+  } else {
+    sl_log_debug(LOG_TAG,
+                "Unknown value type (neither Desired/Reported) for topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Empty message means unretained value.
+  bool unretained = false;
+  if (message_length == 0) {
+    unretained = true;
+  }
+
+
+  uint16_t group_table_revision = {};
+
+  nlohmann::json json_payload;
+  try {
+
+    if (unretained == false) {
+      json_payload = nlohmann::json::parse(std::string(message));
+
+      if (json_payload.find("value") == json_payload.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::GroupTableRevision: Missing attribute element: 'value'\n");
+        return;
+      }
+// Start parsing value
+      group_table_revision = json_payload.at("value").get<uint16_t>();
+    
+    // End parsing value
+    }
+
+  } catch (const std::exception& e) {
+    sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "value", message);
+    return;
+  }
+
+  uic_mqtt_dotdot_dmf_bridge_config_attribute_group_table_revision_callback(
+    static_cast<dotdot_unid_t>(unid.c_str()),
+    endpoint,
+    unretained,
+    update_type,
+    group_table_revision
+  );
+
+}
+static void uic_mqtt_dotdot_on_dmf_bridge_config_scene_table_revision_attribute_update(
+  const char *topic,
+  const char *message,
+  const size_t message_length) {
+  if (uic_mqtt_dotdot_dmf_bridge_config_attribute_scene_table_revision_callback == nullptr) {
+    return;
+  }
+
+  std::string unid;
+  uint8_t endpoint = 0; // Default value for endpoint-less topics.
+  if(! uic_dotdot_mqtt::parse_topic(topic,unid,endpoint)) {
+    sl_log_debug(LOG_TAG,
+                "Error parsing UNID / Endpoint ID from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  std::string last_item;
+  if (SL_STATUS_OK != uic_dotdot_mqtt::get_topic_last_item(topic,last_item)){
+    sl_log_debug(LOG_TAG,
+                "Error parsing last item from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  uic_mqtt_dotdot_attribute_update_type_t update_type;
+  if (last_item == "Reported") {
+    update_type = UCL_REPORTED_UPDATED;
+  } else if (last_item == "Desired") {
+    update_type = UCL_DESIRED_UPDATED;
+  } else {
+    sl_log_debug(LOG_TAG,
+                "Unknown value type (neither Desired/Reported) for topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Empty message means unretained value.
+  bool unretained = false;
+  if (message_length == 0) {
+    unretained = true;
+  }
+
+
+  uint16_t scene_table_revision = {};
+
+  nlohmann::json json_payload;
+  try {
+
+    if (unretained == false) {
+      json_payload = nlohmann::json::parse(std::string(message));
+
+      if (json_payload.find("value") == json_payload.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::SceneTableRevision: Missing attribute element: 'value'\n");
+        return;
+      }
+// Start parsing value
+      scene_table_revision = json_payload.at("value").get<uint16_t>();
+    
+    // End parsing value
+    }
+
+  } catch (const std::exception& e) {
+    sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "value", message);
+    return;
+  }
+
+  uic_mqtt_dotdot_dmf_bridge_config_attribute_scene_table_revision_callback(
+    static_cast<dotdot_unid_t>(unid.c_str()),
+    endpoint,
+    unretained,
+    update_type,
+    scene_table_revision
+  );
+
+}
+static void uic_mqtt_dotdot_on_dmf_bridge_config_light_mode_table_revision_attribute_update(
+  const char *topic,
+  const char *message,
+  const size_t message_length) {
+  if (uic_mqtt_dotdot_dmf_bridge_config_attribute_light_mode_table_revision_callback == nullptr) {
+    return;
+  }
+
+  std::string unid;
+  uint8_t endpoint = 0; // Default value for endpoint-less topics.
+  if(! uic_dotdot_mqtt::parse_topic(topic,unid,endpoint)) {
+    sl_log_debug(LOG_TAG,
+                "Error parsing UNID / Endpoint ID from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  std::string last_item;
+  if (SL_STATUS_OK != uic_dotdot_mqtt::get_topic_last_item(topic,last_item)){
+    sl_log_debug(LOG_TAG,
+                "Error parsing last item from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  uic_mqtt_dotdot_attribute_update_type_t update_type;
+  if (last_item == "Reported") {
+    update_type = UCL_REPORTED_UPDATED;
+  } else if (last_item == "Desired") {
+    update_type = UCL_DESIRED_UPDATED;
+  } else {
+    sl_log_debug(LOG_TAG,
+                "Unknown value type (neither Desired/Reported) for topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Empty message means unretained value.
+  bool unretained = false;
+  if (message_length == 0) {
+    unretained = true;
+  }
+
+
+  uint16_t light_mode_table_revision = {};
+
+  nlohmann::json json_payload;
+  try {
+
+    if (unretained == false) {
+      json_payload = nlohmann::json::parse(std::string(message));
+
+      if (json_payload.find("value") == json_payload.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::LightModeTableRevision: Missing attribute element: 'value'\n");
+        return;
+      }
+// Start parsing value
+      light_mode_table_revision = json_payload.at("value").get<uint16_t>();
+    
+    // End parsing value
+    }
+
+  } catch (const std::exception& e) {
+    sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "value", message);
+    return;
+  }
+
+  uic_mqtt_dotdot_dmf_bridge_config_attribute_light_mode_table_revision_callback(
+    static_cast<dotdot_unid_t>(unid.c_str()),
+    endpoint,
+    unretained,
+    update_type,
+    light_mode_table_revision
+  );
+
+}
+static void uic_mqtt_dotdot_on_dmf_bridge_config_schedule_table_revision_attribute_update(
+  const char *topic,
+  const char *message,
+  const size_t message_length) {
+  if (uic_mqtt_dotdot_dmf_bridge_config_attribute_schedule_table_revision_callback == nullptr) {
+    return;
+  }
+
+  std::string unid;
+  uint8_t endpoint = 0; // Default value for endpoint-less topics.
+  if(! uic_dotdot_mqtt::parse_topic(topic,unid,endpoint)) {
+    sl_log_debug(LOG_TAG,
+                "Error parsing UNID / Endpoint ID from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  std::string last_item;
+  if (SL_STATUS_OK != uic_dotdot_mqtt::get_topic_last_item(topic,last_item)){
+    sl_log_debug(LOG_TAG,
+                "Error parsing last item from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  uic_mqtt_dotdot_attribute_update_type_t update_type;
+  if (last_item == "Reported") {
+    update_type = UCL_REPORTED_UPDATED;
+  } else if (last_item == "Desired") {
+    update_type = UCL_DESIRED_UPDATED;
+  } else {
+    sl_log_debug(LOG_TAG,
+                "Unknown value type (neither Desired/Reported) for topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Empty message means unretained value.
+  bool unretained = false;
+  if (message_length == 0) {
+    unretained = true;
+  }
+
+
+  uint16_t schedule_table_revision = {};
+
+  nlohmann::json json_payload;
+  try {
+
+    if (unretained == false) {
+      json_payload = nlohmann::json::parse(std::string(message));
+
+      if (json_payload.find("value") == json_payload.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::ScheduleTableRevision: Missing attribute element: 'value'\n");
+        return;
+      }
+// Start parsing value
+      schedule_table_revision = json_payload.at("value").get<uint16_t>();
+    
+    // End parsing value
+    }
+
+  } catch (const std::exception& e) {
+    sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "value", message);
+    return;
+  }
+
+  uic_mqtt_dotdot_dmf_bridge_config_attribute_schedule_table_revision_callback(
+    static_cast<dotdot_unid_t>(unid.c_str()),
+    endpoint,
+    unretained,
+    update_type,
+    schedule_table_revision
+  );
+
+}
+static void uic_mqtt_dotdot_on_dmf_bridge_config_total_fixtures_count_attribute_update(
+  const char *topic,
+  const char *message,
+  const size_t message_length) {
+  if (uic_mqtt_dotdot_dmf_bridge_config_attribute_total_fixtures_count_callback == nullptr) {
+    return;
+  }
+
+  std::string unid;
+  uint8_t endpoint = 0; // Default value for endpoint-less topics.
+  if(! uic_dotdot_mqtt::parse_topic(topic,unid,endpoint)) {
+    sl_log_debug(LOG_TAG,
+                "Error parsing UNID / Endpoint ID from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  std::string last_item;
+  if (SL_STATUS_OK != uic_dotdot_mqtt::get_topic_last_item(topic,last_item)){
+    sl_log_debug(LOG_TAG,
+                "Error parsing last item from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  uic_mqtt_dotdot_attribute_update_type_t update_type;
+  if (last_item == "Reported") {
+    update_type = UCL_REPORTED_UPDATED;
+  } else if (last_item == "Desired") {
+    update_type = UCL_DESIRED_UPDATED;
+  } else {
+    sl_log_debug(LOG_TAG,
+                "Unknown value type (neither Desired/Reported) for topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Empty message means unretained value.
+  bool unretained = false;
+  if (message_length == 0) {
+    unretained = true;
+  }
+
+
+  uint8_t total_fixtures_count = {};
+
+  nlohmann::json json_payload;
+  try {
+
+    if (unretained == false) {
+      json_payload = nlohmann::json::parse(std::string(message));
+
+      if (json_payload.find("value") == json_payload.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::TotalFixturesCount: Missing attribute element: 'value'\n");
+        return;
+      }
+// Start parsing value
+      total_fixtures_count = json_payload.at("value").get<uint8_t>();
+    
+    // End parsing value
+    }
+
+  } catch (const std::exception& e) {
+    sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "value", message);
+    return;
+  }
+
+  uic_mqtt_dotdot_dmf_bridge_config_attribute_total_fixtures_count_callback(
+    static_cast<dotdot_unid_t>(unid.c_str()),
+    endpoint,
+    unretained,
+    update_type,
+    total_fixtures_count
+  );
+
+}
+static void uic_mqtt_dotdot_on_dmf_bridge_config_discovery_status_attribute_update(
+  const char *topic,
+  const char *message,
+  const size_t message_length) {
+  if (uic_mqtt_dotdot_dmf_bridge_config_attribute_discovery_status_callback == nullptr) {
+    return;
+  }
+
+  std::string unid;
+  uint8_t endpoint = 0; // Default value for endpoint-less topics.
+  if(! uic_dotdot_mqtt::parse_topic(topic,unid,endpoint)) {
+    sl_log_debug(LOG_TAG,
+                "Error parsing UNID / Endpoint ID from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  std::string last_item;
+  if (SL_STATUS_OK != uic_dotdot_mqtt::get_topic_last_item(topic,last_item)){
+    sl_log_debug(LOG_TAG,
+                "Error parsing last item from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  uic_mqtt_dotdot_attribute_update_type_t update_type;
+  if (last_item == "Reported") {
+    update_type = UCL_REPORTED_UPDATED;
+  } else if (last_item == "Desired") {
+    update_type = UCL_DESIRED_UPDATED;
+  } else {
+    sl_log_debug(LOG_TAG,
+                "Unknown value type (neither Desired/Reported) for topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Empty message means unretained value.
+  bool unretained = false;
+  if (message_length == 0) {
+    unretained = true;
+  }
+
+
+  DiscoveryStatus discovery_status = {};
+
+  nlohmann::json json_payload;
+  try {
+
+    if (unretained == false) {
+      json_payload = nlohmann::json::parse(std::string(message));
+
+      if (json_payload.find("value") == json_payload.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::DiscoveryStatus: Missing attribute element: 'value'\n");
+        return;
+      }
+// Start parsing value
+      uint32_t tmp = get_enum_decimal_value<DiscoveryStatus>("value", json_payload);
+      if (tmp == numeric_limits<DiscoveryStatus>::max()) {
+      #ifdef DMF_BRIDGE_CONFIG_DISCOVERY_STATUS_ENUM_NAME_AVAILABLE
+        tmp = dmf_bridge_config_discovery_status_get_enum_value_number(json_payload.at("value").get<std::string>());
+      #elif defined(DISCOVERY_STATUS_ENUM_NAME_AVAILABLE)
+        tmp = discovery_status_get_enum_value_number(json_payload.at("value").get<std::string>());
+      #endif
+      }
+      discovery_status = static_cast<DiscoveryStatus>(tmp);
+
+    // End parsing value
+    }
+
+  } catch (const std::exception& e) {
+    sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "value", message);
+    return;
+  }
+
+  uic_mqtt_dotdot_dmf_bridge_config_attribute_discovery_status_callback(
+    static_cast<dotdot_unid_t>(unid.c_str()),
+    endpoint,
+    unretained,
+    update_type,
+    discovery_status
+  );
+
+}
+static void uic_mqtt_dotdot_on_dmf_bridge_config_ble_session_status_attribute_update(
+  const char *topic,
+  const char *message,
+  const size_t message_length) {
+  if (uic_mqtt_dotdot_dmf_bridge_config_attribute_ble_session_status_callback == nullptr) {
+    return;
+  }
+
+  std::string unid;
+  uint8_t endpoint = 0; // Default value for endpoint-less topics.
+  if(! uic_dotdot_mqtt::parse_topic(topic,unid,endpoint)) {
+    sl_log_debug(LOG_TAG,
+                "Error parsing UNID / Endpoint ID from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  std::string last_item;
+  if (SL_STATUS_OK != uic_dotdot_mqtt::get_topic_last_item(topic,last_item)){
+    sl_log_debug(LOG_TAG,
+                "Error parsing last item from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  uic_mqtt_dotdot_attribute_update_type_t update_type;
+  if (last_item == "Reported") {
+    update_type = UCL_REPORTED_UPDATED;
+  } else if (last_item == "Desired") {
+    update_type = UCL_DESIRED_UPDATED;
+  } else {
+    sl_log_debug(LOG_TAG,
+                "Unknown value type (neither Desired/Reported) for topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Empty message means unretained value.
+  bool unretained = false;
+  if (message_length == 0) {
+    unretained = true;
+  }
+
+
+  BLESessionStatus ble_session_status = {};
+
+  nlohmann::json json_payload;
+  try {
+
+    if (unretained == false) {
+      json_payload = nlohmann::json::parse(std::string(message));
+
+      if (json_payload.find("value") == json_payload.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::BLESessionStatus: Missing attribute element: 'value'\n");
+        return;
+      }
+// Start parsing value
+      uint32_t tmp = get_enum_decimal_value<BLESessionStatus>("value", json_payload);
+      if (tmp == numeric_limits<BLESessionStatus>::max()) {
+      #ifdef DMF_BRIDGE_CONFIG_BLE_SESSION_STATUS_ENUM_NAME_AVAILABLE
+        tmp = dmf_bridge_config_ble_session_status_get_enum_value_number(json_payload.at("value").get<std::string>());
+      #elif defined(BLE_SESSION_STATUS_ENUM_NAME_AVAILABLE)
+        tmp = ble_session_status_get_enum_value_number(json_payload.at("value").get<std::string>());
+      #endif
+      }
+      ble_session_status = static_cast<BLESessionStatus>(tmp);
+
+    // End parsing value
+    }
+
+  } catch (const std::exception& e) {
+    sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "value", message);
+    return;
+  }
+
+  uic_mqtt_dotdot_dmf_bridge_config_attribute_ble_session_status_callback(
+    static_cast<dotdot_unid_t>(unid.c_str()),
+    endpoint,
+    unretained,
+    update_type,
+    ble_session_status
+  );
+
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Attribute init functions for DMFBridgeConfig
+///////////////////////////////////////////////////////////////////////////////
+sl_status_t uic_mqtt_dotdot_dmf_bridge_config_attributes_init()
+{
+  std::string base_topic = "ucl/by-unid/+/+/";
+
+  std::string subscription_topic;
+  if(uic_mqtt_dotdot_dmf_bridge_config_attribute_fixture_table_revision_callback) {
+    subscription_topic = base_topic + "DMFBridgeConfig/Attributes/FixtureTableRevision/#";
+    uic_mqtt_subscribe(subscription_topic.c_str(), &uic_mqtt_dotdot_on_dmf_bridge_config_fixture_table_revision_attribute_update);
+  }
+  if(uic_mqtt_dotdot_dmf_bridge_config_attribute_group_table_revision_callback) {
+    subscription_topic = base_topic + "DMFBridgeConfig/Attributes/GroupTableRevision/#";
+    uic_mqtt_subscribe(subscription_topic.c_str(), &uic_mqtt_dotdot_on_dmf_bridge_config_group_table_revision_attribute_update);
+  }
+  if(uic_mqtt_dotdot_dmf_bridge_config_attribute_scene_table_revision_callback) {
+    subscription_topic = base_topic + "DMFBridgeConfig/Attributes/SceneTableRevision/#";
+    uic_mqtt_subscribe(subscription_topic.c_str(), &uic_mqtt_dotdot_on_dmf_bridge_config_scene_table_revision_attribute_update);
+  }
+  if(uic_mqtt_dotdot_dmf_bridge_config_attribute_light_mode_table_revision_callback) {
+    subscription_topic = base_topic + "DMFBridgeConfig/Attributes/LightModeTableRevision/#";
+    uic_mqtt_subscribe(subscription_topic.c_str(), &uic_mqtt_dotdot_on_dmf_bridge_config_light_mode_table_revision_attribute_update);
+  }
+  if(uic_mqtt_dotdot_dmf_bridge_config_attribute_schedule_table_revision_callback) {
+    subscription_topic = base_topic + "DMFBridgeConfig/Attributes/ScheduleTableRevision/#";
+    uic_mqtt_subscribe(subscription_topic.c_str(), &uic_mqtt_dotdot_on_dmf_bridge_config_schedule_table_revision_attribute_update);
+  }
+  if(uic_mqtt_dotdot_dmf_bridge_config_attribute_total_fixtures_count_callback) {
+    subscription_topic = base_topic + "DMFBridgeConfig/Attributes/TotalFixturesCount/#";
+    uic_mqtt_subscribe(subscription_topic.c_str(), &uic_mqtt_dotdot_on_dmf_bridge_config_total_fixtures_count_attribute_update);
+  }
+  if(uic_mqtt_dotdot_dmf_bridge_config_attribute_discovery_status_callback) {
+    subscription_topic = base_topic + "DMFBridgeConfig/Attributes/DiscoveryStatus/#";
+    uic_mqtt_subscribe(subscription_topic.c_str(), &uic_mqtt_dotdot_on_dmf_bridge_config_discovery_status_attribute_update);
+  }
+  if(uic_mqtt_dotdot_dmf_bridge_config_attribute_ble_session_status_callback) {
+    subscription_topic = base_topic + "DMFBridgeConfig/Attributes/BLESessionStatus/#";
+    uic_mqtt_subscribe(subscription_topic.c_str(), &uic_mqtt_dotdot_on_dmf_bridge_config_ble_session_status_attribute_update);
+  }
+
+  return SL_STATUS_OK;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Callback setters and getters for DMFBridgeConfig
+///////////////////////////////////////////////////////////////////////////////
+void uic_mqtt_dotdot_dmf_bridge_config_attribute_fixture_table_revision_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_attribute_fixture_table_revision_callback_t callback)
+{
+  uic_mqtt_dotdot_dmf_bridge_config_attribute_fixture_table_revision_callback = callback;
+}
+void uic_mqtt_dotdot_dmf_bridge_config_attribute_group_table_revision_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_attribute_group_table_revision_callback_t callback)
+{
+  uic_mqtt_dotdot_dmf_bridge_config_attribute_group_table_revision_callback = callback;
+}
+void uic_mqtt_dotdot_dmf_bridge_config_attribute_scene_table_revision_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_attribute_scene_table_revision_callback_t callback)
+{
+  uic_mqtt_dotdot_dmf_bridge_config_attribute_scene_table_revision_callback = callback;
+}
+void uic_mqtt_dotdot_dmf_bridge_config_attribute_light_mode_table_revision_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_attribute_light_mode_table_revision_callback_t callback)
+{
+  uic_mqtt_dotdot_dmf_bridge_config_attribute_light_mode_table_revision_callback = callback;
+}
+void uic_mqtt_dotdot_dmf_bridge_config_attribute_schedule_table_revision_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_attribute_schedule_table_revision_callback_t callback)
+{
+  uic_mqtt_dotdot_dmf_bridge_config_attribute_schedule_table_revision_callback = callback;
+}
+void uic_mqtt_dotdot_dmf_bridge_config_attribute_total_fixtures_count_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_attribute_total_fixtures_count_callback_t callback)
+{
+  uic_mqtt_dotdot_dmf_bridge_config_attribute_total_fixtures_count_callback = callback;
+}
+void uic_mqtt_dotdot_dmf_bridge_config_attribute_discovery_status_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_attribute_discovery_status_callback_t callback)
+{
+  uic_mqtt_dotdot_dmf_bridge_config_attribute_discovery_status_callback = callback;
+}
+void uic_mqtt_dotdot_dmf_bridge_config_attribute_ble_session_status_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_attribute_ble_session_status_callback_t callback)
+{
+  uic_mqtt_dotdot_dmf_bridge_config_attribute_ble_session_status_callback = callback;
+}
+
+// End of supported cluster.
+
+///////////////////////////////////////////////////////////////////////////////
 // Callback pointers for ProtocolController-RFTelemetry
 ///////////////////////////////////////////////////////////////////////////////
 static uic_mqtt_dotdot_protocol_controller_rf_telemetry_attribute_tx_report_enabled_callback_t uic_mqtt_dotdot_protocol_controller_rf_telemetry_attribute_tx_report_enabled_callback = nullptr;

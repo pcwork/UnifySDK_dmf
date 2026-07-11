@@ -1,3 +1,5 @@
+const type_alias_helpers = require('./type-alias-helper')
+
 function listComma(obj) {
   if (obj.index == obj.count - 1) return ""
   return ","
@@ -59,24 +61,24 @@ function dotdot_prefix() {
 
 // WARNING: Should not be used, use handlebar {{#if_is_enum type}} {{/if_is_enum}} instead!
 function isEnum(type) {
-  if (type.startsWith("enum")) {
+  if (type_alias_helpers.resolveBaseType(type).startsWith("enum")) {
     return true;
   }
   return false;
 }
 
 function enumType(type) {
-  if (type.startsWith("enum")) {
-    return "uint" + type.replace(/^\D+/g, '') + "_t"
+  const resolved_type = type_alias_helpers.resolveBaseType(type)
+  if (resolved_type.startsWith("enum")) {
+    return "uint" + resolved_type.replace(/^\D+/g, '') + "_t"
   }
   return "uint8_t"
 }
 
 function isString(type) {
-  switch (type) {
+  switch (type_alias_helpers.resolveBaseType(type)) {
     case 'string': return true
     case 'octstr': return true
-    case 'SSceneName': return true
     default: return false;
   }
 }
@@ -103,7 +105,7 @@ function checkSpecialTypeBitmapsEnum(type) {
 }
 
 function isBool(type) {
-  switch (type) {
+  switch (type_alias_helpers.resolveBaseType(type)) {
     case 'bool': return true
     default: return false
   }
@@ -190,7 +192,7 @@ function asType(value) {
  * @returns String representation of JSON type, UCL enum, or UCL bitmap type.
  */
 function asJSONType(type, label, cluster) {
-  switch (type) {
+  switch (type_alias_helpers.resolveBaseType(type)) {
     case "bool": return "boolean"
     case "single":
     case "double":
@@ -434,3 +436,4 @@ exports.asWriteAttributesParseFunction = asWriteAttributesParseFunction
 exports.asWriteAttributesCallback = asWriteAttributesCallback
 exports.asByGroupWriteAttributesCallback = asByGroupWriteAttributesCallback
 exports.asForceReadAttributesCallback = asForceReadAttributesCallback
+exports.resolveBaseType = type_alias_helpers.resolveBaseType
