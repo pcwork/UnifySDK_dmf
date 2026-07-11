@@ -352,6 +352,7 @@ sl_status_t zigbeeHostSendZclFrameMulticast(sl_zigbee_multicast_id_t multicastId
 sl_status_t zigbeeHostInitReporting(const sl_802154_long_addr_t eui64,
                                     uint8_t endpoint,
                                     uint16_t clusterId,
+                                    uint16_t manufacturerCode,
                                     const uint8_t *reportRecord,
                                     size_t recordSize);
 /**

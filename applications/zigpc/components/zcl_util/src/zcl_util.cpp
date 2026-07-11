@@ -23,6 +23,9 @@
 #include "zcl_util_int.hpp"
 
 #define ZIGPC_ZCL_FRAME_SEQUENCE_NUMBER_PLACEHOLDER 0x00
+#define ZIGPC_ZCL_FRAME_CONTROL_MANUFACTURER_SPECIFIC_MASK ((uint8_t)(0x1 << 2))
+#define ZIGPC_ZCL_NULL_MANUFACTURER_CODE 0x0000u
+#define ZIGPC_ZCL_DMF_BRIDGE_CONFIG_MANUFACTURER_CODE 0x121Fu
 
 static const char LOG_TAG[] = "zigpc_zcl_util";
 
@@ -42,11 +45,34 @@ size_t zigpc_zcl_get_data_type_size(zigpc_zcl_data_type_t type)
   return size;
 }
 
+bool zigpc_zcl_get_manufacturer_code(zcl_cluster_id_t cluster_id,
+                                     uint16_t *manufacturer_code)
+{
+  if (manufacturer_code == nullptr) {
+    return false;
+  }
+
+  *manufacturer_code = ZIGPC_ZCL_NULL_MANUFACTURER_CODE;
+
+  switch (cluster_id) {
+    case ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG:
+      *manufacturer_code = ZIGPC_ZCL_DMF_BRIDGE_CONFIG_MANUFACTURER_CODE;
+      return true;
+
+    default:
+      return false;
+  }
+}
+
 sl_status_t zigpc_zcl_frame_init_command(zcl_frame_t *const frame,
+                                         zcl_cluster_id_t cluster_id,
                                          zcl_command_id_t command_id,
                                          uint8_t frame_control)
 {
   sl_status_t status = SL_STATUS_OK;
+  uint16_t manufacturer_code = ZIGPC_ZCL_NULL_MANUFACTURER_CODE;
+  bool is_manufacturer_specific
+    = zigpc_zcl_get_manufacturer_code(cluster_id, &manufacturer_code);
 
   if (frame == nullptr) {
     status = SL_STATUS_NULL_POINTER;
@@ -55,7 +81,20 @@ sl_status_t zigpc_zcl_frame_init_command(zcl_frame_t *const frame,
   if (status == SL_STATUS_OK) {
     frame->size = 0;
 
+    if (is_manufacturer_specific) {
+      frame_control |= ZIGPC_ZCL_FRAME_CONTROL_MANUFACTURER_SPECIFIC_MASK;
+    }
+
     frame->buffer[frame->size++] = frame_control;
+
+    if (is_manufacturer_specific) {
+      frame->buffer[frame->size++] = static_cast<uint8_t>(manufacturer_code
+                                                          & 0xFF);
+      frame->buffer[frame->size++] = static_cast<uint8_t>((manufacturer_code
+                                                           >> 8)
+                                                          & 0xFF);
+    }
+
     frame->buffer[frame->size]   = ZIGPC_ZCL_FRAME_SEQUENCE_NUMBER_PLACEHOLDER;
 
     // Store sequence ID offset to be passed into Zigbee Host layer
@@ -170,7 +209,10 @@ sl_status_t zigpc_zcl_build_command_frame(
   const zigpc_zcl_frame_data_t *const command_arg_list)
 {
   sl_status_t status
-    = zigpc_zcl_frame_init_command(frame, command_id, frame_type & 0xFF);
+    = zigpc_zcl_frame_init_command(frame,
+                                   cluster_id,
+                                   command_id,
+                                   frame_type & 0xFF);
   if (status != SL_STATUS_OK) {
     sl_log_error(LOG_TAG,
                  "Failed to initialize ZCL Frame for cluster[0x%04X] "

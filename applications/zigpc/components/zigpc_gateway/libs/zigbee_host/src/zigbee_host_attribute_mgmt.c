@@ -197,6 +197,7 @@ bool emberAfConfigureReportingResponseCallback(sl_zigbee_af_cluster_id_t cluster
 sl_status_t zigbeeHostInitReporting(const sl_802154_long_addr_t eui64,
                                     uint8_t endpoint,
                                     uint16_t clusterId,
+                                    uint16_t manufacturerCode,
                                     const uint8_t *reportRecord,
                                     size_t recordSize)
 {
@@ -209,13 +210,24 @@ sl_status_t zigbeeHostInitReporting(const sl_802154_long_addr_t eui64,
   appDebugPrint("]\n");
 
   // Assemble "ConfigureReporting" Command
-  sl_zigbee_af_fill_external_buffer(
-    (ZCL_GLOBAL_COMMAND | ZCL_FRAME_CONTROL_CLIENT_TO_SERVER),
-    clusterId,
-    ZCL_CONFIGURE_REPORTING_COMMAND_ID,
-    "b",
-    reportRecord,
-    recordSize);
+  if (manufacturerCode == 0U) {
+    sl_zigbee_af_fill_external_buffer(
+      (ZCL_GLOBAL_COMMAND | ZCL_FRAME_CONTROL_CLIENT_TO_SERVER),
+      clusterId,
+      ZCL_CONFIGURE_REPORTING_COMMAND_ID,
+      "b",
+      reportRecord,
+      recordSize);
+  } else {
+    sl_zigbee_af_fill_external_manufacturer_specific_buffer(
+      (ZCL_GLOBAL_COMMAND | ZCL_FRAME_CONTROL_CLIENT_TO_SERVER),
+      clusterId,
+      manufacturerCode,
+      ZCL_CONFIGURE_REPORTING_COMMAND_ID,
+      "b",
+      reportRecord,
+      recordSize);
+  }
 
   uint8_t gatewayEndpoint = zigbeeHostGetPrimaryEndpointId();
   sl_zigbee_af_set_command_endpoints(gatewayEndpoint, endpoint);

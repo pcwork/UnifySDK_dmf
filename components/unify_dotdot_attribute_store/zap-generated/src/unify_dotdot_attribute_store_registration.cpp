@@ -62,6 +62,8 @@ attribute_store_storage_type_t
   if ((attribute_type_string == "uint8_t") || (attribute_type_string == "bool")
       || (attribute_type_string == "BatterySize")
       || (attribute_type_string == "DrlkOperMode")
+      || (attribute_type_string == "DiscoveryStatus")
+      || (attribute_type_string == "BLESessionStatus")
       || (attribute_type_string == "CCColorLoopDirection")) {
     storage_type = U8_STORAGE_TYPE;
   } else if ((attribute_type_string == "uint16_t")

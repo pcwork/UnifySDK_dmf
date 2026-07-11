@@ -27,6 +27,7 @@
 #include "zigpc_gateway.h"
 #include "zigpc_gateway_int.h"
 #include "zigpc_gateway_request_queue.hpp"
+#include "zcl_util.h"
 
 #define LOG_PREFIX_GATEWAY          "Gateway "
 #define LOG_PREFIX_EUI64            "Eui64:%016" PRIX64 " "
@@ -306,12 +307,15 @@ ZCLConfigureReportingRequest::ZCLConfigureReportingRequest(
 sl_status_t ZCLConfigureReportingRequest::invoke(void)
 {
   zigbee_eui64_t eui64_le;
+  uint16_t manufacturer_code = 0;
   zigbee_eui64_copy_switch_endian(eui64_le, this->eui64);
+  (void)zigpc_zcl_get_manufacturer_code(this->cluster_id, &manufacturer_code);
 
   unsigned int report_size = static_cast<unsigned int>(this->frame.size);
   sl_status_t status       = zigbeeHostInitReporting(eui64_le,
                                                this->endpoint_id,
                                                this->cluster_id,
+                                               manufacturer_code,
                                                this->frame.buffer,
                                                report_size);
 

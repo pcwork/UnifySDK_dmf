@@ -133,11 +133,51 @@ void test_send_configure_reporting_request_sanity(void)
   sl_status_t status = zigbeeHostInitReporting(eui64,
                                                endpoint,
                                                clusterId,
+                                               0,
                                                reportBuffer,
                                                reportSize);
 
   // ASSERT
   TEST_ASSERT_EQUAL_HEX(SL_STATUS_OK , status);
+}
+
+void test_send_configure_reporting_request_for_mfg_cluster_should_use_mfg_buffer(void)
+{
+  sl_802154_long_addr_t eui64 = "\x52\x4F\x92\x32\xDE\x12\x00\xFF";
+  uint8_t endpoint            = 2;
+  uint8_t gatewayEndpoint     = 4;
+  uint16_t clusterId          = 0xFC42;
+  uint16_t manufacturer_code  = 0x121F;
+
+  size_t reportSize = 2;
+  uint8_t reportBuffer[reportSize];
+
+  // ARRANGE
+  sl_zigbee_af_primary_endpoint_for_current_network_index_ExpectAndReturn(
+    gatewayEndpoint);
+  sl_zigbee_af_fill_external_manufacturer_specific_buffer_ExpectAndReturn(
+    (ZCL_GLOBAL_COMMAND | ZCL_FRAME_CONTROL_CLIENT_TO_SERVER),
+    clusterId,
+    manufacturer_code,
+    ZCL_CONFIGURE_REPORTING_COMMAND_ID,
+    "b",
+    6);
+
+  sl_zigbee_af_set_command_endpoints_Expect(gatewayEndpoint, endpoint);
+
+  sl_zigbee_af_send_command_unicast_to_eui64_ExpectAndReturn(eui64,
+                                                             SL_STATUS_OK);
+
+  // ACT
+  sl_status_t status = zigbeeHostInitReporting(eui64,
+                                               endpoint,
+                                               clusterId,
+                                               manufacturer_code,
+                                               reportBuffer,
+                                               reportSize);
+
+  // ASSERT
+  TEST_ASSERT_EQUAL_HEX(SL_STATUS_OK, status);
 }
 
 void test_attribute_report_callback_sanity(void)

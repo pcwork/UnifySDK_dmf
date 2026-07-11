@@ -198,5 +198,12 @@ uint16_t sl_zigbee_af_fill_external_buffer(uint8_t frameControl,
                                    uint8_t commandId,
                                    const char *format,
                                    ...);
+uint16_t sl_zigbee_af_fill_external_manufacturer_specific_buffer(
+  uint8_t frameControl,
+  sl_zigbee_af_cluster_id_t clusterId,
+  uint16_t manufacturerCode,
+  uint8_t commandId,
+  const char *format,
+  ...);
 
 #endif  // SILABS_APP_FRAMEWORK_INCLUDE_AF_H

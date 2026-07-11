@@ -68,6 +68,17 @@ typedef struct {
 size_t zigpc_zcl_get_data_type_size(zigpc_zcl_data_type_t type);
 
 /**
+ * @brief Retrieve the manufacturer code associated with a cluster, if any.
+ *
+ * @param cluster_id           Cluster identifier to query.
+ * @param manufacturer_code    Destination for the manufacturer code.
+ * @return true                The cluster is manufacturer-specific.
+ * @return false               The cluster does not require a manufacturer code.
+ */
+bool zigpc_zcl_get_manufacturer_code(zcl_cluster_id_t cluster_id,
+                                     uint16_t *manufacturer_code);
+
+/**
  * @brief Initialize the ZCL Frame for sending ZCL command.
  *
  * @param frame         Pointer to frame to be initialized.
@@ -77,6 +88,7 @@ size_t zigpc_zcl_get_data_type_size(zigpc_zcl_data_type_t type);
  * if invalid pointers are passed in.
  */
 sl_status_t zigpc_zcl_frame_init_command(zcl_frame_t *const frame,
+                                         zcl_cluster_id_t cluster_id,
                                          zcl_command_id_t command_id,
                                          uint8_t frame_control);
 

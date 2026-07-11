@@ -53,8 +53,8 @@ void test_zcl_frame_init_command_input_sanity(void)
   sl_status_t status_ok = SL_STATUS_FAIL;
   zcl_frame_t frame = {0};
   // ACT
-  status_null_pointer = zigpc_zcl_frame_init_command(NULL, 0, 0);
-  status_ok           = zigpc_zcl_frame_init_command(&frame, 10, 0xFF);
+  status_null_pointer = zigpc_zcl_frame_init_command(NULL, 0, 0, 0);
+  status_ok           = zigpc_zcl_frame_init_command(&frame, 0, 10, 0xFF);
   // ASSERT
   TEST_ASSERT_EQUAL_HEX8(SL_STATUS_NULL_POINTER, status_null_pointer);
   TEST_ASSERT_EQUAL_HEX8(SL_STATUS_OK, status_ok);
@@ -333,6 +333,32 @@ void test_zcl_build_command_frame_string_arg_invalid(void)
   TEST_ASSERT_EQUAL_HEX8(SL_STATUS_INVALID_SIGNATURE, status);
   // 3 header (arg 1 & 2 not added)
   TEST_ASSERT_EQUAL(3, frame.size);
+}
+
+void test_zcl_build_command_frame_mfg_cluster_should_include_manufacturer_header(void)
+{
+  // ARRANGE
+  sl_status_t status = SL_STATUS_FAIL;
+  zcl_frame_t frame  = {0};
+  zcl_cluster_id_t cluster_id = 0xFC42;
+  zcl_command_id_t command_id = 0x00;
+
+  // ACT
+  status = zigpc_zcl_build_command_frame(&frame,
+                                         ZIGPC_ZCL_FRAME_TYPE_GLOBAL_CMD_TO_SERVER,
+                                         cluster_id,
+                                         command_id,
+                                         0,
+                                         NULL);
+
+  // ASSERT
+  TEST_ASSERT_EQUAL_HEX8(SL_STATUS_OK, status);
+  // frame control + manufacturer code (2 bytes) + sequence + command id
+  TEST_ASSERT_EQUAL(5, frame.size);
+  TEST_ASSERT_EQUAL_HEX8(0x04, frame.buffer[0] & 0x04);
+  TEST_ASSERT_EQUAL_HEX8(0x1F, frame.buffer[1]);
+  TEST_ASSERT_EQUAL_HEX8(0x12, frame.buffer[2]);
+  TEST_ASSERT_EQUAL_HEX8(command_id, frame.buffer[4]);
 }
 
 void test_supported_cluster_list_should_include_dmf_bridge_config(void)
