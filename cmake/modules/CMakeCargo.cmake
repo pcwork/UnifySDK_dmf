@@ -55,7 +55,8 @@ include(CargoMeta)
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
-find_package(Python3 REQUIRED)
+# find_package(Python3 REQUIRED)
+find_package(Python3 COMPONENTS Interpreter)
 
 # This function declares a cmake target for a given Rust build target. Name of the
 # cmake target: <rust_name>. note: Cmake target names that are equal

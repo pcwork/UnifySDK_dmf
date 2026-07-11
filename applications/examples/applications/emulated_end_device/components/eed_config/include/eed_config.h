@@ -41,6 +41,9 @@
 // Default setting for eed supported deivce type(s).
 #define DEFAULT_EED_DEVICE_TYPE ""
 
+// Default setting for endpoint configs (empty = not used, fallback to cluster_list/device_type)
+#define DEFAULT_EED_ENDPOINT_CONFIGS ""
+
 // Config key for the EED datastore file
 #define CONFIG_KEY_EED_DATASTORE_FILE "eed.datastore_file"
 
@@ -49,6 +52,11 @@
 
 // Config key for the EED device type(s)
 #define CONFIG_KEY_EED_DEVICE_TYPE "eed.device_type"
+
+// Config key for multiple endpoint configurations via config file
+// Format: "unid_value,endpoint_id,cluster_or_devtype|unid_value,endpoint_id,cluster_or_devtype|..."
+// Each entry separated by '|', cluster_or_devtype can be semicolon-separated cluster names or a device type name
+#define CONFIG_KEY_EED_ENDPOINT_CONFIGS "eed.endpoint_configs"
 
 #ifdef __cplusplus
 extern "C" {
@@ -75,6 +83,8 @@ typedef struct {
   const char *cluster_list;
   /// String to take supported device types
   const char *device_type;
+  /// String to take multiple endpoint configurations
+  const char *endpoint_configs;
 } eed_config_t;
 
 /**

@@ -11,6 +11,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 #![doc(html_no_source)]
+#![allow(static_mut_refs)]
 
 unify_tools::include_binding!(concat!(env!("OUT_DIR"), "/binding.rs"), uic_mqtt);
 

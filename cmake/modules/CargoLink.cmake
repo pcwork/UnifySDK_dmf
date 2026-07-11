@@ -3,7 +3,7 @@
 function(cargo_print)
   execute_process(
     COMMAND ${CMAKE_COMMAND} -E echo "${ARGN}"
-    COMMAND_ERROR_IS_FATAL ANY
+    RESULT_VARIABLE cargo_print_result
   )
 endfunction()
 

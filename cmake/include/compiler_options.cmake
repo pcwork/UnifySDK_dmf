@@ -9,7 +9,7 @@ endif()
 # ##############################################################################
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
   set(CXX_MIN_VERSION 8.3.0)
-  set(CXX_EXPECTED_VERSION 12.2.2)
+  set(CXX_EXPECTED_VERSION 13.3.3)
   if(CMAKE_CXX_COMPILER_VERSION VERSION_GREATER CXX_EXPECTED_VERSION
      OR CMAKE_CXX_COMPILER_VERSION VERSION_LESS GXX_MIN_VERSION)
     message(

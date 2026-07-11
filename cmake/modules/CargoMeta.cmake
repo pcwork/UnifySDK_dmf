@@ -373,9 +373,13 @@ function(rust_workspace_metadata CARGO_MANIFEST_DIR CARGO_METADATA)
         ${CARGO_EXECUTABLE} "metadata" "--manifest-path"
         "${CARGO_MANIFEST_DIR}/Cargo.toml" "--format-version" "1"
         "--filter-platform" "${CARGO_TARGET_TRIPLE}"
-      OUTPUT_VARIABLE METADATA COMMAND_ERROR_IS_FATAL ANY
-      COMMAND_ECHO STDERR
-)
+      OUTPUT_VARIABLE METADATA
+      RESULT_VARIABLE CARGO_META_RESULT
+      ERROR_VARIABLE CARGO_META_ERROR
+    )
+    if(NOT CARGO_META_RESULT EQUAL 0)
+      message(FATAL_ERROR "Failed to run cargo metadata: ${CARGO_META_ERROR}")
+    endif()
     set(${CARGO_METADATA}
         ${METADATA}
         PARENT_SCOPE)

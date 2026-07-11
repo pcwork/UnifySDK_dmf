@@ -1,7 +1,7 @@
 add_subdirectory(components)
 
 project(eed)
-cmake_minimum_required(VERSION 3.19)
+cmake_minimum_required(VERSION 3.18)
 
 # Example Protocol Controller executable
 add_executable(eed main.c)

@@ -35,6 +35,7 @@ else
 fi
 
 # Build docker image
+#docker_build_command="docker build --network host --build-arg HTTP_PROXY=http://10.43.57.130:20000 -t ${tag} --build-arg ARCH=${arch} --build-arg USER_ID=`id -u` --build-arg GROUP_ID=`id -g` ${docker_args} `dirname $0`"
 docker_build_command="docker build --network host -t ${tag} --build-arg ARCH=${arch} --build-arg USER_ID=`id -u` --build-arg GROUP_ID=`id -g` ${docker_args} `dirname $0`"
 echo "=== Building Docker image:"
 echo $docker_build_command

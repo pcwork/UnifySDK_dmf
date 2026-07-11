@@ -50,10 +50,87 @@
 
 #define MAXIMUM_CLUSTER_LIST_SIZE 768 
 
+// Helper: configure a single endpoint with given cluster_or_devtype string.
+// If the cluster_or_devtype is a known device type, it expands to clusters;
+// otherwise it is treated as semicolon-separated cluster names directly.
+static sl_status_t eed_configure_single_endpoint(const char *unid, 
+                                                  dotdot_endpoint_id_t endpoint_id,
+                                                  const char *cluster_or_devtype)
+{
+  char cluster_list[MAXIMUM_CLUSTER_LIST_SIZE] = {0};
+
+  // Try to interpret as device type first
+  if (SL_STATUS_OK == getClustersForDeviceType(cluster_or_devtype, cluster_list, sizeof(cluster_list))) {
+    sl_log_info(LOG_TAG, "Configured endpoint %d on %s via device type '%s'", 
+                endpoint_id, unid, cluster_or_devtype);
+    cluster_config_configure(unid, endpoint_id, cluster_list);
+  } else {
+    // Treat as direct cluster list (semicolon-separated)
+    cluster_config_configure(unid, endpoint_id, cluster_or_devtype);
+    sl_log_info(LOG_TAG, "Configured endpoint %d on %s with clusters: %s", 
+                endpoint_id, unid, cluster_or_devtype);
+  }
+
+  // Check if the UNID node already exists
+  if (ATTRIBUTE_STORE_INVALID_NODE == eed_attribute_store_get_unid_node(unid)) {
+    attribute_store_node_t unid_node = attribute_store_add_node(ATTRIBUTE_UNID, attribute_store_get_root());
+    attribute_store_set_reported_string(unid_node, unid);
+  }
+
+  // Check if the endpoint node already exists
+  if (ATTRIBUTE_STORE_INVALID_NODE == eed_attribute_store_get_endpoint_node(unid, endpoint_id)) {
+    attribute_store_node_t endpoint_node = attribute_store_add_node(ATTRIBUTE_ENDPOINT_ID, eed_attribute_store_get_unid_node(unid));
+    attribute_store_set_reported(endpoint_node, &endpoint_id, sizeof(endpoint_id));
+  }
+
+  return SL_STATUS_OK;
+}
+
+// Parse the endpoint_configs string and configure all endpoints.
+// Format: "unid,endpoint,cluster_or_devtype|unid,endpoint,cluster_or_devtype|..."
+static sl_status_t eed_endpoint_configs_init(void) {
+  const char *endpoint_configs = eed_get_config()->endpoint_configs;
+  if (endpoint_configs == NULL || strcmp(endpoint_configs, "") == 0) {
+    return SL_STATUS_OK;
+  }
+
+  // Make a mutable copy for strtok
+  char config_copy[MAXIMUM_CLUSTER_LIST_SIZE] = {0};
+  strncpy(config_copy, endpoint_configs, sizeof(config_copy) - 1);
+
+  char *saveptr_entry;
+  char *entry = strtok_r(config_copy, "|", &saveptr_entry);
+  while (entry != NULL) {
+    // Each entry format: "unid_value,endpoint_id,cluster_or_devtype"
+    char *saveptr_field;
+    char *unid_str = strtok_r(entry, ",", &saveptr_field);
+    char *ep_str   = strtok_r(NULL, ",", &saveptr_field);
+    char *cluster_str = strtok_r(NULL, ",", &saveptr_field);
+
+    if (unid_str == NULL || ep_str == NULL || cluster_str == NULL) {
+      sl_log_warning(LOG_TAG, "Invalid endpoint config entry: '%s', skipping", entry);
+      entry = strtok_r(NULL, "|", &saveptr_entry);
+      continue;
+    }
+
+    int unid_value = atoi(unid_str);
+    dotdot_endpoint_id_t endpoint_id = (dotdot_endpoint_id_t)atoi(ep_str);
+
+    char unid[MAXIMUM_UNID_SIZE] = {};
+    snprintf(unid, MAXIMUM_UNID_SIZE, UNID_FORMAT, unid_value);
+
+    eed_configure_single_endpoint(unid, endpoint_id, cluster_str);
+
+    entry = strtok_r(NULL, "|", &saveptr_entry);
+  }
+
+  return SL_STATUS_OK;
+}
+
 sl_status_t eed_supported_cluster_list_init() {
 
+  // First, process the legacy single-endpoint config (cluster_list or device_type)
   if (strcmp(eed_get_config()->cluster_list, "") != 0 || strcmp(eed_get_config()->device_type, "") != 0) {
-    // TODO: process cluster or device type config options, if required both
     int unid_value = DEFAULT_UNID_VALUE;
     dotdot_endpoint_id_t endpoint_id = DEFAULT_ENDPOINT_ID;
 
@@ -87,8 +164,11 @@ sl_status_t eed_supported_cluster_list_init() {
       attribute_store_node_t endpoint_node = attribute_store_add_node(ATTRIBUTE_ENDPOINT_ID, eed_attribute_store_get_unid_node(unid));
       attribute_store_set_reported(endpoint_node, &endpoint_id, sizeof(endpoint_id));
     }
-    return SL_STATUS_OK;
   }
+
+  // Then, process the multi-endpoint config (endpoint_configs)
+  eed_endpoint_configs_init();
+
   return SL_STATUS_OK;
 }
 

@@ -41,6 +41,11 @@ int eed_config_init()
   status |= config_add_string(CONFIG_KEY_EED_DEVICE_TYPE,
                               "EED device type configuration",
                               DEFAULT_EED_DEVICE_TYPE);
+  status |= config_add_string(CONFIG_KEY_EED_ENDPOINT_CONFIGS,
+                              "EED multi-endpoint configuration. "
+                              "Format: \"unid,endpoint,cluster_or_devtype|unid,endpoint,cluster_or_devtype|...\""
+                              "Example: \"1,0,OnOff;Level|2,0,OnOffLight\"",
+                              DEFAULT_EED_ENDPOINT_CONFIGS);
 
   return status != CONFIG_STATUS_OK;
 }
@@ -65,6 +70,8 @@ sl_status_t eed_config_fixt_setup()
                                  &config.cluster_list);
   status |= config_get_as_string(CONFIG_KEY_EED_DEVICE_TYPE,
                                  &config.device_type);
+  status |= config_get_as_string(CONFIG_KEY_EED_ENDPOINT_CONFIGS,
+                                 &config.endpoint_configs);
   // MQTT configuration
   status |= config_get_as_string(CONFIG_KEY_MQTT_HOST, &config.mqtt_host);
   status |= config_get_as_string(CONFIG_KEY_MQTT_CAFILE, &config.mqtt_cafile);

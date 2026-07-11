@@ -1,0 +1,105 @@
+{
+  "security": {
+    "maxCommandLength": 2000,
+    "blockedCommands": [
+      "rm",
+      "del",
+      "rmdir",
+      "format",
+      "shutdown",
+      "restart",
+      "reg",
+      "regedit",
+      "net",
+      "netsh",
+      "takeown",
+      "icacls"
+    ],
+    "blockedArguments": [
+      "--exec",
+      "-e",
+      "/c",
+      "-enc",
+      "-encodedcommand",
+      "-command",
+      "--interactive",
+      "-i",
+      "--login",
+      "--system"
+    ],
+    "allowedPaths": [
+      "C:\\Users\\pcwork",
+      "e:\\WORK-steven\\workspace\\UnifySDK"
+    ],
+    "restrictWorkingDirectory": true,
+    "logCommands": true,
+    "maxHistorySize": 1000,
+    "commandTimeout": 30,
+    "enableInjectionProtection": true
+  },
+  "shells": {
+    "powershell": {
+      "enabled": true,
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-NonInteractive",
+        "-Command"
+      ],
+      "blockedOperators": [
+        "&",
+        "|",
+        ";",
+        "`"
+      ]
+    },
+    "cmd": {
+      "enabled": true,
+      "command": "cmd.exe",
+      "args": [
+        "/c"
+      ],
+      "blockedOperators": [
+        "&",
+        "|",
+        ";",
+        "`"
+      ]
+    },
+    "gitbash": {
+      "enabled": true,
+      "command": "C:\\Program Files\\Git\\bin\\bash.exe",
+      "args": [
+        "-c"
+      ],
+      "blockedOperators": [
+        "&",
+        "|",
+        ";",
+        "`"
+      ]
+    }
+  },
+  "ssh": {
+    "enabled": false,
+    "defaultTimeout": 30,
+    "maxConcurrentSessions": 5,
+    "keepaliveInterval": 10000,
+    "keepaliveCountMax": 3,
+    "readyTimeout": 20000,
+    "connections": {
+      "dev-server": {
+        "host": "172.18.159.94",
+        "port": 22,
+        "username": "steven",
+        "password": "xuwen2482"
+      },
+      "wsl": {
+        "host": "172.18.159.94",
+        "port": 22,
+        "username": "steven",
+        "password": "xuwen2482"
+      }
+    }
+  }
+}

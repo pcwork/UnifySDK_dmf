@@ -12,6 +12,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #![doc(html_no_source)]
+#![allow(static_mut_refs)]
 pub mod contiki;
 pub mod unify_attribute_store;
 #[doc(inline)]

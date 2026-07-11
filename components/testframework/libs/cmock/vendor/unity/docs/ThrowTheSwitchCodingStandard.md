@@ -1,4 +1,4 @@
-﻿# ThrowTheSwitch.org Coding Standard
+# ThrowTheSwitch.org Coding Standard
 
 Hi. Welcome to the coding standard for ThrowTheSwitch.org. For the most part,
 we try to follow these standards to unify our contributors' code into a cohesive

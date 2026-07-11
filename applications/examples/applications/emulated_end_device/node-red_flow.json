@@ -1,0 +1,457 @@
+[
+    {
+        "id": "07e8cabfaac8836f",
+        "type": "tab",
+        "label": "流程 1",
+        "disabled": false,
+        "info": "动态灯泡控制面板",
+        "env": []
+    },
+    {
+        "id": "e899ee6117c49ddb",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "eed_app1_value",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "45823bc58331b4ac",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": true,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "44efba2f24dfc3ea",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "66c79153133e4580",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "45823bc58331b4ac",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "44efba2f24dfc3ea",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": true,
+        "disabled": "false"
+    },
+    {
+        "id": "4aa2ae539663ccec",
+        "type": "ui-group",
+        "name": "Light level",
+        "page": "66c79153133e4580",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "71a0bbed2d2b1221",
+        "type": "inject",
+        "z": "07e8cabfaac8836f",
+        "name": "初始化设备列表",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 240,
+        "wires": [
+            [
+                "aed3ca74858bdc61"
+            ]
+        ]
+    },
+    {
+        "id": "aed3ca74858bdc61",
+        "type": "function",
+        "z": "07e8cabfaac8836f",
+        "name": "init_device_list",
+        "func": "// 期望主题格式: ucl/by-unid/{unid}/ep{endpoint}/{cluster}/Attributes/{attribute}/Reported\nconst topicParts = msg.topic.split('/');\nif (topicParts.length < 7) return null;\n\nlet unid = topicParts[2];\nlet epPart = topicParts[3];\nlet endpoint = parseInt(epPart.replace('ep', ''));\nlet cluster = topicParts[4];\nlet attribute = topicParts[6];\nlet value = msg.payload?.value;\nif (value === undefined) return null;\n\nconst key = `${unid}|${endpoint}`;\nlet devices = global.get(\"devices\") || {};\nlet device = devices[key];\n\n// ❌ 不再自动创建新设备，直接忽略未知设备\nif (!device) {\n    node.warn(`未知设备 ${key}，忽略该上报`);\n    return null;  // 不处理，不更新UI\n}\n\n// 设备存在则更新状态\ndevice.online = true;\n\nif (cluster === \"OnOff\" && attribute === \"OnOff\") {\n    device.onoff = value === true || value === 1 || value === \"1\";\n} else if (cluster === \"Level\" && attribute === \"CurrentLevel\") {\n    device.level = Math.min(254, Math.max(0, Number(value) || 0));\n}\n\nglobal.set(\"devices\", devices);\n\n// 只返回更新后的设备列表刷新UI\nreturn {\n    payload: Object.values(devices),\n    topic: \"devices-update\"\n};",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 140,
+        "wires": [
+            [
+                "909f1b47253d038f",
+                "e266f5277bdae7df"
+            ]
+        ]
+    },
+    {
+        "id": "909f1b47253d038f",
+        "type": "debug",
+        "z": "07e8cabfaac8836f",
+        "name": "初始化结果",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e8276dbdd6b78c2e",
+        "type": "mqtt in",
+        "z": "07e8cabfaac8836f",
+        "name": "通配状态上报",
+        "topic": "ucl/by-unid/+/+/+/Attributes/+/Reported",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e899ee6117c49ddb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 320,
+        "wires": [
+            [
+                "c2a5bb9063f7b8f9",
+                "8d640323a41d24f5"
+            ]
+        ]
+    },
+    {
+        "id": "c2a5bb9063f7b8f9",
+        "type": "function",
+        "z": "07e8cabfaac8836f",
+        "name": "解析上报并更新状态",
+        "func": "// 期望主题格式: ucl/by-unid/{unid}/ep{endpoint}/{cluster}/Attributes/{attribute}/Reported\n\nconst topicParts = msg.topic.split('/');\n// 索引: 2=unid, 3=ep0(需提取数字), 4=cluster, 6=attribute\nif (topicParts.length < 7) return null;\n\nlet unid = topicParts[2];\nlet epPart = topicParts[3];    // 如 \"ep0\"\nlet endpoint = parseInt(epPart.replace('ep',''));\nlet cluster = topicParts[4];\nlet attribute = topicParts[6];\nlet value = msg.payload?.value;\nif (value === undefined) return null;\n\nconst key = `${unid}|${endpoint}`;\nlet devices = global.get(\"devices\") || {};\nlet device = devices[key];\nlet bulbs = global.get(\"lightbulbs\") || [];\n\nif (!device) {\n    if (cluster === \"OnOff\" || cluster === \"Level\") {\n        // 自动发现未知设备\n        device = {\n            unid: unid,\n            endpoint: endpoint,\n            name: `设备 ${unid.slice(-4)} ep${endpoint}`,\n            onoff: false,\n            level: 0,\n            online: true,\n            type: \"light\"\n        };\n        devices[key] = device;\n        // 同时更新 lightbulbs 列表（可选）\n\n        if (!bulbs.find(b => b.unid === unid && b.endpoint === endpoint)) {\n            bulbs.push({ unid, endpoint, name: device.name });\n            global.set(\"lightbulbs\", bulbs);\n        }\n    }\n    else {\n        device = {\n            unid: unid,\n            endpoint: endpoint,\n            name: `设备 ${unid.slice(-4)} ep${endpoint}`,\n        };\n    }\n}\n\n// 收到任何有效 UCL 上报，更新为在线\ndevice.online = true;\n\n// 更新设备状态\nif (cluster === \"OnOff\" && attribute === \"OnOff\") {\n    device.onoff = value === true || value === 1 || value === \"1\";\n} else if (cluster === \"Level\" && attribute === \"CurrentLevel\") {\n    device.level = Math.min(254, Math.max(0, Number(value) || 0));\n}\n\nglobal.set(\"devices\", devices);\n\nnode.log(\"当前devices: \" + JSON.stringify(devices))\nnode.log(\"当前bulbs: \" + JSON.stringify(bulbs))\n\n// 发送到 ui-template 刷新界面\n//return { payload: devices, topic: \"devices-update\" };\nreturn { \n    payload: Object.values(devices), \n    topic: \"devices-update\" \n};",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 460,
+        "wires": [
+            [
+                "a155aaace36f634e",
+                "e266f5277bdae7df"
+            ]
+        ]
+    },
+    {
+        "id": "a155aaace36f634e",
+        "type": "debug",
+        "z": "07e8cabfaac8836f",
+        "name": "状态更新日志",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "e266f5277bdae7df",
+        "type": "ui-template",
+        "z": "07e8cabfaac8836f",
+        "group": "4aa2ae539663ccec",
+        "page": "",
+        "ui": "",
+        "name": "动态灯泡面板",
+        "order": 1,
+        "width": 12,
+        "height": 8,
+        "format": "<style>\n  /* 基础卡片与动效 */\n  .device-card {\n    background: #ffffff;\n    border-radius: 14px;\n    padding: 18px;\n    margin-bottom: 16px;\n    box-shadow: 0 4px 12px rgba(0,0,0,0.05);\n    color: #333;\n    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);\n    position: relative;\n    border: 1px solid #eeeeee;\n  }\n  \n  /* 呼吸灯特效与卡片激活态（仅非NCP） */\n  .device-card.is-on {\n    box-shadow: 0 8px 24px rgba(255, 193, 7, 0.15);\n    border-color: rgba(255, 193, 7, 0.3);\n  }\n  \n  /* 离线设备置灰变暗 */\n  .device-card.is-offline {\n    opacity: 0.6;\n    pointer-events: none; /* 离线时禁用 UI 交互，防误触 */\n  }\n  .device-card.is-offline .toggle-btn {\n    background-color: #9e9e9e !important;\n  }\n\n  .device-header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-bottom: 14px;\n  }\n\n  .title-area {\n    display: flex;\n    flex-direction: column;\n  }\n\n  .device-name {\n    font-size: 1.15rem;\n    font-weight: 600;\n  }\n\n  /* 在线/离线标签样式 */\n  .status-badge {\n    font-size: 0.75rem;\n    padding: 2px 8px;\n    border-radius: 10px;\n    font-weight: bold;\n    margin-top: 4px;\n    width: max-content;\n  }\n  .status-badge.online {\n    background-color: #e8f5e9;\n    color: #2e7d32;\n  }\n  .status-badge.offline {\n    background-color: #ffebee;\n    color: #c62828;\n  }\n\n  /* 右侧控制栏组合 */\n  .control-right {\n    display: flex;\n    align-items: center;\n    gap: 12px;\n  }\n\n  /* 灯泡 SVG 图标与渐变色 */\n  .bulb-icon {\n    width: 28px;\n    height: 28px;\n    transition: transform 0.3s ease, fill 0.3s ease, filter 0.3s ease;\n    fill: #b0bec5; /* 默认关闭状态颜色 */\n  }\n  \n  /* 当打开且在线时，根据绑定的亮度变量(--bulb-opacity)改变发光强度和颜色 */\n  .is-on .bulb-icon {\n    fill: #ffca28;\n    filter: drop-shadow(0 0 calc(var(--bulb-opacity) * 10px) #ffb300);\n    transform: scale(1.05);\n  }\n\n  .toggle-btn {\n    padding: 6px 14px;\n    border: none;\n    border-radius: 24px;\n    color: white;\n    cursor: pointer;\n    font-weight: bold;\n    transition: background-color 0.25s, transform 0.1s;\n  }\n  .toggle-btn:active {\n    transform: scale(0.95);\n  }\n  .toggle-btn.on { background-color: #ffb300; color: #111; }\n  .toggle-btn.off { background-color: #e0e0e0; color: #666; }\n\n  .slider-container {\n    margin-top: 10px;\n  }\n  .slider-label {\n    display: flex;\n    justify-content: space-between;\n    font-size: 0.85rem;\n    color: #666;\n    margin-bottom: 6px;\n  }\n  \n  /* 滑块美化 */\n  input[type=range] {\n    -webkit-appearance: none;\n    width: 100%;\n    height: 6px;\n    background: #e0e0e0;\n    border-radius: 3px;\n    outline: none;\n  }\n  input[type=range]::-webkit-slider-thumb {\n    -webkit-appearance: none;\n    appearance: none;\n    width: 16px;\n    height: 16px;\n    border-radius: 50%;\n    background: #ffb300;\n    cursor: pointer;\n    transition: transform 0.1s;\n  }\n  .is-offline input[type=range]::-webkit-slider-thumb {\n    background: #9e9e9e;\n  }\n  input[type=range]::-webkit-slider-thumb:active {\n    transform: scale(1.3);\n  }\n\n  /* NCP 按钮样式 */\n  .ncp-toggle-btn {\n    padding: 6px 14px;\n    border: none;\n    border-radius: 24px;\n    color: white;\n    cursor: pointer;\n    font-weight: bold;\n    transition: background-color 0.25s, transform 0.1s;\n  }\n  .ncp-toggle-btn.idle { background-color: #4caf50; }\n  .ncp-toggle-btn.addnode { background-color: #ff9800; }\n  .ncp-toggle-btn:active { transform: scale(0.95); }\n</style>\n\n<div v-if=\"msg && Array.isArray(msg.payload) && msg.payload.length\">\n  <div v-for=\"dev in msg.payload\" \n       :key=\"dev.unid + '|' + dev.endpoint\" \n       :class=\"['device-card', (dev.onoff && dev.type !== 'ncp') ? 'is-on' : '', !dev.online ? 'is-offline' : '']\"\n       :style=\"{'--bulb-opacity': (dev.type !== 'ncp' ? dev.level / 254 : 0)}\">\n       \n    <div class=\"device-header\">\n      <div class=\"title-area\">\n        <span class=\"device-name\">{{ dev.name }}</span>\n        <span :class=\"['status-badge', dev.online ? 'online' : 'offline']\">\n          {{ dev.online ? '● 在线' : '● 离线' }}\n        </span>\n        <span v-if=\"dev.type === 'ncp'\" style=\"font-size:0.7rem;background:#e3f2fd;padding:2px 8px;border-radius:10px;margin-top:2px;\">Z3 Gateway</span>\n      </div>\n      \n      <!-- 灯泡控制区域（非NCP） -->\n      <div v-if=\"dev.type !== 'ncp'\" class=\"control-right\">\n        <svg class=\"bulb-icon\" viewBox=\"0 0 24 24\">\n          <path d=\"M12,2A7,7 0 0,0 5,9C5,11.38 6.19,13.47 8,14.74V17A1,1 0 0,0 9,18H15A1,1 0 0,0 16,17V14.74C17.81,13.47 19,11.38 19,9A7,7 0 0,0 12,2M9,21A1,1 0 0,0 10,22H14A1,1 0 0,0 15,21V20H9V21Z\" />\n        </svg>\n        \n        <button \n          :class=\"['toggle-btn', dev.onoff ? 'on' : 'off']\"\n          @click=\"toggleDevice(dev)\">\n          {{ dev.onoff ? '关闭' : '开启' }}\n        </button>\n      </div>\n      \n      <!-- NCP 控制按钮 -->\n      <div v-else class=\"control-right\">\n        <button \n          class=\"ncp-toggle-btn\" \n          :class=\"{'idle': (dev.ncpState || 'idle') === 'idle', 'addnode': (dev.ncpState || 'idle') === 'add node'}\"\n          @click=\"ncpToggle(dev)\">\n          {{ dev.ncpState || 'idle' }}\n        </button>\n      </div>\n    </div>\n    \n    <!-- 亮度滑块（非NCP） -->\n    <div v-if=\"dev.type !== 'ncp'\" class=\"slider-container\">\n      <div class=\"slider-label\">\n        <span>亮度</span>\n        <span>{{ Math.round(dev.level/254*100) }}%</span>\n      </div>\n      <input \n        type=\"range\" \n        min=\"0\" max=\"254\" \n        :value=\"dev.level\"\n        @change=\"levelChange(dev, $event)\">\n    </div>\n  </div>\n</div>\n<div v-else style=\"padding: 40px; text-align: center; color: #999;\">\n  <div class=\"spinner\" style=\"margin-bottom: 10px;\">⌛</div>\n  正在同步网关设备状态...\n</div>\n\n<script>\nexport default {\n    methods: {\n        toggleDevice(dev) {\n            // 使用 DB 2.0 标准 submit 发送数据回 Node-RED\n            this.send({ \n                payload: { action: 'toggle', unid: dev.unid, endpoint: dev.endpoint } \n            });\n        },\n        levelChange(dev, event) {\n            const val = parseInt(event.target.value);\n            this.send({ \n                payload: { action: 'move', unid: dev.unid, endpoint: dev.endpoint, value: val } \n            });\n        },\n        ncpToggle(dev) {\n            this.send({\n                payload: { action: 'ncp', unid: dev.unid, endpoint: dev.endpoint }\n            });\n        }\n    }\n}\n</script>",
+        "storeOutMessages": true,
+        "passthru": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 560,
+        "y": 260,
+        "wires": [
+            [
+                "9baf9a4c257cee7e",
+                "a1c2c5d563f7aacc"
+            ]
+        ]
+    },
+    {
+        "id": "9baf9a4c257cee7e",
+        "type": "function",
+        "z": "07e8cabfaac8836f",
+        "name": "处理UI控制指令",
+        "func": "// 接收来自 ui-template 的控制指令\n// 格式：{ action: \"toggle\" 或 \"move\" 或 \"ncp\", unid, endpoint, value }\nconst cmd = msg.payload;\nif (!cmd || !cmd.action) return null;\n\nconst { action, unid, endpoint, value } = cmd;\nconst key = `${unid}|${endpoint}`;\nconst devices = global.get(\"devices\") || {};\nconst device = devices[key];\nif (!device) return null;\n\nlet mqttMsg = {\n    topic: \"\",\n    payload: {},\n    qos: 2\n};\n\nif (action === \"toggle\") {\n    // 发送 Toggle 命令（兼容原设备）\n    if (device.onoff){\n        mqttMsg.topic = `ucl/by-unid/${unid}/ep${endpoint}/OnOff/Commands/Off`;\n    }\n    else{\n        mqttMsg.topic = `ucl/by-unid/${unid}/ep${endpoint}/OnOff/Commands/On`;\n    }\n    mqttMsg.payload = {};  // 某些设备需要 {\"onoff\": !device.onoff}，可按需调整\n    // 乐观更新\n    device.onoff = !device.onoff;\n} else if (action === \"move\") {\n    // 发送亮度调节命令\n    mqttMsg.topic = `ucl/by-unid/${unid}/ep${endpoint}/Level/Commands/MoveToLevelWithOnOff`;\n    mqttMsg.payload = {\n        Level: Math.min(254, Math.max(0, Number(value))),\n        TransitionTime: 100,\n        OptionsMask: 0,\n        OptionsOverride: 0\n    };\n    device.level = Number(value);\n} else if (action === \"ncp\") {\n    // 切换 NCP 状态\n    const currentState = device.ncpState || 'idle';\n    const newState = (currentState === 'idle') ? 'add node' : 'idle';\n    device.ncpState = newState;\n    mqttMsg.topic = `ucl/by-unid/${unid}/ProtocolController/NetworkManagement/Write`;\n    mqttMsg.payload = { State: newState };\n} else {\n    return null;\n}\n\n// 如果 mqttMsg.topic 为空，则不发送 MQTT（理论上不会）\nif (!mqttMsg.topic) return null;\n\n// 更新全局设备状态\nglobal.set(\"devices\", devices);\n\n// 组装用于回刷 UI 的设备数组\nlet uiUpdateMsg = {\n    payload: Object.values(devices),\n    topic: \"devices-update\"\n};\n\n// 输出 1 回传给 UI，输出 2 去 MQTT\nreturn [uiUpdateMsg, mqttMsg];",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 400,
+        "wires": [
+            [
+                "e266f5277bdae7df"
+            ],
+            [
+                "36e49e9ec2dfdaa9",
+                "4cc3281c586b51e9"
+            ]
+        ]
+    },
+    {
+        "id": "36e49e9ec2dfdaa9",
+        "type": "debug",
+        "z": "07e8cabfaac8836f",
+        "name": "控制指令",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "4cc3281c586b51e9",
+        "type": "mqtt out",
+        "z": "07e8cabfaac8836f",
+        "name": "MQTT 控制指令",
+        "topic": "",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "e899ee6117c49ddb",
+        "x": 980,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "8d640323a41d24f5",
+        "type": "debug",
+        "z": "07e8cabfaac8836f",
+        "name": "debug report",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 330,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "a1c2c5d563f7aacc",
+        "type": "debug",
+        "z": "07e8cabfaac8836f",
+        "name": "动态ui msg",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "9f69ed45bbd66ecf",
+        "type": "mqtt in",
+        "z": "07e8cabfaac8836f",
+        "name": "NCP状态订阅",
+        "topic": "ucl/by-unid/+/ProtocolController/NetworkManagement",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e899ee6117c49ddb",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 150,
+        "y": 580,
+        "wires": [
+            [
+                "5fdb1ef4393b4de5",
+                "119bc5fa2b2877c9"
+            ]
+        ]
+    },
+    {
+        "id": "5fdb1ef4393b4de5",
+        "type": "function",
+        "z": "07e8cabfaac8836f",
+        "name": "解析NCP并更新设备",
+        "func": "// 处理 NCP NetworkManagement 消息\nconst topicParts = msg.topic.split('/');\n// 格式: ucl/by-unid/{unid}/ProtocolController/NetworkManagement\nif (topicParts.length < 4) return null;\nlet unid = topicParts[2];\n\n// 检查是否存在该设备\nlet devices = global.get(\"devices\") || {};\n// 使用 unid 和 endpoint=0 作为 key（假定NCP endpoint为0）\nconst key = `${unid}|0`;\nlet device = devices[key];\n\nif (!device) {\n    // 创建 NCP 设备\n    device = {\n        unid: unid,\n        endpoint: 0,\n        name: `NCP Dongle ${unid.slice(-6)}`,\n        online: true,\n        type: 'ncp' // 标记为NCP\n    };\n    devices[key] = device;\n} else {\n    // 更新在线状态\n    device.type = 'ncp'\n    name: `NCP Dongle ${unid.slice(-6)}`\n    device.online = true;\n\n    // 存储状态信息\n    if (msg.payload && msg.payload.State) {\n        device.ncpState = msg.payload.State;\n    }\n}\n\nglobal.set(\"devices\", devices);\n\n// 发送更新到UI\nreturn {\n    payload: Object.values(devices),\n    topic: \"devices-update\"\n};",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 580,
+        "wires": [
+            [
+                "e266f5277bdae7df",
+                "b633dad2e1a04ffe"
+            ]
+        ]
+    },
+    {
+        "id": "b633dad2e1a04ffe",
+        "type": "debug",
+        "z": "07e8cabfaac8836f",
+        "name": "NCP调试",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "119bc5fa2b2877c9",
+        "type": "debug",
+        "z": "07e8cabfaac8836f",
+        "name": "debug NCP",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 310,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "849de3ffba46cec1",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.30.2"
+        }
+    }
+]
