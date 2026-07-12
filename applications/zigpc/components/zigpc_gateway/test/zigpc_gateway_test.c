@@ -321,9 +321,10 @@ void test_zigpc_gateway_configure_reports_call(void)
   zigbeeHostInitReporting_ExpectAndReturn(TEST_EUI64_LE,
                                           test_endpoint,
                                           test_zcl_cluster,
+                                          0,
                                           test_zcl_frame.buffer,
                                           test_zcl_frame.size,
-                                          SL_STATUS_OK );
+                                          SL_STATUS_OK);
 
   helper_expect_zigbee_host_tick_calls(DEFER_CYCLES_DEFAULT);
 

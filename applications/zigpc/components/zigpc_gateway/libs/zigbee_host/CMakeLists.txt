@@ -70,13 +70,8 @@ add_library(zigbee_host INTERFACE include/zigbee_host.h
 
 add_dependencies(zigbee_host libzigbee_host)
 
-# Model the generated archive as an imported library target so consumers get a
-# real target dependency instead of only a raw file path at link time.
-add_library(zigbee_host_static STATIC IMPORTED GLOBAL)
-set_target_properties(zigbee_host_static PROPERTIES IMPORTED_LOCATION ${LIB_PATH})
-add_dependencies(zigbee_host_static libzigbee_host)
+target_link_libraries(zigbee_host INTERFACE ${LIB_PATH} ${CMAKE_THREAD_LIBS_INIT})
 
-target_link_libraries(zigbee_host INTERFACE zigbee_host_static ${CMAKE_THREAD_LIBS_INIT})
 target_include_directories(zigbee_host INTERFACE include gen/autogen gen/config
                                                  ${ZIGBEE_HOST_STACK_INCLUDES})
 target_compile_definitions(
