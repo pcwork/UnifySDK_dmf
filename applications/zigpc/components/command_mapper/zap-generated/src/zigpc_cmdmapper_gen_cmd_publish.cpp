@@ -901,6 +901,49 @@ static void zigpc_command_mapper_publish_electrical_measurement_get_measurement_
   );
 }
 
+static void zigpc_command_mapper_publish_dmf_bridge_config_generic_report_record(
+  const zigbee_eui64_t eui64,
+  const zigbee_endpoint_id_t endpoint_id,
+  const zigpc_zclcmdparse_callback_data_t *data
+) {
+  std::string unid(zigpc_ucl::mqtt::build_unid(zigbee_eui64_to_uint(eui64)));
+
+  uic_mqtt_dotdot_dmf_bridge_config_command_generic_report_record_fields_t
+    fields = {
+      (uint16_t) data->dmf_bridge_config_generic_report_record.tableid,
+      (uint8_t) data->dmf_bridge_config_generic_report_record.record_index,
+      (uint16_t) data->dmf_bridge_config_generic_report_record.total_records,
+      (const char *)
+        data->dmf_bridge_config_generic_report_record.record_payload
+    };
+
+  uic_mqtt_dotdot_dmf_bridge_config_publish_generated_generic_report_record_command(
+    unid.c_str(),
+    endpoint_id,
+    &fields
+  );
+}
+
+static void zigpc_command_mapper_publish_dmf_bridge_config_raw_fixture_notification(
+  const zigbee_eui64_t eui64,
+  const zigbee_endpoint_id_t endpoint_id,
+  const zigpc_zclcmdparse_callback_data_t *data
+) {
+  std::string unid(zigpc_ucl::mqtt::build_unid(zigbee_eui64_to_uint(eui64)));
+
+  uic_mqtt_dotdot_dmf_bridge_config_command_raw_fixture_notification_fields_t
+    fields = {
+      (const char *) data->dmf_bridge_config_raw_fixture_notification.uid,
+      (uint16_t) data->dmf_bridge_config_raw_fixture_notification.modelid
+    };
+
+  uic_mqtt_dotdot_dmf_bridge_config_publish_generated_raw_fixture_notification_command(
+    unid.c_str(),
+    endpoint_id,
+    &fields
+  );
+}
+
 
 static constexpr char CMDPARSE_REGISTER_ERR_FMT_STR[] = "Failed to listen to %s/%s cmd parsing: 0x%X";
 
@@ -1367,6 +1410,26 @@ sl_status_t zigpc_command_mapper_setup_gen_cmd_publish_listeners(void) {
     return status;
   }
 
+  status = zigpc_zclcmdparse_register_callback(
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_REPORT_RECORD,
+    zigpc_command_mapper_publish_dmf_bridge_config_generic_report_record
+  );
+  if (status != SL_STATUS_OK) {
+    sl_log_error(LOG_TAG, CMDPARSE_REGISTER_ERR_FMT_STR,"DMFBridgeConfig","GenericReportRecord", status);
+    return status;
+  }
+
+  status = zigpc_zclcmdparse_register_callback(
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_RAW_FIXTURE_NOTIFICATION,
+    zigpc_command_mapper_publish_dmf_bridge_config_raw_fixture_notification
+  );
+  if (status != SL_STATUS_OK) {
+    sl_log_error(LOG_TAG, CMDPARSE_REGISTER_ERR_FMT_STR,"DMFBridgeConfig","RawFixtureNotification", status);
+    return status;
+  }
+
   return status;
 }
 
@@ -1648,5 +1711,16 @@ void zigpc_command_mapper_cleanup_gen_cmd_publish_listeners(void) {
     ZIGPC_ZCL_CLUSTER_ELECTRICAL_MEASUREMENT_COMMAND_GET_MEASUREMENT_PROFILE,
     zigpc_command_mapper_publish_electrical_measurement_get_measurement_profile
   );
-}
 
+  zigpc_zclcmdparse_remove_callback(
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_REPORT_RECORD,
+    zigpc_command_mapper_publish_dmf_bridge_config_generic_report_record
+  );
+
+  zigpc_zclcmdparse_remove_callback(
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_RAW_FIXTURE_NOTIFICATION,
+    zigpc_command_mapper_publish_dmf_bridge_config_raw_fixture_notification
+  );
+}

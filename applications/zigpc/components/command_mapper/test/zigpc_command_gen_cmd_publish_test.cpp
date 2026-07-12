@@ -182,6 +182,47 @@ void test_zigpc_command_mapper_publish_get_group_membership_response_sanity(
   // ASSERT (Handled by CMock)
 }
 
+void test_zigpc_command_mapper_publish_dmf_bridge_config_generic_report_record_sanity(
+  void)
+{
+  zigbee_eui64_t eui64    = {0xD, 0x01, 0x77, 0x09, 0xD3, 0x8A, 0xD, 0xFF};
+  zigbee_endpoint_id_t ep = 7;
+  char record_payload[]   = "fixture-payload";
+  zigpc_zclcmdparse_callback_data_t cb_data = {
+    .dmf_bridge_config_generic_report_record = {
+      .tableid               = 0x2211,
+      .record_index          = 0x04,
+      .total_records         = 0x1020,
+      .record_payload_length = sizeof(record_payload) - 1,
+      .record_payload        = record_payload,
+    },
+  };
+
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_report_record_fields_t
+    dotdot_fields = {
+      cb_data.dmf_bridge_config_generic_report_record.tableid,
+      cb_data.dmf_bridge_config_generic_report_record.record_index,
+      cb_data.dmf_bridge_config_generic_report_record.total_records,
+      cb_data.dmf_bridge_config_generic_report_record.record_payload,
+    };
+
+  // ARRANGE
+  uic_mqtt_dotdot_dmf_bridge_config_publish_generated_generic_report_record_command_Expect(
+    nullptr,
+    ep,
+    &dotdot_fields);
+  uic_mqtt_dotdot_dmf_bridge_config_publish_generated_generic_report_record_command_IgnoreArg_unid();
+
+  // ACT
+  auto generic_report_record_cb = cmdparser_callbacks.find(
+    {ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_REPORT_RECORD});
+
+  generic_report_record_cb->second(eui64, ep, &cb_data);
+
+  // ASSERT (Handled by CMock)
+}
+
 void test_zigpc_command_mapper_cleanup_gen_cmd_publish_listeners_sanity(void)
 {
   // ARRANGE
@@ -191,6 +232,20 @@ void test_zigpc_command_mapper_cleanup_gen_cmd_publish_listeners_sanity(void)
 
   // ASSERT
   TEST_ASSERT_EQUAL(0, cmdparser_callbacks.size());
+}
+
+void test_zigpc_command_mapper_setup_gen_cmd_publish_listeners_registers_dmf_bridge_config_command(
+  void)
+{
+  // ACT
+  sl_status_t status = zigpc_command_mapper_setup_gen_cmd_publish_listeners();
+
+  // ASSERT
+  TEST_ASSERT_EQUAL_HEX(SL_STATUS_OK, status);
+  TEST_ASSERT_TRUE(cmdparser_callbacks.find(
+                     {ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+                      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_REPORT_RECORD})
+                   != cmdparser_callbacks.end());
 }
 
 }  // extern "C"

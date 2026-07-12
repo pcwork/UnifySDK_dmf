@@ -11815,6 +11815,334 @@ sl_status_t zigpc_command_mapper_electrical_measurement_get_measurement_profile_
   return SL_STATUS_OK;
 }
 
+/**
+ * @brief DotDot MQTT translator handler for DMFBridgeConfig/TriggerRDMDiscovery command.
+ */
+sl_status_t zigpc_command_mapper_dmf_bridge_config_trigger_rdm_discovery_handler(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  uic_mqtt_dotdot_callback_call_type_t callback_type
+) {
+  sl_status_t temp_status = SL_STATUS_OK;
+
+  if (callback_type == UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK) {
+    temp_status = zigpc_command_mapper_cluster_support_check(
+      unid,
+      endpoint,
+      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG);
+    if (temp_status != SL_STATUS_OK) {
+      temp_status = SL_STATUS_NOT_AVAILABLE;
+    }
+    return temp_status;
+  }
+
+  zigpc_command_mapper_send_unicast(
+    unid,
+    endpoint,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_TRIGGER_RDM_DISCOVERY,
+    0,
+    nullptr
+  );
+
+  return SL_STATUS_OK;
+}
+
+sl_status_t zigpc_command_mapper_dmf_bridge_config_identify_fixture_handler(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  uic_mqtt_dotdot_callback_call_type_t callback_type,
+  const char *uid,
+  uint8_t identify_on
+) {
+  sl_status_t temp_status = SL_STATUS_OK;
+
+  if (callback_type == UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK) {
+    temp_status = zigpc_command_mapper_cluster_support_check(
+      unid,
+      endpoint,
+      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG);
+    if (temp_status != SL_STATUS_OK) {
+      temp_status = SL_STATUS_NOT_AVAILABLE;
+    }
+    return temp_status;
+  }
+
+  std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
+  cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_OCTSTR, uid});
+  cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_UINT8, &identify_on});
+
+  zigpc_command_mapper_send_unicast(
+    unid,
+    endpoint,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_IDENTIFY_FIXTURE,
+    cmd_arg_list.size(),
+    cmd_arg_list.data()
+  );
+
+  return SL_STATUS_OK;
+}
+
+sl_status_t zigpc_command_mapper_dmf_bridge_config_identify_zone_handler(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  uic_mqtt_dotdot_callback_call_type_t callback_type,
+  uint8_t zoneid,
+  uint8_t identify_on
+) {
+  sl_status_t temp_status = SL_STATUS_OK;
+
+  if (callback_type == UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK) {
+    temp_status = zigpc_command_mapper_cluster_support_check(
+      unid,
+      endpoint,
+      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG);
+    if (temp_status != SL_STATUS_OK) {
+      temp_status = SL_STATUS_NOT_AVAILABLE;
+    }
+    return temp_status;
+  }
+
+  std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
+  cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_UINT8, &zoneid});
+  cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_UINT8, &identify_on});
+
+  zigpc_command_mapper_send_unicast(
+    unid,
+    endpoint,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_IDENTIFY_ZONE,
+    cmd_arg_list.size(),
+    cmd_arg_list.data()
+  );
+
+  return SL_STATUS_OK;
+}
+
+sl_status_t zigpc_command_mapper_dmf_bridge_config_play_light_mode_handler(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  uic_mqtt_dotdot_callback_call_type_t callback_type,
+  uint8_t light_modeid
+) {
+  sl_status_t temp_status = SL_STATUS_OK;
+
+  if (callback_type == UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK) {
+    temp_status = zigpc_command_mapper_cluster_support_check(
+      unid,
+      endpoint,
+      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG);
+    if (temp_status != SL_STATUS_OK) {
+      temp_status = SL_STATUS_NOT_AVAILABLE;
+    }
+    return temp_status;
+  }
+
+  std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
+  cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_UINT8, &light_modeid});
+
+  zigpc_command_mapper_send_unicast(
+    unid,
+    endpoint,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_PLAY_LIGHT_MODE,
+    cmd_arg_list.size(),
+    cmd_arg_list.data()
+  );
+
+  return SL_STATUS_OK;
+}
+
+sl_status_t zigpc_command_mapper_dmf_bridge_config_generic_read_record_handler(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  uic_mqtt_dotdot_callback_call_type_t callback_type,
+  uint16_t tableid,
+  uint8_t record_index
+) {
+  sl_status_t temp_status = SL_STATUS_OK;
+
+  if (callback_type == UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK) {
+    temp_status = zigpc_command_mapper_cluster_support_check(
+      unid,
+      endpoint,
+      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG);
+    if (temp_status != SL_STATUS_OK) {
+      temp_status = SL_STATUS_NOT_AVAILABLE;
+    }
+    return temp_status;
+  }
+
+  std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
+  cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_UINT16, &tableid});
+  cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_UINT8, &record_index});
+
+  zigpc_command_mapper_send_unicast(
+    unid,
+    endpoint,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_READ_RECORD,
+    cmd_arg_list.size(),
+    cmd_arg_list.data()
+  );
+
+  return SL_STATUS_OK;
+}
+
+sl_status_t zigpc_command_mapper_dmf_bridge_config_generic_write_record_handler(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  uic_mqtt_dotdot_callback_call_type_t callback_type,
+  uint16_t tableid,
+  uint8_t record_index,
+  const char *record_payload
+) {
+  sl_status_t temp_status = SL_STATUS_OK;
+
+  if (callback_type == UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK) {
+    temp_status = zigpc_command_mapper_cluster_support_check(
+      unid,
+      endpoint,
+      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG);
+    if (temp_status != SL_STATUS_OK) {
+      temp_status = SL_STATUS_NOT_AVAILABLE;
+    }
+    return temp_status;
+  }
+
+  std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
+  cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_UINT16, &tableid});
+  cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_UINT8, &record_index});
+  cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_OCTSTR, record_payload});
+
+  zigpc_command_mapper_send_unicast(
+    unid,
+    endpoint,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_WRITE_RECORD,
+    cmd_arg_list.size(),
+    cmd_arg_list.data()
+  );
+
+  return SL_STATUS_OK;
+}
+
+sl_status_t zigpc_command_mapper_dmf_bridge_config_generic_delete_record_handler(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  uic_mqtt_dotdot_callback_call_type_t callback_type,
+  uint16_t tableid,
+  uint8_t record_index
+) {
+  sl_status_t temp_status = SL_STATUS_OK;
+
+  if (callback_type == UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK) {
+    temp_status = zigpc_command_mapper_cluster_support_check(
+      unid,
+      endpoint,
+      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG);
+    if (temp_status != SL_STATUS_OK) {
+      temp_status = SL_STATUS_NOT_AVAILABLE;
+    }
+    return temp_status;
+  }
+
+  std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
+  cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_UINT16, &tableid});
+  cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_UINT8, &record_index});
+
+  zigpc_command_mapper_send_unicast(
+    unid,
+    endpoint,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_DELETE_RECORD,
+    cmd_arg_list.size(),
+    cmd_arg_list.data()
+  );
+
+  return SL_STATUS_OK;
+}
+
+sl_status_t zigpc_command_mapper_dmf_bridge_config_clear_table_handler(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  uic_mqtt_dotdot_callback_call_type_t callback_type,
+  uint16_t tableid,
+  uint16_t confirm_code
+) {
+  sl_status_t temp_status = SL_STATUS_OK;
+
+  if (callback_type == UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK) {
+    temp_status = zigpc_command_mapper_cluster_support_check(
+      unid,
+      endpoint,
+      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG);
+    if (temp_status != SL_STATUS_OK) {
+      temp_status = SL_STATUS_NOT_AVAILABLE;
+    }
+    return temp_status;
+  }
+
+  std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
+  cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_UINT16, &tableid});
+  cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_UINT16, &confirm_code});
+
+  zigpc_command_mapper_send_unicast(
+    unid,
+    endpoint,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_CLEAR_TABLE,
+    cmd_arg_list.size(),
+    cmd_arg_list.data()
+  );
+
+  return SL_STATUS_OK;
+}
+
+sl_status_t zigpc_command_mapper_dmf_bridge_config_zb_network_leave_handler(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  uic_mqtt_dotdot_callback_call_type_t callback_type,
+  uint16_t confirm_code
+) {
+  sl_status_t temp_status = SL_STATUS_OK;
+
+  if (callback_type == UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK) {
+    temp_status = zigpc_command_mapper_cluster_support_check(
+      unid,
+      endpoint,
+      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG);
+    if (temp_status != SL_STATUS_OK) {
+      temp_status = SL_STATUS_NOT_AVAILABLE;
+    }
+    return temp_status;
+  }
+
+  std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
+  cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_UINT16, &confirm_code});
+
+  zigpc_command_mapper_send_unicast(
+    unid,
+    endpoint,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_ZB_NETWORK_LEAVE,
+    cmd_arg_list.size(),
+    cmd_arg_list.data()
+  );
+
+  return SL_STATUS_OK;
+}
+
 
 /**
  * @brief Register the callbacks for the DotDot Commands supported.
@@ -12213,6 +12541,33 @@ sl_status_t zigpc_command_mapper_register_dotdot_mqtt_handlers(void)
   );
   uic_mqtt_dotdot_electrical_measurement_get_measurement_profile_response_callback_set(
     zigpc_command_mapper_electrical_measurement_get_measurement_profile_response_handler
+  );
+  uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_set(
+    zigpc_command_mapper_dmf_bridge_config_trigger_rdm_discovery_handler
+  );
+  uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_set(
+    zigpc_command_mapper_dmf_bridge_config_identify_fixture_handler
+  );
+  uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_set(
+    zigpc_command_mapper_dmf_bridge_config_identify_zone_handler
+  );
+  uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_set(
+    zigpc_command_mapper_dmf_bridge_config_play_light_mode_handler
+  );
+  uic_mqtt_dotdot_dmf_bridge_config_generic_read_record_callback_set(
+    zigpc_command_mapper_dmf_bridge_config_generic_read_record_handler
+  );
+  uic_mqtt_dotdot_dmf_bridge_config_generic_write_record_callback_set(
+    zigpc_command_mapper_dmf_bridge_config_generic_write_record_handler
+  );
+  uic_mqtt_dotdot_dmf_bridge_config_generic_delete_record_callback_set(
+    zigpc_command_mapper_dmf_bridge_config_generic_delete_record_handler
+  );
+  uic_mqtt_dotdot_dmf_bridge_config_clear_table_callback_set(
+    zigpc_command_mapper_dmf_bridge_config_clear_table_handler
+  );
+  uic_mqtt_dotdot_dmf_bridge_config_zb_network_leave_callback_set(
+    zigpc_command_mapper_dmf_bridge_config_zb_network_leave_handler
   );
   return SL_STATUS_OK;
 }

@@ -512,6 +512,28 @@ typedef struct {
 } zigpc_zclcmdparse_electrical_measurement_get_measurement_profile_t;
 
 /**
+ * @brief Data for DMFBridgeConfig/GenericReportRecord command.
+ *
+ */
+typedef struct {
+  uint16_t tableid; /**< Command argument of type uint16 */
+  uint8_t record_index; /**< Command argument of type uint8 */
+  uint16_t total_records; /**< Command argument of type uint16 */
+  uint8_t record_payload_length; /**< String length for RecordPayload */
+  const char* record_payload; /**< Command argument of type octstr */
+} zigpc_zclcmdparse_dmf_bridge_config_generic_report_record_t;
+
+/**
+ * @brief Data for DMFBridgeConfig/RawFixtureNotification command.
+ *
+ */
+typedef struct {
+  uint8_t uid_length; /**< String length for UID */
+  const char* uid; /**< Command argument of type octstr */
+  uint16_t modelid; /**< Command argument of type uint16 */
+} zigpc_zclcmdparse_dmf_bridge_config_raw_fixture_notification_t;
+
+/**
  * @brief Container for the different types of command data that can be
  * received.
  */
@@ -562,6 +584,8 @@ typedef union {
   zigpc_zclcmdparse_ias_zone_zone_enroll_request_t ias_zone_zone_enroll_request;
   zigpc_zclcmdparse_electrical_measurement_get_profile_info_t electrical_measurement_get_profile_info;
   zigpc_zclcmdparse_electrical_measurement_get_measurement_profile_t electrical_measurement_get_measurement_profile;
+  zigpc_zclcmdparse_dmf_bridge_config_generic_report_record_t dmf_bridge_config_generic_report_record;
+  zigpc_zclcmdparse_dmf_bridge_config_raw_fixture_notification_t dmf_bridge_config_raw_fixture_notification;
 } zigpc_zclcmdparse_callback_data_t;
 
 typedef void (*zigpc_zclcmdparse_callback_t)(

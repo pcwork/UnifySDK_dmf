@@ -130,6 +130,13 @@ static std::unordered_map<zcl_cluster_id_t, std::set<zcl_command_id_t>>  command
       ZIGPC_ZCL_CLUSTER_ELECTRICAL_MEASUREMENT_COMMAND_GET_MEASUREMENT_PROFILE,
     }
   },
+  {
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    {
+      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_REPORT_RECORD,
+      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_RAW_FIXTURE_NOTIFICATION,
+    }
+  },
 };
 
 bool zigpc_zclcmdparse_cluster_command_supported(zcl_cluster_id_t cluster_id,
@@ -2395,6 +2402,136 @@ zigpc_zcl_status_t zigpc_zclcmdparse_electrical_measurement_get_measurement_prof
   return status;
 }
 
+zigpc_zcl_status_t zigpc_zclcmdparse_dmf_bridge_config_generic_report_record_command(
+  const zigpc_gateway_on_command_received_t *cmd,
+  zigpc_zclcmdparse_result_t *result
+) {
+  zigpc_zcl_status_t status = ZIGPC_ZCL_STATUS_SUCCESS;
+  size_t payload_offset = cmd->frame_payload_offset;
+  zigpc_zcl_data_type_t arg_type = ZIGPC_ZCL_DATA_TYPE_NODATA;
+  size_t arg_size = 0;
+  zigpc_zclcmdparse_dmf_bridge_config_generic_report_record_t *data;
+  data = &result->data.dmf_bridge_config_generic_report_record;
+
+  if (status == ZIGPC_ZCL_STATUS_SUCCESS) {
+    arg_type = ZIGPC_ZCL_DATA_TYPE_UINT16;
+    arg_size = zigpc_zcl_get_data_type_size(arg_type);
+    if (arg_size == 0) {
+      status = ZIGPC_ZCL_STATUS_UNSUP_CLUSTER_COMMAND;
+    } else if (cmd->frame.size < (payload_offset + arg_size)) {
+      status = ZIGPC_ZCL_STATUS_MALFORMED_COMMAND;
+    } else {
+      std::memcpy(&data->tableid, &cmd->frame.buffer[payload_offset], arg_size);
+      payload_offset += arg_size;
+    }
+  }
+  if (status == ZIGPC_ZCL_STATUS_SUCCESS) {
+    arg_type = ZIGPC_ZCL_DATA_TYPE_UINT8;
+    arg_size = zigpc_zcl_get_data_type_size(arg_type);
+    if (arg_size == 0) {
+      status = ZIGPC_ZCL_STATUS_UNSUP_CLUSTER_COMMAND;
+    } else if (cmd->frame.size < (payload_offset + arg_size)) {
+      status = ZIGPC_ZCL_STATUS_MALFORMED_COMMAND;
+    } else {
+      std::memcpy(&data->record_index,
+                  &cmd->frame.buffer[payload_offset],
+                  arg_size);
+      payload_offset += arg_size;
+    }
+  }
+  if (status == ZIGPC_ZCL_STATUS_SUCCESS) {
+    arg_type = ZIGPC_ZCL_DATA_TYPE_UINT16;
+    arg_size = zigpc_zcl_get_data_type_size(arg_type);
+    if (arg_size == 0) {
+      status = ZIGPC_ZCL_STATUS_UNSUP_CLUSTER_COMMAND;
+    } else if (cmd->frame.size < (payload_offset + arg_size)) {
+      status = ZIGPC_ZCL_STATUS_MALFORMED_COMMAND;
+    } else {
+      std::memcpy(&data->total_records,
+                  &cmd->frame.buffer[payload_offset],
+                  arg_size);
+      payload_offset += arg_size;
+    }
+  }
+  if (status == ZIGPC_ZCL_STATUS_SUCCESS) {
+    arg_type = ZIGPC_ZCL_DATA_TYPE_OCTSTR;
+    arg_size = zigpc_zcl_get_data_type_size(arg_type);
+    uint8_t arg_str_len = cmd->frame.buffer[payload_offset];
+    if (arg_size == 0) {
+      status = ZIGPC_ZCL_STATUS_UNSUP_CLUSTER_COMMAND;
+    } else if (cmd->frame.size < (payload_offset + (arg_size * arg_str_len) + 1)) {
+      status = ZIGPC_ZCL_STATUS_MALFORMED_COMMAND;
+    } else {
+      data->record_payload_length = arg_str_len;
+      payload_offset++;
+      data->record_payload = (const char *) &cmd->frame.buffer[payload_offset];
+      payload_offset += arg_size * arg_str_len;
+    }
+  }
+
+  if (status == ZIGPC_ZCL_STATUS_SUCCESS) {
+    result->cluster_id = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG;
+    result->command_id
+      = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_REPORT_RECORD;
+    sl_log_debug(LOG_TAG,
+                 LOG_FMT_PARSE_SUCCESS,
+                 "DMFBridgeConfig",
+                 "GenericReportRecord");
+  }
+  return status;
+}
+
+zigpc_zcl_status_t zigpc_zclcmdparse_dmf_bridge_config_raw_fixture_notification_command(
+  const zigpc_gateway_on_command_received_t *cmd,
+  zigpc_zclcmdparse_result_t *result
+) {
+  zigpc_zcl_status_t status = ZIGPC_ZCL_STATUS_SUCCESS;
+  size_t payload_offset = cmd->frame_payload_offset;
+  zigpc_zcl_data_type_t arg_type = ZIGPC_ZCL_DATA_TYPE_NODATA;
+  size_t arg_size = 0;
+  zigpc_zclcmdparse_dmf_bridge_config_raw_fixture_notification_t *data;
+  data = &result->data.dmf_bridge_config_raw_fixture_notification;
+
+  if (status == ZIGPC_ZCL_STATUS_SUCCESS) {
+    arg_type = ZIGPC_ZCL_DATA_TYPE_OCTSTR;
+    arg_size = zigpc_zcl_get_data_type_size(arg_type);
+    uint8_t arg_str_len = cmd->frame.buffer[payload_offset];
+    if (arg_size == 0) {
+      status = ZIGPC_ZCL_STATUS_UNSUP_CLUSTER_COMMAND;
+    } else if (cmd->frame.size < (payload_offset + (arg_size * arg_str_len) + 1)) {
+      status = ZIGPC_ZCL_STATUS_MALFORMED_COMMAND;
+    } else {
+      data->uid_length = arg_str_len;
+      payload_offset++;
+      data->uid = (const char *) &cmd->frame.buffer[payload_offset];
+      payload_offset += arg_size * arg_str_len;
+    }
+  }
+  if (status == ZIGPC_ZCL_STATUS_SUCCESS) {
+    arg_type = ZIGPC_ZCL_DATA_TYPE_UINT16;
+    arg_size = zigpc_zcl_get_data_type_size(arg_type);
+    if (arg_size == 0) {
+      status = ZIGPC_ZCL_STATUS_UNSUP_CLUSTER_COMMAND;
+    } else if (cmd->frame.size < (payload_offset + arg_size)) {
+      status = ZIGPC_ZCL_STATUS_MALFORMED_COMMAND;
+    } else {
+      std::memcpy(&data->modelid, &cmd->frame.buffer[payload_offset], arg_size);
+      payload_offset += arg_size;
+    }
+  }
+
+  if (status == ZIGPC_ZCL_STATUS_SUCCESS) {
+    result->cluster_id = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG;
+    result->command_id
+      = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_RAW_FIXTURE_NOTIFICATION;
+    sl_log_debug(LOG_TAG,
+                 LOG_FMT_PARSE_SUCCESS,
+                 "DMFBridgeConfig",
+                 "RawFixtureNotification");
+  }
+  return status;
+}
+
 
 
 zigpc_zcl_status_t zigpc_zclcmdparse_identify_client_cluster(
@@ -2619,6 +2756,28 @@ zigpc_zcl_status_t zigpc_zclcmdparse_electrical_measurement_client_cluster(
   return status;
 }
 
+zigpc_zcl_status_t zigpc_zclcmdparse_dmf_bridge_config_client_cluster(
+  const zigpc_gateway_on_command_received_t *cmd,
+  zigpc_zclcmdparse_result_t *result
+) {
+  zigpc_zcl_status_t status = ZIGPC_ZCL_STATUS_UNSUP_CLUSTER_COMMAND;
+  switch (cmd->command_id) {
+    case ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_REPORT_RECORD:
+      status = zigpc_zclcmdparse_dmf_bridge_config_generic_report_record_command(
+        cmd,
+        result);
+      break;
+    case ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_RAW_FIXTURE_NOTIFICATION:
+      status = zigpc_zclcmdparse_dmf_bridge_config_raw_fixture_notification_command(
+        cmd,
+        result);
+      break;
+    default:
+      break;
+  }
+  return status;
+}
+
 void zigpc_zclcmdparse_on_command_received(void* event_data) {
   zigpc_zclcmdparse_result_t result;
   zigpc_gateway_on_command_received_t *cmd
@@ -2652,6 +2811,9 @@ void zigpc_zclcmdparse_on_command_received(void* event_data) {
         case ZIGPC_ZCL_CLUSTER_ELECTRICAL_MEASUREMENT:
           cmd->return_status = zigpc_zclcmdparse_electrical_measurement_client_cluster(cmd, &result);
           break;
+        case ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG:
+          cmd->return_status = zigpc_zclcmdparse_dmf_bridge_config_client_cluster(cmd, &result);
+          break;
         default:
           break;
       }
@@ -2663,4 +2825,3 @@ void zigpc_zclcmdparse_on_command_received(void* event_data) {
     }
   }
 }
-

@@ -141,6 +141,26 @@ void listener_stub_thermostate_get_weekly_schedule_response(
       * data->thermostat_get_weekly_schedule_response.transitions_count);
 }
 
+void listener_stub_dmf_bridge_config_raw_fixture_notification(
+  const zigbee_eui64_t eui64,
+  const zigbee_endpoint_id_t endpoint,
+  const zigpc_zclcmdparse_callback_data_t *data)
+{
+  stub_cb_num_calls++;
+  TEST_ASSERT_EQUAL_HEX8_ARRAY(stub_cb_eui64, eui64, sizeof(zigbee_eui64_t));
+  TEST_ASSERT_EQUAL(stub_cb_endpoint, endpoint);
+  TEST_ASSERT_EQUAL(
+    stub_cb_data->dmf_bridge_config_raw_fixture_notification.uid_length,
+    data->dmf_bridge_config_raw_fixture_notification.uid_length);
+  TEST_ASSERT_EQUAL_STRING_LEN(
+    stub_cb_data->dmf_bridge_config_raw_fixture_notification.uid,
+    data->dmf_bridge_config_raw_fixture_notification.uid,
+    stub_cb_data->dmf_bridge_config_raw_fixture_notification.uid_length);
+  TEST_ASSERT_EQUAL_HEX16(
+    stub_cb_data->dmf_bridge_config_raw_fixture_notification.modelid,
+    data->dmf_bridge_config_raw_fixture_notification.modelid);
+}
+
 /**
  * Callback registration tests
  **/
@@ -491,4 +511,53 @@ void test_listener_invoked_when_parsing_command_with_struct_array_data_type(
     ZIGPC_ZCL_CLUSTER_THERMOSTAT,
     ZIGPC_ZCL_CLUSTER_THERMOSTAT_COMMAND_GET_WEEKLY_SCHEDULE_RESPONSE,
     listener_stub_thermostate_get_weekly_schedule_response);
+}
+
+void test_listener_invoked_when_parsing_dmf_bridge_config_raw_fixture_notification(
+  void)
+{
+  // ARRANGE
+  const char *expected_uid = "ABC123";
+  zigpc_gateway_on_command_received_t test_event = {
+    .eui64                 = "\xAA\xBB\xCC\xDD\xEE\xFF\x11\x22",
+    .endpoint_id           = 9,
+    .cluster_id            = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    .command_id
+    = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_RAW_FIXTURE_NOTIFICATION,
+    .from_server_to_client = true,
+    .frame_payload_offset  = 0,
+    .return_status         = -1,
+    .frame                 = {
+      .size   = 9,
+      .buffer = "\x06ABC123\x34\x12",
+    },
+  };
+  zigpc_zclcmdparse_callback_data_t expected_data = {
+    .dmf_bridge_config_raw_fixture_notification = {
+      .uid_length = 6,
+      .uid        = expected_uid,
+      .modelid    = 0x1234,
+    },
+  };
+
+  memcpy(stub_cb_eui64, test_event.eui64, sizeof(zigbee_eui64_t));
+  stub_cb_endpoint = test_event.endpoint_id;
+  stub_cb_data     = &expected_data;
+
+  // ACT
+  sl_status_t registration_status = zigpc_zclcmdparse_register_callback(
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_RAW_FIXTURE_NOTIFICATION,
+    listener_stub_dmf_bridge_config_raw_fixture_notification);
+  zigpc_zclcmdparse_on_command_received(&test_event);
+
+  // ASSERT
+  TEST_ASSERT_EQUAL(SL_STATUS_OK, registration_status);
+  TEST_ASSERT_EQUAL_HEX(ZIGPC_ZCL_STATUS_SUCCESS, test_event.return_status);
+  TEST_ASSERT_EQUAL(1, stub_cb_num_calls);
+
+  zigpc_zclcmdparse_remove_callback(
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_RAW_FIXTURE_NOTIFICATION,
+    listener_stub_dmf_bridge_config_raw_fixture_notification);
 }

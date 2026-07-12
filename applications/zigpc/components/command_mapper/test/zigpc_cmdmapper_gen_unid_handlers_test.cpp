@@ -51,6 +51,11 @@ sl_status_t zigpc_command_mapper_thermostat_set_weekly_schedule_handler(
   uint8_t transitions_count,
   const TransitionType *transitions);
 
+sl_status_t zigpc_command_mapper_dmf_bridge_config_trigger_rdm_discovery_handler(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  uic_mqtt_dotdot_callback_call_type_t callback_type);
+
 extern "C" {
 
 // Unify includes
@@ -337,6 +342,36 @@ void test_unid_command_with_struct_array_arguments(void)
       ucl_cmd_fields.mode,
       ucl_cmd_fields.transitions_count,
       ucl_cmd_fields.transitions);
+
+  // ASSERT
+  TEST_ASSERT_EQUAL_HEX8(SL_STATUS_OK, status);
+}
+
+void test_unid_dmf_bridge_config_command_without_arguments(void)
+{
+  zigbee_eui64_uint_t eui64 = 0x1203DF99103FCBDD;
+  zigbee_endpoint_id_t ep   = 6;
+
+  // ARRANGE
+  zigpc_zcl_build_command_frame_ExpectAndReturn(
+    nullptr,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_TRIGGER_RDM_DISCOVERY,
+    0,
+    nullptr,
+    SL_STATUS_OK);
+  zigpc_zcl_build_command_frame_IgnoreArg_frame();
+  zigpc_zcl_build_command_frame_IgnoreArg_command_arg_list();
+
+  zigpc_gateway_send_zcl_command_frame_IgnoreAndReturn(SL_STATUS_OK);
+
+  // ACT
+  sl_status_t status
+    = zigpc_command_mapper_dmf_bridge_config_trigger_rdm_discovery_handler(
+      zigpc_ucl::mqtt::build_unid(eui64).c_str(),
+      ep,
+      UIC_MQTT_DOTDOT_CALLBACK_TYPE_NORMAL);
 
   // ASSERT
   TEST_ASSERT_EQUAL_HEX8(SL_STATUS_OK, status);
