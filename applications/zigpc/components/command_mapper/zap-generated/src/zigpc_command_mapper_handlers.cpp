@@ -12158,12 +12158,12 @@ sl_status_t zigpc_command_mapper_register_dotdot_mqtt_handlers(void)
   uic_mqtt_dotdot_basic_reset_to_factory_defaults_callback_set(
     zigpc_command_mapper_basic_reset_to_factory_defaults_handler
   );
-  uic_mqtt_dotdot_set_power_configuration_write_attributes_callback(
-    zigpc_command_mapper_power_configuration_write_attributes_handler
-  );
-  uic_mqtt_dotdot_set_power_configuration_force_read_attributes_callback(
-    zigpc_command_mapper_power_configuration_force_read_attributes_handler
-  );
+  // uic_mqtt_dotdot_set_power_configuration_write_attributes_callback(
+  //   zigpc_command_mapper_power_configuration_write_attributes_handler
+  // );
+  // uic_mqtt_dotdot_set_power_configuration_force_read_attributes_callback(
+  //   zigpc_command_mapper_power_configuration_force_read_attributes_handler
+  // );
   uic_mqtt_dotdot_set_identify_write_attributes_callback(
     zigpc_command_mapper_identify_write_attributes_handler
   );
@@ -12203,345 +12203,345 @@ sl_status_t zigpc_command_mapper_register_dotdot_mqtt_handlers(void)
   uic_mqtt_dotdot_groups_add_group_if_identifying_callback_set(
     zigpc_command_mapper_groups_add_group_if_identifying_handler
   );
-  uic_mqtt_dotdot_set_on_off_write_attributes_callback(
-    zigpc_command_mapper_on_off_write_attributes_handler
-  );
-  uic_mqtt_dotdot_set_on_off_force_read_attributes_callback(
-    zigpc_command_mapper_on_off_force_read_attributes_handler
-  );
-  uic_mqtt_dotdot_on_off_off_callback_set(
-    zigpc_command_mapper_on_off_off_handler
-  );
-  uic_mqtt_dotdot_on_off_on_callback_set(
-    zigpc_command_mapper_on_off_on_handler
-  );
-  uic_mqtt_dotdot_on_off_toggle_callback_set(
-    zigpc_command_mapper_on_off_toggle_handler
-  );
-  uic_mqtt_dotdot_on_off_off_with_effect_callback_set(
-    zigpc_command_mapper_on_off_off_with_effect_handler
-  );
-  uic_mqtt_dotdot_on_off_on_with_recall_global_scene_callback_set(
-    zigpc_command_mapper_on_off_on_with_recall_global_scene_handler
-  );
-  uic_mqtt_dotdot_on_off_on_with_timed_off_callback_set(
-    zigpc_command_mapper_on_off_on_with_timed_off_handler
-  );
-  uic_mqtt_dotdot_set_level_write_attributes_callback(
-    zigpc_command_mapper_level_write_attributes_handler
-  );
-  uic_mqtt_dotdot_set_level_force_read_attributes_callback(
-    zigpc_command_mapper_level_force_read_attributes_handler
-  );
-  uic_mqtt_dotdot_level_move_to_level_callback_set(
-    zigpc_command_mapper_level_move_to_level_handler
-  );
-  uic_mqtt_dotdot_level_move_callback_set(
-    zigpc_command_mapper_level_move_handler
-  );
-  uic_mqtt_dotdot_level_step_callback_set(
-    zigpc_command_mapper_level_step_handler
-  );
-  uic_mqtt_dotdot_level_stop_callback_set(
-    zigpc_command_mapper_level_stop_handler
-  );
-  uic_mqtt_dotdot_level_move_to_level_with_on_off_callback_set(
-    zigpc_command_mapper_level_move_to_level_with_on_off_handler
-  );
-  uic_mqtt_dotdot_level_move_with_on_off_callback_set(
-    zigpc_command_mapper_level_move_with_on_off_handler
-  );
-  uic_mqtt_dotdot_level_step_with_on_off_callback_set(
-    zigpc_command_mapper_level_step_with_on_off_handler
-  );
-  uic_mqtt_dotdot_level_stop_with_on_off_callback_set(
-    zigpc_command_mapper_level_stop_with_on_off_handler
-  );
-  uic_mqtt_dotdot_level_move_to_closest_frequency_callback_set(
-    zigpc_command_mapper_level_move_to_closest_frequency_handler
-  );
-  uic_mqtt_dotdot_set_poll_control_write_attributes_callback(
-    zigpc_command_mapper_poll_control_write_attributes_handler
-  );
-  uic_mqtt_dotdot_set_poll_control_force_read_attributes_callback(
-    zigpc_command_mapper_poll_control_force_read_attributes_handler
-  );
-  uic_mqtt_dotdot_poll_control_check_in_callback_set(
-    zigpc_command_mapper_poll_control_check_in_handler
-  );
-  uic_mqtt_dotdot_set_door_lock_write_attributes_callback(
-    zigpc_command_mapper_door_lock_write_attributes_handler
-  );
-  uic_mqtt_dotdot_set_door_lock_force_read_attributes_callback(
-    zigpc_command_mapper_door_lock_force_read_attributes_handler
-  );
-  uic_mqtt_dotdot_door_lock_lock_door_callback_set(
-    zigpc_command_mapper_door_lock_lock_door_handler
-  );
-  uic_mqtt_dotdot_door_lock_unlock_door_callback_set(
-    zigpc_command_mapper_door_lock_unlock_door_handler
-  );
-  uic_mqtt_dotdot_door_lock_toggle_callback_set(
-    zigpc_command_mapper_door_lock_toggle_handler
-  );
-  uic_mqtt_dotdot_door_lock_unlock_with_timeout_callback_set(
-    zigpc_command_mapper_door_lock_unlock_with_timeout_handler
-  );
-  uic_mqtt_dotdot_door_lock_get_log_record_callback_set(
-    zigpc_command_mapper_door_lock_get_log_record_handler
-  );
-  uic_mqtt_dotdot_door_lock_set_pin_code_callback_set(
-    zigpc_command_mapper_door_lock_set_pin_code_handler
-  );
-  uic_mqtt_dotdot_door_lock_get_pin_code_callback_set(
-    zigpc_command_mapper_door_lock_get_pin_code_handler
-  );
-  uic_mqtt_dotdot_door_lock_clear_pin_code_callback_set(
-    zigpc_command_mapper_door_lock_clear_pin_code_handler
-  );
-  uic_mqtt_dotdot_door_lock_clear_all_pin_codes_callback_set(
-    zigpc_command_mapper_door_lock_clear_all_pin_codes_handler
-  );
-  uic_mqtt_dotdot_door_lock_set_user_status_callback_set(
-    zigpc_command_mapper_door_lock_set_user_status_handler
-  );
-  uic_mqtt_dotdot_door_lock_get_user_status_callback_set(
-    zigpc_command_mapper_door_lock_get_user_status_handler
-  );
-  uic_mqtt_dotdot_door_lock_set_weekday_schedule_callback_set(
-    zigpc_command_mapper_door_lock_set_weekday_schedule_handler
-  );
-  uic_mqtt_dotdot_door_lock_get_weekday_schedule_callback_set(
-    zigpc_command_mapper_door_lock_get_weekday_schedule_handler
-  );
-  uic_mqtt_dotdot_door_lock_clear_weekday_schedule_callback_set(
-    zigpc_command_mapper_door_lock_clear_weekday_schedule_handler
-  );
-  uic_mqtt_dotdot_door_lock_set_year_day_schedule_callback_set(
-    zigpc_command_mapper_door_lock_set_year_day_schedule_handler
-  );
-  uic_mqtt_dotdot_door_lock_get_year_day_schedule_callback_set(
-    zigpc_command_mapper_door_lock_get_year_day_schedule_handler
-  );
-  uic_mqtt_dotdot_door_lock_clear_year_day_schedule_callback_set(
-    zigpc_command_mapper_door_lock_clear_year_day_schedule_handler
-  );
-  uic_mqtt_dotdot_door_lock_set_holiday_schedule_callback_set(
-    zigpc_command_mapper_door_lock_set_holiday_schedule_handler
-  );
-  uic_mqtt_dotdot_door_lock_get_holiday_schedule_callback_set(
-    zigpc_command_mapper_door_lock_get_holiday_schedule_handler
-  );
-  uic_mqtt_dotdot_door_lock_clear_holiday_schedule_callback_set(
-    zigpc_command_mapper_door_lock_clear_holiday_schedule_handler
-  );
-  uic_mqtt_dotdot_door_lock_set_user_type_callback_set(
-    zigpc_command_mapper_door_lock_set_user_type_handler
-  );
-  uic_mqtt_dotdot_door_lock_get_user_type_callback_set(
-    zigpc_command_mapper_door_lock_get_user_type_handler
-  );
-  uic_mqtt_dotdot_door_lock_set_rfid_code_callback_set(
-    zigpc_command_mapper_door_lock_set_rfid_code_handler
-  );
-  uic_mqtt_dotdot_door_lock_get_rfid_code_callback_set(
-    zigpc_command_mapper_door_lock_get_rfid_code_handler
-  );
-  uic_mqtt_dotdot_door_lock_clear_rfid_code_callback_set(
-    zigpc_command_mapper_door_lock_clear_rfid_code_handler
-  );
-  uic_mqtt_dotdot_door_lock_clear_all_rfid_codes_callback_set(
-    zigpc_command_mapper_door_lock_clear_all_rfid_codes_handler
-  );
-  uic_mqtt_dotdot_door_lock_set_user_callback_set(
-    zigpc_command_mapper_door_lock_set_user_handler
-  );
-  uic_mqtt_dotdot_door_lock_get_user_callback_set(
-    zigpc_command_mapper_door_lock_get_user_handler
-  );
-  uic_mqtt_dotdot_door_lock_clear_user_callback_set(
-    zigpc_command_mapper_door_lock_clear_user_handler
-  );
-  uic_mqtt_dotdot_door_lock_set_credential_callback_set(
-    zigpc_command_mapper_door_lock_set_credential_handler
-  );
-  uic_mqtt_dotdot_door_lock_get_credential_status_callback_set(
-    zigpc_command_mapper_door_lock_get_credential_status_handler
-  );
-  uic_mqtt_dotdot_door_lock_clear_credential_callback_set(
-    zigpc_command_mapper_door_lock_clear_credential_handler
-  );
-  uic_mqtt_dotdot_door_lock_unbolt_door_callback_set(
-    zigpc_command_mapper_door_lock_unbolt_door_handler
-  );
-  uic_mqtt_dotdot_set_window_covering_write_attributes_callback(
-    zigpc_command_mapper_window_covering_write_attributes_handler
-  );
-  uic_mqtt_dotdot_set_window_covering_force_read_attributes_callback(
-    zigpc_command_mapper_window_covering_force_read_attributes_handler
-  );
-  uic_mqtt_dotdot_window_covering_up_or_open_callback_set(
-    zigpc_command_mapper_window_covering_up_or_open_handler
-  );
-  uic_mqtt_dotdot_window_covering_down_or_close_callback_set(
-    zigpc_command_mapper_window_covering_down_or_close_handler
-  );
-  uic_mqtt_dotdot_window_covering_stop_callback_set(
-    zigpc_command_mapper_window_covering_stop_handler
-  );
-  uic_mqtt_dotdot_window_covering_go_to_lift_value_callback_set(
-    zigpc_command_mapper_window_covering_go_to_lift_value_handler
-  );
-  uic_mqtt_dotdot_window_covering_go_to_lift_percentage_callback_set(
-    zigpc_command_mapper_window_covering_go_to_lift_percentage_handler
-  );
-  uic_mqtt_dotdot_window_covering_go_to_tilt_value_callback_set(
-    zigpc_command_mapper_window_covering_go_to_tilt_value_handler
-  );
-  uic_mqtt_dotdot_window_covering_go_to_tilt_percentage_callback_set(
-    zigpc_command_mapper_window_covering_go_to_tilt_percentage_handler
-  );
-  uic_mqtt_dotdot_set_thermostat_write_attributes_callback(
-    zigpc_command_mapper_thermostat_write_attributes_handler
-  );
-  uic_mqtt_dotdot_set_thermostat_force_read_attributes_callback(
-    zigpc_command_mapper_thermostat_force_read_attributes_handler
-  );
-  uic_mqtt_dotdot_thermostat_setpoint_raise_or_lower_callback_set(
-    zigpc_command_mapper_thermostat_setpoint_raise_or_lower_handler
-  );
-  uic_mqtt_dotdot_thermostat_set_weekly_schedule_callback_set(
-    zigpc_command_mapper_thermostat_set_weekly_schedule_handler
-  );
-  uic_mqtt_dotdot_thermostat_get_weekly_schedule_callback_set(
-    zigpc_command_mapper_thermostat_get_weekly_schedule_handler
-  );
-  uic_mqtt_dotdot_thermostat_clear_weekly_schedule_callback_set(
-    zigpc_command_mapper_thermostat_clear_weekly_schedule_handler
-  );
-  uic_mqtt_dotdot_thermostat_get_relay_status_log_callback_set(
-    zigpc_command_mapper_thermostat_get_relay_status_log_handler
-  );
-  uic_mqtt_dotdot_set_color_control_write_attributes_callback(
-    zigpc_command_mapper_color_control_write_attributes_handler
-  );
-  uic_mqtt_dotdot_set_color_control_force_read_attributes_callback(
-    zigpc_command_mapper_color_control_force_read_attributes_handler
-  );
-  uic_mqtt_dotdot_color_control_move_to_hue_callback_set(
-    zigpc_command_mapper_color_control_move_to_hue_handler
-  );
-  uic_mqtt_dotdot_color_control_move_hue_callback_set(
-    zigpc_command_mapper_color_control_move_hue_handler
-  );
-  uic_mqtt_dotdot_color_control_step_hue_callback_set(
-    zigpc_command_mapper_color_control_step_hue_handler
-  );
-  uic_mqtt_dotdot_color_control_move_to_saturation_callback_set(
-    zigpc_command_mapper_color_control_move_to_saturation_handler
-  );
-  uic_mqtt_dotdot_color_control_move_saturation_callback_set(
-    zigpc_command_mapper_color_control_move_saturation_handler
-  );
-  uic_mqtt_dotdot_color_control_step_saturation_callback_set(
-    zigpc_command_mapper_color_control_step_saturation_handler
-  );
-  uic_mqtt_dotdot_color_control_move_to_hue_and_saturation_callback_set(
-    zigpc_command_mapper_color_control_move_to_hue_and_saturation_handler
-  );
-  uic_mqtt_dotdot_color_control_move_to_color_callback_set(
-    zigpc_command_mapper_color_control_move_to_color_handler
-  );
-  uic_mqtt_dotdot_color_control_move_color_callback_set(
-    zigpc_command_mapper_color_control_move_color_handler
-  );
-  uic_mqtt_dotdot_color_control_step_color_callback_set(
-    zigpc_command_mapper_color_control_step_color_handler
-  );
-  uic_mqtt_dotdot_color_control_move_to_color_temperature_callback_set(
-    zigpc_command_mapper_color_control_move_to_color_temperature_handler
-  );
-  uic_mqtt_dotdot_color_control_enhanced_move_to_hue_callback_set(
-    zigpc_command_mapper_color_control_enhanced_move_to_hue_handler
-  );
-  uic_mqtt_dotdot_color_control_enhanced_move_hue_callback_set(
-    zigpc_command_mapper_color_control_enhanced_move_hue_handler
-  );
-  uic_mqtt_dotdot_color_control_enhanced_step_hue_callback_set(
-    zigpc_command_mapper_color_control_enhanced_step_hue_handler
-  );
-  uic_mqtt_dotdot_color_control_enhanced_move_to_hue_and_saturation_callback_set(
-    zigpc_command_mapper_color_control_enhanced_move_to_hue_and_saturation_handler
-  );
-  uic_mqtt_dotdot_color_control_color_loop_set_callback_set(
-    zigpc_command_mapper_color_control_color_loop_set_handler
-  );
-  uic_mqtt_dotdot_color_control_stop_move_step_callback_set(
-    zigpc_command_mapper_color_control_stop_move_step_handler
-  );
-  uic_mqtt_dotdot_color_control_move_color_temperature_callback_set(
-    zigpc_command_mapper_color_control_move_color_temperature_handler
-  );
-  uic_mqtt_dotdot_color_control_step_color_temperature_callback_set(
-    zigpc_command_mapper_color_control_step_color_temperature_handler
-  );
-  uic_mqtt_dotdot_set_temperature_measurement_write_attributes_callback(
-    zigpc_command_mapper_temperature_measurement_write_attributes_handler
-  );
-  uic_mqtt_dotdot_set_temperature_measurement_force_read_attributes_callback(
-    zigpc_command_mapper_temperature_measurement_force_read_attributes_handler
-  );
-  uic_mqtt_dotdot_set_occupancy_sensing_write_attributes_callback(
-    zigpc_command_mapper_occupancy_sensing_write_attributes_handler
-  );
-  uic_mqtt_dotdot_set_occupancy_sensing_force_read_attributes_callback(
-    zigpc_command_mapper_occupancy_sensing_force_read_attributes_handler
-  );
-  uic_mqtt_dotdot_set_ias_zone_write_attributes_callback(
-    zigpc_command_mapper_ias_zone_write_attributes_handler
-  );
-  uic_mqtt_dotdot_set_ias_zone_force_read_attributes_callback(
-    zigpc_command_mapper_ias_zone_force_read_attributes_handler
-  );
-  uic_mqtt_dotdot_ias_zone_zone_enroll_response_callback_set(
-    zigpc_command_mapper_ias_zone_zone_enroll_response_handler
-  );
-  uic_mqtt_dotdot_ias_zone_initiate_normal_operation_mode_callback_set(
-    zigpc_command_mapper_ias_zone_initiate_normal_operation_mode_handler
-  );
-  uic_mqtt_dotdot_ias_zone_initiate_test_mode_callback_set(
-    zigpc_command_mapper_ias_zone_initiate_test_mode_handler
-  );
-  uic_mqtt_dotdot_set_iaswd_write_attributes_callback(
-    zigpc_command_mapper_iaswd_write_attributes_handler
-  );
-  uic_mqtt_dotdot_set_iaswd_force_read_attributes_callback(
-    zigpc_command_mapper_iaswd_force_read_attributes_handler
-  );
-  uic_mqtt_dotdot_iaswd_start_warning_callback_set(
-    zigpc_command_mapper_iaswd_start_warning_handler
-  );
-  uic_mqtt_dotdot_iaswd_squawk_callback_set(
-    zigpc_command_mapper_iaswd_squawk_handler
-  );
-  uic_mqtt_dotdot_set_metering_write_attributes_callback(
-    zigpc_command_mapper_metering_write_attributes_handler
-  );
-  uic_mqtt_dotdot_set_metering_force_read_attributes_callback(
-    zigpc_command_mapper_metering_force_read_attributes_handler
-  );
-  uic_mqtt_dotdot_set_electrical_measurement_write_attributes_callback(
-    zigpc_command_mapper_electrical_measurement_write_attributes_handler
-  );
-  uic_mqtt_dotdot_set_electrical_measurement_force_read_attributes_callback(
-    zigpc_command_mapper_electrical_measurement_force_read_attributes_handler
-  );
-  uic_mqtt_dotdot_electrical_measurement_get_profile_info_response_callback_set(
-    zigpc_command_mapper_electrical_measurement_get_profile_info_response_handler
-  );
-  uic_mqtt_dotdot_electrical_measurement_get_measurement_profile_response_callback_set(
-    zigpc_command_mapper_electrical_measurement_get_measurement_profile_response_handler
-  );
+  // uic_mqtt_dotdot_set_on_off_write_attributes_callback(
+  //   zigpc_command_mapper_on_off_write_attributes_handler
+  // );
+  // uic_mqtt_dotdot_set_on_off_force_read_attributes_callback(
+  //   zigpc_command_mapper_on_off_force_read_attributes_handler
+  // );
+  // uic_mqtt_dotdot_on_off_off_callback_set(
+  //   zigpc_command_mapper_on_off_off_handler
+  // );
+  // uic_mqtt_dotdot_on_off_on_callback_set(
+  //   zigpc_command_mapper_on_off_on_handler
+  // );
+  // uic_mqtt_dotdot_on_off_toggle_callback_set(
+  //   zigpc_command_mapper_on_off_toggle_handler
+  // );
+  // uic_mqtt_dotdot_on_off_off_with_effect_callback_set(
+  //   zigpc_command_mapper_on_off_off_with_effect_handler
+  // );
+  // uic_mqtt_dotdot_on_off_on_with_recall_global_scene_callback_set(
+  //   zigpc_command_mapper_on_off_on_with_recall_global_scene_handler
+  // );
+  // uic_mqtt_dotdot_on_off_on_with_timed_off_callback_set(
+  //   zigpc_command_mapper_on_off_on_with_timed_off_handler
+  // );
+  // uic_mqtt_dotdot_set_level_write_attributes_callback(
+  //   zigpc_command_mapper_level_write_attributes_handler
+  // );
+  // uic_mqtt_dotdot_set_level_force_read_attributes_callback(
+  //   zigpc_command_mapper_level_force_read_attributes_handler
+  // );
+  // uic_mqtt_dotdot_level_move_to_level_callback_set(
+  //   zigpc_command_mapper_level_move_to_level_handler
+  // );
+  // uic_mqtt_dotdot_level_move_callback_set(
+  //   zigpc_command_mapper_level_move_handler
+  // );
+  // uic_mqtt_dotdot_level_step_callback_set(
+  //   zigpc_command_mapper_level_step_handler
+  // );
+  // uic_mqtt_dotdot_level_stop_callback_set(
+  //   zigpc_command_mapper_level_stop_handler
+  // );
+  // uic_mqtt_dotdot_level_move_to_level_with_on_off_callback_set(
+  //   zigpc_command_mapper_level_move_to_level_with_on_off_handler
+  // );
+  // uic_mqtt_dotdot_level_move_with_on_off_callback_set(
+  //   zigpc_command_mapper_level_move_with_on_off_handler
+  // );
+  // uic_mqtt_dotdot_level_step_with_on_off_callback_set(
+  //   zigpc_command_mapper_level_step_with_on_off_handler
+  // );
+  // uic_mqtt_dotdot_level_stop_with_on_off_callback_set(
+  //   zigpc_command_mapper_level_stop_with_on_off_handler
+  // );
+  // uic_mqtt_dotdot_level_move_to_closest_frequency_callback_set(
+  //   zigpc_command_mapper_level_move_to_closest_frequency_handler
+  // );
+  // uic_mqtt_dotdot_set_poll_control_write_attributes_callback(
+  //   zigpc_command_mapper_poll_control_write_attributes_handler
+  // );
+  // uic_mqtt_dotdot_set_poll_control_force_read_attributes_callback(
+  //   zigpc_command_mapper_poll_control_force_read_attributes_handler
+  // );
+  // uic_mqtt_dotdot_poll_control_check_in_callback_set(
+  //   zigpc_command_mapper_poll_control_check_in_handler
+  // );
+  // uic_mqtt_dotdot_set_door_lock_write_attributes_callback(
+  //   zigpc_command_mapper_door_lock_write_attributes_handler
+  // );
+  // uic_mqtt_dotdot_set_door_lock_force_read_attributes_callback(
+  //   zigpc_command_mapper_door_lock_force_read_attributes_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_lock_door_callback_set(
+  //   zigpc_command_mapper_door_lock_lock_door_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_unlock_door_callback_set(
+  //   zigpc_command_mapper_door_lock_unlock_door_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_toggle_callback_set(
+  //   zigpc_command_mapper_door_lock_toggle_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_unlock_with_timeout_callback_set(
+  //   zigpc_command_mapper_door_lock_unlock_with_timeout_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_get_log_record_callback_set(
+  //   zigpc_command_mapper_door_lock_get_log_record_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_set_pin_code_callback_set(
+  //   zigpc_command_mapper_door_lock_set_pin_code_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_get_pin_code_callback_set(
+  //   zigpc_command_mapper_door_lock_get_pin_code_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_clear_pin_code_callback_set(
+  //   zigpc_command_mapper_door_lock_clear_pin_code_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_clear_all_pin_codes_callback_set(
+  //   zigpc_command_mapper_door_lock_clear_all_pin_codes_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_set_user_status_callback_set(
+  //   zigpc_command_mapper_door_lock_set_user_status_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_get_user_status_callback_set(
+  //   zigpc_command_mapper_door_lock_get_user_status_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_set_weekday_schedule_callback_set(
+  //   zigpc_command_mapper_door_lock_set_weekday_schedule_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_get_weekday_schedule_callback_set(
+  //   zigpc_command_mapper_door_lock_get_weekday_schedule_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_clear_weekday_schedule_callback_set(
+  //   zigpc_command_mapper_door_lock_clear_weekday_schedule_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_set_year_day_schedule_callback_set(
+  //   zigpc_command_mapper_door_lock_set_year_day_schedule_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_get_year_day_schedule_callback_set(
+  //   zigpc_command_mapper_door_lock_get_year_day_schedule_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_clear_year_day_schedule_callback_set(
+  //   zigpc_command_mapper_door_lock_clear_year_day_schedule_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_set_holiday_schedule_callback_set(
+  //   zigpc_command_mapper_door_lock_set_holiday_schedule_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_get_holiday_schedule_callback_set(
+  //   zigpc_command_mapper_door_lock_get_holiday_schedule_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_clear_holiday_schedule_callback_set(
+  //   zigpc_command_mapper_door_lock_clear_holiday_schedule_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_set_user_type_callback_set(
+  //   zigpc_command_mapper_door_lock_set_user_type_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_get_user_type_callback_set(
+  //   zigpc_command_mapper_door_lock_get_user_type_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_set_rfid_code_callback_set(
+  //   zigpc_command_mapper_door_lock_set_rfid_code_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_get_rfid_code_callback_set(
+  //   zigpc_command_mapper_door_lock_get_rfid_code_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_clear_rfid_code_callback_set(
+  //   zigpc_command_mapper_door_lock_clear_rfid_code_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_clear_all_rfid_codes_callback_set(
+  //   zigpc_command_mapper_door_lock_clear_all_rfid_codes_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_set_user_callback_set(
+  //   zigpc_command_mapper_door_lock_set_user_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_get_user_callback_set(
+  //   zigpc_command_mapper_door_lock_get_user_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_clear_user_callback_set(
+  //   zigpc_command_mapper_door_lock_clear_user_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_set_credential_callback_set(
+  //   zigpc_command_mapper_door_lock_set_credential_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_get_credential_status_callback_set(
+  //   zigpc_command_mapper_door_lock_get_credential_status_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_clear_credential_callback_set(
+  //   zigpc_command_mapper_door_lock_clear_credential_handler
+  // );
+  // uic_mqtt_dotdot_door_lock_unbolt_door_callback_set(
+  //   zigpc_command_mapper_door_lock_unbolt_door_handler
+  // );
+  // uic_mqtt_dotdot_set_window_covering_write_attributes_callback(
+  //   zigpc_command_mapper_window_covering_write_attributes_handler
+  // );
+  // uic_mqtt_dotdot_set_window_covering_force_read_attributes_callback(
+  //   zigpc_command_mapper_window_covering_force_read_attributes_handler
+  // );
+  // uic_mqtt_dotdot_window_covering_up_or_open_callback_set(
+  //   zigpc_command_mapper_window_covering_up_or_open_handler
+  // );
+  // uic_mqtt_dotdot_window_covering_down_or_close_callback_set(
+  //   zigpc_command_mapper_window_covering_down_or_close_handler
+  // );
+  // uic_mqtt_dotdot_window_covering_stop_callback_set(
+  //   zigpc_command_mapper_window_covering_stop_handler
+  // );
+  // uic_mqtt_dotdot_window_covering_go_to_lift_value_callback_set(
+  //   zigpc_command_mapper_window_covering_go_to_lift_value_handler
+  // );
+  // uic_mqtt_dotdot_window_covering_go_to_lift_percentage_callback_set(
+  //   zigpc_command_mapper_window_covering_go_to_lift_percentage_handler
+  // );
+  // uic_mqtt_dotdot_window_covering_go_to_tilt_value_callback_set(
+  //   zigpc_command_mapper_window_covering_go_to_tilt_value_handler
+  // );
+  // uic_mqtt_dotdot_window_covering_go_to_tilt_percentage_callback_set(
+  //   zigpc_command_mapper_window_covering_go_to_tilt_percentage_handler
+  // );
+  // uic_mqtt_dotdot_set_thermostat_write_attributes_callback(
+  //   zigpc_command_mapper_thermostat_write_attributes_handler
+  // );
+  // uic_mqtt_dotdot_set_thermostat_force_read_attributes_callback(
+  //   zigpc_command_mapper_thermostat_force_read_attributes_handler
+  // );
+  // uic_mqtt_dotdot_thermostat_setpoint_raise_or_lower_callback_set(
+  //   zigpc_command_mapper_thermostat_setpoint_raise_or_lower_handler
+  // );
+  // uic_mqtt_dotdot_thermostat_set_weekly_schedule_callback_set(
+  //   zigpc_command_mapper_thermostat_set_weekly_schedule_handler
+  // );
+  // uic_mqtt_dotdot_thermostat_get_weekly_schedule_callback_set(
+  //   zigpc_command_mapper_thermostat_get_weekly_schedule_handler
+  // );
+  // uic_mqtt_dotdot_thermostat_clear_weekly_schedule_callback_set(
+  //   zigpc_command_mapper_thermostat_clear_weekly_schedule_handler
+  // );
+  // uic_mqtt_dotdot_thermostat_get_relay_status_log_callback_set(
+  //   zigpc_command_mapper_thermostat_get_relay_status_log_handler
+  // );
+  // uic_mqtt_dotdot_set_color_control_write_attributes_callback(
+  //   zigpc_command_mapper_color_control_write_attributes_handler
+  // );
+  // uic_mqtt_dotdot_set_color_control_force_read_attributes_callback(
+  //   zigpc_command_mapper_color_control_force_read_attributes_handler
+  // );
+  // uic_mqtt_dotdot_color_control_move_to_hue_callback_set(
+  //   zigpc_command_mapper_color_control_move_to_hue_handler
+  // );
+  // uic_mqtt_dotdot_color_control_move_hue_callback_set(
+  //   zigpc_command_mapper_color_control_move_hue_handler
+  // );
+  // uic_mqtt_dotdot_color_control_step_hue_callback_set(
+  //   zigpc_command_mapper_color_control_step_hue_handler
+  // );
+  // uic_mqtt_dotdot_color_control_move_to_saturation_callback_set(
+  //   zigpc_command_mapper_color_control_move_to_saturation_handler
+  // );
+  // uic_mqtt_dotdot_color_control_move_saturation_callback_set(
+  //   zigpc_command_mapper_color_control_move_saturation_handler
+  // );
+  // uic_mqtt_dotdot_color_control_step_saturation_callback_set(
+  //   zigpc_command_mapper_color_control_step_saturation_handler
+  // );
+  // uic_mqtt_dotdot_color_control_move_to_hue_and_saturation_callback_set(
+  //   zigpc_command_mapper_color_control_move_to_hue_and_saturation_handler
+  // );
+  // uic_mqtt_dotdot_color_control_move_to_color_callback_set(
+  //   zigpc_command_mapper_color_control_move_to_color_handler
+  // );
+  // uic_mqtt_dotdot_color_control_move_color_callback_set(
+  //   zigpc_command_mapper_color_control_move_color_handler
+  // );
+  // uic_mqtt_dotdot_color_control_step_color_callback_set(
+  //   zigpc_command_mapper_color_control_step_color_handler
+  // );
+  // uic_mqtt_dotdot_color_control_move_to_color_temperature_callback_set(
+  //   zigpc_command_mapper_color_control_move_to_color_temperature_handler
+  // );
+  // uic_mqtt_dotdot_color_control_enhanced_move_to_hue_callback_set(
+  //   zigpc_command_mapper_color_control_enhanced_move_to_hue_handler
+  // );
+  // uic_mqtt_dotdot_color_control_enhanced_move_hue_callback_set(
+  //   zigpc_command_mapper_color_control_enhanced_move_hue_handler
+  // );
+  // uic_mqtt_dotdot_color_control_enhanced_step_hue_callback_set(
+  //   zigpc_command_mapper_color_control_enhanced_step_hue_handler
+  // );
+  // uic_mqtt_dotdot_color_control_enhanced_move_to_hue_and_saturation_callback_set(
+  //   zigpc_command_mapper_color_control_enhanced_move_to_hue_and_saturation_handler
+  // );
+  // uic_mqtt_dotdot_color_control_color_loop_set_callback_set(
+  //   zigpc_command_mapper_color_control_color_loop_set_handler
+  // );
+  // uic_mqtt_dotdot_color_control_stop_move_step_callback_set(
+  //   zigpc_command_mapper_color_control_stop_move_step_handler
+  // );
+  // uic_mqtt_dotdot_color_control_move_color_temperature_callback_set(
+  //   zigpc_command_mapper_color_control_move_color_temperature_handler
+  // );
+  // uic_mqtt_dotdot_color_control_step_color_temperature_callback_set(
+  //   zigpc_command_mapper_color_control_step_color_temperature_handler
+  // );
+  // uic_mqtt_dotdot_set_temperature_measurement_write_attributes_callback(
+  //   zigpc_command_mapper_temperature_measurement_write_attributes_handler
+  // );
+  // uic_mqtt_dotdot_set_temperature_measurement_force_read_attributes_callback(
+  //   zigpc_command_mapper_temperature_measurement_force_read_attributes_handler
+  // );
+  // uic_mqtt_dotdot_set_occupancy_sensing_write_attributes_callback(
+  //   zigpc_command_mapper_occupancy_sensing_write_attributes_handler
+  // );
+  // uic_mqtt_dotdot_set_occupancy_sensing_force_read_attributes_callback(
+  //   zigpc_command_mapper_occupancy_sensing_force_read_attributes_handler
+  // );
+  // uic_mqtt_dotdot_set_ias_zone_write_attributes_callback(
+  //   zigpc_command_mapper_ias_zone_write_attributes_handler
+  // );
+  // uic_mqtt_dotdot_set_ias_zone_force_read_attributes_callback(
+  //   zigpc_command_mapper_ias_zone_force_read_attributes_handler
+  // );
+  // uic_mqtt_dotdot_ias_zone_zone_enroll_response_callback_set(
+  //   zigpc_command_mapper_ias_zone_zone_enroll_response_handler
+  // );
+  // uic_mqtt_dotdot_ias_zone_initiate_normal_operation_mode_callback_set(
+  //   zigpc_command_mapper_ias_zone_initiate_normal_operation_mode_handler
+  // );
+  // uic_mqtt_dotdot_ias_zone_initiate_test_mode_callback_set(
+  //   zigpc_command_mapper_ias_zone_initiate_test_mode_handler
+  // );
+  // uic_mqtt_dotdot_set_iaswd_write_attributes_callback(
+  //   zigpc_command_mapper_iaswd_write_attributes_handler
+  // );
+  // uic_mqtt_dotdot_set_iaswd_force_read_attributes_callback(
+  //   zigpc_command_mapper_iaswd_force_read_attributes_handler
+  // );
+  // uic_mqtt_dotdot_iaswd_start_warning_callback_set(
+  //   zigpc_command_mapper_iaswd_start_warning_handler
+  // );
+  // uic_mqtt_dotdot_iaswd_squawk_callback_set(
+  //   zigpc_command_mapper_iaswd_squawk_handler
+  // );
+  // uic_mqtt_dotdot_set_metering_write_attributes_callback(
+  //   zigpc_command_mapper_metering_write_attributes_handler
+  // );
+  // uic_mqtt_dotdot_set_metering_force_read_attributes_callback(
+  //   zigpc_command_mapper_metering_force_read_attributes_handler
+  // );
+  // uic_mqtt_dotdot_set_electrical_measurement_write_attributes_callback(
+  //   zigpc_command_mapper_electrical_measurement_write_attributes_handler
+  // );
+  // uic_mqtt_dotdot_set_electrical_measurement_force_read_attributes_callback(
+  //   zigpc_command_mapper_electrical_measurement_force_read_attributes_handler
+  // );
+  // uic_mqtt_dotdot_electrical_measurement_get_profile_info_response_callback_set(
+  //   zigpc_command_mapper_electrical_measurement_get_profile_info_response_handler
+  // );
+  // uic_mqtt_dotdot_electrical_measurement_get_measurement_profile_response_callback_set(
+  //   zigpc_command_mapper_electrical_measurement_get_measurement_profile_response_handler
+  // );
   uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_set(
     zigpc_command_mapper_dmf_bridge_config_trigger_rdm_discovery_handler
   );
