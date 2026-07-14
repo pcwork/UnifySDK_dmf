@@ -42,6 +42,14 @@ static void {{component_zigpc_cmdmapper_prefix}}_publish_{{asSnakeCaseLower pare
   std::string unid(zigpc_ucl::mqtt::build_unid(zigbee_eui64_to_uint(eui64)));
 
 {{#zcl_command_arguments}}
+{{#if (isString type)}}
+  std::string {{asSnakeCaseLower label}}_value(
+    data->{{asSnakeCaseLower parent.parent.label}}_{{asSnakeCaseLower parent.label}}.{{asSnakeCaseLower label}},
+    data->{{asSnakeCaseLower parent.parent.label}}_{{asSnakeCaseLower parent.label}}.{{asSnakeCaseLower label}}_length);
+
+{{/if}}
+{{/zcl_command_arguments}}
+{{#zcl_command_arguments}}
 {{#first}}
   {{component_dotdot_mqtt_prefix}}_{{asSnakeCaseLower parent.parent.label}}_command_{{asSnakeCaseLower parent.label}}_fields_t fields = {
 {{/first}}
@@ -51,6 +59,8 @@ static void {{component_zigpc_cmdmapper_prefix}}_publish_{{asSnakeCaseLower pare
 {{else if isArray}}
     (uint8_t) data->{{asSnakeCaseLower parent.parent.label}}_{{asSnakeCaseLower parent.label}}.{{asSnakeCaseLower label}}_count,
     ({{asUnderlyingType type}} *) data->{{asSnakeCaseLower parent.parent.label}}_{{asSnakeCaseLower parent.label}}.{{asSnakeCaseLower label}}{{listComma this}}
+{{else if (isString type)}}
+    {{asSnakeCaseLower label}}_value.c_str(){{listComma this}}
 {{else}}
     ({{asUnderlyingType type}}) data->{{asSnakeCaseLower parent.parent.label}}_{{asSnakeCaseLower parent.label}}.{{asSnakeCaseLower label}}{{listComma this}}
 {{/if}}
@@ -114,4 +124,3 @@ void {{component_zigpc_cmdmapper_prefix}}_cleanup_gen_cmd_publish_listeners(void
 {{/if}}
 {{/zcl_clusters}}
 }
-

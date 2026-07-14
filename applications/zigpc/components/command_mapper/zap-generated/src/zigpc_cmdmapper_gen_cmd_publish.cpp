@@ -73,11 +73,13 @@ static void zigpc_command_mapper_publish_groups_view_group_response(
   const zigpc_zclcmdparse_callback_data_t *data
 ) {
   std::string unid(zigpc_ucl::mqtt::build_unid(zigbee_eui64_to_uint(eui64)));
+  std::string group_name_value(data->groups_view_group_response.group_name,
+                               data->groups_view_group_response.group_name_length);
 
   uic_mqtt_dotdot_groups_command_view_group_response_fields_t fields = {
     (uint8_t) data->groups_view_group_response.status,
     (uint16_t) data->groups_view_group_response.group_id,
-    (const char*) data->groups_view_group_response.group_name
+    group_name_value.c_str()
   };
 
   uic_mqtt_dotdot_groups_publish_generated_view_group_response_command(
@@ -273,6 +275,8 @@ static void zigpc_command_mapper_publish_door_lock_get_log_record_response(
   const zigpc_zclcmdparse_callback_data_t *data
 ) {
   std::string unid(zigpc_ucl::mqtt::build_unid(zigbee_eui64_to_uint(eui64)));
+  std::string pin_value(data->door_lock_get_log_record_response.pin,
+                        data->door_lock_get_log_record_response.pin_length);
 
   uic_mqtt_dotdot_door_lock_command_get_log_record_response_fields_t fields = {
     (uint16_t) data->door_lock_get_log_record_response.log_entryid,
@@ -281,7 +285,7 @@ static void zigpc_command_mapper_publish_door_lock_get_log_record_response(
     (DrlkOperEventSource) data->door_lock_get_log_record_response.source_operation_event,
     (uint8_t) data->door_lock_get_log_record_response.event_id_or_alarm_code,
     (uint16_t) data->door_lock_get_log_record_response.userid,
-    (const char*) data->door_lock_get_log_record_response.pin
+    pin_value.c_str()
   };
 
   uic_mqtt_dotdot_door_lock_publish_generated_get_log_record_response_command(
@@ -315,12 +319,14 @@ static void zigpc_command_mapper_publish_door_lock_get_pin_code_response(
   const zigpc_zclcmdparse_callback_data_t *data
 ) {
   std::string unid(zigpc_ucl::mqtt::build_unid(zigbee_eui64_to_uint(eui64)));
+  std::string code_value(data->door_lock_get_pin_code_response.code,
+                         data->door_lock_get_pin_code_response.code_length);
 
   uic_mqtt_dotdot_door_lock_command_get_pin_code_response_fields_t fields = {
     (uint16_t) data->door_lock_get_pin_code_response.userid,
     (DrlkUserStatus) data->door_lock_get_pin_code_response.user_status,
     (DrlkUserType) data->door_lock_get_pin_code_response.user_type,
-    (const char*) data->door_lock_get_pin_code_response.code
+    code_value.c_str()
   };
 
   uic_mqtt_dotdot_door_lock_publish_generated_get_pin_code_response_command(
@@ -641,12 +647,14 @@ static void zigpc_command_mapper_publish_door_lock_get_rfid_code_response(
   const zigpc_zclcmdparse_callback_data_t *data
 ) {
   std::string unid(zigpc_ucl::mqtt::build_unid(zigbee_eui64_to_uint(eui64)));
+  std::string rfid_code_value(data->door_lock_get_rfid_code_response.rfid_code,
+                              data->door_lock_get_rfid_code_response.rfid_code_length);
 
   uic_mqtt_dotdot_door_lock_command_get_rfid_code_response_fields_t fields = {
     (uint16_t) data->door_lock_get_rfid_code_response.userid,
     (DrlkUserStatus) data->door_lock_get_rfid_code_response.user_status,
     (DrlkUserType) data->door_lock_get_rfid_code_response.user_type,
-    (const char*) data->door_lock_get_rfid_code_response.rfid_code
+    rfid_code_value.c_str()
   };
 
   uic_mqtt_dotdot_door_lock_publish_generated_get_rfid_code_response_command(
@@ -712,14 +720,18 @@ static void zigpc_command_mapper_publish_door_lock_operating_event_notification(
   const zigpc_zclcmdparse_callback_data_t *data
 ) {
   std::string unid(zigpc_ucl::mqtt::build_unid(zigbee_eui64_to_uint(eui64)));
+  std::string pin_value(data->door_lock_operating_event_notification.pin,
+                        data->door_lock_operating_event_notification.pin_length);
+  std::string data_value(data->door_lock_operating_event_notification.data,
+                         data->door_lock_operating_event_notification.data_length);
 
   uic_mqtt_dotdot_door_lock_command_operating_event_notification_fields_t fields = {
     (DrlkOperEventSource) data->door_lock_operating_event_notification.operation_event_source,
     (OperatingEventNotificationOperationEventCode) data->door_lock_operating_event_notification.operation_event_code,
     (uint16_t) data->door_lock_operating_event_notification.userid,
-    (const char*) data->door_lock_operating_event_notification.pin,
+    pin_value.c_str(),
     (uint32_t) data->door_lock_operating_event_notification.local_time,
-    (const char*) data->door_lock_operating_event_notification.data
+    data_value.c_str()
   };
 
   uic_mqtt_dotdot_door_lock_publish_generated_operating_event_notification_command(
@@ -735,16 +747,20 @@ static void zigpc_command_mapper_publish_door_lock_programming_event_notificatio
   const zigpc_zclcmdparse_callback_data_t *data
 ) {
   std::string unid(zigpc_ucl::mqtt::build_unid(zigbee_eui64_to_uint(eui64)));
+  std::string pin_value(data->door_lock_programming_event_notification.pin,
+                        data->door_lock_programming_event_notification.pin_length);
+  std::string data_value(data->door_lock_programming_event_notification.data,
+                         data->door_lock_programming_event_notification.data_length);
 
   uic_mqtt_dotdot_door_lock_command_programming_event_notification_fields_t fields = {
     (ProgrammingEventNotificationProgramEventSource) data->door_lock_programming_event_notification.program_event_source,
     (ProgrammingEventNotificationProgramEventCode) data->door_lock_programming_event_notification.program_event_code,
     (uint16_t) data->door_lock_programming_event_notification.userid,
-    (const char*) data->door_lock_programming_event_notification.pin,
+    pin_value.c_str(),
     (DrlkUserType) data->door_lock_programming_event_notification.user_type,
     (DrlkUserStatus) data->door_lock_programming_event_notification.user_status,
     (uint32_t) data->door_lock_programming_event_notification.local_time,
-    (const char*) data->door_lock_programming_event_notification.data
+    data_value.c_str()
   };
 
   uic_mqtt_dotdot_door_lock_publish_generated_programming_event_notification_command(
@@ -907,14 +923,16 @@ static void zigpc_command_mapper_publish_dmf_bridge_config_generic_report_record
   const zigpc_zclcmdparse_callback_data_t *data
 ) {
   std::string unid(zigpc_ucl::mqtt::build_unid(zigbee_eui64_to_uint(eui64)));
+  std::string record_payload_value(
+    data->dmf_bridge_config_generic_report_record.record_payload,
+    data->dmf_bridge_config_generic_report_record.record_payload_length);
 
   uic_mqtt_dotdot_dmf_bridge_config_command_generic_report_record_fields_t
     fields = {
       (uint16_t) data->dmf_bridge_config_generic_report_record.tableid,
       (uint8_t) data->dmf_bridge_config_generic_report_record.record_index,
       (uint16_t) data->dmf_bridge_config_generic_report_record.total_records,
-      (const char *)
-        data->dmf_bridge_config_generic_report_record.record_payload
+      record_payload_value.c_str()
     };
 
   uic_mqtt_dotdot_dmf_bridge_config_publish_generated_generic_report_record_command(
@@ -930,10 +948,12 @@ static void zigpc_command_mapper_publish_dmf_bridge_config_raw_fixture_notificat
   const zigpc_zclcmdparse_callback_data_t *data
 ) {
   std::string unid(zigpc_ucl::mqtt::build_unid(zigbee_eui64_to_uint(eui64)));
+  std::string uid_value(data->dmf_bridge_config_raw_fixture_notification.uid,
+                        data->dmf_bridge_config_raw_fixture_notification.uid_length);
 
   uic_mqtt_dotdot_dmf_bridge_config_command_raw_fixture_notification_fields_t
     fields = {
-      (const char *) data->dmf_bridge_config_raw_fixture_notification.uid,
+      uid_value.c_str(),
       (uint16_t) data->dmf_bridge_config_raw_fixture_notification.modelid
     };
 

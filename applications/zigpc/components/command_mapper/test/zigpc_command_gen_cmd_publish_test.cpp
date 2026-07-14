@@ -40,6 +40,9 @@ static std::unordered_map<std::pair<zcl_cluster_id_t, zcl_command_id_t>,
                           zigpc_zclcmdparse_callback_t,
                           cmdparser_callback_hash>
   cmdparser_callbacks;
+static std::string captured_raw_fixture_notification_uid;
+static uint16_t captured_raw_fixture_notification_modelid;
+static zigbee_endpoint_id_t captured_raw_fixture_notification_endpoint;
 
 sl_status_t zigpc_zclcmdparse_register_callback_handler(
   zcl_cluster_id_t cluster_id,
@@ -61,6 +64,18 @@ sl_status_t zigpc_zclcmdparse_remove_callback_handler(
   cmdparser_callbacks.erase({cluster_id, command_id});
 
   return SL_STATUS_OK;
+}
+
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_raw_fixture_notification_command_handler(
+  const dotdot_unid_t,
+  const dotdot_endpoint_id_t endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_raw_fixture_notification_fields_t
+    *fields,
+  int)
+{
+  captured_raw_fixture_notification_endpoint = endpoint;
+  captured_raw_fixture_notification_uid      = fields->uid;
+  captured_raw_fixture_notification_modelid  = fields->modelid;
 }
 
 /**
@@ -91,6 +106,9 @@ void setUp(void)
     zigpc_zclcmdparse_register_callback_handler);
   zigpc_zclcmdparse_remove_callback_Stub(
     zigpc_zclcmdparse_remove_callback_handler);
+  captured_raw_fixture_notification_uid.clear();
+  captured_raw_fixture_notification_modelid  = 0;
+  captured_raw_fixture_notification_endpoint = 0;
 }
 
 /**
@@ -221,6 +239,43 @@ void test_zigpc_command_mapper_publish_dmf_bridge_config_generic_report_record_s
   generic_report_record_cb->second(eui64, ep, &cb_data);
 
   // ASSERT (Handled by CMock)
+}
+
+void test_zigpc_command_mapper_publish_dmf_bridge_config_raw_fixture_notification_uses_uid_length(
+  void)
+{
+  zigbee_eui64_t eui64    = {0xD, 0x01, 0x77, 0x09, 0xD3, 0x8A, 0xD, 0xFF};
+  zigbee_endpoint_id_t ep = 7;
+  char uid[]              = {'A', 'B', 'C', 'D', 'E', 'F', 'X', 'Y', '\0'};
+  zigpc_zclcmdparse_callback_data_t cb_data = {
+    .dmf_bridge_config_raw_fixture_notification = {
+      .uid_length = 6,
+      .uid        = uid,
+      .modelid    = 0x2211,
+    },
+  };
+
+  // ARRANGE
+  sl_status_t status = zigpc_command_mapper_setup_gen_cmd_publish_listeners();
+  TEST_ASSERT_EQUAL_HEX(SL_STATUS_OK, status);
+  uic_mqtt_dotdot_dmf_bridge_config_publish_generated_raw_fixture_notification_command_Stub(
+    uic_mqtt_dotdot_dmf_bridge_config_publish_generated_raw_fixture_notification_command_handler);
+
+  // ACT
+  auto raw_fixture_notification_cb = cmdparser_callbacks.find(
+    {ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_RAW_FIXTURE_NOTIFICATION});
+
+  TEST_ASSERT_TRUE(raw_fixture_notification_cb != cmdparser_callbacks.end());
+  raw_fixture_notification_cb->second(eui64, ep, &cb_data);
+
+  // ASSERT
+  TEST_ASSERT_EQUAL(ep, captured_raw_fixture_notification_endpoint);
+  TEST_ASSERT_EQUAL_HEX16(
+    cb_data.dmf_bridge_config_raw_fixture_notification.modelid,
+    captured_raw_fixture_notification_modelid);
+  TEST_ASSERT_EQUAL_STRING("ABCDEF",
+                           captured_raw_fixture_notification_uid.c_str());
 }
 
 void test_zigpc_command_mapper_cleanup_gen_cmd_publish_listeners_sanity(void)
