@@ -307,7 +307,7 @@ sl_status_t zigpc_attrmgmt_power_configuration_publish(const char* unid_ep_topic
       {
         uint8_t value;
         memcpy(&value, attr_value, sizeof(value));
-        status = uic_mqtt_dotdot_power_configuration_battery_size_publish(unid_ep_topic, value, UCL_MQTT_PUBLISH_TYPE_REPORTED);
+        status = uic_mqtt_dotdot_power_configuration_battery_size_publish(unid_ep_topic, static_cast<BatterySize>(value), UCL_MQTT_PUBLISH_TYPE_REPORTED);
       }
       break;
     case ZIGPC_ZCL_CLUSTER_POWER_CONFIGURATION_ATTR_BATTERYA_HR_RATING:
@@ -429,7 +429,7 @@ sl_status_t zigpc_attrmgmt_power_configuration_publish(const char* unid_ep_topic
       {
         uint8_t value;
         memcpy(&value, attr_value, sizeof(value));
-        status = uic_mqtt_dotdot_power_configuration_battery2_size_publish(unid_ep_topic, value, UCL_MQTT_PUBLISH_TYPE_REPORTED);
+        status = uic_mqtt_dotdot_power_configuration_battery2_size_publish(unid_ep_topic, static_cast<BatterySize>(value), UCL_MQTT_PUBLISH_TYPE_REPORTED);
       }
       break;
     case ZIGPC_ZCL_CLUSTER_POWER_CONFIGURATION_ATTR_BATTERY2A_HR_RATING:
@@ -551,7 +551,7 @@ sl_status_t zigpc_attrmgmt_power_configuration_publish(const char* unid_ep_topic
       {
         uint8_t value;
         memcpy(&value, attr_value, sizeof(value));
-        status = uic_mqtt_dotdot_power_configuration_battery3_size_publish(unid_ep_topic, value, UCL_MQTT_PUBLISH_TYPE_REPORTED);
+        status = uic_mqtt_dotdot_power_configuration_battery3_size_publish(unid_ep_topic, static_cast<BatterySize>(value), UCL_MQTT_PUBLISH_TYPE_REPORTED);
       }
       break;
     case ZIGPC_ZCL_CLUSTER_POWER_CONFIGURATION_ATTR_BATTERY3A_HR_RATING:
@@ -1161,7 +1161,7 @@ sl_status_t zigpc_attrmgmt_door_lock_publish(const char* unid_ep_topic, const zc
       {
         uint8_t value;
         memcpy(&value, attr_value, sizeof(value));
-        status = uic_mqtt_dotdot_door_lock_operating_mode_publish(unid_ep_topic, value, UCL_MQTT_PUBLISH_TYPE_REPORTED);
+        status = uic_mqtt_dotdot_door_lock_operating_mode_publish(unid_ep_topic, static_cast<DrlkOperMode>(value), UCL_MQTT_PUBLISH_TYPE_REPORTED);
       }
       break;
     case ZIGPC_ZCL_CLUSTER_DOOR_LOCK_ATTR_SUPPORTED_OPERATING_MODES:
@@ -2442,7 +2442,7 @@ sl_status_t zigpc_attrmgmt_ias_zone_publish(const char* unid_ep_topic, const zcl
       {
         uint16_t value;
         memcpy(&value, attr_value, sizeof(value));
-        status = uic_mqtt_dotdot_ias_zone_zone_type_publish(unid_ep_topic, value, UCL_MQTT_PUBLISH_TYPE_REPORTED);
+        status = uic_mqtt_dotdot_ias_zone_zone_type_publish(unid_ep_topic, static_cast<IasZoneType>(value), UCL_MQTT_PUBLISH_TYPE_REPORTED);
       }
       break;
     case ZIGPC_ZCL_CLUSTER_IAS_ZONE_ATTR_ZONE_STATUS:
@@ -3696,14 +3696,14 @@ sl_status_t zigpc_attrmgmt_dmf_bridge_config_publish(const char* unid_ep_topic, 
       {
         uint8_t value;
         memcpy(&value, attr_value, sizeof(value));
-        status = uic_mqtt_dotdot_dmf_bridge_config_discovery_status_publish(unid_ep_topic, value, UCL_MQTT_PUBLISH_TYPE_REPORTED);
+        status = uic_mqtt_dotdot_dmf_bridge_config_discovery_status_publish(unid_ep_topic, static_cast<DiscoveryStatus>(value), UCL_MQTT_PUBLISH_TYPE_REPORTED);
       }
       break;
     case ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_BLE_SESSION_STATUS:
       {
         uint8_t value;
         memcpy(&value, attr_value, sizeof(value));
-        status = uic_mqtt_dotdot_dmf_bridge_config_ble_session_status_publish(unid_ep_topic, value, UCL_MQTT_PUBLISH_TYPE_REPORTED);
+        status = uic_mqtt_dotdot_dmf_bridge_config_ble_session_status_publish(unid_ep_topic, static_cast<BLESessionStatus>(value), UCL_MQTT_PUBLISH_TYPE_REPORTED);
       }
       break;
     case ZIGPC_ZCL_GLOBAL_ATTR_CLUSTER_REVISION:
