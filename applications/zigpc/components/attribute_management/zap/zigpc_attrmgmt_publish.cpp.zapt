@@ -49,8 +49,8 @@ sl_status_t {{component_zigpc_attrmgmt_prefix}}_{{asSnakeCaseLower label}}_publi
         memcpy(value, attr_value + 1, sizeof(char) * value_strlen);
         value[value_strlen] = '\0';
 {{else}}
-        {{asUnderlyingType type}} value;
-        memcpy(&value, attr_value, sizeof({{asUnderlyingType type}}));
+        {{asUnderlyingType (zcl_type_map_get_item type)}} value;
+        memcpy(&value, attr_value, sizeof(value));
 {{/if}}
         status = {{component_dotdot_mqtt_prefix}}_{{asSnakeCaseLower parent.label}}_{{asSnakeCaseLower label}}_publish(unid_ep_topic, value, UCL_MQTT_PUBLISH_TYPE_REPORTED);
       }

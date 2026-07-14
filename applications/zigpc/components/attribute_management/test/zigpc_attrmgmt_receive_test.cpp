@@ -203,4 +203,57 @@ void test_receive_attribute_frame_should_skip_failed_read_resp_records_onoff(
   TEST_ASSERT_EQUAL_HEX(SL_STATUS_OK, status);
 }
 
+void test_receive_attribute_frame_should_process_dmf_bridge_config_enum8_attributes(
+  void)
+{
+  // ARRANGE
+  sl_status_t status;
+  zcl_frame_t frame;
+
+  zcl_attribute_id_t discovery_attr_id
+    = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_DISCOVERY_STATUS;
+  zcl_attribute_id_t ble_session_attr_id
+    = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_BLE_SESSION_STATUS;
+  zigpc_zcl_data_type_t attr_type = ZIGPC_ZCL_DATA_TYPE_ENUM8;
+  uint8_t discovery_status_value  = ZCL_DISCOVERY_STATUS_COMPLETED;
+  uint8_t ble_session_status_value
+    = ZCL_BLE_SESSION_STATUS_OCCUPIED_BY_BLE_MOBILE_APP;
+
+  frame.buffer[0] = discovery_attr_id;
+  frame.buffer[1] = discovery_attr_id >> 8;
+  frame.buffer[2] = attr_type;
+  frame.buffer[3] = discovery_status_value;
+
+  frame.buffer[4] = ble_session_attr_id;
+  frame.buffer[5] = ble_session_attr_id >> 8;
+  frame.buffer[6] = attr_type;
+  frame.buffer[7] = ble_session_status_value;
+  frame.size      = 8;
+
+  helper_expect_unid_and_type(attr_type, 1);
+  helper_expect_unid_and_type(attr_type, 1);
+
+  uic_mqtt_dotdot_dmf_bridge_config_discovery_status_publish_ExpectAndReturn(
+    BASE_TOPIC.c_str(),
+    ZCL_DISCOVERY_STATUS_COMPLETED,
+    UCL_MQTT_PUBLISH_TYPE_REPORTED,
+    SL_STATUS_OK);
+
+  uic_mqtt_dotdot_dmf_bridge_config_ble_session_status_publish_ExpectAndReturn(
+    BASE_TOPIC.c_str(),
+    ZCL_BLE_SESSION_STATUS_OCCUPIED_BY_BLE_MOBILE_APP,
+    UCL_MQTT_PUBLISH_TYPE_REPORTED,
+    SL_STATUS_OK);
+
+  // ACT
+  status = zigpc_attrmgmt_receive_attribute_frame(TEST_EUI64,
+                                                  TEST_ENDPOINT_ID,
+                                                  ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+                                                  false,
+                                                  &frame);
+
+  // ASSERT
+  TEST_ASSERT_EQUAL_HEX(SL_STATUS_OK, status);
+}
+
 }  // extern "C"
