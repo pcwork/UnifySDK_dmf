@@ -5618,6 +5618,255 @@ void zigpc_command_mapper_bygroup_electrical_measurement_get_measurement_profile
 
 }
 
+/**
+ * @brief DotDot MQTT by-group handler for DMFBridgeConfig/TriggerRDMDiscovery command.
+ *
+ * @param group_id  UCL group identifier.
+ */
+void zigpc_command_mapper_bygroup_dmf_bridge_config_trigger_rdm_discovery_handler(
+  const dotdot_group_id_t group_id
+) {
+  zigpc_command_mapper_send_multicast(
+    group_id,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_TRIGGER_RDM_DISCOVERY,
+    0,
+    nullptr
+  );
+}
+
+/**
+ * @brief DotDot MQTT by-group handler for DMFBridgeConfig/IdentifyFixture command.
+ *
+ * @param group_id  UCL group identifier.
+ * @param fields    Command fields data.
+ */
+void zigpc_command_mapper_bygroup_dmf_bridge_config_identify_fixture_handler(
+  const dotdot_group_id_t group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_identify_fixture_fields_t *fields
+) {
+  if (fields == nullptr) {
+    sl_log_warning(LOG_TAG, LOG_FMT_INVALID_FIELDS, "DMFBridgeConfig", "IdentifyFixture");
+    return;
+  }
+
+  std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
+  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_OCTSTR, fields->uid });
+  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_UINT8, &fields->identify_on });
+
+  zigpc_command_mapper_send_multicast(
+    group_id,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_IDENTIFY_FIXTURE,
+    cmd_arg_list.size(),
+    cmd_arg_list.data()
+  );
+}
+
+/**
+ * @brief DotDot MQTT by-group handler for DMFBridgeConfig/IdentifyZone command.
+ *
+ * @param group_id  UCL group identifier.
+ * @param fields    Command fields data.
+ */
+void zigpc_command_mapper_bygroup_dmf_bridge_config_identify_zone_handler(
+  const dotdot_group_id_t group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_identify_zone_fields_t *fields
+) {
+  if (fields == nullptr) {
+    sl_log_warning(LOG_TAG, LOG_FMT_INVALID_FIELDS, "DMFBridgeConfig", "IdentifyZone");
+    return;
+  }
+
+  std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
+  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_UINT8, &fields->zoneid });
+  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_UINT8, &fields->identify_on });
+
+  zigpc_command_mapper_send_multicast(
+    group_id,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_IDENTIFY_ZONE,
+    cmd_arg_list.size(),
+    cmd_arg_list.data()
+  );
+}
+
+/**
+ * @brief DotDot MQTT by-group handler for DMFBridgeConfig/PlayLightMode command.
+ *
+ * @param group_id  UCL group identifier.
+ * @param fields    Command fields data.
+ */
+void zigpc_command_mapper_bygroup_dmf_bridge_config_play_light_mode_handler(
+  const dotdot_group_id_t group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_play_light_mode_fields_t *fields
+) {
+  if (fields == nullptr) {
+    sl_log_warning(LOG_TAG, LOG_FMT_INVALID_FIELDS, "DMFBridgeConfig", "PlayLightMode");
+    return;
+  }
+
+  std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
+  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_UINT8, &fields->light_modeid });
+
+  zigpc_command_mapper_send_multicast(
+    group_id,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_PLAY_LIGHT_MODE,
+    cmd_arg_list.size(),
+    cmd_arg_list.data()
+  );
+}
+
+/**
+ * @brief DotDot MQTT by-group handler for DMFBridgeConfig/GenericReadRecord command.
+ *
+ * @param group_id  UCL group identifier.
+ * @param fields    Command fields data.
+ */
+void zigpc_command_mapper_bygroup_dmf_bridge_config_generic_read_record_handler(
+  const dotdot_group_id_t group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_read_record_fields_t *fields
+) {
+  if (fields == nullptr) {
+    sl_log_warning(LOG_TAG, LOG_FMT_INVALID_FIELDS, "DMFBridgeConfig", "GenericReadRecord");
+    return;
+  }
+
+  std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
+  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_UINT16, &fields->tableid });
+  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_UINT8, &fields->record_index });
+
+  zigpc_command_mapper_send_multicast(
+    group_id,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_READ_RECORD,
+    cmd_arg_list.size(),
+    cmd_arg_list.data()
+  );
+}
+
+/**
+ * @brief DotDot MQTT by-group handler for DMFBridgeConfig/GenericWriteRecord command.
+ *
+ * @param group_id  UCL group identifier.
+ * @param fields    Command fields data.
+ */
+void zigpc_command_mapper_bygroup_dmf_bridge_config_generic_write_record_handler(
+  const dotdot_group_id_t group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_write_record_fields_t *fields
+) {
+  if (fields == nullptr) {
+    sl_log_warning(LOG_TAG, LOG_FMT_INVALID_FIELDS, "DMFBridgeConfig", "GenericWriteRecord");
+    return;
+  }
+
+  std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
+  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_UINT16, &fields->tableid });
+  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_UINT8, &fields->record_index });
+  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_OCTSTR, fields->record_payload });
+
+  zigpc_command_mapper_send_multicast(
+    group_id,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_WRITE_RECORD,
+    cmd_arg_list.size(),
+    cmd_arg_list.data()
+  );
+}
+
+/**
+ * @brief DotDot MQTT by-group handler for DMFBridgeConfig/GenericDeleteRecord command.
+ *
+ * @param group_id  UCL group identifier.
+ * @param fields    Command fields data.
+ */
+void zigpc_command_mapper_bygroup_dmf_bridge_config_generic_delete_record_handler(
+  const dotdot_group_id_t group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_delete_record_fields_t *fields
+) {
+  if (fields == nullptr) {
+    sl_log_warning(LOG_TAG, LOG_FMT_INVALID_FIELDS, "DMFBridgeConfig", "GenericDeleteRecord");
+    return;
+  }
+
+  std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
+  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_UINT16, &fields->tableid });
+  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_UINT8, &fields->record_index });
+
+  zigpc_command_mapper_send_multicast(
+    group_id,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_DELETE_RECORD,
+    cmd_arg_list.size(),
+    cmd_arg_list.data()
+  );
+}
+
+/**
+ * @brief DotDot MQTT by-group handler for DMFBridgeConfig/ClearTable command.
+ *
+ * @param group_id  UCL group identifier.
+ * @param fields    Command fields data.
+ */
+void zigpc_command_mapper_bygroup_dmf_bridge_config_clear_table_handler(
+  const dotdot_group_id_t group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_clear_table_fields_t *fields
+) {
+  if (fields == nullptr) {
+    sl_log_warning(LOG_TAG, LOG_FMT_INVALID_FIELDS, "DMFBridgeConfig", "ClearTable");
+    return;
+  }
+
+  std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
+  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_UINT16, &fields->tableid });
+  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_UINT16, &fields->confirm_code });
+
+  zigpc_command_mapper_send_multicast(
+    group_id,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_CLEAR_TABLE,
+    cmd_arg_list.size(),
+    cmd_arg_list.data()
+  );
+}
+
+/**
+ * @brief DotDot MQTT by-group handler for DMFBridgeConfig/ZBNetworkLeave command.
+ *
+ * @param group_id  UCL group identifier.
+ * @param fields    Command fields data.
+ */
+void zigpc_command_mapper_bygroup_dmf_bridge_config_zb_network_leave_handler(
+  const dotdot_group_id_t group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_zb_network_leave_fields_t *fields
+) {
+  if (fields == nullptr) {
+    sl_log_warning(LOG_TAG, LOG_FMT_INVALID_FIELDS, "DMFBridgeConfig", "ZBNetworkLeave");
+    return;
+  }
+
+  std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
+  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_UINT16, &fields->confirm_code });
+
+  zigpc_command_mapper_send_multicast(
+    group_id,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_ZB_NETWORK_LEAVE,
+    cmd_arg_list.size(),
+    cmd_arg_list.data()
+  );
+}
+
 
 sl_status_t zigpc_command_mapper_mqtt_bygroup_handlers_init(void)
 {
@@ -5735,5 +5984,14 @@ sl_status_t zigpc_command_mapper_mqtt_bygroup_handlers_init(void)
   uic_mqtt_dotdot_by_group_electrical_measurement_write_attributes_callback_set(zigpc_command_mapper_bygroup_electrical_measurement_write_attributes_handler);
   uic_mqtt_dotdot_by_group_electrical_measurement_get_profile_info_response_callback_set(zigpc_command_mapper_bygroup_electrical_measurement_get_profile_info_response_handler);
   uic_mqtt_dotdot_by_group_electrical_measurement_get_measurement_profile_response_callback_set(zigpc_command_mapper_bygroup_electrical_measurement_get_measurement_profile_response_handler);
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback_set(zigpc_command_mapper_bygroup_dmf_bridge_config_trigger_rdm_discovery_handler);
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback_set(zigpc_command_mapper_bygroup_dmf_bridge_config_identify_fixture_handler);
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_zone_callback_set(zigpc_command_mapper_bygroup_dmf_bridge_config_identify_zone_handler);
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_play_light_mode_callback_set(zigpc_command_mapper_bygroup_dmf_bridge_config_play_light_mode_handler);
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_read_record_callback_set(zigpc_command_mapper_bygroup_dmf_bridge_config_generic_read_record_handler);
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_write_record_callback_set(zigpc_command_mapper_bygroup_dmf_bridge_config_generic_write_record_handler);
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_delete_record_callback_set(zigpc_command_mapper_bygroup_dmf_bridge_config_generic_delete_record_handler);
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_clear_table_callback_set(zigpc_command_mapper_bygroup_dmf_bridge_config_clear_table_handler);
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_zb_network_leave_callback_set(zigpc_command_mapper_bygroup_dmf_bridge_config_zb_network_leave_handler);
   return SL_STATUS_OK;
 }

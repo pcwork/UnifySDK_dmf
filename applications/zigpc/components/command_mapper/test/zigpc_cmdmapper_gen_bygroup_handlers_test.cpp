@@ -32,6 +32,9 @@ void zigpc_command_mapper_bygroup_identify_write_attributes_handler(
   uic_mqtt_dotdot_identify_state_t values,
   uic_mqtt_dotdot_identify_updated_state_t values_to_write);
 
+void zigpc_command_mapper_bygroup_dmf_bridge_config_trigger_rdm_discovery_handler(
+  const dotdot_group_id_t group_id);
+
 extern "C" {
 
 // Unify includes
@@ -245,6 +248,33 @@ void test_bygroup_writeattributes_command(void)
     group_id,
     values,
     values_to_write);
+
+  // ASSERT
+}
+
+void test_bygroup_dmf_bridge_config_command_without_arguments(void)
+{
+  dotdot_group_id_t group_id = 3;
+
+  // ARRANGE
+  zigpc_groupmgmt_get_member_count_ExpectAndReturn(group_id, 1);
+
+  zigpc_zcl_build_command_frame_ExpectAndReturn(
+    nullptr,
+    ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+    ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_TRIGGER_RDM_DISCOVERY,
+    0,
+    nullptr,
+    SL_STATUS_OK);
+  zigpc_zcl_build_command_frame_IgnoreArg_frame();
+  zigpc_zcl_build_command_frame_IgnoreArg_command_arg_list();
+
+  zigpc_gateway_send_zcl_frame_multicast_IgnoreAndReturn(SL_STATUS_OK);
+
+  // ACT
+  zigpc_command_mapper_bygroup_dmf_bridge_config_trigger_rdm_discovery_handler(
+    group_id);
 
   // ASSERT
 }
