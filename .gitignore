@@ -2,3 +2,4 @@ _ReSharper.Caches
 .worktrees/
 build/
 **/target
+externals/

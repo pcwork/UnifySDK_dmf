@@ -3,9 +3,9 @@
 # 在你的debian环境里执行. 或者设置到你的shell的profile/bashrc文件里(以下是根据debian11_bullseye的真实环境设置的)
 GSDK_LOCATION=${PWD}/externals/GeckoSDK
 export GSDK_LOCATION
-export CARGO_HOME=/opt/cargo-home
-export RUSTUP_HOME=/opt/rustup-home
-export RUST_VERSION=1.95.0
+export CARGO_HOME=/root/.cargo
+export RUSTUP_HOME=/root/.cargo
+export RUST_VERSION=1.97.0
 export SHLVL=1
 export PLANTUML_JAR_PATH=/opt/plantuml.jar
 export QEMU_LD_PREFIX=/dummyroot
