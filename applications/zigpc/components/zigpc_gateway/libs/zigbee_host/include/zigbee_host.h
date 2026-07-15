@@ -49,6 +49,7 @@ struct zigbeeHostOpts {
   struct zigbeeHostCallbacks *callbacks;
   const uint16_t *supportedClusterList;
   unsigned int supportedClusterListSize;
+  const uint16_t *supportedClusterMfgCodes;
 };
 
 /**********************************/

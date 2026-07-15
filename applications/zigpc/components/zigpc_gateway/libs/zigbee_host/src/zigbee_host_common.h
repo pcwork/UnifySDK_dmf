@@ -115,6 +115,7 @@ sl_zigbee_af_status_t
  * @brief Register the cluster callbacks for a given cluster list
  *
  * @param cluster_list: the list of supported clusters as an array of ID's
+ * @param mfg_code_list: manufacturer code for each cluster (same size as cluster_list)
  * @param cluster_list_size: the size of the supported cluster list
  *
  * @return SL_STATUS_OK if able to properly register the service callbacks for
@@ -122,6 +123,7 @@ sl_zigbee_af_status_t
  */
 sl_status_t zigbeeHostRegisterClusters(
               const uint16_t *cluster_list,
+              const uint16_t *mfg_code_list,
               unsigned int cluster_list_size );
 
 #endif  // ZIGBEE_HOST_COMMON_H

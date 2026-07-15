@@ -328,6 +328,23 @@ static const uint16_t supported_cluster_list[] =
   0xFC42
 };
 
+static const uint16_t supported_cluster_mfg_code_list[] =
+{
+  0xFFFF,  // 0x0003 Identify
+  0xFFFF,  // 0x0004 Groups
+  0xFFFF,  // 0x0006 On/Off
+  0xFFFF,  // 0x0008 Level Control
+  0xFFFF,  // 0x0020 Poll Control
+  0xFFFF,  // 0x0101 Door Lock
+  0xFFFF,  // 0x0201 Thermostat
+  0xFFFF,  // 0x0300 Color Control
+  0xFFFF,  // 0x0406 Electrical Measurement
+  0xFFFF,  // 0x0500 IAS Zone
+  0xFFFF,  // 0x0502 Occupancy Sensing
+  0xFFFF,  // 0x0019 OTA Bootload
+  ZIGPC_ZCL_DMF_BRIDGE_CONFIG_MANUFACTURER_CODE,  // 0xFC42 DMF Bridge Config
+};
+
 const uint16_t* zigpc_zcl_get_supported_cluster_list()
 {
   return supported_cluster_list;
@@ -336,4 +353,9 @@ const uint16_t* zigpc_zcl_get_supported_cluster_list()
 size_t zigpc_zcl_get_number_supported_clusters()
 {
   return sizeof(supported_cluster_list)/sizeof(supported_cluster_list[0]);
+}
+
+const uint16_t* zigpc_zcl_get_supported_cluster_manufacturer_codes()
+{
+  return supported_cluster_mfg_code_list;
 }

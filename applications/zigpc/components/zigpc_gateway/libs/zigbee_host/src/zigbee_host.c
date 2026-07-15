@@ -87,6 +87,7 @@ int zigbeeHostInit(struct zigbeeHostOpts *opts)
   sl_status_t status =
     zigbeeHostRegisterClusters(
         opts->supportedClusterList,
+        opts->supportedClusterMfgCodes,
         opts->supportedClusterListSize);
 
   if(SL_STATUS_OK != status)
@@ -141,6 +142,7 @@ sl_zigbee_ezsp_status_t zigbeeHostSetEzspPolicy(sl_zigbee_ezsp_policy_id_t polic
 
 sl_status_t zigbeeHostRegisterClusters(
               const uint16_t *cluster_list,
+              const uint16_t *mfg_code_list,
               unsigned int cluster_list_size )
 {
 
@@ -151,15 +153,18 @@ sl_status_t zigbeeHostRegisterClusters(
     for(unsigned int i =0; i < cluster_list_size; i++)
     {
       uint16_t cluster_id = cluster_list[i];
+      uint16_t manufacturer_code
+        = (mfg_code_list != NULL) ? mfg_code_list[i] : 0xFFFFu;
+
       (void)sl_zigbee_subscribe_to_zcl_commands(
               cluster_id,
-              0xFFFF,
+              manufacturer_code,
               ZCL_DIRECTION_CLIENT_TO_SERVER,
               &emberAfClusterServiceCallback);
 
       (void)sl_zigbee_subscribe_to_zcl_commands(
               cluster_id,
-              0xFFFF,
+              manufacturer_code,
               ZCL_DIRECTION_SERVER_TO_CLIENT,
               &emberAfClusterServiceCallback);
     }

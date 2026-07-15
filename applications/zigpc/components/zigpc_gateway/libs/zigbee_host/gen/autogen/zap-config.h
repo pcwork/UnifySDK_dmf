@@ -15,6 +15,7 @@
 #define ZCL_GENERATED_DEFAULTS_COUNT (0)
 #define ZCL_GENERATED_DEFAULTS { }
 
+#define MAN_DMF                      (0x121F)
 
 // This is an array of sl_zigbee_af_attribute_min_max_value_t structures.
 
@@ -22,7 +23,7 @@
 	#define ZCL_GENERATED_MIN_MAX_DEFAULTS { }
 
 
-#define ZCL_GENERATED_ATTRIBUTE_COUNT (25)
+#define ZCL_GENERATED_ATTRIBUTE_COUNT (26)
 
 // This is an array of sl_zigbee_af_attribute_metadata_t structures.
 #define ZCL_GENERATED_ATTRIBUTES { \
@@ -50,13 +51,14 @@
 		  { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)2  } }, /* 21 Cluster: Occupancy Sensing, Attribute: cluster revision, Side: client*/ \
 		  { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)2  } }, /* 22 Cluster: Simple Metering, Attribute: cluster revision, Side: client*/ \
 		  { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)2  } }, /* 23 Cluster: Meter Identification, Attribute: cluster revision, Side: client*/ \
-		  { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x0001  } } /* 24 Cluster: Appliance Statistics, Attribute: cluster revision, Side: client*/ \
+		  { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x0001  } }, /* 24 Cluster: Appliance Statistics, Attribute: cluster revision, Side: client*/ \
+		  { 0xFFFD, ZCL_INT16U_ATTRIBUTE_TYPE, 2, (ATTRIBUTE_MASK_CLIENT), { (uint8_t*)0x0001  } } /* 25 Cluster: DMF Bridge Config, Attribute: cluster revision, Side: client*/ \
 		 }
 
- 
 
-#define ZCL_GENERATED_CLUSTER_COUNT (19)
-	
+
+#define ZCL_GENERATED_CLUSTER_COUNT (20)
+
 // This is an array of sl_zigbee_af_cluster_t structures.
 #define ZCL_GENERATED_CLUSTERS { \
   { 0x0000, (sl_zigbee_af_attribute_metadata_t*)&(generatedAttributes[0]), 1, 0, CLUSTER_MASK_CLIENT, NULL }, /* 0, Endpoint Id: 1, Cluster: Basic, Side: client*/ \
@@ -77,16 +79,17 @@
 	  { 0x0406, (sl_zigbee_af_attribute_metadata_t*)&(generatedAttributes[21]), 1, 2, CLUSTER_MASK_CLIENT, NULL }, /* 15, Endpoint Id: 1, Cluster: Occupancy Sensing, Side: client*/ \
 	  { 0x0702, (sl_zigbee_af_attribute_metadata_t*)&(generatedAttributes[22]), 1, 2, CLUSTER_MASK_CLIENT, NULL }, /* 16, Endpoint Id: 1, Cluster: Simple Metering, Side: client*/ \
 	  { 0x0B01, (sl_zigbee_af_attribute_metadata_t*)&(generatedAttributes[23]), 1, 2, CLUSTER_MASK_CLIENT, NULL }, /* 17, Endpoint Id: 1, Cluster: Meter Identification, Side: client*/ \
-	  { 0x0B03, (sl_zigbee_af_attribute_metadata_t*)&(generatedAttributes[24]), 1, 2, CLUSTER_MASK_CLIENT, NULL } /* 18, Endpoint Id: 1, Cluster: Appliance Statistics, Side: client*/ \
+	  { 0x0B03, (sl_zigbee_af_attribute_metadata_t*)&(generatedAttributes[24]), 1, 2, CLUSTER_MASK_CLIENT, NULL }, /* 18, Endpoint Id: 1, Cluster: Appliance Statistics, Side: client*/ \
+	  { 0xFC42, (sl_zigbee_af_attribute_metadata_t*)&(generatedAttributes[25]), 1, 2, CLUSTER_MASK_CLIENT, NULL } /* 19, Endpoint Id: 1, Cluster: DMF Bridge Config, Side: client*/ \
 	 }
 
- 
+
 #define ZCL_GENERATED_ENDPOINT_TYPE_COUNT (1)
 
 // This is an array of sl_zigbee_af_endpoint_type_t structures.
 #define ZCL_GENERATED_ENDPOINT_TYPES { \
-  { ((sl_zigbee_af_cluster_t*)&(generatedClusters[0])), 19, 35 }, \
-	 } 
+  { ((sl_zigbee_af_cluster_t*)&(generatedClusters[0])), 20, 37 }, \
+	 }
 // Largest attribute size is needed for various buffers
 #define ZCL_ATTRIBUTE_LARGEST (4)
 
@@ -96,7 +99,7 @@
 // Total size of attribute storage
 #define ZCL_ATTRIBUTE_MAX_SIZE (35)
 
-// Number of fixed endpoints	
+// Number of fixed endpoints
 #define ZCL_FIXED_ENDPOINT_COUNT (1)
 
 // Array of endpoints that are supported, the data inside the array is the
@@ -133,20 +136,20 @@
 
 
 // This is an array of sl_zigbee_af_manufacturer_code_entry_t structures for clusters.
-#define ZCL_GENERATED_CLUSTER_MANUFACTURER_CODE_COUNT (0)
+#define ZCL_GENERATED_CLUSTER_MANUFACTURER_CODE_COUNT (1)
 #define ZCL_GENERATED_CLUSTER_MANUFACTURER_CODES { \
-  { 0x00, 0x00 }  \
-																			 } 
+  { 19, MAN_DMF}  \
+																			 }
 // This is an array of sl_zigbee_af_manufacturer_code_entry_t structures for attributes.
 #define ZCL_GENERATED_ATTRIBUTE_MANUFACTURER_CODE_COUNT (0)
 #define ZCL_GENERATED_ATTRIBUTE_MANUFACTURER_CODES { \
   { 0x00, 0x00 } \
-																									 } 
+																									 }
 // Array of sl_zigbee_af_plugin_reporting_entry_t structures.
 #define SL_ZIGBEE_ZCL_GENERATED_REPORTING_CONFIG_DEFAULTS_TABLE_SIZE (1)
 #define SL_ZIGBEE_ZCL_GENERATED_REPORTING_CONFIG_DEFAULTS { \
   { SL_ZIGBEE_ZCL_REPORTING_DIRECTION_REPORTED, 0x0001, 0x0006, 0x0000, CLUSTER_MASK_SERVER, 0x0000, 1, 65534, 0 }, /* Endpoint Id: 1, Cluster: On/off, Attribute: on/off */ \
-	 } 
+	 }
 
 #define SL_ZIGBEE_ZCL_MANUFACTURER_CODE 0x1049
 #define SL_ZIGBEE_AF_DEFAULT_RESPONSE_POLICY_CONDITIONAL

@@ -184,6 +184,14 @@ size_t zigpc_zcl_get_number_supported_clusters();
  */
 const uint16_t* zigpc_zcl_get_supported_cluster_list();
 
+/**
+ * @brief zigpc_zcl_get_supported_cluster_manufacturer_codes
+ *
+ * @return a const pointer to the static list of manufacturer codes for each
+ * supported cluster (aligned with zigpc_zcl_get_supported_cluster_list)
+ */
+const uint16_t* zigpc_zcl_get_supported_cluster_manufacturer_codes();
+
 #ifdef __cplusplus
 }
 #endif
