@@ -99,7 +99,7 @@ void zigpc_attrmgmt_send_delayed_read_command(const zigbee_eui64_t eui64,
 {
   if (nullptr != eui64 ) {
     // NOTE: will be freed in zigpc_attrmgmt_send_delayed_read_command_callback
-    zigpc_attr_mgmt_read_data_t *read_data = new zigpc_attr_mgmt_read_data_t;
+    zigpc_attr_mgmt_read_data_t *read_data = new zigpc_attr_mgmt_read_data_t {};
 
     std::memcpy(read_data->eui64, eui64, ZIGBEE_EUI64_SIZE);
     read_data->endpoint_id = endpoint_id;
