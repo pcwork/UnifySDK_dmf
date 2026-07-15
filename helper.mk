@@ -13,6 +13,11 @@ project?=unifysdk
 
 # mirror for debootstrap
 mirror_url?=https://mirrors.tuna.tsinghua.edu.cn/debian
+debootstrap_keyring_dir?=/tmp/${project}-debootstrap-keyrings
+debootstrap_keyring?=${debootstrap_keyring_dir}/${debian_codename}.gpg
+
+supported_debootstrap_keyring_codenames:=bullseye bookworm trixie
+debootstrap_keyring_option=$(if $(filter ${debian_codename},${supported_debootstrap_keyring_codenames}),--keyring="${debootstrap_keyring}",)
 
 # GitHub download proxy
 GITHUB_PROXY?=https://ghproxy.net/
@@ -460,7 +465,13 @@ rootfs_shell?=${sudo} systemd-nspawn  \
 		--directory="${rootfs_dir}"
 ${rootfs_dir}:
 	@mkdir -pv ${@D}
-	time ${sudo} debootstrap --include="systemd,dbus" "${debian_codename}" "${rootfs_dir}" "${mirror_url}"
+	@if [ -n '${debootstrap_keyring_option}' ]; then \
+		mkdir -pv '${debootstrap_keyring_dir}'; \
+		python3 '${CURDIR}/scripts/debootstrap_keyring.py' \
+			--codename '${debian_codename}' \
+			--output '${debootstrap_keyring}'; \
+	fi
+	time ${sudo} debootstrap ${debootstrap_keyring_option} --include="systemd,dbus" "${debian_codename}" "${rootfs_dir}" "${mirror_url}"
 	@${sudo} chmod -v u+rX "${rootfs_dir}"
 
 clean/rootfs:
