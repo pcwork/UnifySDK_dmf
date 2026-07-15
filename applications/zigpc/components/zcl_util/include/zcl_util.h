@@ -24,6 +24,9 @@
 #ifndef ZIGPC_ZCL_UTIL_H
 #define ZIGPC_ZCL_UTIL_H
 
+#include <stdbool.h>
+#include <stddef.h>
+
 #include "zigpc_common_zigbee.h"
 
 #include "zcl_definitions.h"
@@ -50,12 +53,16 @@ typedef enum {
 /**
  * @brief Structure used to pass data for ZCL frame build helpers.
  *
- * NOTE: The size of the data is inferred from the type set.
+ * NOTE: The size of the data is inferred from the type set unless
+ * data_size_is_set is true, in which case data_size is used for string/octet
+ * payloads.
  * NOTE: The data passed in should not cross any contiki process contexts.
  */
 typedef struct {
   zigpc_zcl_data_type_t type;
   const void *data;
+  size_t data_size;
+  bool data_size_is_set;
 } zigpc_zcl_frame_data_t;
 
 /**

@@ -270,6 +270,38 @@ void test_zcl_build_command_frame_empty_string_arg(void)
   TEST_ASSERT_EQUAL_HEX8(0U, frame.buffer[3]);
 }
 
+void test_zcl_build_command_frame_octstr_arg_with_explicit_binary_size(void)
+{
+  // ARRANGE
+  sl_status_t status = SL_STATUS_FAIL;
+  zcl_frame_t frame = {0};
+  zcl_cluster_id_t cluster_id = 0xFC42;
+  zcl_command_id_t command_id = 0x01;
+  size_t arg_count            = 1;
+  uint8_t arg1_data[]         = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06};
+
+  zigpc_zcl_frame_data_t arg_list[] = {
+    {.type             = ZIGPC_ZCL_DATA_TYPE_OCTSTR,
+     .data             = arg1_data,
+     .data_size        = sizeof(arg1_data),
+     .data_size_is_set = true},
+  };
+
+  // ACT
+  status = zigpc_zcl_build_command_frame(&frame,
+                                         ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER,
+                                         cluster_id,
+                                         command_id,
+                                         arg_count,
+                                         arg_list);
+
+  // ASSERT
+  TEST_ASSERT_EQUAL_HEX8(SL_STATUS_OK, status);
+  TEST_ASSERT_EQUAL(11U, frame.size);
+  TEST_ASSERT_EQUAL_HEX8(sizeof(arg1_data), frame.buffer[3]);
+  TEST_ASSERT_EQUAL_MEMORY(arg1_data, &frame.buffer[4], sizeof(arg1_data));
+}
+
 void test_zcl_build_command_frame_arg_overflow(void)
 {
   // ARRANGE

@@ -35,6 +35,16 @@ void zigpc_command_mapper_bygroup_identify_write_attributes_handler(
 void zigpc_command_mapper_bygroup_dmf_bridge_config_trigger_rdm_discovery_handler(
   const dotdot_group_id_t group_id);
 
+void zigpc_command_mapper_bygroup_dmf_bridge_config_identify_fixture_handler(
+  const dotdot_group_id_t group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_identify_fixture_fields_t
+    *fields);
+
+void zigpc_command_mapper_bygroup_dmf_bridge_config_generic_write_record_handler(
+  const dotdot_group_id_t group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_write_record_fields_t
+    *fields);
+
 extern "C" {
 
 // Unify includes
@@ -93,9 +103,22 @@ sl_status_t
           2);
         break;
       case ZIGPC_ZCL_DATA_TYPE_OCTSTR:
-        TEST_ASSERT_EQUAL_STRING(
-          stub_frame_builder_data.command_arg_list[i].data,
-          command_arg_list[i].data);
+        if (stub_frame_builder_data.command_arg_list[i].data_size_is_set
+            || command_arg_list[i].data_size_is_set) {
+          TEST_ASSERT_TRUE(stub_frame_builder_data.command_arg_list[i].data_size_is_set);
+          TEST_ASSERT_TRUE(command_arg_list[i].data_size_is_set);
+          TEST_ASSERT_EQUAL(
+            stub_frame_builder_data.command_arg_list[i].data_size,
+            command_arg_list[i].data_size);
+          TEST_ASSERT_EQUAL_MEMORY(
+            stub_frame_builder_data.command_arg_list[i].data,
+            command_arg_list[i].data,
+            command_arg_list[i].data_size);
+        } else {
+          TEST_ASSERT_EQUAL_STRING(
+            stub_frame_builder_data.command_arg_list[i].data,
+            command_arg_list[i].data);
+        }
         break;
       default:
         TEST_ASSERT_EQUAL_HEX8_MESSAGE(0,
@@ -277,6 +300,74 @@ void test_bygroup_dmf_bridge_config_command_without_arguments(void)
     group_id);
 
   // ASSERT
+}
+
+void test_bygroup_dmf_bridge_config_identify_fixture_handler_should_hex_decode_uid(
+  void)
+{
+  dotdot_group_id_t group_id = 3;
+  uint8_t uid_bytes[]        = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06};
+  uint8_t identify_on        = 1;
+  uic_mqtt_dotdot_dmf_bridge_config_command_identify_fixture_fields_t fields
+    = {.uid = "00010203040506", .identify_on = identify_on};
+  zigpc_zcl_frame_data_t cmd_arg_list[2]
+    = {{.type             = ZIGPC_ZCL_DATA_TYPE_OCTSTR,
+        .data             = uid_bytes,
+        .data_size        = sizeof(uid_bytes),
+        .data_size_is_set = true},
+       {.type = ZIGPC_ZCL_DATA_TYPE_UINT8, .data = &identify_on}};
+
+  // ARRANGE
+  zigpc_groupmgmt_get_member_count_ExpectAndReturn(group_id, 1);
+  stub_frame_builder_data.frame_type = ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER;
+  stub_frame_builder_data.cluster_id = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG;
+  stub_frame_builder_data.command_id
+    = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_IDENTIFY_FIXTURE;
+  stub_frame_builder_data.command_arg_count = 2;
+  stub_frame_builder_data.command_arg_list  = cmd_arg_list;
+  zigpc_zcl_build_command_frame_StubWithCallback(stub_frame_builder_cb);
+  zigpc_gateway_send_zcl_frame_multicast_IgnoreAndReturn(SL_STATUS_OK);
+
+  // ACT
+  zigpc_command_mapper_bygroup_dmf_bridge_config_identify_fixture_handler(
+    group_id,
+    &fields);
+}
+
+void test_bygroup_dmf_bridge_config_generic_write_record_handler_should_hex_decode_record_payload(
+  void)
+{
+  dotdot_group_id_t group_id = 3;
+  uint16_t table_id          = 0x2211;
+  uint8_t record_index       = 0x04;
+  uint8_t payload_bytes[]    = {0xCA, 0xFE, 0x00, 0xBE};
+  uic_mqtt_dotdot_dmf_bridge_config_command_generic_write_record_fields_t fields
+    = {.tableid = table_id,
+       .record_index = record_index,
+       .record_payload = "CAFE00BE"};
+  zigpc_zcl_frame_data_t cmd_arg_list[3]
+    = {{.type = ZIGPC_ZCL_DATA_TYPE_UINT16, .data = &table_id},
+       {.type = ZIGPC_ZCL_DATA_TYPE_UINT8, .data = &record_index},
+       {.type             = ZIGPC_ZCL_DATA_TYPE_OCTSTR,
+        .data             = payload_bytes,
+        .data_size        = sizeof(payload_bytes),
+        .data_size_is_set = true}};
+
+  // ARRANGE
+  zigpc_groupmgmt_get_member_count_ExpectAndReturn(group_id, 1);
+  stub_frame_builder_data.frame_type = ZIGPC_ZCL_FRAME_TYPE_CMD_TO_SERVER;
+  stub_frame_builder_data.cluster_id = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG;
+  stub_frame_builder_data.command_id
+    = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_WRITE_RECORD;
+  stub_frame_builder_data.command_arg_count = 3;
+  stub_frame_builder_data.command_arg_list  = cmd_arg_list;
+  zigpc_zcl_build_command_frame_StubWithCallback(stub_frame_builder_cb);
+  zigpc_gateway_send_zcl_frame_multicast_IgnoreAndReturn(SL_STATUS_OK);
+
+  // ACT
+  zigpc_command_mapper_bygroup_dmf_bridge_config_generic_write_record_handler(
+    group_id,
+    &fields);
 }
 
 }  // extern "C"

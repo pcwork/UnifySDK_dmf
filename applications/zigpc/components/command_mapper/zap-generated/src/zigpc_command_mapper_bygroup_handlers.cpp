@@ -31,6 +31,7 @@
 #include <zigpc_gateway.h>
 #include <zigpc_common_zigbee.h>
 #include <zcl_definitions.h>
+#include "zigpc_command_mapper_hex_utils.hpp"
 
 // Internal includes
 #include "zigpc_command_mapper_int.h"
@@ -5651,8 +5652,21 @@ void zigpc_command_mapper_bygroup_dmf_bridge_config_identify_fixture_handler(
     return;
   }
 
+  std::vector<uint8_t> uid_bytes;
+  sl_status_t decode_status = zigpc_command_mapper_hex_string_to_bytes(
+    fields->uid,
+    uid_bytes);
+  if (decode_status != SL_STATUS_OK) {
+    sl_log_warning(LOG_TAG,
+                   "DMFBridgeConfig::IdentifyFixture: Invalid hex UID");
+    return;
+  }
+
   std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
-  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_OCTSTR, fields->uid });
+  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_OCTSTR,
+                           uid_bytes.data(),
+                           uid_bytes.size(),
+                           true });
   cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_UINT8, &fields->identify_on });
 
   zigpc_command_mapper_send_multicast(
@@ -5766,10 +5780,23 @@ void zigpc_command_mapper_bygroup_dmf_bridge_config_generic_write_record_handler
     return;
   }
 
+  std::vector<uint8_t> record_payload_bytes;
+  sl_status_t decode_status = zigpc_command_mapper_hex_string_to_bytes(
+    fields->record_payload,
+    record_payload_bytes);
+  if (decode_status != SL_STATUS_OK) {
+    sl_log_warning(LOG_TAG,
+                   "DMFBridgeConfig::GenericWriteRecord: Invalid hex RecordPayload");
+    return;
+  }
+
   std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
   cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_UINT16, &fields->tableid });
   cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_UINT8, &fields->record_index });
-  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_OCTSTR, fields->record_payload });
+  cmd_arg_list.push_back({ ZIGPC_ZCL_DATA_TYPE_OCTSTR,
+                           record_payload_bytes.data(),
+                           record_payload_bytes.size(),
+                           true });
 
   zigpc_command_mapper_send_multicast(
     group_id,

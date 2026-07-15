@@ -34,6 +34,7 @@
 #include "zigpc_common_zigbee.h"
 #include "zcl_util.h"
 #include "zcl_definitions.h"
+#include "zigpc_command_mapper_hex_utils.hpp"
 
 // Internal includes
 #include "zigpc_command_mapper_int.h"
@@ -11869,8 +11870,15 @@ sl_status_t zigpc_command_mapper_dmf_bridge_config_identify_fixture_handler(
     return temp_status;
   }
 
+  std::vector<uint8_t> uid_bytes;
+  temp_status = zigpc_command_mapper_hex_string_to_bytes(uid, uid_bytes);
+  if (temp_status != SL_STATUS_OK) {
+    return temp_status;
+  }
+
   std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
-  cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_OCTSTR, uid});
+  cmd_arg_list.push_back(
+    {ZIGPC_ZCL_DATA_TYPE_OCTSTR, uid_bytes.data(), uid_bytes.size(), true});
   cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_UINT8, &identify_on});
 
   zigpc_command_mapper_send_unicast(
@@ -12016,10 +12024,20 @@ sl_status_t zigpc_command_mapper_dmf_bridge_config_generic_write_record_handler(
     return temp_status;
   }
 
+  std::vector<uint8_t> record_payload_bytes;
+  temp_status = zigpc_command_mapper_hex_string_to_bytes(record_payload,
+                                                         record_payload_bytes);
+  if (temp_status != SL_STATUS_OK) {
+    return temp_status;
+  }
+
   std::vector<zigpc_zcl_frame_data_t> cmd_arg_list;
   cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_UINT16, &tableid});
   cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_UINT8, &record_index});
-  cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_OCTSTR, record_payload});
+  cmd_arg_list.push_back({ZIGPC_ZCL_DATA_TYPE_OCTSTR,
+                          record_payload_bytes.data(),
+                          record_payload_bytes.size(),
+                          true});
 
   zigpc_command_mapper_send_unicast(
     unid,

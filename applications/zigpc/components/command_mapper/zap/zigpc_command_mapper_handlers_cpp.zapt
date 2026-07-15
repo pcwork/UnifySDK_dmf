@@ -35,6 +35,7 @@
 #include "zigpc_common_zigbee.h"
 #include "zcl_util.h"
 #include "zcl_definitions.h"
+#include "zigpc_command_mapper_hex_utils.hpp"
 
 // Internal includes
 #include "zigpc_command_mapper_int.h"
@@ -311,7 +312,21 @@ sl_status_t {{component_zigpc_cmdmapper_prefix}}_{{asSnakeCaseLower parent.label
 {{/first}}
 {{! populate string types}}
 {{#if (isString type)}}
+  {{#if (isEqual parent.parent.label "DMFBridgeConfig")}}
+  std::vector<uint8_t> {{asSnakeCaseLower label}}_bytes;
+  temp_status = zigpc_command_mapper_hex_string_to_bytes(
+    {{asSnakeCaseLower label}},
+    {{asSnakeCaseLower label}}_bytes);
+  if (temp_status != SL_STATUS_OK) {
+    return temp_status;
+  }
+  cmd_arg_list.push_back({ {{asZigPCZclDataType (zcl_type_map_get_item type)}},
+                           {{asSnakeCaseLower label}}_bytes.data(),
+                           {{asSnakeCaseLower label}}_bytes.size(),
+                           true });
+  {{else}}
   cmd_arg_list.push_back({ {{asZigPCZclDataType (zcl_type_map_get_item type)}}, {{asSnakeCaseLower label}} });
+  {{/if}}
 {{! populate struct types}}
 {{else if (supportedStruct type)}}
   {{#if isArray}}

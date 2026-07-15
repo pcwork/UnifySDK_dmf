@@ -24,6 +24,7 @@
 #include "zigpc_common_zigbee.h"
 #include "zigpc_ucl.hpp"
 #include "zcl_command_parser.h"
+#include "zigpc_command_mapper_hex_utils.hpp"
 
 // Component includes
 #include "zigpc_command_mapper_int.h"
@@ -923,8 +924,9 @@ static void zigpc_command_mapper_publish_dmf_bridge_config_generic_report_record
   const zigpc_zclcmdparse_callback_data_t *data
 ) {
   std::string unid(zigpc_ucl::mqtt::build_unid(zigbee_eui64_to_uint(eui64)));
-  std::string record_payload_value(
-    data->dmf_bridge_config_generic_report_record.record_payload,
+  std::string record_payload_value = zigpc_command_mapper_bytes_to_hex_string(
+    reinterpret_cast<const uint8_t *>(
+      data->dmf_bridge_config_generic_report_record.record_payload),
     data->dmf_bridge_config_generic_report_record.record_payload_length);
 
   uic_mqtt_dotdot_dmf_bridge_config_command_generic_report_record_fields_t
@@ -948,8 +950,10 @@ static void zigpc_command_mapper_publish_dmf_bridge_config_raw_fixture_notificat
   const zigpc_zclcmdparse_callback_data_t *data
 ) {
   std::string unid(zigpc_ucl::mqtt::build_unid(zigbee_eui64_to_uint(eui64)));
-  std::string uid_value(data->dmf_bridge_config_raw_fixture_notification.uid,
-                        data->dmf_bridge_config_raw_fixture_notification.uid_length);
+  std::string uid_value = zigpc_command_mapper_bytes_to_hex_string(
+    reinterpret_cast<const uint8_t *>(
+      data->dmf_bridge_config_raw_fixture_notification.uid),
+    data->dmf_bridge_config_raw_fixture_notification.uid_length);
 
   uic_mqtt_dotdot_dmf_bridge_config_command_raw_fixture_notification_fields_t
     fields = {

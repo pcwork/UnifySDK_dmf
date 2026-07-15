@@ -40,6 +40,11 @@ static std::unordered_map<std::pair<zcl_cluster_id_t, zcl_command_id_t>,
                           zigpc_zclcmdparse_callback_t,
                           cmdparser_callback_hash>
   cmdparser_callbacks;
+static std::string captured_generic_report_record_payload;
+static uint16_t captured_generic_report_record_tableid;
+static uint8_t captured_generic_report_record_record_index;
+static uint16_t captured_generic_report_record_total_records;
+static zigbee_endpoint_id_t captured_generic_report_record_endpoint;
 static std::string captured_raw_fixture_notification_uid;
 static uint16_t captured_raw_fixture_notification_modelid;
 static zigbee_endpoint_id_t captured_raw_fixture_notification_endpoint;
@@ -78,6 +83,20 @@ void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_raw_fixture_notificatio
   captured_raw_fixture_notification_modelid  = fields->modelid;
 }
 
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_generic_report_record_command_handler(
+  const dotdot_unid_t,
+  const dotdot_endpoint_id_t endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_report_record_fields_t
+    *fields,
+  int)
+{
+  captured_generic_report_record_endpoint     = endpoint;
+  captured_generic_report_record_tableid      = fields->tableid;
+  captured_generic_report_record_record_index = fields->record_index;
+  captured_generic_report_record_total_records = fields->total_records;
+  captured_generic_report_record_payload      = fields->record_payload;
+}
+
 /**
  * @brief Setup the test suite (called once before all test_xxx functions are called)
  *
@@ -106,6 +125,11 @@ void setUp(void)
     zigpc_zclcmdparse_register_callback_handler);
   zigpc_zclcmdparse_remove_callback_Stub(
     zigpc_zclcmdparse_remove_callback_handler);
+  captured_generic_report_record_payload.clear();
+  captured_generic_report_record_tableid       = 0;
+  captured_generic_report_record_record_index  = 0;
+  captured_generic_report_record_total_records = 0;
+  captured_generic_report_record_endpoint      = 0;
   captured_raw_fixture_notification_uid.clear();
   captured_raw_fixture_notification_modelid  = 0;
   captured_raw_fixture_notification_endpoint = 0;
@@ -200,45 +224,49 @@ void test_zigpc_command_mapper_publish_get_group_membership_response_sanity(
   // ASSERT (Handled by CMock)
 }
 
-void test_zigpc_command_mapper_publish_dmf_bridge_config_generic_report_record_sanity(
+void test_zigpc_command_mapper_publish_dmf_bridge_config_generic_report_record_uses_hex_payload(
   void)
 {
   zigbee_eui64_t eui64    = {0xD, 0x01, 0x77, 0x09, 0xD3, 0x8A, 0xD, 0xFF};
   zigbee_endpoint_id_t ep = 7;
-  char record_payload[]   = "fixture-payload";
+  uint8_t record_payload[] = {0xCA, 0xFE, 0x00, 0xBE, 0x58, 0x00};
   zigpc_zclcmdparse_callback_data_t cb_data = {
     .dmf_bridge_config_generic_report_record = {
       .tableid               = 0x2211,
       .record_index          = 0x04,
       .total_records         = 0x1020,
-      .record_payload_length = sizeof(record_payload) - 1,
-      .record_payload        = record_payload,
+      .record_payload_length = 4,
+      .record_payload        = reinterpret_cast<const char *>(record_payload),
     },
   };
 
-  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_report_record_fields_t
-    dotdot_fields = {
-      cb_data.dmf_bridge_config_generic_report_record.tableid,
-      cb_data.dmf_bridge_config_generic_report_record.record_index,
-      cb_data.dmf_bridge_config_generic_report_record.total_records,
-      cb_data.dmf_bridge_config_generic_report_record.record_payload,
-    };
-
   // ARRANGE
-  uic_mqtt_dotdot_dmf_bridge_config_publish_generated_generic_report_record_command_Expect(
-    nullptr,
-    ep,
-    &dotdot_fields);
-  uic_mqtt_dotdot_dmf_bridge_config_publish_generated_generic_report_record_command_IgnoreArg_unid();
+  sl_status_t status = zigpc_command_mapper_setup_gen_cmd_publish_listeners();
+  TEST_ASSERT_EQUAL_HEX(SL_STATUS_OK, status);
+  uic_mqtt_dotdot_dmf_bridge_config_publish_generated_generic_report_record_command_Stub(
+    uic_mqtt_dotdot_dmf_bridge_config_publish_generated_generic_report_record_command_handler);
 
   // ACT
   auto generic_report_record_cb = cmdparser_callbacks.find(
     {ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_REPORT_RECORD});
 
+  TEST_ASSERT_TRUE(generic_report_record_cb != cmdparser_callbacks.end());
   generic_report_record_cb->second(eui64, ep, &cb_data);
 
-  // ASSERT (Handled by CMock)
+  // ASSERT
+  TEST_ASSERT_EQUAL(ep, captured_generic_report_record_endpoint);
+  TEST_ASSERT_EQUAL_HEX16(
+    cb_data.dmf_bridge_config_generic_report_record.tableid,
+    captured_generic_report_record_tableid);
+  TEST_ASSERT_EQUAL_HEX8(
+    cb_data.dmf_bridge_config_generic_report_record.record_index,
+    captured_generic_report_record_record_index);
+  TEST_ASSERT_EQUAL_HEX16(
+    cb_data.dmf_bridge_config_generic_report_record.total_records,
+    captured_generic_report_record_total_records);
+  TEST_ASSERT_EQUAL_STRING("CAFE00BE",
+                           captured_generic_report_record_payload.c_str());
 }
 
 void test_zigpc_command_mapper_publish_dmf_bridge_config_raw_fixture_notification_uses_uid_length(
@@ -274,7 +302,7 @@ void test_zigpc_command_mapper_publish_dmf_bridge_config_raw_fixture_notificatio
   TEST_ASSERT_EQUAL_HEX16(
     cb_data.dmf_bridge_config_raw_fixture_notification.modelid,
     captured_raw_fixture_notification_modelid);
-  TEST_ASSERT_EQUAL_STRING("ABCDEF",
+  TEST_ASSERT_EQUAL_STRING("414243444546",
                            captured_raw_fixture_notification_uid.c_str());
 }
 

@@ -9,6 +9,7 @@ find_path(nlohmann_json_include nlohmann/json.hpp REQUIRED)
 add_library(
   zigpc_command_mapper
   src/zigpc_command_mapper.c
+  src/zigpc_command_mapper_hex_utils.cpp
   ${ZAP_CURRENT_OUTPUT_DIR}/src/zigpc_command_mapper_handlers.cpp
   ${ZAP_CURRENT_OUTPUT_DIR}/src/zigpc_command_mapper_bygroup_handlers.cpp
   ${ZAP_CURRENT_OUTPUT_DIR}/src/zigpc_cmdmapper_gen_cmd_publish.cpp)

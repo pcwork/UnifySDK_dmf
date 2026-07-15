@@ -24,6 +24,7 @@
 #include "zigpc_common_zigbee.h"
 #include "zigpc_ucl.hpp"
 #include "zcl_command_parser.h"
+#include "zigpc_command_mapper_hex_utils.hpp"
 
 // Component includes
 #include "zigpc_command_mapper_int.h"
@@ -43,9 +44,17 @@ static void {{component_zigpc_cmdmapper_prefix}}_publish_{{asSnakeCaseLower pare
 
 {{#zcl_command_arguments}}
 {{#if (isString type)}}
+  {{#if (isEqual parent.parent.label "DMFBridgeConfig")}}
+  std::string {{asSnakeCaseLower label}}_value(
+    zigpc_command_mapper_bytes_to_hex_string(
+      reinterpret_cast<const uint8_t *>(
+        data->{{asSnakeCaseLower parent.parent.label}}_{{asSnakeCaseLower parent.label}}.{{asSnakeCaseLower label}}),
+      data->{{asSnakeCaseLower parent.parent.label}}_{{asSnakeCaseLower parent.label}}.{{asSnakeCaseLower label}}_length));
+  {{else}}
   std::string {{asSnakeCaseLower label}}_value(
     data->{{asSnakeCaseLower parent.parent.label}}_{{asSnakeCaseLower parent.label}}.{{asSnakeCaseLower label}},
     data->{{asSnakeCaseLower parent.parent.label}}_{{asSnakeCaseLower parent.label}}.{{asSnakeCaseLower label}}_length);
+  {{/if}}
 
 {{/if}}
 {{/zcl_command_arguments}}

@@ -200,6 +200,50 @@ sl_status_t zigpc_zcl_add_command_frame_arg(zcl_frame_t *const frame,
   return status;
 }
 
+static sl_status_t zigpc_zcl_add_command_frame_arg_with_size(
+  zcl_frame_t *const frame,
+  zigpc_zcl_data_type_t arg_type,
+  const void *arg_data,
+  size_t arg_size,
+  bool arg_size_is_set)
+{
+  if (((arg_type != ZIGPC_ZCL_DATA_TYPE_STRING)
+       && (arg_type != ZIGPC_ZCL_DATA_TYPE_OCTSTR))
+      || (arg_size_is_set == false)) {
+    return zigpc_zcl_add_command_frame_arg(frame, arg_type, arg_data);
+  }
+
+  sl_status_t status = SL_STATUS_OK;
+  if (frame == nullptr) {
+    return SL_STATUS_NULL_POINTER;
+  }
+
+  if ((arg_size > 0U) && (arg_data == nullptr)) {
+    return SL_STATUS_NULL_POINTER;
+  }
+
+  if (arg_size >= 0xFFU) {
+    sl_log_error(LOG_TAG,
+                 "Invalid oct/str command argument size: 0x%X",
+                 SL_STATUS_INVALID_SIGNATURE);
+    return SL_STATUS_INVALID_SIGNATURE;
+  }
+
+  uint8_t arg_str_len = static_cast<uint8_t>(arg_size & 0xFFU);
+  status              = zigpc_zcl_frame_fill_data(frame,
+                                     ZIGPC_ZCL_DATA_TYPE_UINT8,
+                                     &arg_str_len);
+
+  if ((status == SL_STATUS_OK) && (arg_str_len > 0U)) {
+    status = zigpc_zcl_frame_fill_data_array(frame,
+                                             arg_type,
+                                             arg_str_len,
+                                             arg_data);
+  }
+
+  return status;
+}
+
 sl_status_t zigpc_zcl_build_command_frame(
   zcl_frame_t *const frame,
   const zigpc_zcl_frame_type_t frame_type,
@@ -227,8 +271,14 @@ sl_status_t zigpc_zcl_build_command_frame(
        cmd_i++) {
     zigpc_zcl_data_type_t arg_type = command_arg_list[cmd_i].type;
     const void *arg_data           = command_arg_list[cmd_i].data;
+    size_t arg_size                = command_arg_list[cmd_i].data_size;
+    bool arg_size_is_set           = command_arg_list[cmd_i].data_size_is_set;
 
-    status = zigpc_zcl_add_command_frame_arg(frame, arg_type, arg_data);
+    status = zigpc_zcl_add_command_frame_arg_with_size(frame,
+                                                       arg_type,
+                                                       arg_data,
+                                                       arg_size,
+                                                       arg_size_is_set);
 
     if (status != SL_STATUS_OK) {
       sl_log_error(LOG_TAG,
