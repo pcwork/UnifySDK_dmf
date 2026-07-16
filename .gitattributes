@@ -114,3 +114,9 @@ go.sum     text eol=lf
 *.so       binary
 *.a        binary
 *.o        binary
+
+
+**/*.png  -filter -diff -merge -text
+**/*.PNG  -filter -diff -merge -text
+**/*.svg  -filter -diff -merge -text
+**/*.jpg  -filter -diff -merge -text
