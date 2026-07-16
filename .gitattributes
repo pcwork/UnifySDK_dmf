@@ -1,16 +1,116 @@
+###############################################################################
+# Global line-ending policy
+###############################################################################
+# 强制所有文本文件使用 LF（跨平台最安全）
+* text=auto eol=lf
+
+###############################################################################
+# Source code (always LF)
+###############################################################################
+*.c        text eol=lf
+*.h        text eol=lf
+*.cpp      text eol=lf
+*.hpp      text eol=lf
+*.cc       text eol=lf
+*.hh       text eol=lf
+
+*.go       text eol=lf
+*.rs       text eol=lf
+*.py       text eol=lf
+*.js       text eol=lf
+*.ts       text eol=lf
+*.jsx      text eol=lf
+*.tsx      text eol=lf
+
+*.json     text eol=lf
+*.yml      text eol=lf
+*.yaml     text eol=lf
+*.toml     text eol=lf
+*.ini      text eol=lf
+*.cfg      text eol=lf
+
+*.sh       text eol=lf
+*.bash     text eol=lf
+*.zsh      text eol=lf
+
+*.cmake    text eol=lf
+CMakeLists.txt text eol=lf
+
+###############################################################################
+# Node-RED flows (JSON but must stay LF)
+###############################################################################
+flows.json text eol=lf
+
+###############################################################################
+# Makefile / Ninja / Build scripts
+###############################################################################
+Makefile   text eol=lf
+*.mk       text eol=lf
+*.ninja    text eol=lf
+
+###############################################################################
+# Markdown / Documentation
+###############################################################################
+*.md       text eol=lf
+*.txt      text eol=lf
+
+###############################################################################
+# Binary files (never convert line endings)
+###############################################################################
+*.bin      binary
+*.hex      binary
+*.elf      binary
+*.out      binary
+*.img      binary
+*.fw       binary
+*.ncp      binary
+
+# MG24 / MG21 firmware blobs
+*.gbl      binary
+*.s37      binary
+
+# DMX512 / RDM binary payloads
+*.dmx      binary
+*.rdm      binary
+
+###############################################################################
+# Git LFS (large binary files)
+###############################################################################
+*.zip      filter=lfs diff=lfs merge=lfs -text
+*.dmg      filter=lfs diff=lfs merge=lfs -text
+*.tar      filter=lfs diff=lfs merge=lfs -text
+*.gz       filter=lfs diff=lfs merge=lfs -text
+*.7z       filter=lfs diff=lfs merge=lfs -text
+
+# Images
+*.png      filter=lfs diff=lfs merge=lfs -text
+*.PNG      filter=lfs diff=lfs merge=lfs -text
+*.jpg      filter=lfs diff=lfs merge=lfs -text
+*.jpeg     filter=lfs diff=lfs merge=lfs -text
+*.gif      filter=lfs diff=lfs merge=lfs -text
+*.svg      filter=lfs diff=lfs merge=lfs -text
+
+###############################################################################
+# Specific LFS files you listed
+###############################################################################
 "zap-2022.1.10.dmg" filter=lfs diff=lfs merge=lfs -text
 "slc_cli_mac.zip" filter=lfs diff=lfs merge=lfs -text
 "zap_apack_mac.zip" filter=lfs diff=lfs merge=lfs -text
 "slc_cli_linux.zip" filter=lfs diff=lfs merge=lfs -text
 "zap_apack_linux.zip" filter=lfs diff=lfs merge=lfs -text
-*.zip filter=lfs diff=lfs merge=lfs -text
-*.sh text eol=lf
-*.py text eol=lf
-* text eol=lf
-Dockerfile text eol=lf
-**/Dockerfile text eol=lf
-* text eol=lf
-*.png binary
-*.jpg binary
-*.jpeg binary
-*.gif binary
+
+###############################################################################
+# Go modules (ensure LF)
+###############################################################################
+go.mod     text eol=lf
+go.sum     text eol=lf
+
+###############################################################################
+# Misc
+###############################################################################
+*.pdf      binary
+*.exe      binary
+*.dll      binary
+*.so       binary
+*.a        binary
+*.o        binary
