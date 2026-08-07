@@ -20,7 +20,10 @@ supported_debootstrap_keyring_codenames:=bullseye bookworm trixie
 debootstrap_keyring_option=$(if $(filter ${debian_codename},${supported_debootstrap_keyring_codenames}),--keyring="${debootstrap_keyring}",)
 
 # GitHub download proxy
-GITHUB_PROXY?=https://ghproxy.net/
+HTTP_PROXY?=http://192.168.1.10:20000
+GITHUB_PROXY?= #https://ghproxy.net/
+CURL_PROXY?=-x ${HTTP_PROXY}
+WGET_PROXY?=-e use_proxy=yes -e https_proxy=${HTTP_PROXY}
 
 # Allow overloading from env if needed
 # VERBOSE?=1
@@ -70,7 +73,7 @@ packages+=time
 
 # Extra for components, make it optional
 packages+=python3-jinja2
-packages+=yarnpkg
+packages+=yarn
 
 rust_url?=https://sh.rustup.rs
 # Rust toolchain version to install (docker/Dockerfile L60: ENV RUST_VERSION)
@@ -233,6 +236,7 @@ setup/rust:
 	rustc --version
 	cargo --version
 	rustc --print target-list
+	rustup set profile minimal
 	rustup default stable
     # Add cross target
 ifeq ($(target_arch),arm64)
@@ -250,8 +254,14 @@ endif
 setup/python:
 	python3 --version
 	@echo "$@: TODO: https://bugs.debian.org/1094297"
+	mkdir -p ~/.pip
+	@echo "[global]" > ~/.pip/pip.conf
+ 	@echo "index-url = https://pypi.tuna.tsinghua.edu.cn/simple" >> ~/.pip/pip.conf
+
+	# Allow pip to install packages in Debian's externally-managed environment
+	export PIP_BREAK_SYSTEM_PACKAGES=1
 	pip3 --version || echo "warning: Please install pip"
-	pip3 install --upgrade pip
+	pip3 install --upgrade pip --break-system-packages
 	# Code coverage and code review tools (refer to docker/Dockerfile L40-42)
 	pip3 install gcovr==5.0 diff-cover==9.1.0
 	# Template engine and its dependencies
@@ -268,31 +278,35 @@ cmake_sha256?=d460a33c42f248388a8f2249659ad2f5eab6854bebaf4f57c1df49ded404e593
 # _cmake: Download and install CMake 3.21.6 to /usr/local (runs wherever invoked — host or container)
 # Only needed for bullseye (debian-11); bookworm (debian-12) ships a modern CMake.
 _cmake:
-	@echo "$@: TODO: remove for debian-12+"
-	curl -L ${cmake_url} -o /tmp/${cmake_filename}
-	sha256sum  /tmp/${cmake_filename} \
-		| grep "${cmake_sha256}"
-	${SHELL} "/tmp/${cmake_filename}" \
-		--prefix=/usr/local \
-		--skip-license
-	rm -v "/tmp/${cmake_filename}"
-	cmake --version
+	@if [ -r /etc/debian_version ] && [ "$$(cat /etc/debian_version | cut -d. -f1)" -ge 12 ]; then \
+		echo "$@: Debian 12+ detected, skipping CMake 3.21.6 downgrade (system cmake is sufficient)"; \
+		cmake --version; \
+	else \
+		curl ${CURL_PROXY} -L ${cmake_url} -o /tmp/${cmake_filename}; \
+		sha256sum  /tmp/${cmake_filename} \
+			| grep "${cmake_sha256}"; \
+		${SHELL} "/tmp/${cmake_filename}" \
+			--prefix=/usr/local \
+			--skip-license; \
+		rm -v "/tmp/${cmake_filename}"; \
+		cmake --version; \
+	fi
 
 # setup/plantuml: Download PlantUML jar for Doxygen documentation (refer to docker/Dockerfile L87-91)
 setup/plantuml:
 	@echo "$@: Downloading PlantUML..."
-	curl -L ${GITHUB_PROXY}https://github.com/plantuml/plantuml/releases/download/v1.2022.0/plantuml-1.2022.0.jar --output /tmp/plantuml.jar
+	curl ${CURL_PROXY} -L ${GITHUB_PROXY}https://github.com/plantuml/plantuml/releases/download/v1.2022.0/plantuml-1.2022.0.jar --output /tmp/plantuml.jar
 	mv /tmp/plantuml.jar /opt/plantuml.jar
 	echo f1070c42b20e6a38015e52c10821a9db13bedca6b5d5bc6a6192fcab6e612691 /opt/plantuml.jar > /tmp/plantuml.jar.sha256
 	sha256sum -c /tmp/plantuml.jar.sha256
 	rm /tmp/plantuml.jar.sha256
 	@echo "export PLANTUML_JAR_PATH=/opt/plantuml.jar"
 
-# setup/zap: Fetch and install ZAP (ZCL Advanced Platform) for ZCL cluster generation (refer to docker/Dockerfile L94-99)
+# setup/: Fetch and install ZAP (ZCL Advanced Platform) for ZCL cluster generation (refer to docker/Dockerfile L94-99)
 setup/zap:
 	@echo "$@: Installing ZAP..."
 	${sudo} apt-get update
-	wget -O /tmp/zap.deb https://github.com/project-chip/zap/releases/download/v2025.01.15/zap-linux-x64.deb
+	wget ${WGET_PROXY} -O /tmp/zap.deb https://github.com/project-chip/zap/releases/download/v2025.01.15/zap-linux-x64.deb
 	${sudo} apt-get install -y --no-install-recommends /tmp/zap.deb
 	rm -f /tmp/zap.deb
 	@echo "$@: done"
@@ -300,7 +314,7 @@ setup/zap:
 # setup/slc_cli: Unpack Silicon Labs Configurator CLI (refer to docker/Dockerfile L102-106)
 setup/slc_cli:
 	@echo "$@: Installing SLC CLI..."
-	unzip -o uic-resources/linux/slc_cli_linux.zip -d /opt
+	unzip -o docker/uic-resources/linux/slc_cli_linux.zip -d /opt
 	chmod +x /opt/slc_cli/slc
 	@echo 'export PATH="/opt/slc_cli:$${PATH}"'
 
@@ -547,7 +561,7 @@ rootfs/setup-cross: ${rootfs_dir}
 			target_arch="${target_arch}" \
 			build_dir="${build_dir}" \
 			cmake_options="${cmake_options}" \
-			-- setup setup/cargo-mirror setup/cross setup/rust _cmake
+			-- setup setup/cargo-mirror setup/cross setup/rust setup/slc_cli _cmake
 
 test/rootfs: clean/rootfs rootfs/setup rootfs/distclean check/rootfs
 	@echo "# ${project}: log: $@: done: $^"

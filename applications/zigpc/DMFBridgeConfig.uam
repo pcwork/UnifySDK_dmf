@@ -1,0 +1,67 @@
+// -----------------------------------------------------------------------------
+// DMFBC Custom Cluster (0xFC42) UAM - Strict Read-Only & Convergence Fix
+// -----------------------------------------------------------------------------
+
+def ZCL_DMFBC_CLUSTER_ID                           0xFC42
+def ZCL_FIXTURE_TABLE_REVISION_ATTR_ID             0x0001
+def ZCL_GROUP_TABLE_REVISION_ATTR_ID               0x0002
+def ZCL_SCENE_TABLE_REVISION_ATTR_ID               0x0003
+def ZCL_LIGHT_MODE_TABLE_REVISION_ATTR_ID          0x0004
+def ZCL_SCHEDULE_TABLE_REVISION_ATTR_ID            0x0005
+def ZCL_TOTAL_FIXTURE_COUNT_ATTR_ID                0x0010
+def ZCL_DISCOVERY_STATUS_ATTR_ID                   0x0011
+def ZCL_BLE_SESSION_STATUS_ATTR_ID                 0x0012
+def ZCL_CLUSTER_REVISION_ATTR_ID                   0xFFFD
+
+// 1. 结构树定义
+scope ts_cluster_exist = r'zb_endpoint.clusters[ZCL_DMFBC_CLUSTER_ID] {
+  r'zb_cluster[ZCL_DMFBC_CLUSTER_ID].attributes[ZCL_FIXTURE_TABLE_REVISION_ATTR_ID]
+  r'zb_cluster[ZCL_DMFBC_CLUSTER_ID].attributes[ZCL_GROUP_TABLE_REVISION_ATTR_ID]
+  r'zb_cluster[ZCL_DMFBC_CLUSTER_ID].attributes[ZCL_SCENE_TABLE_REVISION_ATTR_ID]
+  r'zb_cluster[ZCL_DMFBC_CLUSTER_ID].attributes[ZCL_LIGHT_MODE_TABLE_REVISION_ATTR_ID]
+  r'zb_cluster[ZCL_DMFBC_CLUSTER_ID].attributes[ZCL_SCHEDULE_TABLE_REVISION_ATTR_ID]
+  r'zb_cluster[ZCL_DMFBC_CLUSTER_ID].attributes[ZCL_TOTAL_FIXTURE_COUNT_ATTR_ID]
+  r'zb_cluster[ZCL_DMFBC_CLUSTER_ID].attributes[ZCL_DISCOVERY_STATUS_ATTR_ID]
+  r'zb_cluster[ZCL_DMFBC_CLUSTER_ID].attributes[ZCL_BLE_SESSION_STATUS_ATTR_ID]
+  r'zb_cluster[ZCL_DMFBC_CLUSTER_ID].attributes[ZCL_CLUSTER_REVISION_ATTR_ID]
+}
+
+// 2. 规则定义：仅当 Reported 为 undefined 时才 Read；明确抹掉 Desired 干扰
+
+scope r'zb_cluster[ZCL_DMFBC_CLUSTER_ID].attributes[ZCL_FIXTURE_TABLE_REVISION_ATTR_ID] {
+  e'read_attribute = if (r == undefined) 1 else undefined
+}
+
+scope r'zb_cluster[ZCL_DMFBC_CLUSTER_ID].attributes[ZCL_GROUP_TABLE_REVISION_ATTR_ID] {
+  e'read_attribute = if (r == undefined) 1 else undefined
+}
+
+scope r'zb_cluster[ZCL_DMFBC_CLUSTER_ID].attributes[ZCL_SCENE_TABLE_REVISION_ATTR_ID] {
+  e'read_attribute = if (r == undefined) 1 else undefined
+}
+
+scope r'zb_cluster[ZCL_DMFBC_CLUSTER_ID].attributes[ZCL_LIGHT_MODE_TABLE_REVISION_ATTR_ID] {
+  e'read_attribute = if (r == undefined) 1 else undefined
+}
+
+scope r'zb_cluster[ZCL_DMFBC_CLUSTER_ID].attributes[ZCL_SCHEDULE_TABLE_REVISION_ATTR_ID] {
+  e'read_attribute = if (r == undefined) 1 else undefined
+}
+
+scope r'zb_cluster[ZCL_DMFBC_CLUSTER_ID].attributes[ZCL_TOTAL_FIXTURE_COUNT_ATTR_ID] {
+  e'read_attribute = if (r == undefined) 1 else undefined
+}
+
+scope r'zb_cluster[ZCL_DMFBC_CLUSTER_ID].attributes[ZCL_DISCOVERY_STATUS_ATTR_ID] {
+  e'read_attribute = if (r == undefined) 1 else undefined
+}
+
+scope r'zb_cluster[ZCL_DMFBC_CLUSTER_ID].attributes[ZCL_BLE_SESSION_STATUS_ATTR_ID] {
+  e'read_attribute = if (r == undefined) 1 else undefined
+}
+
+// 重点：显式接管 ClusterRevision (0xFFFD)
+scope r'zb_cluster[ZCL_DMFBC_CLUSTER_ID].attributes[ZCL_CLUSTER_REVISION_ATTR_ID] {
+  e'read_attribute = if (r == undefined) 1 else undefined
+  d = undefined  // 强制确保 Desired 保持 undefined，阻断自动推导
+}

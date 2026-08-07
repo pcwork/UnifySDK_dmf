@@ -529,7 +529,10 @@ void test_listener_invoked_when_parsing_dmf_bridge_config_raw_fixture_notificati
     .return_status         = -1,
     .frame                 = {
       .size   = 9,
-      .buffer = "\x06ABC123\x34\x12",
+      .buffer = "\x06"
+                "ABC123"
+                "\x34"
+                "\x12",
     },
   };
   zigpc_zclcmdparse_callback_data_t expected_data = {
