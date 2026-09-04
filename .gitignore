@@ -2,4 +2,6 @@ _ReSharper.Caches
 .worktrees/
 build/
 **/target
-externals/
+externals/cache
+externals/GeckoSDK
+**/node_modules

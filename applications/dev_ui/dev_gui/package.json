@@ -50,7 +50,8 @@
         "react": "^17.0.0",
         "react-dom": "^17.0.0",
         "@types/react": "^17.0.0",
-        "@types/react-dom": "^17.0.0"
+        "@types/react-dom": "^17.0.0",
+        "webpack": "5.105.4"
     },
     "homepage": "./",
     "main": "src/main.js",
