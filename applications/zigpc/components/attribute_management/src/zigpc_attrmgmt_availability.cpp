@@ -115,6 +115,19 @@ sl_status_t zigpc_attrmgmt_check_device_availability(void)
     return SL_STATUS_OK;
   }
 
+  // The coordinator (NCP + zigpc host) is registered in the datastore but
+  // is never polled, so exclude it from heartbeat monitoring.
+  zigpc_network_data_t network_data;
+  status = zigpc_datastore_read_network(&network_data);
+  if (status != SL_STATUS_OK) {
+    sl_log_warning(LOG_TAG,
+                   "Failed to read network info, skipping availability check: 0x%X",
+                   status);
+    return SL_STATUS_OK;
+  }
+  const zigbee_eui64_uint_t gateway_uint
+    = zigbee_eui64_to_uint(network_data.gateway_eui64);
+
   const clock_time_t now              = clock_time();
   const clock_time_t missed_threshold
     = (clock_time_t)(CLOCK_SECOND * config->poll_interval);
@@ -123,6 +136,19 @@ sl_status_t zigpc_attrmgmt_check_device_availability(void)
     = zigpc_datastore::device::get_id_list();
 
   for (const zigbee_eui64_uint_t eui64_uint: stored_devices) {
+    if (eui64_uint == gateway_uint) {
+      // Drop any stale tracking entry left behind by an earlier version.
+      availability_list.erase(
+        std::remove_if(
+          availability_list.begin(),
+          availability_list.end(),
+          [&gateway_uint](const device_availability_entry_t &entry) {
+            return entry.eui64 == gateway_uint;
+          }),
+        availability_list.end());
+      continue;
+    }
+
     device_availability_entry_t *entry = find_availability_entry(eui64_uint);
 
     if (entry == nullptr) {
