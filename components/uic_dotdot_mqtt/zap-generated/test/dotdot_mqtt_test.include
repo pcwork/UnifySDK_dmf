@@ -2721,6 +2721,21 @@ static sl_status_t uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callb
   return SL_STATUS_OK;
 }
 
+static unsigned int uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_count;
+static sl_status_t uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_func(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t callback_type,
+    uint8_t commandid,
+
+    uint8_t status
+
+) {
+  uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_count++;
+  num_command_callbacks++;
+  return SL_STATUS_OK;
+}
+
 static unsigned int uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_count;
 static sl_status_t uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_func(
     dotdot_unid_t unid,
@@ -2865,7 +2880,9 @@ static sl_status_t uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_ca
     uic_mqtt_dotdot_callback_call_type_t callback_type,
     const char* uid,
 
-    uint16_t modelid
+    uint16_t modelid,
+
+    const char* fixture_info
 
 ) {
   uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback_count++;
@@ -3536,6 +3553,8 @@ static unsigned int set_all_callbacks()
   num_callbacks++;
   uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_set(&uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_func);
   num_callbacks++;
+  uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_set(&uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_func);
+  num_callbacks++;
   uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_set(&uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_func);
   num_callbacks++;
   uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_set(&uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_func);
@@ -3816,6 +3835,7 @@ static void unset_all_callbacks()
   uic_mqtt_dotdot_clear_electrical_measurement_write_attributes_callbacks();
   uic_mqtt_dotdot_clear_diagnostics_write_attributes_callbacks();
   uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_clear();
+  uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_clear();
   uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_clear();
   uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_clear();
   uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_clear();
@@ -4036,6 +4056,7 @@ static void reset_callback_counters()
   uic_mqtt_dotdot_electrical_measurement_get_measurement_profile_response_callback_count = 0;
   uic_mqtt_dotdot_electrical_measurement_get_measurement_profile_callback_count = 0;
   uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_count = 0;
+  uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_count = 0;
   uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_count = 0;
   uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_count = 0;
   uic_mqtt_dotdot_dmf_bridge_config_play_light_mode_callback_count = 0;

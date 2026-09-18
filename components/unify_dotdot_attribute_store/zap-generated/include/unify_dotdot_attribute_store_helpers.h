@@ -59,7 +59,7 @@ bool dotdot_is_supported_basic_zcl_version (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ZCLVersion attribute
  */
@@ -75,7 +75,7 @@ uint8_t dotdot_get_basic_zcl_version(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_zcl_version new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -165,7 +165,7 @@ bool dotdot_is_supported_basic_application_version (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ApplicationVersion attribute
  */
@@ -181,7 +181,7 @@ uint8_t dotdot_get_basic_application_version(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_application_version new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -271,7 +271,7 @@ bool dotdot_is_supported_basic_stack_version (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns StackVersion attribute
  */
@@ -287,7 +287,7 @@ uint8_t dotdot_get_basic_stack_version(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_stack_version new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -377,7 +377,7 @@ bool dotdot_is_supported_basic_hw_version (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns HWVersion attribute
  */
@@ -393,7 +393,7 @@ uint8_t dotdot_get_basic_hw_version(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_hw_version new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -483,10 +483,10 @@ bool dotdot_is_supported_basic_manufacturer_name (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns ManufacturerName attribute
  */
@@ -502,7 +502,7 @@ const char* dotdot_get_basic_manufacturer_name(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_manufacturer_name new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -592,10 +592,10 @@ bool dotdot_is_supported_basic_model_identifier (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns ModelIdentifier attribute
  */
@@ -611,7 +611,7 @@ const char* dotdot_get_basic_model_identifier(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_model_identifier new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -701,10 +701,10 @@ bool dotdot_is_supported_basic_date_code (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns DateCode attribute
  */
@@ -720,7 +720,7 @@ const char* dotdot_get_basic_date_code(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_date_code new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -810,7 +810,7 @@ bool dotdot_is_supported_basic_power_source (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PowerSource attribute
  */
@@ -826,7 +826,7 @@ uint8_t dotdot_get_basic_power_source(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_power_source new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -916,7 +916,7 @@ bool dotdot_is_supported_basic_generic_device_class (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns GenericDevice-Class attribute
  */
@@ -932,7 +932,7 @@ uint8_t dotdot_get_basic_generic_device_class(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_generic_device_class new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -1022,7 +1022,7 @@ bool dotdot_is_supported_basic_generic_device_type (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns GenericDevice-Type attribute
  */
@@ -1038,7 +1038,7 @@ uint8_t dotdot_get_basic_generic_device_type(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_generic_device_type new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -1128,10 +1128,10 @@ bool dotdot_is_supported_basic_product_code (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns ProductCode attribute
  */
@@ -1147,7 +1147,7 @@ const char* dotdot_get_basic_product_code(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_product_code new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -1237,10 +1237,10 @@ bool dotdot_is_supported_basic_producturl (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns ProductURL attribute
  */
@@ -1256,7 +1256,7 @@ const char* dotdot_get_basic_producturl(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_producturl new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -1346,10 +1346,10 @@ bool dotdot_is_supported_basic_manufacturer_version_details (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns ManufacturerVersionDetails attribute
  */
@@ -1365,7 +1365,7 @@ const char* dotdot_get_basic_manufacturer_version_details(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_manufacturer_version_details new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -1455,10 +1455,10 @@ bool dotdot_is_supported_basic_serial_number (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns SerialNumber attribute
  */
@@ -1474,7 +1474,7 @@ const char* dotdot_get_basic_serial_number(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_serial_number new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -1564,10 +1564,10 @@ bool dotdot_is_supported_basic_product_label (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns ProductLabel attribute
  */
@@ -1583,7 +1583,7 @@ const char* dotdot_get_basic_product_label(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_product_label new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -1673,10 +1673,10 @@ bool dotdot_is_supported_basic_location_description (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns LocationDescription attribute
  */
@@ -1692,7 +1692,7 @@ const char* dotdot_get_basic_location_description(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_location_description new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -1782,7 +1782,7 @@ bool dotdot_is_supported_basic_physical_environment (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PhysicalEnvironment attribute
  */
@@ -1798,7 +1798,7 @@ uint8_t dotdot_get_basic_physical_environment(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_physical_environment new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -1888,7 +1888,7 @@ bool dotdot_is_supported_basic_device_enabled (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DeviceEnabled attribute
  */
@@ -1904,7 +1904,7 @@ bool dotdot_get_basic_device_enabled(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_device_enabled new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -1994,7 +1994,7 @@ bool dotdot_is_supported_basic_alarm_mask (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AlarmMask attribute
  */
@@ -2010,7 +2010,7 @@ uint8_t dotdot_get_basic_alarm_mask(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_alarm_mask new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -2100,7 +2100,7 @@ bool dotdot_is_supported_basic_disable_local_config (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DisableLocalConfig attribute
  */
@@ -2116,7 +2116,7 @@ uint8_t dotdot_get_basic_disable_local_config(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_disable_local_config new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -2206,10 +2206,10 @@ bool dotdot_is_supported_basic_sw_buildid (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns SWBuildID attribute
  */
@@ -2225,7 +2225,7 @@ const char* dotdot_get_basic_sw_buildid(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_sw_buildid new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -2343,7 +2343,7 @@ bool dotdot_is_supported_power_configuration_mains_voltage (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MainsVoltage attribute
  */
@@ -2359,7 +2359,7 @@ uint16_t dotdot_get_power_configuration_mains_voltage(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mains_voltage new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -2449,7 +2449,7 @@ bool dotdot_is_supported_power_configuration_mains_frequency (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MainsFrequency attribute
  */
@@ -2465,7 +2465,7 @@ uint8_t dotdot_get_power_configuration_mains_frequency(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mains_frequency new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -2555,7 +2555,7 @@ bool dotdot_is_supported_power_configuration_mains_alarm_mask (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MainsAlarmMask attribute
  */
@@ -2571,7 +2571,7 @@ uint8_t dotdot_get_power_configuration_mains_alarm_mask(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mains_alarm_mask new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -2661,7 +2661,7 @@ bool dotdot_is_supported_power_configuration_mains_voltage_min_threshold (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MainsVoltageMinThreshold attribute
  */
@@ -2677,7 +2677,7 @@ uint16_t dotdot_get_power_configuration_mains_voltage_min_threshold(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mains_voltage_min_threshold new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -2767,7 +2767,7 @@ bool dotdot_is_supported_power_configuration_mains_voltage_max_threshold (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MainsVoltageMaxThreshold attribute
  */
@@ -2783,7 +2783,7 @@ uint16_t dotdot_get_power_configuration_mains_voltage_max_threshold(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mains_voltage_max_threshold new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -2873,7 +2873,7 @@ bool dotdot_is_supported_power_configuration_mains_voltage_dwell_trip_point (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MainsVoltageDwellTripPoint attribute
  */
@@ -2889,7 +2889,7 @@ uint16_t dotdot_get_power_configuration_mains_voltage_dwell_trip_point(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mains_voltage_dwell_trip_point new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -2979,7 +2979,7 @@ bool dotdot_is_supported_power_configuration_battery_voltage (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BatteryVoltage attribute
  */
@@ -2995,7 +2995,7 @@ uint8_t dotdot_get_power_configuration_battery_voltage(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery_voltage new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -3085,7 +3085,7 @@ bool dotdot_is_supported_power_configuration_battery_percentage_remaining (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BatteryPercentageRemaining attribute
  */
@@ -3101,7 +3101,7 @@ uint8_t dotdot_get_power_configuration_battery_percentage_remaining(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery_percentage_remaining new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -3191,10 +3191,10 @@ bool dotdot_is_supported_power_configuration_battery_manufacturer (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns BatteryManufacturer attribute
  */
@@ -3210,7 +3210,7 @@ const char* dotdot_get_power_configuration_battery_manufacturer(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery_manufacturer new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -3300,7 +3300,7 @@ bool dotdot_is_supported_power_configuration_battery_size (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BatterySize attribute
  */
@@ -3316,7 +3316,7 @@ BatterySize dotdot_get_power_configuration_battery_size(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery_size new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -3406,7 +3406,7 @@ bool dotdot_is_supported_power_configuration_batterya_hr_rating (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BatteryAHrRating attribute
  */
@@ -3422,7 +3422,7 @@ uint16_t dotdot_get_power_configuration_batterya_hr_rating(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_batterya_hr_rating new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -3512,7 +3512,7 @@ bool dotdot_is_supported_power_configuration_battery_quantity (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BatteryQuantity attribute
  */
@@ -3528,7 +3528,7 @@ uint8_t dotdot_get_power_configuration_battery_quantity(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery_quantity new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -3618,7 +3618,7 @@ bool dotdot_is_supported_power_configuration_battery_rated_voltage (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BatteryRatedVoltage attribute
  */
@@ -3634,7 +3634,7 @@ uint8_t dotdot_get_power_configuration_battery_rated_voltage(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery_rated_voltage new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -3724,7 +3724,7 @@ bool dotdot_is_supported_power_configuration_battery_alarm_mask (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BatteryAlarmMask attribute
  */
@@ -3740,7 +3740,7 @@ uint8_t dotdot_get_power_configuration_battery_alarm_mask(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery_alarm_mask new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -3830,7 +3830,7 @@ bool dotdot_is_supported_power_configuration_battery_voltage_min_threshold (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BatteryVoltageMinThreshold attribute
  */
@@ -3846,7 +3846,7 @@ uint8_t dotdot_get_power_configuration_battery_voltage_min_threshold(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery_voltage_min_threshold new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -3936,7 +3936,7 @@ bool dotdot_is_supported_power_configuration_battery_voltage_threshold1 (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BatteryVoltageThreshold1 attribute
  */
@@ -3952,7 +3952,7 @@ uint8_t dotdot_get_power_configuration_battery_voltage_threshold1(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery_voltage_threshold1 new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -4042,7 +4042,7 @@ bool dotdot_is_supported_power_configuration_battery_voltage_threshold2 (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BatteryVoltageThreshold2 attribute
  */
@@ -4058,7 +4058,7 @@ uint8_t dotdot_get_power_configuration_battery_voltage_threshold2(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery_voltage_threshold2 new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -4148,7 +4148,7 @@ bool dotdot_is_supported_power_configuration_battery_voltage_threshold3 (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BatteryVoltageThreshold3 attribute
  */
@@ -4164,7 +4164,7 @@ uint8_t dotdot_get_power_configuration_battery_voltage_threshold3(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery_voltage_threshold3 new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -4254,7 +4254,7 @@ bool dotdot_is_supported_power_configuration_battery_percentage_min_threshold (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BatteryPercentageMinThreshold attribute
  */
@@ -4270,7 +4270,7 @@ uint8_t dotdot_get_power_configuration_battery_percentage_min_threshold(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery_percentage_min_threshold new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -4360,7 +4360,7 @@ bool dotdot_is_supported_power_configuration_battery_percentage_threshold1 (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BatteryPercentageThreshold1 attribute
  */
@@ -4376,7 +4376,7 @@ uint8_t dotdot_get_power_configuration_battery_percentage_threshold1(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery_percentage_threshold1 new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -4466,7 +4466,7 @@ bool dotdot_is_supported_power_configuration_battery_percentage_threshold2 (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BatteryPercentageThreshold2 attribute
  */
@@ -4482,7 +4482,7 @@ uint8_t dotdot_get_power_configuration_battery_percentage_threshold2(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery_percentage_threshold2 new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -4572,7 +4572,7 @@ bool dotdot_is_supported_power_configuration_battery_percentage_threshold3 (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BatteryPercentageThreshold3 attribute
  */
@@ -4588,7 +4588,7 @@ uint8_t dotdot_get_power_configuration_battery_percentage_threshold3(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery_percentage_threshold3 new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -4678,7 +4678,7 @@ bool dotdot_is_supported_power_configuration_battery_alarm_state (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BatteryAlarmState attribute
  */
@@ -4694,7 +4694,7 @@ uint32_t dotdot_get_power_configuration_battery_alarm_state(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery_alarm_state new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -4784,7 +4784,7 @@ bool dotdot_is_supported_power_configuration_battery2_voltage (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery2Voltage attribute
  */
@@ -4800,7 +4800,7 @@ uint8_t dotdot_get_power_configuration_battery2_voltage(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery2_voltage new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -4890,7 +4890,7 @@ bool dotdot_is_supported_power_configuration_battery2_percentage_remaining (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery2PercentageRemaining attribute
  */
@@ -4906,7 +4906,7 @@ uint8_t dotdot_get_power_configuration_battery2_percentage_remaining(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery2_percentage_remaining new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -4996,10 +4996,10 @@ bool dotdot_is_supported_power_configuration_battery2_manufacturer (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns Battery2Manufacturer attribute
  */
@@ -5015,7 +5015,7 @@ const char* dotdot_get_power_configuration_battery2_manufacturer(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery2_manufacturer new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -5105,7 +5105,7 @@ bool dotdot_is_supported_power_configuration_battery2_size (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery2Size attribute
  */
@@ -5121,7 +5121,7 @@ BatterySize dotdot_get_power_configuration_battery2_size(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery2_size new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -5211,7 +5211,7 @@ bool dotdot_is_supported_power_configuration_battery2a_hr_rating (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery2AHrRating attribute
  */
@@ -5227,7 +5227,7 @@ uint16_t dotdot_get_power_configuration_battery2a_hr_rating(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery2a_hr_rating new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -5317,7 +5317,7 @@ bool dotdot_is_supported_power_configuration_battery2_quantity (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery2Quantity attribute
  */
@@ -5333,7 +5333,7 @@ uint8_t dotdot_get_power_configuration_battery2_quantity(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery2_quantity new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -5423,7 +5423,7 @@ bool dotdot_is_supported_power_configuration_battery2_rated_voltage (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery2RatedVoltage attribute
  */
@@ -5439,7 +5439,7 @@ uint8_t dotdot_get_power_configuration_battery2_rated_voltage(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery2_rated_voltage new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -5529,7 +5529,7 @@ bool dotdot_is_supported_power_configuration_battery2_alarm_mask (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery2AlarmMask attribute
  */
@@ -5545,7 +5545,7 @@ uint8_t dotdot_get_power_configuration_battery2_alarm_mask(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery2_alarm_mask new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -5635,7 +5635,7 @@ bool dotdot_is_supported_power_configuration_battery2_voltage_min_threshold (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery2VoltageMinThreshold attribute
  */
@@ -5651,7 +5651,7 @@ uint8_t dotdot_get_power_configuration_battery2_voltage_min_threshold(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery2_voltage_min_threshold new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -5741,7 +5741,7 @@ bool dotdot_is_supported_power_configuration_battery2_voltage_threshold1 (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery2VoltageThreshold1 attribute
  */
@@ -5757,7 +5757,7 @@ uint8_t dotdot_get_power_configuration_battery2_voltage_threshold1(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery2_voltage_threshold1 new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -5847,7 +5847,7 @@ bool dotdot_is_supported_power_configuration_battery2_voltage_threshold2 (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery2VoltageThreshold2 attribute
  */
@@ -5863,7 +5863,7 @@ uint8_t dotdot_get_power_configuration_battery2_voltage_threshold2(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery2_voltage_threshold2 new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -5953,7 +5953,7 @@ bool dotdot_is_supported_power_configuration_battery2_voltage_threshold3 (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery2VoltageThreshold3 attribute
  */
@@ -5969,7 +5969,7 @@ uint8_t dotdot_get_power_configuration_battery2_voltage_threshold3(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery2_voltage_threshold3 new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -6059,7 +6059,7 @@ bool dotdot_is_supported_power_configuration_battery2_percentage_min_threshold (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery2PercentageMinThreshold attribute
  */
@@ -6075,7 +6075,7 @@ uint8_t dotdot_get_power_configuration_battery2_percentage_min_threshold(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery2_percentage_min_threshold new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -6165,7 +6165,7 @@ bool dotdot_is_supported_power_configuration_battery2_percentage_threshold1 (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery2PercentageThreshold1 attribute
  */
@@ -6181,7 +6181,7 @@ uint8_t dotdot_get_power_configuration_battery2_percentage_threshold1(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery2_percentage_threshold1 new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -6271,7 +6271,7 @@ bool dotdot_is_supported_power_configuration_battery2_percentage_threshold2 (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery2PercentageThreshold2 attribute
  */
@@ -6287,7 +6287,7 @@ uint8_t dotdot_get_power_configuration_battery2_percentage_threshold2(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery2_percentage_threshold2 new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -6377,7 +6377,7 @@ bool dotdot_is_supported_power_configuration_battery2_percentage_threshold3 (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery2PercentageThreshold3 attribute
  */
@@ -6393,7 +6393,7 @@ uint8_t dotdot_get_power_configuration_battery2_percentage_threshold3(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery2_percentage_threshold3 new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -6483,7 +6483,7 @@ bool dotdot_is_supported_power_configuration_battery2_alarm_state (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery2AlarmState attribute
  */
@@ -6499,7 +6499,7 @@ uint32_t dotdot_get_power_configuration_battery2_alarm_state(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery2_alarm_state new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -6589,7 +6589,7 @@ bool dotdot_is_supported_power_configuration_battery3_voltage (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery3Voltage attribute
  */
@@ -6605,7 +6605,7 @@ uint8_t dotdot_get_power_configuration_battery3_voltage(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery3_voltage new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -6695,7 +6695,7 @@ bool dotdot_is_supported_power_configuration_battery3_percentage_remaining (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery3PercentageRemaining attribute
  */
@@ -6711,7 +6711,7 @@ uint8_t dotdot_get_power_configuration_battery3_percentage_remaining(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery3_percentage_remaining new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -6801,10 +6801,10 @@ bool dotdot_is_supported_power_configuration_battery3_manufacturer (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns Battery3Manufacturer attribute
  */
@@ -6820,7 +6820,7 @@ const char* dotdot_get_power_configuration_battery3_manufacturer(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery3_manufacturer new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -6910,7 +6910,7 @@ bool dotdot_is_supported_power_configuration_battery3_size (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery3Size attribute
  */
@@ -6926,7 +6926,7 @@ BatterySize dotdot_get_power_configuration_battery3_size(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery3_size new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -7016,7 +7016,7 @@ bool dotdot_is_supported_power_configuration_battery3a_hr_rating (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery3AHrRating attribute
  */
@@ -7032,7 +7032,7 @@ uint16_t dotdot_get_power_configuration_battery3a_hr_rating(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery3a_hr_rating new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -7122,7 +7122,7 @@ bool dotdot_is_supported_power_configuration_battery3_quantity (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery3Quantity attribute
  */
@@ -7138,7 +7138,7 @@ uint8_t dotdot_get_power_configuration_battery3_quantity(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery3_quantity new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -7228,7 +7228,7 @@ bool dotdot_is_supported_power_configuration_battery3_rated_voltage (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery3RatedVoltage attribute
  */
@@ -7244,7 +7244,7 @@ uint8_t dotdot_get_power_configuration_battery3_rated_voltage(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery3_rated_voltage new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -7334,7 +7334,7 @@ bool dotdot_is_supported_power_configuration_battery3_alarm_mask (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery3AlarmMask attribute
  */
@@ -7350,7 +7350,7 @@ uint8_t dotdot_get_power_configuration_battery3_alarm_mask(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery3_alarm_mask new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -7440,7 +7440,7 @@ bool dotdot_is_supported_power_configuration_battery3_voltage_min_threshold (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery3VoltageMinThreshold attribute
  */
@@ -7456,7 +7456,7 @@ uint8_t dotdot_get_power_configuration_battery3_voltage_min_threshold(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery3_voltage_min_threshold new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -7546,7 +7546,7 @@ bool dotdot_is_supported_power_configuration_battery3_voltage_threshold1 (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery3VoltageThreshold1 attribute
  */
@@ -7562,7 +7562,7 @@ uint8_t dotdot_get_power_configuration_battery3_voltage_threshold1(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery3_voltage_threshold1 new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -7652,7 +7652,7 @@ bool dotdot_is_supported_power_configuration_battery3_voltage_threshold2 (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery3VoltageThreshold2 attribute
  */
@@ -7668,7 +7668,7 @@ uint8_t dotdot_get_power_configuration_battery3_voltage_threshold2(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery3_voltage_threshold2 new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -7758,7 +7758,7 @@ bool dotdot_is_supported_power_configuration_battery3_voltage_threshold3 (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery3VoltageThreshold3 attribute
  */
@@ -7774,7 +7774,7 @@ uint8_t dotdot_get_power_configuration_battery3_voltage_threshold3(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery3_voltage_threshold3 new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -7864,7 +7864,7 @@ bool dotdot_is_supported_power_configuration_battery3_percentage_min_threshold (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery3PercentageMinThreshold attribute
  */
@@ -7880,7 +7880,7 @@ uint8_t dotdot_get_power_configuration_battery3_percentage_min_threshold(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery3_percentage_min_threshold new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -7970,7 +7970,7 @@ bool dotdot_is_supported_power_configuration_battery3_percentage_threshold1 (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery3PercentageThreshold1 attribute
  */
@@ -7986,7 +7986,7 @@ uint8_t dotdot_get_power_configuration_battery3_percentage_threshold1(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery3_percentage_threshold1 new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -8076,7 +8076,7 @@ bool dotdot_is_supported_power_configuration_battery3_percentage_threshold2 (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery3PercentageThreshold2 attribute
  */
@@ -8092,7 +8092,7 @@ uint8_t dotdot_get_power_configuration_battery3_percentage_threshold2(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery3_percentage_threshold2 new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -8182,7 +8182,7 @@ bool dotdot_is_supported_power_configuration_battery3_percentage_threshold3 (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery3PercentageThreshold3 attribute
  */
@@ -8198,7 +8198,7 @@ uint8_t dotdot_get_power_configuration_battery3_percentage_threshold3(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery3_percentage_threshold3 new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -8288,7 +8288,7 @@ bool dotdot_is_supported_power_configuration_battery3_alarm_state (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Battery3AlarmState attribute
  */
@@ -8304,7 +8304,7 @@ uint32_t dotdot_get_power_configuration_battery3_alarm_state(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery3_alarm_state new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -8422,7 +8422,7 @@ bool dotdot_is_supported_device_temperature_configuration_current_temperature (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentTemperature attribute
  */
@@ -8438,7 +8438,7 @@ int16_t dotdot_get_device_temperature_configuration_current_temperature(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_temperature new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -8528,7 +8528,7 @@ bool dotdot_is_supported_device_temperature_configuration_min_temp_experienced (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinTempExperienced attribute
  */
@@ -8544,7 +8544,7 @@ int16_t dotdot_get_device_temperature_configuration_min_temp_experienced(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_temp_experienced new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -8634,7 +8634,7 @@ bool dotdot_is_supported_device_temperature_configuration_max_temp_experienced (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxTempExperienced attribute
  */
@@ -8650,7 +8650,7 @@ int16_t dotdot_get_device_temperature_configuration_max_temp_experienced(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_temp_experienced new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -8740,7 +8740,7 @@ bool dotdot_is_supported_device_temperature_configuration_over_temp_total_dwell 
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OverTempTotalDwell attribute
  */
@@ -8756,7 +8756,7 @@ uint16_t dotdot_get_device_temperature_configuration_over_temp_total_dwell(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_over_temp_total_dwell new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -8846,7 +8846,7 @@ bool dotdot_is_supported_device_temperature_configuration_device_temp_alarm_mask
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DeviceTempAlarmMask attribute
  */
@@ -8862,7 +8862,7 @@ uint8_t dotdot_get_device_temperature_configuration_device_temp_alarm_mask(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_device_temp_alarm_mask new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -8952,7 +8952,7 @@ bool dotdot_is_supported_device_temperature_configuration_low_temp_threshold (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LowTempThreshold attribute
  */
@@ -8968,7 +8968,7 @@ int16_t dotdot_get_device_temperature_configuration_low_temp_threshold(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_low_temp_threshold new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -9058,7 +9058,7 @@ bool dotdot_is_supported_device_temperature_configuration_high_temp_threshold (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns HighTempThreshold attribute
  */
@@ -9074,7 +9074,7 @@ int16_t dotdot_get_device_temperature_configuration_high_temp_threshold(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_high_temp_threshold new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -9164,7 +9164,7 @@ bool dotdot_is_supported_device_temperature_configuration_low_temp_dwell_trip_po
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LowTempDwellTripPoint attribute
  */
@@ -9180,7 +9180,7 @@ uint32_t dotdot_get_device_temperature_configuration_low_temp_dwell_trip_point(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_low_temp_dwell_trip_point new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -9270,7 +9270,7 @@ bool dotdot_is_supported_device_temperature_configuration_high_temp_dwell_trip_p
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns HighTempDwellTripPoint attribute
  */
@@ -9286,7 +9286,7 @@ uint32_t dotdot_get_device_temperature_configuration_high_temp_dwell_trip_point(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_high_temp_dwell_trip_point new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -9404,7 +9404,7 @@ bool dotdot_is_supported_identify_identify_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns IdentifyTime attribute
  */
@@ -9420,7 +9420,7 @@ uint16_t dotdot_get_identify_identify_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_identify_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -9538,7 +9538,7 @@ bool dotdot_is_supported_groups_name_support (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NameSupport attribute
  */
@@ -9554,7 +9554,7 @@ uint8_t dotdot_get_groups_name_support(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_name_support new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -9672,7 +9672,7 @@ bool dotdot_is_supported_scenes_scene_count (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SceneCount attribute
  */
@@ -9688,7 +9688,7 @@ uint8_t dotdot_get_scenes_scene_count(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_scene_count new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -9778,7 +9778,7 @@ bool dotdot_is_supported_scenes_current_scene (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentScene attribute
  */
@@ -9794,7 +9794,7 @@ uint8_t dotdot_get_scenes_current_scene(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_scene new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -9884,7 +9884,7 @@ bool dotdot_is_supported_scenes_current_group (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentGroup attribute
  */
@@ -9900,7 +9900,7 @@ uint16_t dotdot_get_scenes_current_group(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_group new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -9990,7 +9990,7 @@ bool dotdot_is_supported_scenes_scene_valid (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SceneValid attribute
  */
@@ -10006,7 +10006,7 @@ bool dotdot_get_scenes_scene_valid(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_scene_valid new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -10096,7 +10096,7 @@ bool dotdot_is_supported_scenes_name_support (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NameSupport attribute
  */
@@ -10112,7 +10112,7 @@ uint8_t dotdot_get_scenes_name_support(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_name_support new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -10202,7 +10202,7 @@ bool dotdot_is_supported_scenes_last_configured_by (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LastConfiguredBy attribute
  */
@@ -10218,7 +10218,7 @@ uint64_t dotdot_get_scenes_last_configured_by(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_last_configured_by new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -10308,7 +10308,7 @@ bool dotdot_is_supported_scenes_scene_table (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SceneTable attribute
  */
@@ -10324,9 +10324,9 @@ SSceneTable dotdot_get_scenes_scene_table(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_scene_table_count Number of elements in the array
- * 
+ *
  * @param new_scene_table new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -10445,7 +10445,7 @@ bool dotdot_is_supported_on_off_on_off (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OnOff attribute
  */
@@ -10461,7 +10461,7 @@ bool dotdot_get_on_off_on_off(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_on_off new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -10551,7 +10551,7 @@ bool dotdot_is_supported_on_off_global_scene_control (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns GlobalSceneControl attribute
  */
@@ -10567,7 +10567,7 @@ bool dotdot_get_on_off_global_scene_control(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_global_scene_control new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -10657,7 +10657,7 @@ bool dotdot_is_supported_on_off_on_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OnTime attribute
  */
@@ -10673,7 +10673,7 @@ uint16_t dotdot_get_on_off_on_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_on_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -10763,7 +10763,7 @@ bool dotdot_is_supported_on_off_off_wait_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OffWaitTime attribute
  */
@@ -10779,7 +10779,7 @@ uint16_t dotdot_get_on_off_off_wait_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_off_wait_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -10869,7 +10869,7 @@ bool dotdot_is_supported_on_off_start_up_on_off (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns StartUpOnOff attribute
  */
@@ -10885,7 +10885,7 @@ uint8_t dotdot_get_on_off_start_up_on_off(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_start_up_on_off new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -11003,7 +11003,7 @@ bool dotdot_is_supported_level_current_level (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentLevel attribute
  */
@@ -11019,7 +11019,7 @@ uint8_t dotdot_get_level_current_level(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_level new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -11109,7 +11109,7 @@ bool dotdot_is_supported_level_remaining_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RemainingTime attribute
  */
@@ -11125,7 +11125,7 @@ uint16_t dotdot_get_level_remaining_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_remaining_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -11215,7 +11215,7 @@ bool dotdot_is_supported_level_min_level (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinLevel attribute
  */
@@ -11231,7 +11231,7 @@ uint8_t dotdot_get_level_min_level(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_level new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -11321,7 +11321,7 @@ bool dotdot_is_supported_level_max_level (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxLevel attribute
  */
@@ -11337,7 +11337,7 @@ uint8_t dotdot_get_level_max_level(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_level new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -11427,7 +11427,7 @@ bool dotdot_is_supported_level_current_frequency (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentFrequency attribute
  */
@@ -11443,7 +11443,7 @@ uint16_t dotdot_get_level_current_frequency(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_frequency new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -11533,7 +11533,7 @@ bool dotdot_is_supported_level_min_frequency (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinFrequency attribute
  */
@@ -11549,7 +11549,7 @@ uint16_t dotdot_get_level_min_frequency(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_frequency new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -11639,7 +11639,7 @@ bool dotdot_is_supported_level_max_frequency (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxFrequency attribute
  */
@@ -11655,7 +11655,7 @@ uint16_t dotdot_get_level_max_frequency(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_frequency new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -11745,7 +11745,7 @@ bool dotdot_is_supported_level_options (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Options attribute
  */
@@ -11761,7 +11761,7 @@ uint8_t dotdot_get_level_options(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_options new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -11851,7 +11851,7 @@ bool dotdot_is_supported_level_on_off_transition_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OnOffTransitionTime attribute
  */
@@ -11867,7 +11867,7 @@ uint16_t dotdot_get_level_on_off_transition_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_on_off_transition_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -11957,7 +11957,7 @@ bool dotdot_is_supported_level_on_level (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OnLevel attribute
  */
@@ -11973,7 +11973,7 @@ uint8_t dotdot_get_level_on_level(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_on_level new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -12063,7 +12063,7 @@ bool dotdot_is_supported_level_on_transition_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OnTransitionTime attribute
  */
@@ -12079,7 +12079,7 @@ uint16_t dotdot_get_level_on_transition_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_on_transition_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -12169,7 +12169,7 @@ bool dotdot_is_supported_level_off_transition_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OffTransitionTime attribute
  */
@@ -12185,7 +12185,7 @@ uint16_t dotdot_get_level_off_transition_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_off_transition_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -12275,7 +12275,7 @@ bool dotdot_is_supported_level_default_move_rate (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DefaultMoveRate attribute
  */
@@ -12291,7 +12291,7 @@ uint16_t dotdot_get_level_default_move_rate(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_default_move_rate new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -12381,7 +12381,7 @@ bool dotdot_is_supported_level_start_up_current_level (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns StartUpCurrentLevel attribute
  */
@@ -12397,7 +12397,7 @@ uint8_t dotdot_get_level_start_up_current_level(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_start_up_current_level new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -12515,7 +12515,7 @@ bool dotdot_is_supported_alarms_alarm_count (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AlarmCount attribute
  */
@@ -12531,7 +12531,7 @@ uint16_t dotdot_get_alarms_alarm_count(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_alarm_count new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -12649,7 +12649,7 @@ bool dotdot_is_supported_time_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Time attribute
  */
@@ -12665,7 +12665,7 @@ uint32_t dotdot_get_time_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -12755,7 +12755,7 @@ bool dotdot_is_supported_time_time_status (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns TimeStatus attribute
  */
@@ -12771,7 +12771,7 @@ uint8_t dotdot_get_time_time_status(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_time_status new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -12861,7 +12861,7 @@ bool dotdot_is_supported_time_time_zone (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns TimeZone attribute
  */
@@ -12877,7 +12877,7 @@ int32_t dotdot_get_time_time_zone(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_time_zone new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -12967,7 +12967,7 @@ bool dotdot_is_supported_time_dst_start (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DstStart attribute
  */
@@ -12983,7 +12983,7 @@ uint32_t dotdot_get_time_dst_start(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dst_start new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -13073,7 +13073,7 @@ bool dotdot_is_supported_time_dst_end (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DstEnd attribute
  */
@@ -13089,7 +13089,7 @@ uint32_t dotdot_get_time_dst_end(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dst_end new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -13179,7 +13179,7 @@ bool dotdot_is_supported_time_dst_shift (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DstShift attribute
  */
@@ -13195,7 +13195,7 @@ int32_t dotdot_get_time_dst_shift(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dst_shift new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -13285,7 +13285,7 @@ bool dotdot_is_supported_time_standard_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns StandardTime attribute
  */
@@ -13301,7 +13301,7 @@ uint32_t dotdot_get_time_standard_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_standard_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -13391,7 +13391,7 @@ bool dotdot_is_supported_time_local_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LocalTime attribute
  */
@@ -13407,7 +13407,7 @@ uint32_t dotdot_get_time_local_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_local_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -13497,7 +13497,7 @@ bool dotdot_is_supported_time_last_set_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LastSetTime attribute
  */
@@ -13513,7 +13513,7 @@ uint32_t dotdot_get_time_last_set_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_last_set_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -13603,7 +13603,7 @@ bool dotdot_is_supported_time_valid_until_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ValidUntilTime attribute
  */
@@ -13619,7 +13619,7 @@ uint32_t dotdot_get_time_valid_until_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_valid_until_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -13737,7 +13737,7 @@ bool dotdot_is_supported_poll_control_check_in_interval (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CheckInInterval attribute
  */
@@ -13753,7 +13753,7 @@ uint32_t dotdot_get_poll_control_check_in_interval(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_check_in_interval new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -13843,7 +13843,7 @@ bool dotdot_is_supported_poll_control_long_poll_interval (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LongPollInterval attribute
  */
@@ -13859,7 +13859,7 @@ uint32_t dotdot_get_poll_control_long_poll_interval(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_long_poll_interval new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -13949,7 +13949,7 @@ bool dotdot_is_supported_poll_control_short_poll_interval (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ShortPollInterval attribute
  */
@@ -13965,7 +13965,7 @@ uint16_t dotdot_get_poll_control_short_poll_interval(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_short_poll_interval new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -14055,7 +14055,7 @@ bool dotdot_is_supported_poll_control_fast_poll_timeout (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns FastPollTimeout attribute
  */
@@ -14071,7 +14071,7 @@ uint16_t dotdot_get_poll_control_fast_poll_timeout(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_fast_poll_timeout new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -14161,7 +14161,7 @@ bool dotdot_is_supported_poll_control_check_in_interval_min (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CheckInIntervalMin attribute
  */
@@ -14177,7 +14177,7 @@ uint32_t dotdot_get_poll_control_check_in_interval_min(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_check_in_interval_min new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -14267,7 +14267,7 @@ bool dotdot_is_supported_poll_control_long_poll_interval_min (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LongPollIntervalMin attribute
  */
@@ -14283,7 +14283,7 @@ uint32_t dotdot_get_poll_control_long_poll_interval_min(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_long_poll_interval_min new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -14373,7 +14373,7 @@ bool dotdot_is_supported_poll_control_fast_poll_timeout_max (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns FastPollTimeoutMax attribute
  */
@@ -14389,7 +14389,7 @@ uint16_t dotdot_get_poll_control_fast_poll_timeout_max(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_fast_poll_timeout_max new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -14507,7 +14507,7 @@ bool dotdot_is_supported_shade_configuration_physical_closed_limit (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PhysicalClosedLimit attribute
  */
@@ -14523,7 +14523,7 @@ uint16_t dotdot_get_shade_configuration_physical_closed_limit(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_physical_closed_limit new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -14613,7 +14613,7 @@ bool dotdot_is_supported_shade_configuration_motor_step_size (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MotorStepSize attribute
  */
@@ -14629,7 +14629,7 @@ uint8_t dotdot_get_shade_configuration_motor_step_size(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_motor_step_size new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -14719,7 +14719,7 @@ bool dotdot_is_supported_shade_configuration_status (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Status attribute
  */
@@ -14735,7 +14735,7 @@ uint8_t dotdot_get_shade_configuration_status(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_status new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -14825,7 +14825,7 @@ bool dotdot_is_supported_shade_configuration_closed_limit (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ClosedLimit attribute
  */
@@ -14841,7 +14841,7 @@ uint16_t dotdot_get_shade_configuration_closed_limit(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_closed_limit new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -14931,7 +14931,7 @@ bool dotdot_is_supported_shade_configuration_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Mode attribute
  */
@@ -14947,7 +14947,7 @@ uint8_t dotdot_get_shade_configuration_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -15065,7 +15065,7 @@ bool dotdot_is_supported_door_lock_lock_state (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LockState attribute
  */
@@ -15081,7 +15081,7 @@ uint8_t dotdot_get_door_lock_lock_state(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_lock_state new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -15171,7 +15171,7 @@ bool dotdot_is_supported_door_lock_lock_type (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LockType attribute
  */
@@ -15187,7 +15187,7 @@ uint8_t dotdot_get_door_lock_lock_type(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_lock_type new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -15277,7 +15277,7 @@ bool dotdot_is_supported_door_lock_actuator_enabled (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ActuatorEnabled attribute
  */
@@ -15293,7 +15293,7 @@ bool dotdot_get_door_lock_actuator_enabled(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_actuator_enabled new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -15383,7 +15383,7 @@ bool dotdot_is_supported_door_lock_door_state (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DoorState attribute
  */
@@ -15399,7 +15399,7 @@ uint8_t dotdot_get_door_lock_door_state(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_door_state new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -15489,7 +15489,7 @@ bool dotdot_is_supported_door_lock_door_open_events (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DoorOpenEvents attribute
  */
@@ -15505,7 +15505,7 @@ uint32_t dotdot_get_door_lock_door_open_events(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_door_open_events new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -15595,7 +15595,7 @@ bool dotdot_is_supported_door_lock_door_closed_events (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DoorClosedEvents attribute
  */
@@ -15611,7 +15611,7 @@ uint32_t dotdot_get_door_lock_door_closed_events(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_door_closed_events new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -15701,7 +15701,7 @@ bool dotdot_is_supported_door_lock_open_period (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OpenPeriod attribute
  */
@@ -15717,7 +15717,7 @@ uint16_t dotdot_get_door_lock_open_period(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_open_period new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -15807,7 +15807,7 @@ bool dotdot_is_supported_door_lock_number_of_log_records_supported (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NumberOfLogRecordsSupported attribute
  */
@@ -15823,7 +15823,7 @@ uint16_t dotdot_get_door_lock_number_of_log_records_supported(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_number_of_log_records_supported new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -15913,7 +15913,7 @@ bool dotdot_is_supported_door_lock_number_of_total_users_supported (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NumberOfTotalUsersSupported attribute
  */
@@ -15929,7 +15929,7 @@ uint16_t dotdot_get_door_lock_number_of_total_users_supported(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_number_of_total_users_supported new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -16019,7 +16019,7 @@ bool dotdot_is_supported_door_lock_number_of_pin_users_supported (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NumberOfPINUsersSupported attribute
  */
@@ -16035,7 +16035,7 @@ uint16_t dotdot_get_door_lock_number_of_pin_users_supported(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_number_of_pin_users_supported new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -16125,7 +16125,7 @@ bool dotdot_is_supported_door_lock_number_of_rfid_users_supported (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NumberOfRFIDUsersSupported attribute
  */
@@ -16141,7 +16141,7 @@ uint16_t dotdot_get_door_lock_number_of_rfid_users_supported(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_number_of_rfid_users_supported new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -16231,7 +16231,7 @@ bool dotdot_is_supported_door_lock_number_of_week_day_schedules_supported_per_us
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NumberOfWeekDaySchedulesSupportedPerUser attribute
  */
@@ -16247,7 +16247,7 @@ uint8_t dotdot_get_door_lock_number_of_week_day_schedules_supported_per_user(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_number_of_week_day_schedules_supported_per_user new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -16337,7 +16337,7 @@ bool dotdot_is_supported_door_lock_number_of_year_day_schedules_supported_per_us
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NumberOfYearDaySchedulesSupportedPerUser attribute
  */
@@ -16353,7 +16353,7 @@ uint8_t dotdot_get_door_lock_number_of_year_day_schedules_supported_per_user(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_number_of_year_day_schedules_supported_per_user new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -16443,7 +16443,7 @@ bool dotdot_is_supported_door_lock_number_of_holiday_schedules_supported (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NumberOfHolidaySchedulesSupported attribute
  */
@@ -16459,7 +16459,7 @@ uint8_t dotdot_get_door_lock_number_of_holiday_schedules_supported(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_number_of_holiday_schedules_supported new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -16549,7 +16549,7 @@ bool dotdot_is_supported_door_lock_max_pin_code_length (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxPINCodeLength attribute
  */
@@ -16565,7 +16565,7 @@ uint8_t dotdot_get_door_lock_max_pin_code_length(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_pin_code_length new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -16655,7 +16655,7 @@ bool dotdot_is_supported_door_lock_min_pin_code_length (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinPINCodeLength attribute
  */
@@ -16671,7 +16671,7 @@ uint8_t dotdot_get_door_lock_min_pin_code_length(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_pin_code_length new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -16761,7 +16761,7 @@ bool dotdot_is_supported_door_lock_max_rfid_code_length (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxRFIDCodeLength attribute
  */
@@ -16777,7 +16777,7 @@ uint8_t dotdot_get_door_lock_max_rfid_code_length(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_rfid_code_length new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -16867,7 +16867,7 @@ bool dotdot_is_supported_door_lock_min_rfid_code_length (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinRFIDCodeLength attribute
  */
@@ -16883,7 +16883,7 @@ uint8_t dotdot_get_door_lock_min_rfid_code_length(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_rfid_code_length new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -16973,7 +16973,7 @@ bool dotdot_is_supported_door_lock_credential_rules_support (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CredentialRulesSupport attribute
  */
@@ -16989,7 +16989,7 @@ uint8_t dotdot_get_door_lock_credential_rules_support(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_credential_rules_support new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -17079,7 +17079,7 @@ bool dotdot_is_supported_door_lock_number_of_credentials_supported_per_user (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NumberOfCredentialsSupportedPerUser attribute
  */
@@ -17095,7 +17095,7 @@ uint8_t dotdot_get_door_lock_number_of_credentials_supported_per_user(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_number_of_credentials_supported_per_user new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -17185,7 +17185,7 @@ bool dotdot_is_supported_door_lock_enable_logging (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns EnableLogging attribute
  */
@@ -17201,7 +17201,7 @@ bool dotdot_get_door_lock_enable_logging(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_enable_logging new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -17291,10 +17291,10 @@ bool dotdot_is_supported_door_lock_language (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns Language attribute
  */
@@ -17310,7 +17310,7 @@ const char* dotdot_get_door_lock_language(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_language new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -17400,7 +17400,7 @@ bool dotdot_is_supported_door_lock_led_settings (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LEDSettings attribute
  */
@@ -17416,7 +17416,7 @@ uint8_t dotdot_get_door_lock_led_settings(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_led_settings new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -17506,7 +17506,7 @@ bool dotdot_is_supported_door_lock_auto_relock_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AutoRelockTime attribute
  */
@@ -17522,7 +17522,7 @@ uint32_t dotdot_get_door_lock_auto_relock_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_auto_relock_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -17612,7 +17612,7 @@ bool dotdot_is_supported_door_lock_sound_volume (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SoundVolume attribute
  */
@@ -17628,7 +17628,7 @@ uint8_t dotdot_get_door_lock_sound_volume(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_sound_volume new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -17718,7 +17718,7 @@ bool dotdot_is_supported_door_lock_operating_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OperatingMode attribute
  */
@@ -17734,7 +17734,7 @@ DrlkOperMode dotdot_get_door_lock_operating_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_operating_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -17824,7 +17824,7 @@ bool dotdot_is_supported_door_lock_supported_operating_modes (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SupportedOperatingModes attribute
  */
@@ -17840,7 +17840,7 @@ uint16_t dotdot_get_door_lock_supported_operating_modes(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_supported_operating_modes new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -17930,7 +17930,7 @@ bool dotdot_is_supported_door_lock_default_configuration_register (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DefaultConfigurationRegister attribute
  */
@@ -17946,7 +17946,7 @@ uint16_t dotdot_get_door_lock_default_configuration_register(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_default_configuration_register new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -18036,7 +18036,7 @@ bool dotdot_is_supported_door_lock_enable_local_programming (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns EnableLocalProgramming attribute
  */
@@ -18052,7 +18052,7 @@ bool dotdot_get_door_lock_enable_local_programming(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_enable_local_programming new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -18142,7 +18142,7 @@ bool dotdot_is_supported_door_lock_enable_one_touch_locking (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns EnableOneTouchLocking attribute
  */
@@ -18158,7 +18158,7 @@ bool dotdot_get_door_lock_enable_one_touch_locking(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_enable_one_touch_locking new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -18248,7 +18248,7 @@ bool dotdot_is_supported_door_lock_enable_inside_statusled (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns EnableInsideStatusLED attribute
  */
@@ -18264,7 +18264,7 @@ bool dotdot_get_door_lock_enable_inside_statusled(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_enable_inside_statusled new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -18354,7 +18354,7 @@ bool dotdot_is_supported_door_lock_enable_privacy_mode_button (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns EnablePrivacyModeButton attribute
  */
@@ -18370,7 +18370,7 @@ bool dotdot_get_door_lock_enable_privacy_mode_button(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_enable_privacy_mode_button new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -18460,7 +18460,7 @@ bool dotdot_is_supported_door_lock_local_programming_features (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LocalProgrammingFeatures attribute
  */
@@ -18476,7 +18476,7 @@ uint8_t dotdot_get_door_lock_local_programming_features(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_local_programming_features new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -18566,7 +18566,7 @@ bool dotdot_is_supported_door_lock_wrong_code_entry_limit (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns WrongCodeEntryLimit attribute
  */
@@ -18582,7 +18582,7 @@ uint8_t dotdot_get_door_lock_wrong_code_entry_limit(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_wrong_code_entry_limit new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -18672,7 +18672,7 @@ bool dotdot_is_supported_door_lock_user_code_temporary_disable_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns UserCodeTemporaryDisableTime attribute
  */
@@ -18688,7 +18688,7 @@ uint8_t dotdot_get_door_lock_user_code_temporary_disable_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_user_code_temporary_disable_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -18778,7 +18778,7 @@ bool dotdot_is_supported_door_lock_send_pin_over_the_air (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SendPINOverTheAir attribute
  */
@@ -18794,7 +18794,7 @@ bool dotdot_get_door_lock_send_pin_over_the_air(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_send_pin_over_the_air new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -18884,7 +18884,7 @@ bool dotdot_is_supported_door_lock_require_pi_nfor_rf_operation (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RequirePINforRFOperation attribute
  */
@@ -18900,7 +18900,7 @@ bool dotdot_get_door_lock_require_pi_nfor_rf_operation(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_require_pi_nfor_rf_operation new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -18990,7 +18990,7 @@ bool dotdot_is_supported_door_lock_security_level (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SecurityLevel attribute
  */
@@ -19006,7 +19006,7 @@ uint8_t dotdot_get_door_lock_security_level(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_security_level new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -19096,7 +19096,7 @@ bool dotdot_is_supported_door_lock_expiring_user_timeout (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ExpiringUserTimeout attribute
  */
@@ -19112,7 +19112,7 @@ uint16_t dotdot_get_door_lock_expiring_user_timeout(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_expiring_user_timeout new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -19202,7 +19202,7 @@ bool dotdot_is_supported_door_lock_alarm_mask (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AlarmMask attribute
  */
@@ -19218,7 +19218,7 @@ uint16_t dotdot_get_door_lock_alarm_mask(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_alarm_mask new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -19308,7 +19308,7 @@ bool dotdot_is_supported_door_lock_keypad_operation_event_mask (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns KeypadOperationEventMask attribute
  */
@@ -19324,7 +19324,7 @@ uint16_t dotdot_get_door_lock_keypad_operation_event_mask(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_keypad_operation_event_mask new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -19414,7 +19414,7 @@ bool dotdot_is_supported_door_lock_rf_operation_event_mask (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RFOperationEventMask attribute
  */
@@ -19430,7 +19430,7 @@ uint16_t dotdot_get_door_lock_rf_operation_event_mask(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rf_operation_event_mask new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -19520,7 +19520,7 @@ bool dotdot_is_supported_door_lock_manual_operation_event_mask (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ManualOperationEventMask attribute
  */
@@ -19536,7 +19536,7 @@ uint16_t dotdot_get_door_lock_manual_operation_event_mask(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_manual_operation_event_mask new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -19626,7 +19626,7 @@ bool dotdot_is_supported_door_lock_rfid_operation_event_mask (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RFIDOperationEventMask attribute
  */
@@ -19642,7 +19642,7 @@ uint16_t dotdot_get_door_lock_rfid_operation_event_mask(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rfid_operation_event_mask new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -19732,7 +19732,7 @@ bool dotdot_is_supported_door_lock_keypad_programming_event_mask (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns KeypadProgrammingEventMask attribute
  */
@@ -19748,7 +19748,7 @@ uint16_t dotdot_get_door_lock_keypad_programming_event_mask(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_keypad_programming_event_mask new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -19838,7 +19838,7 @@ bool dotdot_is_supported_door_lock_rf_programming_event_mask (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RFProgrammingEventMask attribute
  */
@@ -19854,7 +19854,7 @@ uint16_t dotdot_get_door_lock_rf_programming_event_mask(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rf_programming_event_mask new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -19944,7 +19944,7 @@ bool dotdot_is_supported_door_lock_rfid_programming_event_mask (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RFIDProgrammingEventMask attribute
  */
@@ -19960,7 +19960,7 @@ uint16_t dotdot_get_door_lock_rfid_programming_event_mask(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rfid_programming_event_mask new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -20050,7 +20050,7 @@ bool dotdot_is_supported_door_lock_feature_map (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns FeatureMap attribute
  */
@@ -20066,7 +20066,7 @@ uint16_t dotdot_get_door_lock_feature_map(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_feature_map new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -20184,7 +20184,7 @@ bool dotdot_is_supported_window_covering_window_covering_type (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns WindowCoveringType attribute
  */
@@ -20200,7 +20200,7 @@ uint8_t dotdot_get_window_covering_window_covering_type(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_window_covering_type new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -20290,7 +20290,7 @@ bool dotdot_is_supported_window_covering_physical_closed_limit_lift (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PhysicalClosedLimitLift attribute
  */
@@ -20306,7 +20306,7 @@ uint16_t dotdot_get_window_covering_physical_closed_limit_lift(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_physical_closed_limit_lift new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -20396,7 +20396,7 @@ bool dotdot_is_supported_window_covering_physical_closed_limit_tilt (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PhysicalClosedLimitTilt attribute
  */
@@ -20412,7 +20412,7 @@ uint16_t dotdot_get_window_covering_physical_closed_limit_tilt(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_physical_closed_limit_tilt new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -20502,7 +20502,7 @@ bool dotdot_is_supported_window_covering_current_position_lift (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentPositionLift attribute
  */
@@ -20518,7 +20518,7 @@ uint16_t dotdot_get_window_covering_current_position_lift(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_position_lift new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -20608,7 +20608,7 @@ bool dotdot_is_supported_window_covering_current_position_tilt (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentPositionTilt attribute
  */
@@ -20624,7 +20624,7 @@ uint16_t dotdot_get_window_covering_current_position_tilt(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_position_tilt new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -20714,7 +20714,7 @@ bool dotdot_is_supported_window_covering_number_of_actuations_lift (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NumberOfActuationsLift attribute
  */
@@ -20730,7 +20730,7 @@ uint16_t dotdot_get_window_covering_number_of_actuations_lift(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_number_of_actuations_lift new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -20820,7 +20820,7 @@ bool dotdot_is_supported_window_covering_number_of_actuations_tilt (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NumberOfActuationsTilt attribute
  */
@@ -20836,7 +20836,7 @@ uint16_t dotdot_get_window_covering_number_of_actuations_tilt(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_number_of_actuations_tilt new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -20926,7 +20926,7 @@ bool dotdot_is_supported_window_covering_config_or_status (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ConfigOrStatus attribute
  */
@@ -20942,7 +20942,7 @@ uint8_t dotdot_get_window_covering_config_or_status(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_config_or_status new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -21032,7 +21032,7 @@ bool dotdot_is_supported_window_covering_current_position_lift_percentage (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentPositionLiftPercentage attribute
  */
@@ -21048,7 +21048,7 @@ uint8_t dotdot_get_window_covering_current_position_lift_percentage(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_position_lift_percentage new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -21138,7 +21138,7 @@ bool dotdot_is_supported_window_covering_current_position_tilt_percentage (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentPositionTiltPercentage attribute
  */
@@ -21154,7 +21154,7 @@ uint8_t dotdot_get_window_covering_current_position_tilt_percentage(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_position_tilt_percentage new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -21244,7 +21244,7 @@ bool dotdot_is_supported_window_covering_installed_open_limit_lift (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns InstalledOpenLimitLift attribute
  */
@@ -21260,7 +21260,7 @@ uint16_t dotdot_get_window_covering_installed_open_limit_lift(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_installed_open_limit_lift new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -21350,7 +21350,7 @@ bool dotdot_is_supported_window_covering_installed_closed_limit_lift (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns InstalledClosedLimitLift attribute
  */
@@ -21366,7 +21366,7 @@ uint16_t dotdot_get_window_covering_installed_closed_limit_lift(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_installed_closed_limit_lift new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -21456,7 +21456,7 @@ bool dotdot_is_supported_window_covering_installed_open_limit_tilt (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns InstalledOpenLimitTilt attribute
  */
@@ -21472,7 +21472,7 @@ uint16_t dotdot_get_window_covering_installed_open_limit_tilt(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_installed_open_limit_tilt new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -21562,7 +21562,7 @@ bool dotdot_is_supported_window_covering_installed_closed_limit_tilt (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns InstalledClosedLimitTilt attribute
  */
@@ -21578,7 +21578,7 @@ uint16_t dotdot_get_window_covering_installed_closed_limit_tilt(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_installed_closed_limit_tilt new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -21668,7 +21668,7 @@ bool dotdot_is_supported_window_covering_velocity_lift (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns VelocityLift attribute
  */
@@ -21684,7 +21684,7 @@ uint16_t dotdot_get_window_covering_velocity_lift(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_velocity_lift new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -21774,7 +21774,7 @@ bool dotdot_is_supported_window_covering_acceleration_time_lift (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AccelerationTimeLift attribute
  */
@@ -21790,7 +21790,7 @@ uint16_t dotdot_get_window_covering_acceleration_time_lift(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_acceleration_time_lift new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -21880,7 +21880,7 @@ bool dotdot_is_supported_window_covering_deceleration_time_lift (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DecelerationTimeLift attribute
  */
@@ -21896,7 +21896,7 @@ uint16_t dotdot_get_window_covering_deceleration_time_lift(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_deceleration_time_lift new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -21986,7 +21986,7 @@ bool dotdot_is_supported_window_covering_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Mode attribute
  */
@@ -22002,7 +22002,7 @@ uint8_t dotdot_get_window_covering_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -22092,10 +22092,10 @@ bool dotdot_is_supported_window_covering_intermediate_setpoints_lift (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns IntermediateSetpointsLift attribute
  */
@@ -22111,7 +22111,7 @@ const char* dotdot_get_window_covering_intermediate_setpoints_lift(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_intermediate_setpoints_lift new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -22201,10 +22201,10 @@ bool dotdot_is_supported_window_covering_intermediate_setpoints_tilt (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns IntermediateSetpointsTilt attribute
  */
@@ -22220,7 +22220,7 @@ const char* dotdot_get_window_covering_intermediate_setpoints_tilt(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_intermediate_setpoints_tilt new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -22338,7 +22338,7 @@ bool dotdot_is_supported_barrier_control_moving_state (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MovingState attribute
  */
@@ -22354,7 +22354,7 @@ uint8_t dotdot_get_barrier_control_moving_state(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_moving_state new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -22444,7 +22444,7 @@ bool dotdot_is_supported_barrier_control_safety_status (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SafetyStatus attribute
  */
@@ -22460,7 +22460,7 @@ uint16_t dotdot_get_barrier_control_safety_status(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_safety_status new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -22550,7 +22550,7 @@ bool dotdot_is_supported_barrier_control_capabilities (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Capabilities attribute
  */
@@ -22566,7 +22566,7 @@ uint8_t dotdot_get_barrier_control_capabilities(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_capabilities new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -22656,7 +22656,7 @@ bool dotdot_is_supported_barrier_control_open_events (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OpenEvents attribute
  */
@@ -22672,7 +22672,7 @@ uint16_t dotdot_get_barrier_control_open_events(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_open_events new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -22762,7 +22762,7 @@ bool dotdot_is_supported_barrier_control_close_events (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CloseEvents attribute
  */
@@ -22778,7 +22778,7 @@ uint16_t dotdot_get_barrier_control_close_events(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_close_events new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -22868,7 +22868,7 @@ bool dotdot_is_supported_barrier_control_command_open_events (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CommandOpenEvents attribute
  */
@@ -22884,7 +22884,7 @@ uint16_t dotdot_get_barrier_control_command_open_events(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_command_open_events new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -22974,7 +22974,7 @@ bool dotdot_is_supported_barrier_control_command_close_events (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CommandCloseEvents attribute
  */
@@ -22990,7 +22990,7 @@ uint16_t dotdot_get_barrier_control_command_close_events(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_command_close_events new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -23080,7 +23080,7 @@ bool dotdot_is_supported_barrier_control_open_period (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OpenPeriod attribute
  */
@@ -23096,7 +23096,7 @@ uint16_t dotdot_get_barrier_control_open_period(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_open_period new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -23186,7 +23186,7 @@ bool dotdot_is_supported_barrier_control_close_period (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ClosePeriod attribute
  */
@@ -23202,7 +23202,7 @@ uint16_t dotdot_get_barrier_control_close_period(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_close_period new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -23292,7 +23292,7 @@ bool dotdot_is_supported_barrier_control_barrier_position (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BarrierPosition attribute
  */
@@ -23308,7 +23308,7 @@ uint8_t dotdot_get_barrier_control_barrier_position(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_barrier_position new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -23426,7 +23426,7 @@ bool dotdot_is_supported_pump_configuration_and_control_max_pressure (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxPressure attribute
  */
@@ -23442,7 +23442,7 @@ int16_t dotdot_get_pump_configuration_and_control_max_pressure(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_pressure new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -23532,7 +23532,7 @@ bool dotdot_is_supported_pump_configuration_and_control_max_speed (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxSpeed attribute
  */
@@ -23548,7 +23548,7 @@ uint16_t dotdot_get_pump_configuration_and_control_max_speed(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_speed new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -23638,7 +23638,7 @@ bool dotdot_is_supported_pump_configuration_and_control_max_flow (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxFlow attribute
  */
@@ -23654,7 +23654,7 @@ uint16_t dotdot_get_pump_configuration_and_control_max_flow(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_flow new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -23744,7 +23744,7 @@ bool dotdot_is_supported_pump_configuration_and_control_min_const_pressure (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinConstPressure attribute
  */
@@ -23760,7 +23760,7 @@ int16_t dotdot_get_pump_configuration_and_control_min_const_pressure(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_const_pressure new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -23850,7 +23850,7 @@ bool dotdot_is_supported_pump_configuration_and_control_max_const_pressure (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxConstPressure attribute
  */
@@ -23866,7 +23866,7 @@ int16_t dotdot_get_pump_configuration_and_control_max_const_pressure(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_const_pressure new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -23956,7 +23956,7 @@ bool dotdot_is_supported_pump_configuration_and_control_min_comp_pressure (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinCompPressure attribute
  */
@@ -23972,7 +23972,7 @@ int16_t dotdot_get_pump_configuration_and_control_min_comp_pressure(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_comp_pressure new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -24062,7 +24062,7 @@ bool dotdot_is_supported_pump_configuration_and_control_max_comp_pressure (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxCompPressure attribute
  */
@@ -24078,7 +24078,7 @@ int16_t dotdot_get_pump_configuration_and_control_max_comp_pressure(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_comp_pressure new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -24168,7 +24168,7 @@ bool dotdot_is_supported_pump_configuration_and_control_min_const_speed (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinConstSpeed attribute
  */
@@ -24184,7 +24184,7 @@ uint16_t dotdot_get_pump_configuration_and_control_min_const_speed(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_const_speed new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -24274,7 +24274,7 @@ bool dotdot_is_supported_pump_configuration_and_control_max_const_speed (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxConstSpeed attribute
  */
@@ -24290,7 +24290,7 @@ uint16_t dotdot_get_pump_configuration_and_control_max_const_speed(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_const_speed new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -24380,7 +24380,7 @@ bool dotdot_is_supported_pump_configuration_and_control_min_const_flow (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinConstFlow attribute
  */
@@ -24396,7 +24396,7 @@ uint16_t dotdot_get_pump_configuration_and_control_min_const_flow(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_const_flow new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -24486,7 +24486,7 @@ bool dotdot_is_supported_pump_configuration_and_control_max_const_flow (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxConstFlow attribute
  */
@@ -24502,7 +24502,7 @@ uint16_t dotdot_get_pump_configuration_and_control_max_const_flow(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_const_flow new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -24592,7 +24592,7 @@ bool dotdot_is_supported_pump_configuration_and_control_min_const_temp (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinConstTemp attribute
  */
@@ -24608,7 +24608,7 @@ int16_t dotdot_get_pump_configuration_and_control_min_const_temp(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_const_temp new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -24698,7 +24698,7 @@ bool dotdot_is_supported_pump_configuration_and_control_max_const_temp (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxConstTemp attribute
  */
@@ -24714,7 +24714,7 @@ int16_t dotdot_get_pump_configuration_and_control_max_const_temp(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_const_temp new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -24804,7 +24804,7 @@ bool dotdot_is_supported_pump_configuration_and_control_pump_status (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PumpStatus attribute
  */
@@ -24820,7 +24820,7 @@ uint16_t dotdot_get_pump_configuration_and_control_pump_status(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_pump_status new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -24910,7 +24910,7 @@ bool dotdot_is_supported_pump_configuration_and_control_effective_operation_mode
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns EffectiveOperationMode attribute
  */
@@ -24926,7 +24926,7 @@ PumpOperationMode dotdot_get_pump_configuration_and_control_effective_operation_
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_effective_operation_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -25016,7 +25016,7 @@ bool dotdot_is_supported_pump_configuration_and_control_effective_control_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns EffectiveControlMode attribute
  */
@@ -25032,7 +25032,7 @@ PumpControlMode dotdot_get_pump_configuration_and_control_effective_control_mode
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_effective_control_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -25122,7 +25122,7 @@ bool dotdot_is_supported_pump_configuration_and_control_capacity (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Capacity attribute
  */
@@ -25138,7 +25138,7 @@ int16_t dotdot_get_pump_configuration_and_control_capacity(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_capacity new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -25228,7 +25228,7 @@ bool dotdot_is_supported_pump_configuration_and_control_speed (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Speed attribute
  */
@@ -25244,7 +25244,7 @@ uint16_t dotdot_get_pump_configuration_and_control_speed(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_speed new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -25334,7 +25334,7 @@ bool dotdot_is_supported_pump_configuration_and_control_lifetime_running_hours (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LifetimeRunningHours attribute
  */
@@ -25350,7 +25350,7 @@ uint32_t dotdot_get_pump_configuration_and_control_lifetime_running_hours(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_lifetime_running_hours new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -25440,7 +25440,7 @@ bool dotdot_is_supported_pump_configuration_and_control_power (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Power attribute
  */
@@ -25456,7 +25456,7 @@ uint32_t dotdot_get_pump_configuration_and_control_power(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_power new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -25546,7 +25546,7 @@ bool dotdot_is_supported_pump_configuration_and_control_lifetime_energy_consumed
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LifetimeEnergyConsumed attribute
  */
@@ -25562,7 +25562,7 @@ uint32_t dotdot_get_pump_configuration_and_control_lifetime_energy_consumed(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_lifetime_energy_consumed new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -25652,7 +25652,7 @@ bool dotdot_is_supported_pump_configuration_and_control_operation_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OperationMode attribute
  */
@@ -25668,7 +25668,7 @@ PumpOperationMode dotdot_get_pump_configuration_and_control_operation_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_operation_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -25758,7 +25758,7 @@ bool dotdot_is_supported_pump_configuration_and_control_control_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ControlMode attribute
  */
@@ -25774,7 +25774,7 @@ PumpControlMode dotdot_get_pump_configuration_and_control_control_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_control_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -25864,7 +25864,7 @@ bool dotdot_is_supported_pump_configuration_and_control_alarm_mask (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AlarmMask attribute
  */
@@ -25880,7 +25880,7 @@ uint16_t dotdot_get_pump_configuration_and_control_alarm_mask(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_alarm_mask new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -25998,7 +25998,7 @@ bool dotdot_is_supported_thermostat_local_temperature (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LocalTemperature attribute
  */
@@ -26014,7 +26014,7 @@ int16_t dotdot_get_thermostat_local_temperature(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_local_temperature new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -26104,7 +26104,7 @@ bool dotdot_is_supported_thermostat_outdoor_temperature (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OutdoorTemperature attribute
  */
@@ -26120,7 +26120,7 @@ int16_t dotdot_get_thermostat_outdoor_temperature(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_outdoor_temperature new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -26210,7 +26210,7 @@ bool dotdot_is_supported_thermostat_occupancy (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Occupancy attribute
  */
@@ -26226,7 +26226,7 @@ uint8_t dotdot_get_thermostat_occupancy(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_occupancy new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -26316,7 +26316,7 @@ bool dotdot_is_supported_thermostat_abs_min_heat_setpoint_limit (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AbsMinHeatSetpointLimit attribute
  */
@@ -26332,7 +26332,7 @@ int16_t dotdot_get_thermostat_abs_min_heat_setpoint_limit(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_abs_min_heat_setpoint_limit new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -26422,7 +26422,7 @@ bool dotdot_is_supported_thermostat_abs_max_heat_setpoint_limit (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AbsMaxHeatSetpointLimit attribute
  */
@@ -26438,7 +26438,7 @@ int16_t dotdot_get_thermostat_abs_max_heat_setpoint_limit(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_abs_max_heat_setpoint_limit new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -26528,7 +26528,7 @@ bool dotdot_is_supported_thermostat_abs_min_cool_setpoint_limit (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AbsMinCoolSetpointLimit attribute
  */
@@ -26544,7 +26544,7 @@ int16_t dotdot_get_thermostat_abs_min_cool_setpoint_limit(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_abs_min_cool_setpoint_limit new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -26634,7 +26634,7 @@ bool dotdot_is_supported_thermostat_abs_max_cool_setpoint_limit (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AbsMaxCoolSetpointLimit attribute
  */
@@ -26650,7 +26650,7 @@ int16_t dotdot_get_thermostat_abs_max_cool_setpoint_limit(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_abs_max_cool_setpoint_limit new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -26740,7 +26740,7 @@ bool dotdot_is_supported_thermostat_pi_cooling_demand (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PICoolingDemand attribute
  */
@@ -26756,7 +26756,7 @@ uint8_t dotdot_get_thermostat_pi_cooling_demand(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_pi_cooling_demand new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -26846,7 +26846,7 @@ bool dotdot_is_supported_thermostat_pi_heating_demand (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PIHeatingDemand attribute
  */
@@ -26862,7 +26862,7 @@ uint8_t dotdot_get_thermostat_pi_heating_demand(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_pi_heating_demand new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -26952,7 +26952,7 @@ bool dotdot_is_supported_thermostat_hvac_system_type_configuration (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns HVACSystemTypeConfiguration attribute
  */
@@ -26968,7 +26968,7 @@ uint8_t dotdot_get_thermostat_hvac_system_type_configuration(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_hvac_system_type_configuration new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -27058,7 +27058,7 @@ bool dotdot_is_supported_thermostat_local_temperature_calibration (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LocalTemperatureCalibration attribute
  */
@@ -27074,7 +27074,7 @@ int8_t dotdot_get_thermostat_local_temperature_calibration(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_local_temperature_calibration new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -27164,7 +27164,7 @@ bool dotdot_is_supported_thermostat_occupied_cooling_setpoint (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OccupiedCoolingSetpoint attribute
  */
@@ -27180,7 +27180,7 @@ int16_t dotdot_get_thermostat_occupied_cooling_setpoint(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_occupied_cooling_setpoint new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -27270,7 +27270,7 @@ bool dotdot_is_supported_thermostat_occupied_heating_setpoint (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OccupiedHeatingSetpoint attribute
  */
@@ -27286,7 +27286,7 @@ int16_t dotdot_get_thermostat_occupied_heating_setpoint(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_occupied_heating_setpoint new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -27376,7 +27376,7 @@ bool dotdot_is_supported_thermostat_unoccupied_cooling_setpoint (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns UnoccupiedCoolingSetpoint attribute
  */
@@ -27392,7 +27392,7 @@ int16_t dotdot_get_thermostat_unoccupied_cooling_setpoint(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_unoccupied_cooling_setpoint new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -27482,7 +27482,7 @@ bool dotdot_is_supported_thermostat_unoccupied_heating_setpoint (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns UnoccupiedHeatingSetpoint attribute
  */
@@ -27498,7 +27498,7 @@ int16_t dotdot_get_thermostat_unoccupied_heating_setpoint(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_unoccupied_heating_setpoint new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -27588,7 +27588,7 @@ bool dotdot_is_supported_thermostat_min_heat_setpoint_limit (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinHeatSetpointLimit attribute
  */
@@ -27604,7 +27604,7 @@ int16_t dotdot_get_thermostat_min_heat_setpoint_limit(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_heat_setpoint_limit new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -27694,7 +27694,7 @@ bool dotdot_is_supported_thermostat_max_heat_setpoint_limit (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxHeatSetpointLimit attribute
  */
@@ -27710,7 +27710,7 @@ int16_t dotdot_get_thermostat_max_heat_setpoint_limit(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_heat_setpoint_limit new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -27800,7 +27800,7 @@ bool dotdot_is_supported_thermostat_min_cool_setpoint_limit (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinCoolSetpointLimit attribute
  */
@@ -27816,7 +27816,7 @@ int16_t dotdot_get_thermostat_min_cool_setpoint_limit(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_cool_setpoint_limit new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -27906,7 +27906,7 @@ bool dotdot_is_supported_thermostat_max_cool_setpoint_limit (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxCoolSetpointLimit attribute
  */
@@ -27922,7 +27922,7 @@ int16_t dotdot_get_thermostat_max_cool_setpoint_limit(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_cool_setpoint_limit new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -28012,7 +28012,7 @@ bool dotdot_is_supported_thermostat_min_setpoint_dead_band (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinSetpointDeadBand attribute
  */
@@ -28028,7 +28028,7 @@ int8_t dotdot_get_thermostat_min_setpoint_dead_band(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_setpoint_dead_band new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -28118,7 +28118,7 @@ bool dotdot_is_supported_thermostat_remote_sensing (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RemoteSensing attribute
  */
@@ -28134,7 +28134,7 @@ uint8_t dotdot_get_thermostat_remote_sensing(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_remote_sensing new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -28224,7 +28224,7 @@ bool dotdot_is_supported_thermostat_control_sequence_of_operation (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ControlSequenceOfOperation attribute
  */
@@ -28240,7 +28240,7 @@ uint8_t dotdot_get_thermostat_control_sequence_of_operation(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_control_sequence_of_operation new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -28330,7 +28330,7 @@ bool dotdot_is_supported_thermostat_system_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SystemMode attribute
  */
@@ -28346,7 +28346,7 @@ uint8_t dotdot_get_thermostat_system_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_system_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -28436,7 +28436,7 @@ bool dotdot_is_supported_thermostat_alarm_mask (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AlarmMask attribute
  */
@@ -28452,7 +28452,7 @@ uint8_t dotdot_get_thermostat_alarm_mask(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_alarm_mask new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -28542,7 +28542,7 @@ bool dotdot_is_supported_thermostat_thermostat_running_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ThermostatRunningMode attribute
  */
@@ -28558,7 +28558,7 @@ uint8_t dotdot_get_thermostat_thermostat_running_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_thermostat_running_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -28648,7 +28648,7 @@ bool dotdot_is_supported_thermostat_start_of_week (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns StartOfWeek attribute
  */
@@ -28664,7 +28664,7 @@ uint8_t dotdot_get_thermostat_start_of_week(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_start_of_week new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -28754,7 +28754,7 @@ bool dotdot_is_supported_thermostat_number_of_weekly_transitions (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NumberOfWeeklyTransitions attribute
  */
@@ -28770,7 +28770,7 @@ uint8_t dotdot_get_thermostat_number_of_weekly_transitions(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_number_of_weekly_transitions new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -28860,7 +28860,7 @@ bool dotdot_is_supported_thermostat_number_of_daily_transitions (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NumberOfDailyTransitions attribute
  */
@@ -28876,7 +28876,7 @@ uint8_t dotdot_get_thermostat_number_of_daily_transitions(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_number_of_daily_transitions new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -28966,7 +28966,7 @@ bool dotdot_is_supported_thermostat_temperature_setpoint_hold (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns TemperatureSetpointHold attribute
  */
@@ -28982,7 +28982,7 @@ uint8_t dotdot_get_thermostat_temperature_setpoint_hold(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_temperature_setpoint_hold new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -29072,7 +29072,7 @@ bool dotdot_is_supported_thermostat_temperature_setpoint_hold_duration (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns TemperatureSetpointHoldDuration attribute
  */
@@ -29088,7 +29088,7 @@ uint16_t dotdot_get_thermostat_temperature_setpoint_hold_duration(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_temperature_setpoint_hold_duration new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -29178,7 +29178,7 @@ bool dotdot_is_supported_thermostat_thermostat_programming_operation_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ThermostatProgrammingOperationMode attribute
  */
@@ -29194,7 +29194,7 @@ uint8_t dotdot_get_thermostat_thermostat_programming_operation_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_thermostat_programming_operation_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -29284,7 +29284,7 @@ bool dotdot_is_supported_thermostat_thermostat_running_state (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ThermostatRunningState attribute
  */
@@ -29300,7 +29300,7 @@ uint16_t dotdot_get_thermostat_thermostat_running_state(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_thermostat_running_state new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -29390,7 +29390,7 @@ bool dotdot_is_supported_thermostat_setpoint_change_source (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SetpointChangeSource attribute
  */
@@ -29406,7 +29406,7 @@ uint8_t dotdot_get_thermostat_setpoint_change_source(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_setpoint_change_source new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -29496,7 +29496,7 @@ bool dotdot_is_supported_thermostat_setpoint_change_amount (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SetpointChangeAmount attribute
  */
@@ -29512,7 +29512,7 @@ int16_t dotdot_get_thermostat_setpoint_change_amount(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_setpoint_change_amount new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -29602,7 +29602,7 @@ bool dotdot_is_supported_thermostat_setpoint_change_source_timestamp (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SetpointChangeSourceTimestamp attribute
  */
@@ -29618,7 +29618,7 @@ uint32_t dotdot_get_thermostat_setpoint_change_source_timestamp(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_setpoint_change_source_timestamp new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -29708,7 +29708,7 @@ bool dotdot_is_supported_thermostat_occupied_setback (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OccupiedSetback attribute
  */
@@ -29724,7 +29724,7 @@ uint8_t dotdot_get_thermostat_occupied_setback(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_occupied_setback new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -29814,7 +29814,7 @@ bool dotdot_is_supported_thermostat_occupied_setback_min (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OccupiedSetbackMin attribute
  */
@@ -29830,7 +29830,7 @@ uint8_t dotdot_get_thermostat_occupied_setback_min(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_occupied_setback_min new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -29920,7 +29920,7 @@ bool dotdot_is_supported_thermostat_occupied_setback_max (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OccupiedSetbackMax attribute
  */
@@ -29936,7 +29936,7 @@ uint8_t dotdot_get_thermostat_occupied_setback_max(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_occupied_setback_max new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -30026,7 +30026,7 @@ bool dotdot_is_supported_thermostat_unoccupied_setback (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns UnoccupiedSetback attribute
  */
@@ -30042,7 +30042,7 @@ uint8_t dotdot_get_thermostat_unoccupied_setback(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_unoccupied_setback new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -30132,7 +30132,7 @@ bool dotdot_is_supported_thermostat_unoccupied_setback_min (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns UnoccupiedSetbackMin attribute
  */
@@ -30148,7 +30148,7 @@ uint8_t dotdot_get_thermostat_unoccupied_setback_min(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_unoccupied_setback_min new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -30238,7 +30238,7 @@ bool dotdot_is_supported_thermostat_unoccupied_setback_max (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns UnoccupiedSetbackMax attribute
  */
@@ -30254,7 +30254,7 @@ uint8_t dotdot_get_thermostat_unoccupied_setback_max(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_unoccupied_setback_max new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -30344,7 +30344,7 @@ bool dotdot_is_supported_thermostat_emergency_heat_delta (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns EmergencyHeatDelta attribute
  */
@@ -30360,7 +30360,7 @@ uint8_t dotdot_get_thermostat_emergency_heat_delta(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_emergency_heat_delta new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -30450,7 +30450,7 @@ bool dotdot_is_supported_thermostat_ac_type (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACType attribute
  */
@@ -30466,7 +30466,7 @@ uint8_t dotdot_get_thermostat_ac_type(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_type new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -30556,7 +30556,7 @@ bool dotdot_is_supported_thermostat_ac_capacity (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACCapacity attribute
  */
@@ -30572,7 +30572,7 @@ uint16_t dotdot_get_thermostat_ac_capacity(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_capacity new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -30662,7 +30662,7 @@ bool dotdot_is_supported_thermostat_ac_refrigerant_type (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACRefrigerantType attribute
  */
@@ -30678,7 +30678,7 @@ uint8_t dotdot_get_thermostat_ac_refrigerant_type(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_refrigerant_type new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -30768,7 +30768,7 @@ bool dotdot_is_supported_thermostat_ac_compressor_type (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACCompressorType attribute
  */
@@ -30784,7 +30784,7 @@ uint8_t dotdot_get_thermostat_ac_compressor_type(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_compressor_type new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -30874,7 +30874,7 @@ bool dotdot_is_supported_thermostat_ac_error_code (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACErrorCode attribute
  */
@@ -30890,7 +30890,7 @@ uint32_t dotdot_get_thermostat_ac_error_code(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_error_code new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -30980,7 +30980,7 @@ bool dotdot_is_supported_thermostat_ac_louver_position (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACLouverPosition attribute
  */
@@ -30996,7 +30996,7 @@ uint8_t dotdot_get_thermostat_ac_louver_position(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_louver_position new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -31086,7 +31086,7 @@ bool dotdot_is_supported_thermostat_ac_coil_temperature (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACCoilTemperature attribute
  */
@@ -31102,7 +31102,7 @@ int16_t dotdot_get_thermostat_ac_coil_temperature(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_coil_temperature new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -31192,7 +31192,7 @@ bool dotdot_is_supported_thermostat_ac_capacity_format (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACCapacityFormat attribute
  */
@@ -31208,7 +31208,7 @@ uint8_t dotdot_get_thermostat_ac_capacity_format(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_capacity_format new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -31326,7 +31326,7 @@ bool dotdot_is_supported_fan_control_fan_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns FanMode attribute
  */
@@ -31342,7 +31342,7 @@ uint8_t dotdot_get_fan_control_fan_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_fan_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -31432,7 +31432,7 @@ bool dotdot_is_supported_fan_control_fan_mode_sequence (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns FanModeSequence attribute
  */
@@ -31448,7 +31448,7 @@ uint8_t dotdot_get_fan_control_fan_mode_sequence(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_fan_mode_sequence new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -31566,7 +31566,7 @@ bool dotdot_is_supported_dehumidification_control_relative_humidity (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RelativeHumidity attribute
  */
@@ -31582,7 +31582,7 @@ uint8_t dotdot_get_dehumidification_control_relative_humidity(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_relative_humidity new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -31672,7 +31672,7 @@ bool dotdot_is_supported_dehumidification_control_dehumidification_cooling (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DehumidificationCooling attribute
  */
@@ -31688,7 +31688,7 @@ uint8_t dotdot_get_dehumidification_control_dehumidification_cooling(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dehumidification_cooling new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -31778,7 +31778,7 @@ bool dotdot_is_supported_dehumidification_control_rh_dehumidification_setpoint (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RHDehumidificationSetpoint attribute
  */
@@ -31794,7 +31794,7 @@ uint8_t dotdot_get_dehumidification_control_rh_dehumidification_setpoint(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rh_dehumidification_setpoint new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -31884,7 +31884,7 @@ bool dotdot_is_supported_dehumidification_control_relative_humidity_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RelativeHumidityMode attribute
  */
@@ -31900,7 +31900,7 @@ uint8_t dotdot_get_dehumidification_control_relative_humidity_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_relative_humidity_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -31990,7 +31990,7 @@ bool dotdot_is_supported_dehumidification_control_dehumidification_lockout (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DehumidificationLockout attribute
  */
@@ -32006,7 +32006,7 @@ uint8_t dotdot_get_dehumidification_control_dehumidification_lockout(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dehumidification_lockout new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -32096,7 +32096,7 @@ bool dotdot_is_supported_dehumidification_control_dehumidification_hysteresis (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DehumidificationHysteresis attribute
  */
@@ -32112,7 +32112,7 @@ uint8_t dotdot_get_dehumidification_control_dehumidification_hysteresis(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dehumidification_hysteresis new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -32202,7 +32202,7 @@ bool dotdot_is_supported_dehumidification_control_dehumidification_max_cool (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DehumidificationMaxCool attribute
  */
@@ -32218,7 +32218,7 @@ uint8_t dotdot_get_dehumidification_control_dehumidification_max_cool(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dehumidification_max_cool new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -32308,7 +32308,7 @@ bool dotdot_is_supported_dehumidification_control_relative_humidity_display (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RelativeHumidityDisplay attribute
  */
@@ -32324,7 +32324,7 @@ uint8_t dotdot_get_dehumidification_control_relative_humidity_display(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_relative_humidity_display new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -32442,7 +32442,7 @@ bool dotdot_is_supported_thermostat_user_interface_configuration_temperature_dis
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns TemperatureDisplayMode attribute
  */
@@ -32458,7 +32458,7 @@ uint8_t dotdot_get_thermostat_user_interface_configuration_temperature_display_m
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_temperature_display_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -32548,7 +32548,7 @@ bool dotdot_is_supported_thermostat_user_interface_configuration_keypad_lockout 
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns KeypadLockout attribute
  */
@@ -32564,7 +32564,7 @@ uint8_t dotdot_get_thermostat_user_interface_configuration_keypad_lockout(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_keypad_lockout new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -32654,7 +32654,7 @@ bool dotdot_is_supported_thermostat_user_interface_configuration_schedule_progra
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ScheduleProgrammingVisibility attribute
  */
@@ -32670,7 +32670,7 @@ uint8_t dotdot_get_thermostat_user_interface_configuration_schedule_programming_
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_schedule_programming_visibility new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -32788,7 +32788,7 @@ bool dotdot_is_supported_color_control_current_hue (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentHue attribute
  */
@@ -32804,7 +32804,7 @@ uint8_t dotdot_get_color_control_current_hue(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_hue new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -32894,7 +32894,7 @@ bool dotdot_is_supported_color_control_current_saturation (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentSaturation attribute
  */
@@ -32910,7 +32910,7 @@ uint8_t dotdot_get_color_control_current_saturation(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_saturation new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -33000,7 +33000,7 @@ bool dotdot_is_supported_color_control_remaining_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RemainingTime attribute
  */
@@ -33016,7 +33016,7 @@ uint16_t dotdot_get_color_control_remaining_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_remaining_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -33106,7 +33106,7 @@ bool dotdot_is_supported_color_control_currentx (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentX attribute
  */
@@ -33122,7 +33122,7 @@ uint16_t dotdot_get_color_control_currentx(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_currentx new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -33212,7 +33212,7 @@ bool dotdot_is_supported_color_control_currenty (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentY attribute
  */
@@ -33228,7 +33228,7 @@ uint16_t dotdot_get_color_control_currenty(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_currenty new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -33318,7 +33318,7 @@ bool dotdot_is_supported_color_control_drift_compensation (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DriftCompensation attribute
  */
@@ -33334,7 +33334,7 @@ uint8_t dotdot_get_color_control_drift_compensation(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_drift_compensation new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -33424,10 +33424,10 @@ bool dotdot_is_supported_color_control_compensation_text (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns CompensationText attribute
  */
@@ -33443,7 +33443,7 @@ const char* dotdot_get_color_control_compensation_text(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_compensation_text new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -33533,7 +33533,7 @@ bool dotdot_is_supported_color_control_color_temperature_mireds (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorTemperatureMireds attribute
  */
@@ -33549,7 +33549,7 @@ uint16_t dotdot_get_color_control_color_temperature_mireds(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_temperature_mireds new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -33639,7 +33639,7 @@ bool dotdot_is_supported_color_control_color_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorMode attribute
  */
@@ -33655,7 +33655,7 @@ uint8_t dotdot_get_color_control_color_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -33745,7 +33745,7 @@ bool dotdot_is_supported_color_control_options (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Options attribute
  */
@@ -33761,7 +33761,7 @@ uint8_t dotdot_get_color_control_options(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_options new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -33851,7 +33851,7 @@ bool dotdot_is_supported_color_control_number_of_primaries (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NumberOfPrimaries attribute
  */
@@ -33867,7 +33867,7 @@ uint8_t dotdot_get_color_control_number_of_primaries(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_number_of_primaries new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -33957,7 +33957,7 @@ bool dotdot_is_supported_color_control_primary1x (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Primary1X attribute
  */
@@ -33973,7 +33973,7 @@ uint16_t dotdot_get_color_control_primary1x(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_primary1x new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -34063,7 +34063,7 @@ bool dotdot_is_supported_color_control_primary1y (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Primary1Y attribute
  */
@@ -34079,7 +34079,7 @@ uint16_t dotdot_get_color_control_primary1y(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_primary1y new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -34169,7 +34169,7 @@ bool dotdot_is_supported_color_control_primary1_intensity (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Primary1Intensity attribute
  */
@@ -34185,7 +34185,7 @@ uint8_t dotdot_get_color_control_primary1_intensity(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_primary1_intensity new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -34275,7 +34275,7 @@ bool dotdot_is_supported_color_control_primary2x (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Primary2X attribute
  */
@@ -34291,7 +34291,7 @@ uint16_t dotdot_get_color_control_primary2x(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_primary2x new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -34381,7 +34381,7 @@ bool dotdot_is_supported_color_control_primary2y (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Primary2Y attribute
  */
@@ -34397,7 +34397,7 @@ uint16_t dotdot_get_color_control_primary2y(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_primary2y new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -34487,7 +34487,7 @@ bool dotdot_is_supported_color_control_primary2_intensity (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Primary2Intensity attribute
  */
@@ -34503,7 +34503,7 @@ uint8_t dotdot_get_color_control_primary2_intensity(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_primary2_intensity new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -34593,7 +34593,7 @@ bool dotdot_is_supported_color_control_primary3x (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Primary3X attribute
  */
@@ -34609,7 +34609,7 @@ uint16_t dotdot_get_color_control_primary3x(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_primary3x new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -34699,7 +34699,7 @@ bool dotdot_is_supported_color_control_primary3y (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Primary3Y attribute
  */
@@ -34715,7 +34715,7 @@ uint16_t dotdot_get_color_control_primary3y(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_primary3y new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -34805,7 +34805,7 @@ bool dotdot_is_supported_color_control_primary3_intensity (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Primary3Intensity attribute
  */
@@ -34821,7 +34821,7 @@ uint8_t dotdot_get_color_control_primary3_intensity(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_primary3_intensity new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -34911,7 +34911,7 @@ bool dotdot_is_supported_color_control_primary4x (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Primary4X attribute
  */
@@ -34927,7 +34927,7 @@ uint16_t dotdot_get_color_control_primary4x(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_primary4x new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -35017,7 +35017,7 @@ bool dotdot_is_supported_color_control_primary4y (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Primary4Y attribute
  */
@@ -35033,7 +35033,7 @@ uint16_t dotdot_get_color_control_primary4y(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_primary4y new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -35123,7 +35123,7 @@ bool dotdot_is_supported_color_control_primary4_intensity (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Primary4Intensity attribute
  */
@@ -35139,7 +35139,7 @@ uint8_t dotdot_get_color_control_primary4_intensity(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_primary4_intensity new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -35229,7 +35229,7 @@ bool dotdot_is_supported_color_control_primary5x (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Primary5X attribute
  */
@@ -35245,7 +35245,7 @@ uint16_t dotdot_get_color_control_primary5x(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_primary5x new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -35335,7 +35335,7 @@ bool dotdot_is_supported_color_control_primary5y (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Primary5Y attribute
  */
@@ -35351,7 +35351,7 @@ uint16_t dotdot_get_color_control_primary5y(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_primary5y new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -35441,7 +35441,7 @@ bool dotdot_is_supported_color_control_primary5_intensity (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Primary5Intensity attribute
  */
@@ -35457,7 +35457,7 @@ uint8_t dotdot_get_color_control_primary5_intensity(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_primary5_intensity new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -35547,7 +35547,7 @@ bool dotdot_is_supported_color_control_primary6x (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Primary6X attribute
  */
@@ -35563,7 +35563,7 @@ uint16_t dotdot_get_color_control_primary6x(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_primary6x new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -35653,7 +35653,7 @@ bool dotdot_is_supported_color_control_primary6y (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Primary6Y attribute
  */
@@ -35669,7 +35669,7 @@ uint16_t dotdot_get_color_control_primary6y(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_primary6y new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -35759,7 +35759,7 @@ bool dotdot_is_supported_color_control_primary6_intensity (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Primary6Intensity attribute
  */
@@ -35775,7 +35775,7 @@ uint8_t dotdot_get_color_control_primary6_intensity(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_primary6_intensity new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -35865,7 +35865,7 @@ bool dotdot_is_supported_color_control_white_pointx (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns WhitePointX attribute
  */
@@ -35881,7 +35881,7 @@ uint16_t dotdot_get_color_control_white_pointx(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_white_pointx new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -35971,7 +35971,7 @@ bool dotdot_is_supported_color_control_white_pointy (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns WhitePointY attribute
  */
@@ -35987,7 +35987,7 @@ uint16_t dotdot_get_color_control_white_pointy(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_white_pointy new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -36077,7 +36077,7 @@ bool dotdot_is_supported_color_control_color_pointrx (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorPointRX attribute
  */
@@ -36093,7 +36093,7 @@ uint16_t dotdot_get_color_control_color_pointrx(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_pointrx new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -36183,7 +36183,7 @@ bool dotdot_is_supported_color_control_color_pointry (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorPointRY attribute
  */
@@ -36199,7 +36199,7 @@ uint16_t dotdot_get_color_control_color_pointry(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_pointry new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -36289,7 +36289,7 @@ bool dotdot_is_supported_color_control_color_pointr_intensity (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorPointRIntensity attribute
  */
@@ -36305,7 +36305,7 @@ uint8_t dotdot_get_color_control_color_pointr_intensity(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_pointr_intensity new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -36395,7 +36395,7 @@ bool dotdot_is_supported_color_control_color_pointgx (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorPointGX attribute
  */
@@ -36411,7 +36411,7 @@ uint16_t dotdot_get_color_control_color_pointgx(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_pointgx new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -36501,7 +36501,7 @@ bool dotdot_is_supported_color_control_color_pointgy (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorPointGY attribute
  */
@@ -36517,7 +36517,7 @@ uint16_t dotdot_get_color_control_color_pointgy(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_pointgy new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -36607,7 +36607,7 @@ bool dotdot_is_supported_color_control_color_pointg_intensity (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorPointGIntensity attribute
  */
@@ -36623,7 +36623,7 @@ uint8_t dotdot_get_color_control_color_pointg_intensity(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_pointg_intensity new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -36713,7 +36713,7 @@ bool dotdot_is_supported_color_control_color_pointbx (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorPointBX attribute
  */
@@ -36729,7 +36729,7 @@ uint16_t dotdot_get_color_control_color_pointbx(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_pointbx new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -36819,7 +36819,7 @@ bool dotdot_is_supported_color_control_color_pointby (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorPointBY attribute
  */
@@ -36835,7 +36835,7 @@ uint16_t dotdot_get_color_control_color_pointby(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_pointby new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -36925,7 +36925,7 @@ bool dotdot_is_supported_color_control_color_pointb_intensity (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorPointBIntensity attribute
  */
@@ -36941,7 +36941,7 @@ uint8_t dotdot_get_color_control_color_pointb_intensity(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_pointb_intensity new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -37031,7 +37031,7 @@ bool dotdot_is_supported_color_control_enhanced_current_hue (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns EnhancedCurrentHue attribute
  */
@@ -37047,7 +37047,7 @@ uint16_t dotdot_get_color_control_enhanced_current_hue(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_enhanced_current_hue new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -37137,7 +37137,7 @@ bool dotdot_is_supported_color_control_enhanced_color_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns EnhancedColorMode attribute
  */
@@ -37153,7 +37153,7 @@ uint8_t dotdot_get_color_control_enhanced_color_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_enhanced_color_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -37243,7 +37243,7 @@ bool dotdot_is_supported_color_control_color_loop_active (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorLoopActive attribute
  */
@@ -37259,7 +37259,7 @@ uint8_t dotdot_get_color_control_color_loop_active(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_loop_active new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -37349,7 +37349,7 @@ bool dotdot_is_supported_color_control_color_loop_direction (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorLoopDirection attribute
  */
@@ -37365,7 +37365,7 @@ uint8_t dotdot_get_color_control_color_loop_direction(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_loop_direction new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -37455,7 +37455,7 @@ bool dotdot_is_supported_color_control_color_loop_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorLoopTime attribute
  */
@@ -37471,7 +37471,7 @@ uint16_t dotdot_get_color_control_color_loop_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_loop_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -37561,7 +37561,7 @@ bool dotdot_is_supported_color_control_color_loop_start_enhanced_hue (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorLoopStartEnhancedHue attribute
  */
@@ -37577,7 +37577,7 @@ uint16_t dotdot_get_color_control_color_loop_start_enhanced_hue(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_loop_start_enhanced_hue new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -37667,7 +37667,7 @@ bool dotdot_is_supported_color_control_color_loop_stored_enhanced_hue (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorLoopStoredEnhancedHue attribute
  */
@@ -37683,7 +37683,7 @@ uint16_t dotdot_get_color_control_color_loop_stored_enhanced_hue(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_loop_stored_enhanced_hue new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -37773,7 +37773,7 @@ bool dotdot_is_supported_color_control_color_capabilities (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorCapabilities attribute
  */
@@ -37789,7 +37789,7 @@ uint16_t dotdot_get_color_control_color_capabilities(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_capabilities new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -37879,7 +37879,7 @@ bool dotdot_is_supported_color_control_color_temp_physical_min_mireds (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorTempPhysicalMinMireds attribute
  */
@@ -37895,7 +37895,7 @@ uint16_t dotdot_get_color_control_color_temp_physical_min_mireds(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_temp_physical_min_mireds new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -37985,7 +37985,7 @@ bool dotdot_is_supported_color_control_color_temp_physical_max_mireds (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ColorTempPhysicalMaxMireds attribute
  */
@@ -38001,7 +38001,7 @@ uint16_t dotdot_get_color_control_color_temp_physical_max_mireds(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_color_temp_physical_max_mireds new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -38091,7 +38091,7 @@ bool dotdot_is_supported_color_control_couple_color_temp_to_level_min_mireds (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CoupleColorTempToLevelMinMireds attribute
  */
@@ -38107,7 +38107,7 @@ uint16_t dotdot_get_color_control_couple_color_temp_to_level_min_mireds(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_couple_color_temp_to_level_min_mireds new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -38197,7 +38197,7 @@ bool dotdot_is_supported_color_control_start_up_color_temperature_mireds (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns StartUpColorTemperatureMireds attribute
  */
@@ -38213,7 +38213,7 @@ uint16_t dotdot_get_color_control_start_up_color_temperature_mireds(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_start_up_color_temperature_mireds new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -38331,7 +38331,7 @@ bool dotdot_is_supported_ballast_configuration_physical_min_level (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PhysicalMinLevel attribute
  */
@@ -38347,7 +38347,7 @@ uint8_t dotdot_get_ballast_configuration_physical_min_level(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_physical_min_level new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -38437,7 +38437,7 @@ bool dotdot_is_supported_ballast_configuration_physical_max_level (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PhysicalMaxLevel attribute
  */
@@ -38453,7 +38453,7 @@ uint8_t dotdot_get_ballast_configuration_physical_max_level(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_physical_max_level new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -38543,7 +38543,7 @@ bool dotdot_is_supported_ballast_configuration_ballast_status (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BallastStatus attribute
  */
@@ -38559,7 +38559,7 @@ uint8_t dotdot_get_ballast_configuration_ballast_status(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ballast_status new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -38649,7 +38649,7 @@ bool dotdot_is_supported_ballast_configuration_min_level (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinLevel attribute
  */
@@ -38665,7 +38665,7 @@ uint8_t dotdot_get_ballast_configuration_min_level(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_level new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -38755,7 +38755,7 @@ bool dotdot_is_supported_ballast_configuration_max_level (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxLevel attribute
  */
@@ -38771,7 +38771,7 @@ uint8_t dotdot_get_ballast_configuration_max_level(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_level new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -38861,7 +38861,7 @@ bool dotdot_is_supported_ballast_configuration_power_on_level (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PowerOnLevel attribute
  */
@@ -38877,7 +38877,7 @@ uint8_t dotdot_get_ballast_configuration_power_on_level(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_power_on_level new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -38967,7 +38967,7 @@ bool dotdot_is_supported_ballast_configuration_power_on_fade_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PowerOnFadeTime attribute
  */
@@ -38983,7 +38983,7 @@ uint16_t dotdot_get_ballast_configuration_power_on_fade_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_power_on_fade_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -39073,7 +39073,7 @@ bool dotdot_is_supported_ballast_configuration_intrinsic_ballast_factor (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns IntrinsicBallastFactor attribute
  */
@@ -39089,7 +39089,7 @@ uint8_t dotdot_get_ballast_configuration_intrinsic_ballast_factor(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_intrinsic_ballast_factor new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -39179,7 +39179,7 @@ bool dotdot_is_supported_ballast_configuration_ballast_factor_adjustment (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BallastFactorAdjustment attribute
  */
@@ -39195,7 +39195,7 @@ uint8_t dotdot_get_ballast_configuration_ballast_factor_adjustment(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ballast_factor_adjustment new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -39285,7 +39285,7 @@ bool dotdot_is_supported_ballast_configuration_lamp_quantity (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LampQuantity attribute
  */
@@ -39301,7 +39301,7 @@ uint8_t dotdot_get_ballast_configuration_lamp_quantity(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_lamp_quantity new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -39391,10 +39391,10 @@ bool dotdot_is_supported_ballast_configuration_lamp_type (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns LampType attribute
  */
@@ -39410,7 +39410,7 @@ const char* dotdot_get_ballast_configuration_lamp_type(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_lamp_type new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -39500,10 +39500,10 @@ bool dotdot_is_supported_ballast_configuration_lamp_manufacturer (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns LampManufacturer attribute
  */
@@ -39519,7 +39519,7 @@ const char* dotdot_get_ballast_configuration_lamp_manufacturer(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_lamp_manufacturer new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -39609,7 +39609,7 @@ bool dotdot_is_supported_ballast_configuration_lamp_rated_hours (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LampRatedHours attribute
  */
@@ -39625,7 +39625,7 @@ uint32_t dotdot_get_ballast_configuration_lamp_rated_hours(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_lamp_rated_hours new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -39715,7 +39715,7 @@ bool dotdot_is_supported_ballast_configuration_lamp_burn_hours (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LampBurnHours attribute
  */
@@ -39731,7 +39731,7 @@ uint32_t dotdot_get_ballast_configuration_lamp_burn_hours(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_lamp_burn_hours new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -39821,7 +39821,7 @@ bool dotdot_is_supported_ballast_configuration_lamp_alarm_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LampAlarmMode attribute
  */
@@ -39837,7 +39837,7 @@ uint8_t dotdot_get_ballast_configuration_lamp_alarm_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_lamp_alarm_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -39927,7 +39927,7 @@ bool dotdot_is_supported_ballast_configuration_lamp_burn_hours_trip_point (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LampBurnHoursTripPoint attribute
  */
@@ -39943,7 +39943,7 @@ uint32_t dotdot_get_ballast_configuration_lamp_burn_hours_trip_point(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_lamp_burn_hours_trip_point new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -40061,7 +40061,7 @@ bool dotdot_is_supported_illuminance_measurement_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasuredValue attribute
  */
@@ -40077,7 +40077,7 @@ uint16_t dotdot_get_illuminance_measurement_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -40167,7 +40167,7 @@ bool dotdot_is_supported_illuminance_measurement_min_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinMeasuredValue attribute
  */
@@ -40183,7 +40183,7 @@ uint16_t dotdot_get_illuminance_measurement_min_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -40273,7 +40273,7 @@ bool dotdot_is_supported_illuminance_measurement_max_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxMeasuredValue attribute
  */
@@ -40289,7 +40289,7 @@ uint16_t dotdot_get_illuminance_measurement_max_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -40379,7 +40379,7 @@ bool dotdot_is_supported_illuminance_measurement_tolerance (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Tolerance attribute
  */
@@ -40395,7 +40395,7 @@ uint16_t dotdot_get_illuminance_measurement_tolerance(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_tolerance new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -40485,7 +40485,7 @@ bool dotdot_is_supported_illuminance_measurement_light_sensor_type (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LightSensorType attribute
  */
@@ -40501,7 +40501,7 @@ uint8_t dotdot_get_illuminance_measurement_light_sensor_type(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_light_sensor_type new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -40619,7 +40619,7 @@ bool dotdot_is_supported_illuminance_level_sensing_level_status (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LevelStatus attribute
  */
@@ -40635,7 +40635,7 @@ uint8_t dotdot_get_illuminance_level_sensing_level_status(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_level_status new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -40725,7 +40725,7 @@ bool dotdot_is_supported_illuminance_level_sensing_light_sensor_type (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LightSensorType attribute
  */
@@ -40741,7 +40741,7 @@ uint8_t dotdot_get_illuminance_level_sensing_light_sensor_type(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_light_sensor_type new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -40831,7 +40831,7 @@ bool dotdot_is_supported_illuminance_level_sensing_illuminance_target_level (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns IlluminanceTargetLevel attribute
  */
@@ -40847,7 +40847,7 @@ uint16_t dotdot_get_illuminance_level_sensing_illuminance_target_level(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_illuminance_target_level new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -40965,7 +40965,7 @@ bool dotdot_is_supported_temperature_measurement_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasuredValue attribute
  */
@@ -40981,7 +40981,7 @@ int16_t dotdot_get_temperature_measurement_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -41071,7 +41071,7 @@ bool dotdot_is_supported_temperature_measurement_min_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinMeasuredValue attribute
  */
@@ -41087,7 +41087,7 @@ int16_t dotdot_get_temperature_measurement_min_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -41177,7 +41177,7 @@ bool dotdot_is_supported_temperature_measurement_max_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxMeasuredValue attribute
  */
@@ -41193,7 +41193,7 @@ int16_t dotdot_get_temperature_measurement_max_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -41283,7 +41283,7 @@ bool dotdot_is_supported_temperature_measurement_tolerance (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Tolerance attribute
  */
@@ -41299,7 +41299,7 @@ uint16_t dotdot_get_temperature_measurement_tolerance(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_tolerance new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -41417,7 +41417,7 @@ bool dotdot_is_supported_pressure_measurement_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasuredValue attribute
  */
@@ -41433,7 +41433,7 @@ int16_t dotdot_get_pressure_measurement_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -41523,7 +41523,7 @@ bool dotdot_is_supported_pressure_measurement_min_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinMeasuredValue attribute
  */
@@ -41539,7 +41539,7 @@ int16_t dotdot_get_pressure_measurement_min_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -41629,7 +41629,7 @@ bool dotdot_is_supported_pressure_measurement_max_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxMeasuredValue attribute
  */
@@ -41645,7 +41645,7 @@ int16_t dotdot_get_pressure_measurement_max_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -41735,7 +41735,7 @@ bool dotdot_is_supported_pressure_measurement_tolerance (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Tolerance attribute
  */
@@ -41751,7 +41751,7 @@ uint16_t dotdot_get_pressure_measurement_tolerance(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_tolerance new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -41841,7 +41841,7 @@ bool dotdot_is_supported_pressure_measurement_scaled_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ScaledValue attribute
  */
@@ -41857,7 +41857,7 @@ int16_t dotdot_get_pressure_measurement_scaled_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_scaled_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -41947,7 +41947,7 @@ bool dotdot_is_supported_pressure_measurement_min_scaled_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinScaledValue attribute
  */
@@ -41963,7 +41963,7 @@ int16_t dotdot_get_pressure_measurement_min_scaled_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_scaled_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -42053,7 +42053,7 @@ bool dotdot_is_supported_pressure_measurement_max_scaled_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxScaledValue attribute
  */
@@ -42069,7 +42069,7 @@ int16_t dotdot_get_pressure_measurement_max_scaled_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_scaled_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -42159,7 +42159,7 @@ bool dotdot_is_supported_pressure_measurement_scaled_tolerance (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ScaledTolerance attribute
  */
@@ -42175,7 +42175,7 @@ uint16_t dotdot_get_pressure_measurement_scaled_tolerance(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_scaled_tolerance new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -42265,7 +42265,7 @@ bool dotdot_is_supported_pressure_measurement_scale (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Scale attribute
  */
@@ -42281,7 +42281,7 @@ int8_t dotdot_get_pressure_measurement_scale(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_scale new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -42399,7 +42399,7 @@ bool dotdot_is_supported_flow_measurement_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasuredValue attribute
  */
@@ -42415,7 +42415,7 @@ uint16_t dotdot_get_flow_measurement_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -42505,7 +42505,7 @@ bool dotdot_is_supported_flow_measurement_min_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinMeasuredValue attribute
  */
@@ -42521,7 +42521,7 @@ uint16_t dotdot_get_flow_measurement_min_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -42611,7 +42611,7 @@ bool dotdot_is_supported_flow_measurement_max_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxMeasuredValue attribute
  */
@@ -42627,7 +42627,7 @@ uint16_t dotdot_get_flow_measurement_max_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -42717,7 +42717,7 @@ bool dotdot_is_supported_flow_measurement_tolerance (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Tolerance attribute
  */
@@ -42733,7 +42733,7 @@ uint16_t dotdot_get_flow_measurement_tolerance(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_tolerance new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -42851,7 +42851,7 @@ bool dotdot_is_supported_relativity_humidity_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasuredValue attribute
  */
@@ -42867,7 +42867,7 @@ uint16_t dotdot_get_relativity_humidity_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -42957,7 +42957,7 @@ bool dotdot_is_supported_relativity_humidity_min_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinMeasuredValue attribute
  */
@@ -42973,7 +42973,7 @@ uint16_t dotdot_get_relativity_humidity_min_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -43063,7 +43063,7 @@ bool dotdot_is_supported_relativity_humidity_max_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxMeasuredValue attribute
  */
@@ -43079,7 +43079,7 @@ uint16_t dotdot_get_relativity_humidity_max_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -43169,7 +43169,7 @@ bool dotdot_is_supported_relativity_humidity_tolerance (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Tolerance attribute
  */
@@ -43185,7 +43185,7 @@ uint16_t dotdot_get_relativity_humidity_tolerance(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_tolerance new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -43303,7 +43303,7 @@ bool dotdot_is_supported_occupancy_sensing_occupancy (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Occupancy attribute
  */
@@ -43319,7 +43319,7 @@ uint8_t dotdot_get_occupancy_sensing_occupancy(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_occupancy new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -43409,7 +43409,7 @@ bool dotdot_is_supported_occupancy_sensing_occupancy_sensor_type (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OccupancySensorType attribute
  */
@@ -43425,7 +43425,7 @@ uint8_t dotdot_get_occupancy_sensing_occupancy_sensor_type(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_occupancy_sensor_type new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -43515,7 +43515,7 @@ bool dotdot_is_supported_occupancy_sensing_occupancy_sensor_type_bitmap (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OccupancySensorTypeBitmap attribute
  */
@@ -43531,7 +43531,7 @@ uint8_t dotdot_get_occupancy_sensing_occupancy_sensor_type_bitmap(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_occupancy_sensor_type_bitmap new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -43621,7 +43621,7 @@ bool dotdot_is_supported_occupancy_sensing_pir_occupied_to_unoccupied_delay (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PIROccupiedToUnoccupiedDelay attribute
  */
@@ -43637,7 +43637,7 @@ uint16_t dotdot_get_occupancy_sensing_pir_occupied_to_unoccupied_delay(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_pir_occupied_to_unoccupied_delay new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -43727,7 +43727,7 @@ bool dotdot_is_supported_occupancy_sensing_pir_unoccupied_to_occupied_delay (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PIRUnoccupiedToOccupiedDelay attribute
  */
@@ -43743,7 +43743,7 @@ uint16_t dotdot_get_occupancy_sensing_pir_unoccupied_to_occupied_delay(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_pir_unoccupied_to_occupied_delay new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -43833,7 +43833,7 @@ bool dotdot_is_supported_occupancy_sensing_pir_unoccupied_to_occupied_threshold 
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PIRUnoccupiedToOccupiedThreshold attribute
  */
@@ -43849,7 +43849,7 @@ uint8_t dotdot_get_occupancy_sensing_pir_unoccupied_to_occupied_threshold(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_pir_unoccupied_to_occupied_threshold new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -43939,7 +43939,7 @@ bool dotdot_is_supported_occupancy_sensing_ultrasonic_occupied_to_unoccupied_del
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns UltrasonicOccupiedToUnoccupiedDelay attribute
  */
@@ -43955,7 +43955,7 @@ uint16_t dotdot_get_occupancy_sensing_ultrasonic_occupied_to_unoccupied_delay(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ultrasonic_occupied_to_unoccupied_delay new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -44045,7 +44045,7 @@ bool dotdot_is_supported_occupancy_sensing_ultrasonic_unoccupied_to_occupied_del
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns UltrasonicUnoccupiedToOccupiedDelay attribute
  */
@@ -44061,7 +44061,7 @@ uint16_t dotdot_get_occupancy_sensing_ultrasonic_unoccupied_to_occupied_delay(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ultrasonic_unoccupied_to_occupied_delay new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -44151,7 +44151,7 @@ bool dotdot_is_supported_occupancy_sensing_ultrasonic_unoccupied_to_occupied_thr
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns UltrasonicUnoccupiedToOccupiedThreshold attribute
  */
@@ -44167,7 +44167,7 @@ uint8_t dotdot_get_occupancy_sensing_ultrasonic_unoccupied_to_occupied_threshold
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ultrasonic_unoccupied_to_occupied_threshold new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -44257,7 +44257,7 @@ bool dotdot_is_supported_occupancy_sensing_physical_contact_occupied_to_unoccupi
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PhysicalContactOccupiedToUnoccupiedDelay attribute
  */
@@ -44273,7 +44273,7 @@ uint16_t dotdot_get_occupancy_sensing_physical_contact_occupied_to_unoccupied_de
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_physical_contact_occupied_to_unoccupied_delay new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -44363,7 +44363,7 @@ bool dotdot_is_supported_occupancy_sensing_physical_contact_unoccupied_to_occupi
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PhysicalContactUnoccupiedToOccupiedDelay attribute
  */
@@ -44379,7 +44379,7 @@ uint16_t dotdot_get_occupancy_sensing_physical_contact_unoccupied_to_occupied_de
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_physical_contact_unoccupied_to_occupied_delay new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -44469,7 +44469,7 @@ bool dotdot_is_supported_occupancy_sensing_physical_contact_unoccupied_to_occupi
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PhysicalContactUnoccupiedToOccupiedThreshold attribute
  */
@@ -44485,7 +44485,7 @@ uint8_t dotdot_get_occupancy_sensing_physical_contact_unoccupied_to_occupied_thr
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_physical_contact_unoccupied_to_occupied_threshold new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -44603,7 +44603,7 @@ bool dotdot_is_supported_soil_moisture_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasuredValue attribute
  */
@@ -44619,7 +44619,7 @@ uint16_t dotdot_get_soil_moisture_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -44709,7 +44709,7 @@ bool dotdot_is_supported_soil_moisture_min_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinMeasuredValue attribute
  */
@@ -44725,7 +44725,7 @@ uint16_t dotdot_get_soil_moisture_min_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -44815,7 +44815,7 @@ bool dotdot_is_supported_soil_moisture_max_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxMeasuredValue attribute
  */
@@ -44831,7 +44831,7 @@ uint16_t dotdot_get_soil_moisture_max_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -44921,7 +44921,7 @@ bool dotdot_is_supported_soil_moisture_tolerance (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Tolerance attribute
  */
@@ -44937,7 +44937,7 @@ uint16_t dotdot_get_soil_moisture_tolerance(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_tolerance new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -45055,7 +45055,7 @@ bool dotdot_is_supported_ph_measurement_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasuredValue attribute
  */
@@ -45071,7 +45071,7 @@ uint16_t dotdot_get_ph_measurement_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -45161,7 +45161,7 @@ bool dotdot_is_supported_ph_measurement_min_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinMeasuredValue attribute
  */
@@ -45177,7 +45177,7 @@ uint16_t dotdot_get_ph_measurement_min_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -45267,7 +45267,7 @@ bool dotdot_is_supported_ph_measurement_max_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxMeasuredValue attribute
  */
@@ -45283,7 +45283,7 @@ uint16_t dotdot_get_ph_measurement_max_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -45373,7 +45373,7 @@ bool dotdot_is_supported_ph_measurement_tolerance (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Tolerance attribute
  */
@@ -45389,7 +45389,7 @@ uint16_t dotdot_get_ph_measurement_tolerance(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_tolerance new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -45507,7 +45507,7 @@ bool dotdot_is_supported_electrical_conductivity_measurement_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasuredValue attribute
  */
@@ -45523,7 +45523,7 @@ uint16_t dotdot_get_electrical_conductivity_measurement_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -45613,7 +45613,7 @@ bool dotdot_is_supported_electrical_conductivity_measurement_min_measured_value 
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinMeasuredValue attribute
  */
@@ -45629,7 +45629,7 @@ uint16_t dotdot_get_electrical_conductivity_measurement_min_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -45719,7 +45719,7 @@ bool dotdot_is_supported_electrical_conductivity_measurement_max_measured_value 
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxMeasuredValue attribute
  */
@@ -45735,7 +45735,7 @@ uint16_t dotdot_get_electrical_conductivity_measurement_max_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -45825,7 +45825,7 @@ bool dotdot_is_supported_electrical_conductivity_measurement_tolerance (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Tolerance attribute
  */
@@ -45841,7 +45841,7 @@ uint16_t dotdot_get_electrical_conductivity_measurement_tolerance(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_tolerance new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -45959,7 +45959,7 @@ bool dotdot_is_supported_wind_speed_measurement_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasuredValue attribute
  */
@@ -45975,7 +45975,7 @@ uint16_t dotdot_get_wind_speed_measurement_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -46065,7 +46065,7 @@ bool dotdot_is_supported_wind_speed_measurement_min_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinMeasuredValue attribute
  */
@@ -46081,7 +46081,7 @@ uint16_t dotdot_get_wind_speed_measurement_min_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -46171,7 +46171,7 @@ bool dotdot_is_supported_wind_speed_measurement_max_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxMeasuredValue attribute
  */
@@ -46187,7 +46187,7 @@ uint16_t dotdot_get_wind_speed_measurement_max_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -46277,7 +46277,7 @@ bool dotdot_is_supported_wind_speed_measurement_tolerance (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Tolerance attribute
  */
@@ -46293,7 +46293,7 @@ uint16_t dotdot_get_wind_speed_measurement_tolerance(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_tolerance new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -46411,7 +46411,7 @@ bool dotdot_is_supported_carbon_monoxide_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasuredValue attribute
  */
@@ -46427,7 +46427,7 @@ float dotdot_get_carbon_monoxide_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -46517,7 +46517,7 @@ bool dotdot_is_supported_carbon_monoxide_min_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinMeasuredValue attribute
  */
@@ -46533,7 +46533,7 @@ float dotdot_get_carbon_monoxide_min_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -46623,7 +46623,7 @@ bool dotdot_is_supported_carbon_monoxide_max_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxMeasuredValue attribute
  */
@@ -46639,7 +46639,7 @@ float dotdot_get_carbon_monoxide_max_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -46729,7 +46729,7 @@ bool dotdot_is_supported_carbon_monoxide_tolerance (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Tolerance attribute
  */
@@ -46745,7 +46745,7 @@ float dotdot_get_carbon_monoxide_tolerance(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_tolerance new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -46863,7 +46863,7 @@ bool dotdot_is_supported_carbon_dioxide_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasuredValue attribute
  */
@@ -46879,7 +46879,7 @@ float dotdot_get_carbon_dioxide_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -46969,7 +46969,7 @@ bool dotdot_is_supported_carbon_dioxide_min_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinMeasuredValue attribute
  */
@@ -46985,7 +46985,7 @@ float dotdot_get_carbon_dioxide_min_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -47075,7 +47075,7 @@ bool dotdot_is_supported_carbon_dioxide_max_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxMeasuredValue attribute
  */
@@ -47091,7 +47091,7 @@ float dotdot_get_carbon_dioxide_max_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -47181,7 +47181,7 @@ bool dotdot_is_supported_carbon_dioxide_tolerance (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Tolerance attribute
  */
@@ -47197,7 +47197,7 @@ float dotdot_get_carbon_dioxide_tolerance(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_tolerance new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -47315,7 +47315,7 @@ bool dotdot_is_supported_pm25_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasuredValue attribute
  */
@@ -47331,7 +47331,7 @@ float dotdot_get_pm25_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -47421,7 +47421,7 @@ bool dotdot_is_supported_pm25_min_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinMeasuredValue attribute
  */
@@ -47437,7 +47437,7 @@ float dotdot_get_pm25_min_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -47527,7 +47527,7 @@ bool dotdot_is_supported_pm25_max_measured_value (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxMeasuredValue attribute
  */
@@ -47543,7 +47543,7 @@ float dotdot_get_pm25_max_measured_value(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_measured_value new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -47633,7 +47633,7 @@ bool dotdot_is_supported_pm25_tolerance (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Tolerance attribute
  */
@@ -47649,7 +47649,7 @@ float dotdot_get_pm25_tolerance(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_tolerance new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -47767,7 +47767,7 @@ bool dotdot_is_supported_ias_zone_zone_state (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ZoneState attribute
  */
@@ -47783,7 +47783,7 @@ uint8_t dotdot_get_ias_zone_zone_state(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_zone_state new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -47873,7 +47873,7 @@ bool dotdot_is_supported_ias_zone_zone_type (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ZoneType attribute
  */
@@ -47889,7 +47889,7 @@ IasZoneType dotdot_get_ias_zone_zone_type(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_zone_type new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -47979,7 +47979,7 @@ bool dotdot_is_supported_ias_zone_zone_status (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ZoneStatus attribute
  */
@@ -47995,7 +47995,7 @@ uint16_t dotdot_get_ias_zone_zone_status(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_zone_status new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -48085,7 +48085,7 @@ bool dotdot_is_supported_ias_zone_iascie_address (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns IASCIEAddress attribute
  */
@@ -48101,7 +48101,7 @@ uint64_t dotdot_get_ias_zone_iascie_address(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_iascie_address new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -48191,7 +48191,7 @@ bool dotdot_is_supported_ias_zone_zoneid (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ZoneID attribute
  */
@@ -48207,7 +48207,7 @@ uint8_t dotdot_get_ias_zone_zoneid(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_zoneid new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -48297,7 +48297,7 @@ bool dotdot_is_supported_ias_zone_number_of_zone_sensitivity_levels_supported (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NumberOfZoneSensitivityLevelsSupported attribute
  */
@@ -48313,7 +48313,7 @@ uint8_t dotdot_get_ias_zone_number_of_zone_sensitivity_levels_supported(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_number_of_zone_sensitivity_levels_supported new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -48403,7 +48403,7 @@ bool dotdot_is_supported_ias_zone_current_zone_sensitivity_level (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentZoneSensitivityLevel attribute
  */
@@ -48419,7 +48419,7 @@ uint8_t dotdot_get_ias_zone_current_zone_sensitivity_level(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_zone_sensitivity_level new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -48537,7 +48537,7 @@ bool dotdot_is_supported_iaswd_max_duration (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxDuration attribute
  */
@@ -48553,7 +48553,7 @@ uint16_t dotdot_get_iaswd_max_duration(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_duration new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -48671,7 +48671,7 @@ bool dotdot_is_supported_metering_current_summation_delivered (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentSummationDelivered attribute
  */
@@ -48687,7 +48687,7 @@ uint64_t dotdot_get_metering_current_summation_delivered(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_summation_delivered new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -48777,7 +48777,7 @@ bool dotdot_is_supported_metering_current_summation_received (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentSummationReceived attribute
  */
@@ -48793,7 +48793,7 @@ uint64_t dotdot_get_metering_current_summation_received(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_summation_received new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -48883,7 +48883,7 @@ bool dotdot_is_supported_metering_current_max_demand_delivered (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentMaxDemandDelivered attribute
  */
@@ -48899,7 +48899,7 @@ uint64_t dotdot_get_metering_current_max_demand_delivered(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_max_demand_delivered new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -48989,7 +48989,7 @@ bool dotdot_is_supported_metering_current_max_demand_received (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentMaxDemandReceived attribute
  */
@@ -49005,7 +49005,7 @@ int8_t dotdot_get_metering_current_max_demand_received(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_max_demand_received new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -49095,7 +49095,7 @@ bool dotdot_is_supported_metering_power_factor (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PowerFactor attribute
  */
@@ -49111,7 +49111,7 @@ int8_t dotdot_get_metering_power_factor(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_power_factor new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -49201,7 +49201,7 @@ bool dotdot_is_supported_metering_reading_snap_shot_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ReadingSnapShotTime attribute
  */
@@ -49217,7 +49217,7 @@ uint32_t dotdot_get_metering_reading_snap_shot_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_reading_snap_shot_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -49307,7 +49307,7 @@ bool dotdot_is_supported_metering_current_max_demand_delivered_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentMaxDemandDeliveredTime attribute
  */
@@ -49323,7 +49323,7 @@ uint32_t dotdot_get_metering_current_max_demand_delivered_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_max_demand_delivered_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -49413,7 +49413,7 @@ bool dotdot_is_supported_metering_current_max_demand_received_time (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentMaxDemandReceivedTime attribute
  */
@@ -49429,7 +49429,7 @@ uint32_t dotdot_get_metering_current_max_demand_received_time(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_max_demand_received_time new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -49519,7 +49519,7 @@ bool dotdot_is_supported_metering_default_update_period (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DefaultUpdatePeriod attribute
  */
@@ -49535,7 +49535,7 @@ uint8_t dotdot_get_metering_default_update_period(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_default_update_period new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -49625,7 +49625,7 @@ bool dotdot_is_supported_metering_supply_status (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SupplyStatus attribute
  */
@@ -49641,7 +49641,7 @@ uint8_t dotdot_get_metering_supply_status(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_supply_status new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -49731,7 +49731,7 @@ bool dotdot_is_supported_metering_current_inlet_energy_carrier_summation (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentInletEnergyCarrierSummation attribute
  */
@@ -49747,7 +49747,7 @@ uint64_t dotdot_get_metering_current_inlet_energy_carrier_summation(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_inlet_energy_carrier_summation new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -49837,7 +49837,7 @@ bool dotdot_is_supported_metering_current_outlet_energy_carrier_summation (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentOutletEnergyCarrierSummation attribute
  */
@@ -49853,7 +49853,7 @@ uint64_t dotdot_get_metering_current_outlet_energy_carrier_summation(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_outlet_energy_carrier_summation new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -49943,7 +49943,7 @@ bool dotdot_is_supported_metering_inlet_temperature (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns InletTemperature attribute
  */
@@ -49959,7 +49959,7 @@ int32_t dotdot_get_metering_inlet_temperature(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_inlet_temperature new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -50049,7 +50049,7 @@ bool dotdot_is_supported_metering_outlet_temperature (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OutletTemperature attribute
  */
@@ -50065,7 +50065,7 @@ int32_t dotdot_get_metering_outlet_temperature(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_outlet_temperature new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -50155,7 +50155,7 @@ bool dotdot_is_supported_metering_unitof_measure (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns UnitofMeasure attribute
  */
@@ -50171,7 +50171,7 @@ uint8_t dotdot_get_metering_unitof_measure(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_unitof_measure new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -50261,7 +50261,7 @@ bool dotdot_is_supported_metering_multiplier (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Multiplier attribute
  */
@@ -50277,7 +50277,7 @@ uint32_t dotdot_get_metering_multiplier(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_multiplier new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -50367,7 +50367,7 @@ bool dotdot_is_supported_metering_divisor (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Divisor attribute
  */
@@ -50383,7 +50383,7 @@ uint32_t dotdot_get_metering_divisor(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_divisor new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -50473,7 +50473,7 @@ bool dotdot_is_supported_metering_summation_formatting (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SummationFormatting attribute
  */
@@ -50489,7 +50489,7 @@ uint8_t dotdot_get_metering_summation_formatting(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_summation_formatting new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -50579,7 +50579,7 @@ bool dotdot_is_supported_metering_demand_formatting (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DemandFormatting attribute
  */
@@ -50595,7 +50595,7 @@ uint8_t dotdot_get_metering_demand_formatting(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_demand_formatting new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -50685,7 +50685,7 @@ bool dotdot_is_supported_metering_historical_consumption_formatting (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns HistoricalConsumptionFormatting attribute
  */
@@ -50701,7 +50701,7 @@ uint8_t dotdot_get_metering_historical_consumption_formatting(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_historical_consumption_formatting new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -50791,7 +50791,7 @@ bool dotdot_is_supported_metering_metering_device_type (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeteringDeviceType attribute
  */
@@ -50807,7 +50807,7 @@ uint8_t dotdot_get_metering_metering_device_type(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_metering_device_type new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -50897,7 +50897,7 @@ bool dotdot_is_supported_metering_energy_carrier_unit_of_measure (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns EnergyCarrierUnitOfMeasure attribute
  */
@@ -50913,7 +50913,7 @@ uint8_t dotdot_get_metering_energy_carrier_unit_of_measure(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_energy_carrier_unit_of_measure new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -51003,7 +51003,7 @@ bool dotdot_is_supported_metering_energy_carrier_summation_formatting (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns EnergyCarrierSummationFormatting attribute
  */
@@ -51019,7 +51019,7 @@ uint8_t dotdot_get_metering_energy_carrier_summation_formatting(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_energy_carrier_summation_formatting new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -51109,7 +51109,7 @@ bool dotdot_is_supported_metering_energy_carrier_demand_formatting (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns EnergyCarrierDemandFormatting attribute
  */
@@ -51125,7 +51125,7 @@ uint8_t dotdot_get_metering_energy_carrier_demand_formatting(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_energy_carrier_demand_formatting new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -51215,7 +51215,7 @@ bool dotdot_is_supported_metering_temperature_unit_of_measure (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns TemperatureUnitOfMeasure attribute
  */
@@ -51231,7 +51231,7 @@ uint8_t dotdot_get_metering_temperature_unit_of_measure(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_temperature_unit_of_measure new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -51321,7 +51321,7 @@ bool dotdot_is_supported_metering_temperature_formatting (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns TemperatureFormatting attribute
  */
@@ -51337,7 +51337,7 @@ uint8_t dotdot_get_metering_temperature_formatting(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_temperature_formatting new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -51455,7 +51455,7 @@ bool dotdot_is_supported_electrical_measurement_measurement_type (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasurementType attribute
  */
@@ -51471,7 +51471,7 @@ uint32_t dotdot_get_electrical_measurement_measurement_type(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measurement_type new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -51561,7 +51561,7 @@ bool dotdot_is_supported_electrical_measurement_dc_voltage (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DCVoltage attribute
  */
@@ -51577,7 +51577,7 @@ int16_t dotdot_get_electrical_measurement_dc_voltage(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dc_voltage new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -51667,7 +51667,7 @@ bool dotdot_is_supported_electrical_measurement_dc_voltage_min (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DCVoltageMin attribute
  */
@@ -51683,7 +51683,7 @@ int16_t dotdot_get_electrical_measurement_dc_voltage_min(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dc_voltage_min new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -51773,7 +51773,7 @@ bool dotdot_is_supported_electrical_measurement_dc_voltage_max (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DCVoltageMax attribute
  */
@@ -51789,7 +51789,7 @@ int16_t dotdot_get_electrical_measurement_dc_voltage_max(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dc_voltage_max new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -51879,7 +51879,7 @@ bool dotdot_is_supported_electrical_measurement_dc_current (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DCCurrent attribute
  */
@@ -51895,7 +51895,7 @@ int16_t dotdot_get_electrical_measurement_dc_current(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dc_current new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -51985,7 +51985,7 @@ bool dotdot_is_supported_electrical_measurement_dc_current_min (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DCCurrentMin attribute
  */
@@ -52001,7 +52001,7 @@ int16_t dotdot_get_electrical_measurement_dc_current_min(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dc_current_min new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -52091,7 +52091,7 @@ bool dotdot_is_supported_electrical_measurement_dc_current_max (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DCCurrentMax attribute
  */
@@ -52107,7 +52107,7 @@ int16_t dotdot_get_electrical_measurement_dc_current_max(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dc_current_max new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -52197,7 +52197,7 @@ bool dotdot_is_supported_electrical_measurement_dc_power (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DCPower attribute
  */
@@ -52213,7 +52213,7 @@ int16_t dotdot_get_electrical_measurement_dc_power(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dc_power new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -52303,7 +52303,7 @@ bool dotdot_is_supported_electrical_measurement_dc_power_min (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DCPowerMin attribute
  */
@@ -52319,7 +52319,7 @@ int16_t dotdot_get_electrical_measurement_dc_power_min(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dc_power_min new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -52409,7 +52409,7 @@ bool dotdot_is_supported_electrical_measurement_dc_power_max (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DCPowerMax attribute
  */
@@ -52425,7 +52425,7 @@ int16_t dotdot_get_electrical_measurement_dc_power_max(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dc_power_max new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -52515,7 +52515,7 @@ bool dotdot_is_supported_electrical_measurement_dc_voltage_multiplier (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DCVoltageMultiplier attribute
  */
@@ -52531,7 +52531,7 @@ uint16_t dotdot_get_electrical_measurement_dc_voltage_multiplier(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dc_voltage_multiplier new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -52621,7 +52621,7 @@ bool dotdot_is_supported_electrical_measurement_dc_voltage_divisor (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DCVoltageDivisor attribute
  */
@@ -52637,7 +52637,7 @@ uint16_t dotdot_get_electrical_measurement_dc_voltage_divisor(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dc_voltage_divisor new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -52727,7 +52727,7 @@ bool dotdot_is_supported_electrical_measurement_dc_current_multiplier (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DCCurrentMultiplier attribute
  */
@@ -52743,7 +52743,7 @@ uint16_t dotdot_get_electrical_measurement_dc_current_multiplier(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dc_current_multiplier new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -52833,7 +52833,7 @@ bool dotdot_is_supported_electrical_measurement_dc_current_divisor (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DCCurrentDivisor attribute
  */
@@ -52849,7 +52849,7 @@ uint16_t dotdot_get_electrical_measurement_dc_current_divisor(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dc_current_divisor new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -52939,7 +52939,7 @@ bool dotdot_is_supported_electrical_measurement_dc_power_multiplier (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DCPowerMultiplier attribute
  */
@@ -52955,7 +52955,7 @@ uint16_t dotdot_get_electrical_measurement_dc_power_multiplier(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dc_power_multiplier new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -53045,7 +53045,7 @@ bool dotdot_is_supported_electrical_measurement_dc_power_divisor (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DCPowerDivisor attribute
  */
@@ -53061,7 +53061,7 @@ uint16_t dotdot_get_electrical_measurement_dc_power_divisor(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dc_power_divisor new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -53151,7 +53151,7 @@ bool dotdot_is_supported_electrical_measurement_ac_frequency (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACFrequency attribute
  */
@@ -53167,7 +53167,7 @@ uint16_t dotdot_get_electrical_measurement_ac_frequency(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_frequency new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -53257,7 +53257,7 @@ bool dotdot_is_supported_electrical_measurement_ac_frequency_min (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACFrequencyMin attribute
  */
@@ -53273,7 +53273,7 @@ uint16_t dotdot_get_electrical_measurement_ac_frequency_min(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_frequency_min new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -53363,7 +53363,7 @@ bool dotdot_is_supported_electrical_measurement_ac_frequency_max (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACFrequencyMax attribute
  */
@@ -53379,7 +53379,7 @@ uint16_t dotdot_get_electrical_measurement_ac_frequency_max(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_frequency_max new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -53469,7 +53469,7 @@ bool dotdot_is_supported_electrical_measurement_neutral_current (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NeutralCurrent attribute
  */
@@ -53485,7 +53485,7 @@ uint16_t dotdot_get_electrical_measurement_neutral_current(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_neutral_current new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -53575,7 +53575,7 @@ bool dotdot_is_supported_electrical_measurement_total_active_power (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns TotalActivePower attribute
  */
@@ -53591,7 +53591,7 @@ int32_t dotdot_get_electrical_measurement_total_active_power(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_total_active_power new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -53681,7 +53681,7 @@ bool dotdot_is_supported_electrical_measurement_total_reactive_power (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns TotalReactivePower attribute
  */
@@ -53697,7 +53697,7 @@ int32_t dotdot_get_electrical_measurement_total_reactive_power(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_total_reactive_power new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -53787,7 +53787,7 @@ bool dotdot_is_supported_electrical_measurement_total_apparent_power (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns TotalApparentPower attribute
  */
@@ -53803,7 +53803,7 @@ uint32_t dotdot_get_electrical_measurement_total_apparent_power(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_total_apparent_power new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -53893,7 +53893,7 @@ bool dotdot_is_supported_electrical_measurement_measured1st_harmonic_current (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Measured1stHarmonicCurrent attribute
  */
@@ -53909,7 +53909,7 @@ int16_t dotdot_get_electrical_measurement_measured1st_harmonic_current(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured1st_harmonic_current new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -53999,7 +53999,7 @@ bool dotdot_is_supported_electrical_measurement_measured3rd_harmonic_current (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Measured3rdHarmonicCurrent attribute
  */
@@ -54015,7 +54015,7 @@ int16_t dotdot_get_electrical_measurement_measured3rd_harmonic_current(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured3rd_harmonic_current new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -54105,7 +54105,7 @@ bool dotdot_is_supported_electrical_measurement_measured5th_harmonic_current (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Measured5thHarmonicCurrent attribute
  */
@@ -54121,7 +54121,7 @@ int16_t dotdot_get_electrical_measurement_measured5th_harmonic_current(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured5th_harmonic_current new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -54211,7 +54211,7 @@ bool dotdot_is_supported_electrical_measurement_measured7th_harmonic_current (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Measured7thHarmonicCurrent attribute
  */
@@ -54227,7 +54227,7 @@ int16_t dotdot_get_electrical_measurement_measured7th_harmonic_current(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured7th_harmonic_current new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -54317,7 +54317,7 @@ bool dotdot_is_supported_electrical_measurement_measured9th_harmonic_current (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Measured9thHarmonicCurrent attribute
  */
@@ -54333,7 +54333,7 @@ int16_t dotdot_get_electrical_measurement_measured9th_harmonic_current(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured9th_harmonic_current new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -54423,7 +54423,7 @@ bool dotdot_is_supported_electrical_measurement_measured11th_harmonic_current (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Measured11thHarmonicCurrent attribute
  */
@@ -54439,7 +54439,7 @@ int16_t dotdot_get_electrical_measurement_measured11th_harmonic_current(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured11th_harmonic_current new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -54529,7 +54529,7 @@ bool dotdot_is_supported_electrical_measurement_measured_phase1st_harmonic_curre
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasuredPhase1stHarmonicCurrent attribute
  */
@@ -54545,7 +54545,7 @@ int16_t dotdot_get_electrical_measurement_measured_phase1st_harmonic_current(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured_phase1st_harmonic_current new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -54635,7 +54635,7 @@ bool dotdot_is_supported_electrical_measurement_measured_phase3rd_harmonic_curre
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasuredPhase3rdHarmonicCurrent attribute
  */
@@ -54651,7 +54651,7 @@ int16_t dotdot_get_electrical_measurement_measured_phase3rd_harmonic_current(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured_phase3rd_harmonic_current new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -54741,7 +54741,7 @@ bool dotdot_is_supported_electrical_measurement_measured_phase5th_harmonic_curre
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasuredPhase5thHarmonicCurrent attribute
  */
@@ -54757,7 +54757,7 @@ int16_t dotdot_get_electrical_measurement_measured_phase5th_harmonic_current(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured_phase5th_harmonic_current new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -54847,7 +54847,7 @@ bool dotdot_is_supported_electrical_measurement_measured_phase7th_harmonic_curre
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasuredPhase7thHarmonicCurrent attribute
  */
@@ -54863,7 +54863,7 @@ int16_t dotdot_get_electrical_measurement_measured_phase7th_harmonic_current(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured_phase7th_harmonic_current new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -54953,7 +54953,7 @@ bool dotdot_is_supported_electrical_measurement_measured_phase9th_harmonic_curre
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasuredPhase9thHarmonicCurrent attribute
  */
@@ -54969,7 +54969,7 @@ int16_t dotdot_get_electrical_measurement_measured_phase9th_harmonic_current(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured_phase9th_harmonic_current new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -55059,7 +55059,7 @@ bool dotdot_is_supported_electrical_measurement_measured_phase11th_harmonic_curr
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MeasuredPhase11thHarmonicCurrent attribute
  */
@@ -55075,7 +55075,7 @@ int16_t dotdot_get_electrical_measurement_measured_phase11th_harmonic_current(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_measured_phase11th_harmonic_current new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -55165,7 +55165,7 @@ bool dotdot_is_supported_electrical_measurement_ac_frequency_multiplier (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACFrequencyMultiplier attribute
  */
@@ -55181,7 +55181,7 @@ uint16_t dotdot_get_electrical_measurement_ac_frequency_multiplier(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_frequency_multiplier new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -55271,7 +55271,7 @@ bool dotdot_is_supported_electrical_measurement_ac_frequency_divisor (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACFrequencyDivisor attribute
  */
@@ -55287,7 +55287,7 @@ uint16_t dotdot_get_electrical_measurement_ac_frequency_divisor(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_frequency_divisor new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -55377,7 +55377,7 @@ bool dotdot_is_supported_electrical_measurement_power_multiplier (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PowerMultiplier attribute
  */
@@ -55393,7 +55393,7 @@ uint32_t dotdot_get_electrical_measurement_power_multiplier(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_power_multiplier new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -55483,7 +55483,7 @@ bool dotdot_is_supported_electrical_measurement_power_divisor (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PowerDivisor attribute
  */
@@ -55499,7 +55499,7 @@ uint32_t dotdot_get_electrical_measurement_power_divisor(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_power_divisor new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -55589,7 +55589,7 @@ bool dotdot_is_supported_electrical_measurement_harmonic_current_multiplier (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns HarmonicCurrentMultiplier attribute
  */
@@ -55605,7 +55605,7 @@ int8_t dotdot_get_electrical_measurement_harmonic_current_multiplier(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_harmonic_current_multiplier new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -55695,7 +55695,7 @@ bool dotdot_is_supported_electrical_measurement_phase_harmonic_current_multiplie
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PhaseHarmonicCurrentMultiplier attribute
  */
@@ -55711,7 +55711,7 @@ int8_t dotdot_get_electrical_measurement_phase_harmonic_current_multiplier(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_phase_harmonic_current_multiplier new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -55801,7 +55801,7 @@ bool dotdot_is_supported_electrical_measurement_line_current (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LineCurrent attribute
  */
@@ -55817,7 +55817,7 @@ uint16_t dotdot_get_electrical_measurement_line_current(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_line_current new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -55907,7 +55907,7 @@ bool dotdot_is_supported_electrical_measurement_active_current (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ActiveCurrent attribute
  */
@@ -55923,7 +55923,7 @@ int16_t dotdot_get_electrical_measurement_active_current(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_active_current new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -56013,7 +56013,7 @@ bool dotdot_is_supported_electrical_measurement_reactive_current (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ReactiveCurrent attribute
  */
@@ -56029,7 +56029,7 @@ int16_t dotdot_get_electrical_measurement_reactive_current(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_reactive_current new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -56119,7 +56119,7 @@ bool dotdot_is_supported_electrical_measurement_rms_voltage (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSVoltage attribute
  */
@@ -56135,7 +56135,7 @@ uint16_t dotdot_get_electrical_measurement_rms_voltage(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_voltage new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -56225,7 +56225,7 @@ bool dotdot_is_supported_electrical_measurement_rms_voltage_min (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSVoltageMin attribute
  */
@@ -56241,7 +56241,7 @@ uint16_t dotdot_get_electrical_measurement_rms_voltage_min(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_voltage_min new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -56331,7 +56331,7 @@ bool dotdot_is_supported_electrical_measurement_rms_voltage_max (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSVoltageMax attribute
  */
@@ -56347,7 +56347,7 @@ uint16_t dotdot_get_electrical_measurement_rms_voltage_max(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_voltage_max new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -56437,7 +56437,7 @@ bool dotdot_is_supported_electrical_measurement_rms_current (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSCurrent attribute
  */
@@ -56453,7 +56453,7 @@ uint16_t dotdot_get_electrical_measurement_rms_current(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_current new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -56543,7 +56543,7 @@ bool dotdot_is_supported_electrical_measurement_rms_current_min (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSCurrentMin attribute
  */
@@ -56559,7 +56559,7 @@ uint16_t dotdot_get_electrical_measurement_rms_current_min(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_current_min new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -56649,7 +56649,7 @@ bool dotdot_is_supported_electrical_measurement_rms_current_max (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSCurrentMax attribute
  */
@@ -56665,7 +56665,7 @@ uint16_t dotdot_get_electrical_measurement_rms_current_max(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_current_max new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -56755,7 +56755,7 @@ bool dotdot_is_supported_electrical_measurement_active_power (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ActivePower attribute
  */
@@ -56771,7 +56771,7 @@ int16_t dotdot_get_electrical_measurement_active_power(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_active_power new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -56861,7 +56861,7 @@ bool dotdot_is_supported_electrical_measurement_active_power_min (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ActivePowerMin attribute
  */
@@ -56877,7 +56877,7 @@ int16_t dotdot_get_electrical_measurement_active_power_min(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_active_power_min new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -56967,7 +56967,7 @@ bool dotdot_is_supported_electrical_measurement_active_power_max (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ActivePowerMax attribute
  */
@@ -56983,7 +56983,7 @@ int16_t dotdot_get_electrical_measurement_active_power_max(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_active_power_max new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -57073,7 +57073,7 @@ bool dotdot_is_supported_electrical_measurement_reactive_power (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ReactivePower attribute
  */
@@ -57089,7 +57089,7 @@ int16_t dotdot_get_electrical_measurement_reactive_power(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_reactive_power new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -57179,7 +57179,7 @@ bool dotdot_is_supported_electrical_measurement_apparent_power (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ApparentPower attribute
  */
@@ -57195,7 +57195,7 @@ uint16_t dotdot_get_electrical_measurement_apparent_power(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_apparent_power new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -57285,7 +57285,7 @@ bool dotdot_is_supported_electrical_measurement_power_factor (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PowerFactor attribute
  */
@@ -57301,7 +57301,7 @@ int8_t dotdot_get_electrical_measurement_power_factor(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_power_factor new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -57391,7 +57391,7 @@ bool dotdot_is_supported_electrical_measurement_average_rms_voltage_measurement_
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AverageRMSVoltageMeasurementPeriod attribute
  */
@@ -57407,7 +57407,7 @@ uint16_t dotdot_get_electrical_measurement_average_rms_voltage_measurement_perio
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_average_rms_voltage_measurement_period new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -57497,7 +57497,7 @@ bool dotdot_is_supported_electrical_measurement_average_rms_over_voltage_counter
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AverageRMSOverVoltageCounter attribute
  */
@@ -57513,7 +57513,7 @@ uint16_t dotdot_get_electrical_measurement_average_rms_over_voltage_counter(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_average_rms_over_voltage_counter new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -57603,7 +57603,7 @@ bool dotdot_is_supported_electrical_measurement_average_rms_under_voltage_counte
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AverageRMSUnderVoltageCounter attribute
  */
@@ -57619,7 +57619,7 @@ uint16_t dotdot_get_electrical_measurement_average_rms_under_voltage_counter(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_average_rms_under_voltage_counter new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -57709,7 +57709,7 @@ bool dotdot_is_supported_electrical_measurement_rms_extreme_over_voltage_period 
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSExtremeOverVoltagePeriod attribute
  */
@@ -57725,7 +57725,7 @@ uint16_t dotdot_get_electrical_measurement_rms_extreme_over_voltage_period(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_extreme_over_voltage_period new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -57815,7 +57815,7 @@ bool dotdot_is_supported_electrical_measurement_rms_extreme_under_voltage_period
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSExtremeUnderVoltagePeriod attribute
  */
@@ -57831,7 +57831,7 @@ uint16_t dotdot_get_electrical_measurement_rms_extreme_under_voltage_period(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_extreme_under_voltage_period new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -57921,7 +57921,7 @@ bool dotdot_is_supported_electrical_measurement_rms_voltage_sag_period (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSVoltageSagPeriod attribute
  */
@@ -57937,7 +57937,7 @@ uint16_t dotdot_get_electrical_measurement_rms_voltage_sag_period(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_voltage_sag_period new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -58027,7 +58027,7 @@ bool dotdot_is_supported_electrical_measurement_rms_voltage_swell_period (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSVoltageSwellPeriod attribute
  */
@@ -58043,7 +58043,7 @@ uint16_t dotdot_get_electrical_measurement_rms_voltage_swell_period(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_voltage_swell_period new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -58133,7 +58133,7 @@ bool dotdot_is_supported_electrical_measurement_ac_voltage_multiplier (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACVoltageMultiplier attribute
  */
@@ -58149,7 +58149,7 @@ uint16_t dotdot_get_electrical_measurement_ac_voltage_multiplier(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_voltage_multiplier new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -58239,7 +58239,7 @@ bool dotdot_is_supported_electrical_measurement_ac_voltage_divisor (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACVoltageDivisor attribute
  */
@@ -58255,7 +58255,7 @@ uint16_t dotdot_get_electrical_measurement_ac_voltage_divisor(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_voltage_divisor new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -58345,7 +58345,7 @@ bool dotdot_is_supported_electrical_measurement_ac_current_multiplier (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACCurrentMultiplier attribute
  */
@@ -58361,7 +58361,7 @@ uint16_t dotdot_get_electrical_measurement_ac_current_multiplier(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_current_multiplier new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -58451,7 +58451,7 @@ bool dotdot_is_supported_electrical_measurement_ac_current_divisor (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACCurrentDivisor attribute
  */
@@ -58467,7 +58467,7 @@ uint16_t dotdot_get_electrical_measurement_ac_current_divisor(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_current_divisor new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -58557,7 +58557,7 @@ bool dotdot_is_supported_electrical_measurement_ac_power_multiplier (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACPowerMultiplier attribute
  */
@@ -58573,7 +58573,7 @@ uint16_t dotdot_get_electrical_measurement_ac_power_multiplier(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_power_multiplier new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -58663,7 +58663,7 @@ bool dotdot_is_supported_electrical_measurement_ac_power_divisor (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACPowerDivisor attribute
  */
@@ -58679,7 +58679,7 @@ uint16_t dotdot_get_electrical_measurement_ac_power_divisor(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_power_divisor new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -58769,7 +58769,7 @@ bool dotdot_is_supported_electrical_measurement_dc_overload_alarms_mask (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DCOverloadAlarmsMask attribute
  */
@@ -58785,7 +58785,7 @@ uint8_t dotdot_get_electrical_measurement_dc_overload_alarms_mask(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dc_overload_alarms_mask new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -58875,7 +58875,7 @@ bool dotdot_is_supported_electrical_measurement_dc_voltage_overload (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DCVoltageOverload attribute
  */
@@ -58891,7 +58891,7 @@ int16_t dotdot_get_electrical_measurement_dc_voltage_overload(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dc_voltage_overload new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -58981,7 +58981,7 @@ bool dotdot_is_supported_electrical_measurement_dc_current_overload (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DCCurrentOverload attribute
  */
@@ -58997,7 +58997,7 @@ int16_t dotdot_get_electrical_measurement_dc_current_overload(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dc_current_overload new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -59087,7 +59087,7 @@ bool dotdot_is_supported_electrical_measurement_ac_alarms_mask (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACAlarmsMask attribute
  */
@@ -59103,7 +59103,7 @@ uint16_t dotdot_get_electrical_measurement_ac_alarms_mask(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_alarms_mask new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -59193,7 +59193,7 @@ bool dotdot_is_supported_electrical_measurement_ac_voltage_overload (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACVoltageOverload attribute
  */
@@ -59209,7 +59209,7 @@ int16_t dotdot_get_electrical_measurement_ac_voltage_overload(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_voltage_overload new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -59299,7 +59299,7 @@ bool dotdot_is_supported_electrical_measurement_ac_current_overload (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACCurrentOverload attribute
  */
@@ -59315,7 +59315,7 @@ int16_t dotdot_get_electrical_measurement_ac_current_overload(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_current_overload new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -59405,7 +59405,7 @@ bool dotdot_is_supported_electrical_measurement_ac_active_power_overload (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACActivePowerOverload attribute
  */
@@ -59421,7 +59421,7 @@ int16_t dotdot_get_electrical_measurement_ac_active_power_overload(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_active_power_overload new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -59511,7 +59511,7 @@ bool dotdot_is_supported_electrical_measurement_ac_reactive_power_overload (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ACReactivePowerOverload attribute
  */
@@ -59527,7 +59527,7 @@ int16_t dotdot_get_electrical_measurement_ac_reactive_power_overload(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ac_reactive_power_overload new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -59617,7 +59617,7 @@ bool dotdot_is_supported_electrical_measurement_average_rms_over_voltage (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AverageRMSOverVoltage attribute
  */
@@ -59633,7 +59633,7 @@ int16_t dotdot_get_electrical_measurement_average_rms_over_voltage(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_average_rms_over_voltage new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -59723,7 +59723,7 @@ bool dotdot_is_supported_electrical_measurement_average_rms_under_voltage (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AverageRMSUnderVoltage attribute
  */
@@ -59739,7 +59739,7 @@ int16_t dotdot_get_electrical_measurement_average_rms_under_voltage(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_average_rms_under_voltage new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -59829,7 +59829,7 @@ bool dotdot_is_supported_electrical_measurement_rms_extreme_over_voltage (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSExtremeOverVoltage attribute
  */
@@ -59845,7 +59845,7 @@ int16_t dotdot_get_electrical_measurement_rms_extreme_over_voltage(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_extreme_over_voltage new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -59935,7 +59935,7 @@ bool dotdot_is_supported_electrical_measurement_rms_extreme_under_voltage (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSExtremeUnderVoltage attribute
  */
@@ -59951,7 +59951,7 @@ int16_t dotdot_get_electrical_measurement_rms_extreme_under_voltage(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_extreme_under_voltage new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -60041,7 +60041,7 @@ bool dotdot_is_supported_electrical_measurement_rms_voltage_sag (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSVoltageSag attribute
  */
@@ -60057,7 +60057,7 @@ int16_t dotdot_get_electrical_measurement_rms_voltage_sag(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_voltage_sag new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -60147,7 +60147,7 @@ bool dotdot_is_supported_electrical_measurement_rms_voltage_swell (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSVoltageSwell attribute
  */
@@ -60163,7 +60163,7 @@ int16_t dotdot_get_electrical_measurement_rms_voltage_swell(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_voltage_swell new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -60253,7 +60253,7 @@ bool dotdot_is_supported_electrical_measurement_line_current_phb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LineCurrentPhB attribute
  */
@@ -60269,7 +60269,7 @@ uint16_t dotdot_get_electrical_measurement_line_current_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_line_current_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -60359,7 +60359,7 @@ bool dotdot_is_supported_electrical_measurement_active_current_phb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ActiveCurrentPhB attribute
  */
@@ -60375,7 +60375,7 @@ int16_t dotdot_get_electrical_measurement_active_current_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_active_current_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -60465,7 +60465,7 @@ bool dotdot_is_supported_electrical_measurement_reactive_current_phb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ReactiveCurrentPhB attribute
  */
@@ -60481,7 +60481,7 @@ int16_t dotdot_get_electrical_measurement_reactive_current_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_reactive_current_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -60571,7 +60571,7 @@ bool dotdot_is_supported_electrical_measurement_rms_voltage_phb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSVoltagePhB attribute
  */
@@ -60587,7 +60587,7 @@ uint16_t dotdot_get_electrical_measurement_rms_voltage_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_voltage_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -60677,7 +60677,7 @@ bool dotdot_is_supported_electrical_measurement_rms_voltage_min_phb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSVoltageMinPhB attribute
  */
@@ -60693,7 +60693,7 @@ uint16_t dotdot_get_electrical_measurement_rms_voltage_min_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_voltage_min_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -60783,7 +60783,7 @@ bool dotdot_is_supported_electrical_measurement_rms_voltage_max_phb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSVoltageMaxPhB attribute
  */
@@ -60799,7 +60799,7 @@ uint16_t dotdot_get_electrical_measurement_rms_voltage_max_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_voltage_max_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -60889,7 +60889,7 @@ bool dotdot_is_supported_electrical_measurement_rms_current_phb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSCurrentPhB attribute
  */
@@ -60905,7 +60905,7 @@ uint16_t dotdot_get_electrical_measurement_rms_current_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_current_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -60995,7 +60995,7 @@ bool dotdot_is_supported_electrical_measurement_rms_current_min_phb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSCurrentMinPhB attribute
  */
@@ -61011,7 +61011,7 @@ uint16_t dotdot_get_electrical_measurement_rms_current_min_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_current_min_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -61101,7 +61101,7 @@ bool dotdot_is_supported_electrical_measurement_rms_current_max_phb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSCurrentMaxPhB attribute
  */
@@ -61117,7 +61117,7 @@ uint16_t dotdot_get_electrical_measurement_rms_current_max_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_current_max_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -61207,7 +61207,7 @@ bool dotdot_is_supported_electrical_measurement_active_power_phb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ActivePowerPhB attribute
  */
@@ -61223,7 +61223,7 @@ int16_t dotdot_get_electrical_measurement_active_power_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_active_power_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -61313,7 +61313,7 @@ bool dotdot_is_supported_electrical_measurement_active_power_min_phb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ActivePowerMinPhB attribute
  */
@@ -61329,7 +61329,7 @@ int16_t dotdot_get_electrical_measurement_active_power_min_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_active_power_min_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -61419,7 +61419,7 @@ bool dotdot_is_supported_electrical_measurement_active_power_max_phb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ActivePowerMaxPhB attribute
  */
@@ -61435,7 +61435,7 @@ int16_t dotdot_get_electrical_measurement_active_power_max_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_active_power_max_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -61525,7 +61525,7 @@ bool dotdot_is_supported_electrical_measurement_reactive_power_phb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ReactivePowerPhB attribute
  */
@@ -61541,7 +61541,7 @@ int16_t dotdot_get_electrical_measurement_reactive_power_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_reactive_power_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -61631,7 +61631,7 @@ bool dotdot_is_supported_electrical_measurement_apparent_power_phb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ApparentPowerPhB attribute
  */
@@ -61647,7 +61647,7 @@ uint16_t dotdot_get_electrical_measurement_apparent_power_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_apparent_power_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -61737,7 +61737,7 @@ bool dotdot_is_supported_electrical_measurement_power_factor_phb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PowerFactorPhB attribute
  */
@@ -61753,7 +61753,7 @@ int8_t dotdot_get_electrical_measurement_power_factor_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_power_factor_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -61843,7 +61843,7 @@ bool dotdot_is_supported_electrical_measurement_average_rms_voltage_measurement_
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AverageRMSVoltageMeasurementPeriodPhB attribute
  */
@@ -61859,7 +61859,7 @@ uint16_t dotdot_get_electrical_measurement_average_rms_voltage_measurement_perio
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_average_rms_voltage_measurement_period_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -61949,7 +61949,7 @@ bool dotdot_is_supported_electrical_measurement_average_rms_over_voltage_counter
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AverageRMSOverVoltageCounterPhB attribute
  */
@@ -61965,7 +61965,7 @@ uint16_t dotdot_get_electrical_measurement_average_rms_over_voltage_counter_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_average_rms_over_voltage_counter_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -62055,7 +62055,7 @@ bool dotdot_is_supported_electrical_measurement_average_rms_under_voltage_counte
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AverageRMSUnderVoltageCounterPhB attribute
  */
@@ -62071,7 +62071,7 @@ uint16_t dotdot_get_electrical_measurement_average_rms_under_voltage_counter_phb
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_average_rms_under_voltage_counter_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -62161,7 +62161,7 @@ bool dotdot_is_supported_electrical_measurement_rms_extreme_over_voltage_period_
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSExtremeOverVoltagePeriodPhB attribute
  */
@@ -62177,7 +62177,7 @@ uint16_t dotdot_get_electrical_measurement_rms_extreme_over_voltage_period_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_extreme_over_voltage_period_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -62267,7 +62267,7 @@ bool dotdot_is_supported_electrical_measurement_rms_extreme_under_voltage_period
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSExtremeUnderVoltagePeriodPhB attribute
  */
@@ -62283,7 +62283,7 @@ uint16_t dotdot_get_electrical_measurement_rms_extreme_under_voltage_period_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_extreme_under_voltage_period_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -62373,7 +62373,7 @@ bool dotdot_is_supported_electrical_measurement_rms_voltage_sag_period_phb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSVoltageSagPeriodPhB attribute
  */
@@ -62389,7 +62389,7 @@ uint16_t dotdot_get_electrical_measurement_rms_voltage_sag_period_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_voltage_sag_period_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -62479,7 +62479,7 @@ bool dotdot_is_supported_electrical_measurement_rms_voltage_swell_period_phb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSVoltageSwellPeriodPhB attribute
  */
@@ -62495,7 +62495,7 @@ uint16_t dotdot_get_electrical_measurement_rms_voltage_swell_period_phb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_voltage_swell_period_phb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -62585,7 +62585,7 @@ bool dotdot_is_supported_electrical_measurement_line_current_phc (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LineCurrentPhC attribute
  */
@@ -62601,7 +62601,7 @@ uint16_t dotdot_get_electrical_measurement_line_current_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_line_current_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -62691,7 +62691,7 @@ bool dotdot_is_supported_electrical_measurement_active_current_phc (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ActiveCurrentPhC attribute
  */
@@ -62707,7 +62707,7 @@ int16_t dotdot_get_electrical_measurement_active_current_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_active_current_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -62797,7 +62797,7 @@ bool dotdot_is_supported_electrical_measurement_reactive_current_phc (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ReactiveCurrentPhC attribute
  */
@@ -62813,7 +62813,7 @@ int16_t dotdot_get_electrical_measurement_reactive_current_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_reactive_current_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -62903,7 +62903,7 @@ bool dotdot_is_supported_electrical_measurement_rms_voltage_phc (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSVoltagePhC attribute
  */
@@ -62919,7 +62919,7 @@ uint16_t dotdot_get_electrical_measurement_rms_voltage_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_voltage_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -63009,7 +63009,7 @@ bool dotdot_is_supported_electrical_measurement_rms_voltage_min_phc (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSVoltageMinPhC attribute
  */
@@ -63025,7 +63025,7 @@ uint16_t dotdot_get_electrical_measurement_rms_voltage_min_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_voltage_min_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -63115,7 +63115,7 @@ bool dotdot_is_supported_electrical_measurement_rms_voltage_max_phc (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSVoltageMaxPhC attribute
  */
@@ -63131,7 +63131,7 @@ uint16_t dotdot_get_electrical_measurement_rms_voltage_max_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_voltage_max_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -63221,7 +63221,7 @@ bool dotdot_is_supported_electrical_measurement_rms_current_phc (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSCurrentPhC attribute
  */
@@ -63237,7 +63237,7 @@ uint16_t dotdot_get_electrical_measurement_rms_current_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_current_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -63327,7 +63327,7 @@ bool dotdot_is_supported_electrical_measurement_rms_current_min_phc (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSCurrentMinPhC attribute
  */
@@ -63343,7 +63343,7 @@ uint16_t dotdot_get_electrical_measurement_rms_current_min_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_current_min_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -63433,7 +63433,7 @@ bool dotdot_is_supported_electrical_measurement_rms_current_max_phc (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSCurrentMaxPhC attribute
  */
@@ -63449,7 +63449,7 @@ uint16_t dotdot_get_electrical_measurement_rms_current_max_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_current_max_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -63539,7 +63539,7 @@ bool dotdot_is_supported_electrical_measurement_active_power_phc (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ActivePowerPhC attribute
  */
@@ -63555,7 +63555,7 @@ int16_t dotdot_get_electrical_measurement_active_power_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_active_power_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -63645,7 +63645,7 @@ bool dotdot_is_supported_electrical_measurement_active_power_min_phc (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ActivePowerMinPhC attribute
  */
@@ -63661,7 +63661,7 @@ int16_t dotdot_get_electrical_measurement_active_power_min_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_active_power_min_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -63751,7 +63751,7 @@ bool dotdot_is_supported_electrical_measurement_active_power_max_phc (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ActivePowerMaxPhC attribute
  */
@@ -63767,7 +63767,7 @@ int16_t dotdot_get_electrical_measurement_active_power_max_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_active_power_max_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -63857,7 +63857,7 @@ bool dotdot_is_supported_electrical_measurement_reactive_power_phc (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ReactivePowerPhC attribute
  */
@@ -63873,7 +63873,7 @@ int16_t dotdot_get_electrical_measurement_reactive_power_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_reactive_power_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -63963,7 +63963,7 @@ bool dotdot_is_supported_electrical_measurement_apparent_power_phc (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ApparentPowerPhC attribute
  */
@@ -63979,7 +63979,7 @@ uint16_t dotdot_get_electrical_measurement_apparent_power_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_apparent_power_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -64069,7 +64069,7 @@ bool dotdot_is_supported_electrical_measurement_power_factor_phc (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PowerFactorPhC attribute
  */
@@ -64085,7 +64085,7 @@ int8_t dotdot_get_electrical_measurement_power_factor_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_power_factor_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -64175,7 +64175,7 @@ bool dotdot_is_supported_electrical_measurement_average_rms_voltage_measurement_
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AverageRMSVoltageMeasurementPeriodPhC attribute
  */
@@ -64191,7 +64191,7 @@ uint16_t dotdot_get_electrical_measurement_average_rms_voltage_measurement_perio
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_average_rms_voltage_measurement_period_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -64281,7 +64281,7 @@ bool dotdot_is_supported_electrical_measurement_average_rms_over_voltage_counter
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AverageRMSOverVoltageCounterPhC attribute
  */
@@ -64297,7 +64297,7 @@ uint16_t dotdot_get_electrical_measurement_average_rms_over_voltage_counter_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_average_rms_over_voltage_counter_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -64387,7 +64387,7 @@ bool dotdot_is_supported_electrical_measurement_average_rms_under_voltage_counte
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AverageRMSUnderVoltageCounterPhC attribute
  */
@@ -64403,7 +64403,7 @@ uint16_t dotdot_get_electrical_measurement_average_rms_under_voltage_counter_phc
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_average_rms_under_voltage_counter_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -64493,7 +64493,7 @@ bool dotdot_is_supported_electrical_measurement_rms_extreme_over_voltage_period_
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSExtremeOverVoltagePeriodPhC attribute
  */
@@ -64509,7 +64509,7 @@ uint16_t dotdot_get_electrical_measurement_rms_extreme_over_voltage_period_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_extreme_over_voltage_period_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -64599,7 +64599,7 @@ bool dotdot_is_supported_electrical_measurement_rms_extreme_under_voltage_period
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSExtremeUnderVoltagePeriodPhC attribute
  */
@@ -64615,7 +64615,7 @@ uint16_t dotdot_get_electrical_measurement_rms_extreme_under_voltage_period_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_extreme_under_voltage_period_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -64705,7 +64705,7 @@ bool dotdot_is_supported_electrical_measurement_rms_voltage_sag_period_phc (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSVoltageSagPeriodPhC attribute
  */
@@ -64721,7 +64721,7 @@ uint16_t dotdot_get_electrical_measurement_rms_voltage_sag_period_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_voltage_sag_period_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -64811,7 +64811,7 @@ bool dotdot_is_supported_electrical_measurement_rms_voltage_swell_period_phc (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RMSVoltageSwellPeriodPhC attribute
  */
@@ -64827,7 +64827,7 @@ uint16_t dotdot_get_electrical_measurement_rms_voltage_swell_period_phc(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_rms_voltage_swell_period_phc new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -64945,7 +64945,7 @@ bool dotdot_is_supported_diagnostics_number_of_resets (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NumberOfResets attribute
  */
@@ -64961,7 +64961,7 @@ uint16_t dotdot_get_diagnostics_number_of_resets(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_number_of_resets new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -65051,7 +65051,7 @@ bool dotdot_is_supported_diagnostics_persistent_memory_writes (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PersistentMemoryWrites attribute
  */
@@ -65067,7 +65067,7 @@ uint16_t dotdot_get_diagnostics_persistent_memory_writes(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_persistent_memory_writes new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -65157,7 +65157,7 @@ bool dotdot_is_supported_diagnostics_mac_rx_bcast (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MacRxBcast attribute
  */
@@ -65173,7 +65173,7 @@ uint32_t dotdot_get_diagnostics_mac_rx_bcast(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mac_rx_bcast new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -65263,7 +65263,7 @@ bool dotdot_is_supported_diagnostics_mac_tx_bcast (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MacTxBcast attribute
  */
@@ -65279,7 +65279,7 @@ uint32_t dotdot_get_diagnostics_mac_tx_bcast(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mac_tx_bcast new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -65369,7 +65369,7 @@ bool dotdot_is_supported_diagnostics_mac_rx_ucast (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MacRxUcast attribute
  */
@@ -65385,7 +65385,7 @@ uint32_t dotdot_get_diagnostics_mac_rx_ucast(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mac_rx_ucast new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -65475,7 +65475,7 @@ bool dotdot_is_supported_diagnostics_mac_tx_ucast (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MacTxUcast attribute
  */
@@ -65491,7 +65491,7 @@ uint32_t dotdot_get_diagnostics_mac_tx_ucast(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mac_tx_ucast new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -65581,7 +65581,7 @@ bool dotdot_is_supported_diagnostics_mac_tx_ucast_retry (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MacTxUcastRetry attribute
  */
@@ -65597,7 +65597,7 @@ uint16_t dotdot_get_diagnostics_mac_tx_ucast_retry(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mac_tx_ucast_retry new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -65687,7 +65687,7 @@ bool dotdot_is_supported_diagnostics_mac_tx_ucast_fail (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MacTxUcastFail attribute
  */
@@ -65703,7 +65703,7 @@ uint16_t dotdot_get_diagnostics_mac_tx_ucast_fail(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mac_tx_ucast_fail new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -65793,7 +65793,7 @@ bool dotdot_is_supported_diagnostics_aps_rx_bcast (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns APSRxBcast attribute
  */
@@ -65809,7 +65809,7 @@ uint16_t dotdot_get_diagnostics_aps_rx_bcast(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_aps_rx_bcast new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -65899,7 +65899,7 @@ bool dotdot_is_supported_diagnostics_aps_tx_bcast (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns APSTxBcast attribute
  */
@@ -65915,7 +65915,7 @@ uint16_t dotdot_get_diagnostics_aps_tx_bcast(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_aps_tx_bcast new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -66005,7 +66005,7 @@ bool dotdot_is_supported_diagnostics_aps_rx_ucast (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns APSRxUcast attribute
  */
@@ -66021,7 +66021,7 @@ uint16_t dotdot_get_diagnostics_aps_rx_ucast(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_aps_rx_ucast new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -66111,7 +66111,7 @@ bool dotdot_is_supported_diagnostics_aps_tx_ucast_success (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns APSTxUcastSuccess attribute
  */
@@ -66127,7 +66127,7 @@ uint16_t dotdot_get_diagnostics_aps_tx_ucast_success(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_aps_tx_ucast_success new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -66217,7 +66217,7 @@ bool dotdot_is_supported_diagnostics_aps_tx_ucast_retry (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns APSTxUcastRetry attribute
  */
@@ -66233,7 +66233,7 @@ uint16_t dotdot_get_diagnostics_aps_tx_ucast_retry(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_aps_tx_ucast_retry new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -66323,7 +66323,7 @@ bool dotdot_is_supported_diagnostics_aps_tx_ucast_fail (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns APSTxUcastFail attribute
  */
@@ -66339,7 +66339,7 @@ uint16_t dotdot_get_diagnostics_aps_tx_ucast_fail(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_aps_tx_ucast_fail new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -66429,7 +66429,7 @@ bool dotdot_is_supported_diagnostics_route_disc_initiated (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RouteDiscInitiated attribute
  */
@@ -66445,7 +66445,7 @@ uint16_t dotdot_get_diagnostics_route_disc_initiated(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_route_disc_initiated new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -66535,7 +66535,7 @@ bool dotdot_is_supported_diagnostics_neighbor_added (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NeighborAdded attribute
  */
@@ -66551,7 +66551,7 @@ uint16_t dotdot_get_diagnostics_neighbor_added(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_neighbor_added new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -66641,7 +66641,7 @@ bool dotdot_is_supported_diagnostics_neighbor_removed (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NeighborRemoved attribute
  */
@@ -66657,7 +66657,7 @@ uint16_t dotdot_get_diagnostics_neighbor_removed(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_neighbor_removed new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -66747,7 +66747,7 @@ bool dotdot_is_supported_diagnostics_neighbor_stale (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NeighborStale attribute
  */
@@ -66763,7 +66763,7 @@ uint16_t dotdot_get_diagnostics_neighbor_stale(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_neighbor_stale new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -66853,7 +66853,7 @@ bool dotdot_is_supported_diagnostics_join_indication (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns JoinIndication attribute
  */
@@ -66869,7 +66869,7 @@ uint16_t dotdot_get_diagnostics_join_indication(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_join_indication new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -66959,7 +66959,7 @@ bool dotdot_is_supported_diagnostics_child_moved (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ChildMoved attribute
  */
@@ -66975,7 +66975,7 @@ uint16_t dotdot_get_diagnostics_child_moved(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_child_moved new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -67065,7 +67065,7 @@ bool dotdot_is_supported_diagnostics_nwkfc_failure (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NWKFCFailure attribute
  */
@@ -67081,7 +67081,7 @@ uint16_t dotdot_get_diagnostics_nwkfc_failure(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_nwkfc_failure new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -67171,7 +67171,7 @@ bool dotdot_is_supported_diagnostics_apsfc_failure (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns APSFCFailure attribute
  */
@@ -67187,7 +67187,7 @@ uint16_t dotdot_get_diagnostics_apsfc_failure(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_apsfc_failure new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -67277,7 +67277,7 @@ bool dotdot_is_supported_diagnostics_aps_unauthorized_key (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns APSUnauthorizedKey attribute
  */
@@ -67293,7 +67293,7 @@ uint16_t dotdot_get_diagnostics_aps_unauthorized_key(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_aps_unauthorized_key new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -67383,7 +67383,7 @@ bool dotdot_is_supported_diagnostics_nwk_decrypt_failures (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NWKDecryptFailures attribute
  */
@@ -67399,7 +67399,7 @@ uint16_t dotdot_get_diagnostics_nwk_decrypt_failures(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_nwk_decrypt_failures new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -67489,7 +67489,7 @@ bool dotdot_is_supported_diagnostics_aps_decrypt_failures (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns APSDecryptFailures attribute
  */
@@ -67505,7 +67505,7 @@ uint16_t dotdot_get_diagnostics_aps_decrypt_failures(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_aps_decrypt_failures new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -67595,7 +67595,7 @@ bool dotdot_is_supported_diagnostics_packet_buffer_allocate_failures (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PacketBufferAllocateFailures attribute
  */
@@ -67611,7 +67611,7 @@ uint16_t dotdot_get_diagnostics_packet_buffer_allocate_failures(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_packet_buffer_allocate_failures new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -67701,7 +67701,7 @@ bool dotdot_is_supported_diagnostics_relayed_ucast (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RelayedUcast attribute
  */
@@ -67717,7 +67717,7 @@ uint16_t dotdot_get_diagnostics_relayed_ucast(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_relayed_ucast new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -67807,7 +67807,7 @@ bool dotdot_is_supported_diagnostics_phy_to_mac_queue_limit_reached (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PHYToMACQueueLimitReached attribute
  */
@@ -67823,7 +67823,7 @@ uint16_t dotdot_get_diagnostics_phy_to_mac_queue_limit_reached(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_phy_to_mac_queue_limit_reached new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -67913,7 +67913,7 @@ bool dotdot_is_supported_diagnostics_packet_validate_drop_count (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PacketValidateDropCount attribute
  */
@@ -67929,7 +67929,7 @@ uint16_t dotdot_get_diagnostics_packet_validate_drop_count(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_packet_validate_drop_count new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -68019,7 +68019,7 @@ bool dotdot_is_supported_diagnostics_average_mac_retry_per_aps_message_sent (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AverageMACRetryPerAPSMessageSent attribute
  */
@@ -68035,7 +68035,7 @@ uint16_t dotdot_get_diagnostics_average_mac_retry_per_aps_message_sent(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_average_mac_retry_per_aps_message_sent new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -68125,7 +68125,7 @@ bool dotdot_is_supported_diagnostics_last_messagelqi (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LastMessageLQI attribute
  */
@@ -68141,7 +68141,7 @@ uint8_t dotdot_get_diagnostics_last_messagelqi(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_last_messagelqi new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -68231,7 +68231,7 @@ bool dotdot_is_supported_diagnostics_last_messagerssi (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LastMessageRSSI attribute
  */
@@ -68247,7 +68247,7 @@ int8_t dotdot_get_diagnostics_last_messagerssi(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_last_messagerssi new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -68365,7 +68365,7 @@ bool dotdot_is_supported_dmf_bridge_config_fixture_table_revision (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns FixtureTableRevision attribute
  */
@@ -68381,7 +68381,7 @@ uint16_t dotdot_get_dmf_bridge_config_fixture_table_revision(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_fixture_table_revision new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -68471,7 +68471,7 @@ bool dotdot_is_supported_dmf_bridge_config_group_table_revision (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns GroupTableRevision attribute
  */
@@ -68487,7 +68487,7 @@ uint16_t dotdot_get_dmf_bridge_config_group_table_revision(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_group_table_revision new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -68577,7 +68577,7 @@ bool dotdot_is_supported_dmf_bridge_config_scene_table_revision (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SceneTableRevision attribute
  */
@@ -68593,7 +68593,7 @@ uint16_t dotdot_get_dmf_bridge_config_scene_table_revision(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_scene_table_revision new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -68683,7 +68683,7 @@ bool dotdot_is_supported_dmf_bridge_config_light_mode_table_revision (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns LightModeTableRevision attribute
  */
@@ -68699,7 +68699,7 @@ uint16_t dotdot_get_dmf_bridge_config_light_mode_table_revision(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_light_mode_table_revision new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -68789,7 +68789,7 @@ bool dotdot_is_supported_dmf_bridge_config_schedule_table_revision (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ScheduleTableRevision attribute
  */
@@ -68805,7 +68805,7 @@ uint16_t dotdot_get_dmf_bridge_config_schedule_table_revision(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_schedule_table_revision new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -68895,7 +68895,7 @@ bool dotdot_is_supported_dmf_bridge_config_total_fixtures_count (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns TotalFixturesCount attribute
  */
@@ -68911,7 +68911,7 @@ uint8_t dotdot_get_dmf_bridge_config_total_fixtures_count(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_total_fixtures_count new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -69001,7 +69001,7 @@ bool dotdot_is_supported_dmf_bridge_config_discovery_status (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DiscoveryStatus attribute
  */
@@ -69017,7 +69017,7 @@ DiscoveryStatus dotdot_get_dmf_bridge_config_discovery_status(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_discovery_status new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -69107,7 +69107,7 @@ bool dotdot_is_supported_dmf_bridge_config_ble_session_status (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BLESessionStatus attribute
  */
@@ -69123,7 +69123,7 @@ BLESessionStatus dotdot_get_dmf_bridge_config_ble_session_status(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ble_session_status new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -69241,7 +69241,7 @@ bool dotdot_is_supported_protocol_controller_rf_telemetry_tx_report_enabled (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns TxReportEnabled attribute
  */
@@ -69257,7 +69257,7 @@ bool dotdot_get_protocol_controller_rf_telemetry_tx_report_enabled(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_tx_report_enabled new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -69347,7 +69347,7 @@ bool dotdot_is_supported_protocol_controller_rf_telemetry_pti_enabled (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PTIEnabled attribute
  */
@@ -69363,7 +69363,7 @@ bool dotdot_get_protocol_controller_rf_telemetry_pti_enabled(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_pti_enabled new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -69481,7 +69481,7 @@ bool dotdot_is_supported_state_endpoint_id_list (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns EndpointIdList attribute
  */
@@ -69497,9 +69497,9 @@ uint8_t dotdot_get_state_endpoint_id_list(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_endpoint_id_list_count Number of elements in the array
- * 
+ *
  * @param new_endpoint_id_list new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -69590,7 +69590,7 @@ bool dotdot_is_supported_state_network_status (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NetworkStatus attribute
  */
@@ -69606,7 +69606,7 @@ NodeStateNetworkStatus dotdot_get_state_network_status(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_network_status new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -69696,7 +69696,7 @@ bool dotdot_is_supported_state_security (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns Security attribute
  */
@@ -69712,7 +69712,7 @@ NodeStateSecurity dotdot_get_state_security(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_security new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -69802,7 +69802,7 @@ bool dotdot_is_supported_state_maximum_command_delay (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaximumCommandDelay attribute
  */
@@ -69818,7 +69818,7 @@ uint32_t dotdot_get_state_maximum_command_delay(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_maximum_command_delay new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -69908,10 +69908,10 @@ bool dotdot_is_supported_state_network_list (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns NetworkList attribute
  */
@@ -69927,9 +69927,9 @@ const char* dotdot_get_state_network_list(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_network_list_count Number of elements in the array
- * 
+ *
  * @param new_network_list new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -70048,7 +70048,7 @@ bool dotdot_is_supported_binding_binding_table_full (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BindingTableFull attribute
  */
@@ -70064,7 +70064,7 @@ bool dotdot_get_binding_binding_table_full(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_binding_table_full new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -70154,10 +70154,10 @@ bool dotdot_is_supported_binding_bindable_cluster_list (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns BindableClusterList attribute
  */
@@ -70173,9 +70173,9 @@ const char* dotdot_get_binding_bindable_cluster_list(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_bindable_cluster_list_count Number of elements in the array
- * 
+ *
  * @param new_bindable_cluster_list new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -70266,7 +70266,7 @@ bool dotdot_is_supported_binding_binding_table (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BindingTable attribute
  */
@@ -70282,9 +70282,9 @@ BindingObject dotdot_get_binding_binding_table(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_binding_table_count Number of elements in the array
- * 
+ *
  * @param new_binding_table new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -70403,7 +70403,7 @@ bool dotdot_is_supported_system_metrics_reporting_interval_seconds (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ReportingIntervalSeconds attribute
  */
@@ -70419,7 +70419,7 @@ uint32_t dotdot_get_system_metrics_reporting_interval_seconds(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_reporting_interval_seconds new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -70509,7 +70509,7 @@ bool dotdot_is_supported_system_metrics_cpu_usage_percent (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CPUUsagePercent attribute
  */
@@ -70525,9 +70525,9 @@ double dotdot_get_system_metrics_cpu_usage_percent(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_cpu_usage_percent_count Number of elements in the array
- * 
+ *
  * @param new_cpu_usage_percent new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -70618,7 +70618,7 @@ bool dotdot_is_supported_system_metrics_cpu_frequencym_hz (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CPUFrequencyMHz attribute
  */
@@ -70634,9 +70634,9 @@ double dotdot_get_system_metrics_cpu_frequencym_hz(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_cpu_frequencym_hz_count Number of elements in the array
- * 
+ *
  * @param new_cpu_frequencym_hz new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -70727,7 +70727,7 @@ bool dotdot_is_supported_system_metrics_cpu_average_usage_percent (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CPUAverageUsagePercent attribute
  */
@@ -70743,9 +70743,9 @@ double dotdot_get_system_metrics_cpu_average_usage_percent(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_cpu_average_usage_percent_count Number of elements in the array
- * 
+ *
  * @param new_cpu_average_usage_percent new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -70836,7 +70836,7 @@ bool dotdot_is_supported_system_metrics_cpu_min_usage_percent (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CPUMinUsagePercent attribute
  */
@@ -70852,9 +70852,9 @@ double dotdot_get_system_metrics_cpu_min_usage_percent(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_cpu_min_usage_percent_count Number of elements in the array
- * 
+ *
  * @param new_cpu_min_usage_percent new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -70945,7 +70945,7 @@ bool dotdot_is_supported_system_metrics_cpu_max_usage_percent (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CPUMaxUsagePercent attribute
  */
@@ -70961,9 +70961,9 @@ double dotdot_get_system_metrics_cpu_max_usage_percent(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_cpu_max_usage_percent_count Number of elements in the array
- * 
+ *
  * @param new_cpu_max_usage_percent new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -71054,7 +71054,7 @@ bool dotdot_is_supported_system_metrics_ram_totalmb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RAMTotalMB attribute
  */
@@ -71070,7 +71070,7 @@ double dotdot_get_system_metrics_ram_totalmb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ram_totalmb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -71160,7 +71160,7 @@ bool dotdot_is_supported_system_metrics_ram_freemb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RAMFreeMB attribute
  */
@@ -71176,7 +71176,7 @@ double dotdot_get_system_metrics_ram_freemb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ram_freemb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -71266,7 +71266,7 @@ bool dotdot_is_supported_system_metrics_ram_availablemb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns RAMAvailableMB attribute
  */
@@ -71282,7 +71282,7 @@ double dotdot_get_system_metrics_ram_availablemb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_ram_availablemb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -71372,7 +71372,7 @@ bool dotdot_is_supported_system_metrics_swap_memory_totalmb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SWAPMemoryTotalMB attribute
  */
@@ -71388,7 +71388,7 @@ double dotdot_get_system_metrics_swap_memory_totalmb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_swap_memory_totalmb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -71478,7 +71478,7 @@ bool dotdot_is_supported_system_metrics_swap_memory_usedmb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SWAPMemoryUsedMB attribute
  */
@@ -71494,7 +71494,7 @@ double dotdot_get_system_metrics_swap_memory_usedmb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_swap_memory_usedmb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -71584,7 +71584,7 @@ bool dotdot_is_supported_system_metrics_virtual_memory_totalmb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns VirtualMemoryTotalMB attribute
  */
@@ -71600,7 +71600,7 @@ double dotdot_get_system_metrics_virtual_memory_totalmb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_virtual_memory_totalmb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -71690,7 +71690,7 @@ bool dotdot_is_supported_system_metrics_virtual_memory_usedmb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns VirtualMemoryUsedMB attribute
  */
@@ -71706,7 +71706,7 @@ double dotdot_get_system_metrics_virtual_memory_usedmb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_virtual_memory_usedmb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -71796,7 +71796,7 @@ bool dotdot_is_supported_system_metrics_disks_usage (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DisksUsage attribute
  */
@@ -71812,9 +71812,9 @@ DiskUsageData dotdot_get_system_metrics_disks_usage(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_disks_usage_count Number of elements in the array
- * 
+ *
  * @param new_disks_usage new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -71905,7 +71905,7 @@ bool dotdot_is_supported_system_metrics_disks_counters (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DisksCounters attribute
  */
@@ -71921,9 +71921,9 @@ DiskIOCounters dotdot_get_system_metrics_disks_counters(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_disks_counters_count Number of elements in the array
- * 
+ *
  * @param new_disks_counters new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -72014,7 +72014,7 @@ bool dotdot_is_supported_system_metrics_network_interfaces_data (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NetworkInterfacesData attribute
  */
@@ -72030,9 +72030,9 @@ NetworkInterfaceData dotdot_get_system_metrics_network_interfaces_data(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_network_interfaces_data_count Number of elements in the array
- * 
+ *
  * @param new_network_interfaces_data new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -72123,7 +72123,7 @@ bool dotdot_is_supported_system_metrics_wireless_network_interfaces_data (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns WirelessNetworkInterfacesData attribute
  */
@@ -72139,9 +72139,9 @@ WirelessNetworkInterfaceData dotdot_get_system_metrics_wireless_network_interfac
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_wireless_network_interfaces_data_count Number of elements in the array
- * 
+ *
  * @param new_wireless_network_interfaces_data new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -72232,10 +72232,10 @@ bool dotdot_is_supported_system_metrics_hostname (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns Hostname attribute
  */
@@ -72251,7 +72251,7 @@ const char* dotdot_get_system_metrics_hostname(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_hostname new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -72341,10 +72341,10 @@ bool dotdot_is_supported_system_metrics_fqdn (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns FQDN attribute
  */
@@ -72360,7 +72360,7 @@ const char* dotdot_get_system_metrics_fqdn(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_fqdn new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -72450,7 +72450,7 @@ bool dotdot_is_supported_system_metrics_uptime_minutes (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns UptimeMinutes attribute
  */
@@ -72466,7 +72466,7 @@ uint64_t dotdot_get_system_metrics_uptime_minutes(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_uptime_minutes new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -72556,7 +72556,7 @@ bool dotdot_is_supported_system_metrics_current_temperature_celcius (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentTemperatureCelcius attribute
  */
@@ -72572,7 +72572,7 @@ double dotdot_get_system_metrics_current_temperature_celcius(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_temperature_celcius new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -72662,7 +72662,7 @@ bool dotdot_is_supported_system_metrics_average_temperature_celcius (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AverageTemperatureCelcius attribute
  */
@@ -72678,7 +72678,7 @@ double dotdot_get_system_metrics_average_temperature_celcius(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_average_temperature_celcius new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -72768,7 +72768,7 @@ bool dotdot_is_supported_system_metrics_min_temperature_celcius (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MinTemperatureCelcius attribute
  */
@@ -72784,7 +72784,7 @@ double dotdot_get_system_metrics_min_temperature_celcius(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_min_temperature_celcius new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -72874,7 +72874,7 @@ bool dotdot_is_supported_system_metrics_max_temperature_celcius (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MaxTemperatureCelcius attribute
  */
@@ -72890,7 +72890,7 @@ double dotdot_get_system_metrics_max_temperature_celcius(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_max_temperature_celcius new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -72980,7 +72980,7 @@ bool dotdot_is_supported_system_metrics_power_plugged (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns PowerPlugged attribute
  */
@@ -72996,7 +72996,7 @@ bool dotdot_get_system_metrics_power_plugged(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_power_plugged new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -73086,7 +73086,7 @@ bool dotdot_is_supported_system_metrics_battery_percentage (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns BatteryPercentage attribute
  */
@@ -73102,7 +73102,7 @@ double dotdot_get_system_metrics_battery_percentage(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_battery_percentage new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -73192,7 +73192,7 @@ bool dotdot_is_supported_system_metrics_system_interrupts (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SystemInterrupts attribute
  */
@@ -73208,7 +73208,7 @@ uint64_t dotdot_get_system_metrics_system_interrupts(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_system_interrupts new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -73326,10 +73326,10 @@ bool dotdot_is_supported_application_monitoring_application_name (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns ApplicationName attribute
  */
@@ -73345,7 +73345,7 @@ const char* dotdot_get_application_monitoring_application_name(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_application_name new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -73435,10 +73435,10 @@ bool dotdot_is_supported_application_monitoring_application_version (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns ApplicationVersion attribute
  */
@@ -73454,7 +73454,7 @@ const char* dotdot_get_application_monitoring_application_version(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_application_version new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -73544,7 +73544,7 @@ bool dotdot_is_supported_application_monitoring_application_connected (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ApplicationConnected attribute
  */
@@ -73560,7 +73560,7 @@ bool dotdot_get_application_monitoring_application_connected(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_application_connected new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -73650,10 +73650,10 @@ bool dotdot_is_supported_application_monitoring_application_mqtt_topics (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns ApplicationMQTTTopics attribute
  */
@@ -73669,9 +73669,9 @@ const char* dotdot_get_application_monitoring_application_mqtt_topics(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_application_mqtt_topics_count Number of elements in the array
- * 
+ *
  * @param new_application_mqtt_topics new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -73762,7 +73762,7 @@ bool dotdot_is_supported_application_monitoring_uptime_minutes (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns UptimeMinutes attribute
  */
@@ -73778,7 +73778,7 @@ uint64_t dotdot_get_application_monitoring_uptime_minutes(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_uptime_minutes new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -73868,7 +73868,7 @@ bool dotdot_is_supported_application_monitoring_process_id (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ProcessId attribute
  */
@@ -73884,7 +73884,7 @@ uint64_t dotdot_get_application_monitoring_process_id(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_process_id new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -73974,10 +73974,10 @@ bool dotdot_is_supported_application_monitoring_hostname (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns Hostname attribute
  */
@@ -73993,7 +73993,7 @@ const char* dotdot_get_application_monitoring_hostname(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_hostname new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -74083,10 +74083,10 @@ bool dotdot_is_supported_application_monitoring_fqdn (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns FQDN attribute
  */
@@ -74102,7 +74102,7 @@ const char* dotdot_get_application_monitoring_fqdn(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_fqdn new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -74192,7 +74192,7 @@ bool dotdot_is_supported_application_monitoring_mqtt_logging_enabled (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MQTTLoggingEnabled attribute
  */
@@ -74208,7 +74208,7 @@ bool dotdot_get_application_monitoring_mqtt_logging_enabled(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mqtt_logging_enabled new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -74298,7 +74298,7 @@ bool dotdot_is_supported_application_monitoring_mqtt_logging_level (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MQTTLoggingLevel attribute
  */
@@ -74314,7 +74314,7 @@ LoggingLevelEnum dotdot_get_application_monitoring_mqtt_logging_level(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mqtt_logging_level new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -74404,7 +74404,7 @@ bool dotdot_is_supported_application_monitoring_mqtt_statistics_reporting_interv
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MQTTStatisticsReportingIntervalSeconds attribute
  */
@@ -74420,7 +74420,7 @@ uint32_t dotdot_get_application_monitoring_mqtt_statistics_reporting_interval_se
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mqtt_statistics_reporting_interval_seconds new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -74510,7 +74510,7 @@ bool dotdot_is_supported_application_monitoring_mqtt_messages_sent (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MQTTMessagesSent attribute
  */
@@ -74526,7 +74526,7 @@ uint64_t dotdot_get_application_monitoring_mqtt_messages_sent(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mqtt_messages_sent new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -74616,7 +74616,7 @@ bool dotdot_is_supported_application_monitoring_mqtt_messages_received (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MQTTMessagesReceived attribute
  */
@@ -74632,7 +74632,7 @@ uint64_t dotdot_get_application_monitoring_mqtt_messages_received(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mqtt_messages_received new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -74722,7 +74722,7 @@ bool dotdot_is_supported_application_monitoring_mqtt_subscription_count (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MQTTSubscriptionCount attribute
  */
@@ -74738,7 +74738,7 @@ uint64_t dotdot_get_application_monitoring_mqtt_subscription_count(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mqtt_subscription_count new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -74828,7 +74828,7 @@ bool dotdot_is_supported_application_monitoring_mqtt_average_delivery_time_secon
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MQTTAverageDeliveryTimeSeconds attribute
  */
@@ -74844,7 +74844,7 @@ double dotdot_get_application_monitoring_mqtt_average_delivery_time_seconds(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mqtt_average_delivery_time_seconds new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -74934,7 +74934,7 @@ bool dotdot_is_supported_application_monitoring_mqtt_min_delivery_time_seconds (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MQTTMinDeliveryTimeSeconds attribute
  */
@@ -74950,7 +74950,7 @@ double dotdot_get_application_monitoring_mqtt_min_delivery_time_seconds(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mqtt_min_delivery_time_seconds new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -75040,7 +75040,7 @@ bool dotdot_is_supported_application_monitoring_mqtt_max_delivery_time_seconds (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns MQTTMaxDeliveryTimeSeconds attribute
  */
@@ -75056,7 +75056,7 @@ double dotdot_get_application_monitoring_mqtt_max_delivery_time_seconds(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_mqtt_max_delivery_time_seconds new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -75146,7 +75146,7 @@ bool dotdot_is_supported_application_monitoring_application_statistics_reporting
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ApplicationStatisticsReportingIntervalSeconds attribute
  */
@@ -75162,7 +75162,7 @@ uint32_t dotdot_get_application_monitoring_application_statistics_reporting_inte
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_application_statistics_reporting_interval_seconds new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -75252,7 +75252,7 @@ bool dotdot_is_supported_application_monitoring_application_cpu_usage_percent (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ApplicationCPUUsagePercent attribute
  */
@@ -75268,7 +75268,7 @@ double dotdot_get_application_monitoring_application_cpu_usage_percent(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_application_cpu_usage_percent new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -75358,7 +75358,7 @@ bool dotdot_is_supported_application_monitoring_application_cpu_average_usage_pe
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ApplicationCPUAverageUsagePercent attribute
  */
@@ -75374,7 +75374,7 @@ double dotdot_get_application_monitoring_application_cpu_average_usage_percent(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_application_cpu_average_usage_percent new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -75464,7 +75464,7 @@ bool dotdot_is_supported_application_monitoring_application_cpu_min_usage_percen
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ApplicationCPUMinUsagePercent attribute
  */
@@ -75480,7 +75480,7 @@ double dotdot_get_application_monitoring_application_cpu_min_usage_percent(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_application_cpu_min_usage_percent new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -75570,7 +75570,7 @@ bool dotdot_is_supported_application_monitoring_application_cpu_max_usage_percen
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ApplicationCPUMaxUsagePercent attribute
  */
@@ -75586,7 +75586,7 @@ double dotdot_get_application_monitoring_application_cpu_max_usage_percent(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_application_cpu_max_usage_percent new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -75676,7 +75676,7 @@ bool dotdot_is_supported_application_monitoring_application_ram_usagemb (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ApplicationRAMUsageMB attribute
  */
@@ -75692,7 +75692,7 @@ double dotdot_get_application_monitoring_application_ram_usagemb(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_application_ram_usagemb new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -75810,10 +75810,10 @@ bool dotdot_is_supported_name_and_location_name (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns Name attribute
  */
@@ -75829,7 +75829,7 @@ const char* dotdot_get_name_and_location_name(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_name new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -75919,10 +75919,10 @@ bool dotdot_is_supported_name_and_location_location (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  * WARNING: This function is not thread safe, if you retrieve a string, read the
  * value immediately and cache it yourself before invoking another get function.
- * 
+ *
  *
  * @returns Location attribute
  */
@@ -75938,7 +75938,7 @@ const char* dotdot_get_name_and_location_location(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_location new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -76056,7 +76056,7 @@ bool dotdot_is_supported_configuration_parameters_configuration_parameters (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ConfigurationParameters attribute
  */
@@ -76072,9 +76072,9 @@ ConfigurationParameter dotdot_get_configuration_parameters_configuration_paramet
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_configuration_parameters_count Number of elements in the array
- * 
+ *
  * @param new_configuration_parameters new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -76193,7 +76193,7 @@ bool dotdot_is_supported_protocol_controller_network_management_network_manageme
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns NetworkManagementState attribute
  */
@@ -76209,7 +76209,7 @@ NetworkManagementState dotdot_get_protocol_controller_network_management_network
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_network_management_state new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -76327,7 +76327,7 @@ bool dotdot_is_supported_descriptor_device_type_list (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DeviceTypeList attribute
  */
@@ -76343,9 +76343,9 @@ DeviceTypeStruct dotdot_get_descriptor_device_type_list(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_device_type_list_count Number of elements in the array
- * 
+ *
  * @param new_device_type_list new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -76464,7 +76464,7 @@ bool dotdot_is_supported_unify_fan_control_z_wave_fan_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ZWaveFanMode attribute
  */
@@ -76480,7 +76480,7 @@ ZWaveFanModeEnum dotdot_get_unify_fan_control_z_wave_fan_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_z_wave_fan_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -76570,7 +76570,7 @@ bool dotdot_is_supported_unify_fan_control_z_wave_supported_fan_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ZWaveSupportedFanMode attribute
  */
@@ -76586,7 +76586,7 @@ uint16_t dotdot_get_unify_fan_control_z_wave_supported_fan_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_z_wave_supported_fan_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -76676,7 +76676,7 @@ bool dotdot_is_supported_unify_fan_control_z_wave_fan_state (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ZWaveFanState attribute
  */
@@ -76692,7 +76692,7 @@ ZWaveFanStateEnum dotdot_get_unify_fan_control_z_wave_fan_state(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_z_wave_fan_state new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -76810,7 +76810,7 @@ bool dotdot_is_supported_unify_thermostat_thermostat_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ThermostatMode attribute
  */
@@ -76826,7 +76826,7 @@ uint8_t dotdot_get_unify_thermostat_thermostat_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_thermostat_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -76916,7 +76916,7 @@ bool dotdot_is_supported_unify_thermostat_supported_thermostat_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SupportedThermostatMode attribute
  */
@@ -76932,7 +76932,7 @@ uint16_t dotdot_get_unify_thermostat_supported_thermostat_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_supported_thermostat_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -77022,7 +77022,7 @@ bool dotdot_is_supported_unify_thermostat_operating_state (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns OperatingState attribute
  */
@@ -77038,7 +77038,7 @@ uint8_t dotdot_get_unify_thermostat_operating_state(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_operating_state new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -77156,7 +77156,7 @@ bool dotdot_is_supported_unify_humidity_control_reporting_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns ReportingMode attribute
  */
@@ -77172,7 +77172,7 @@ ModeType dotdot_get_unify_humidity_control_reporting_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_reporting_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -77262,7 +77262,7 @@ bool dotdot_is_supported_unify_humidity_control_supported_reporting_mode (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SupportedReportingMode attribute
  */
@@ -77278,7 +77278,7 @@ uint8_t dotdot_get_unify_humidity_control_supported_reporting_mode(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_supported_reporting_mode new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -77368,7 +77368,7 @@ bool dotdot_is_supported_unify_humidity_control_current_state (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns CurrentState attribute
  */
@@ -77384,7 +77384,7 @@ uint8_t dotdot_get_unify_humidity_control_current_state(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_current_state new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -77474,7 +77474,7 @@ bool dotdot_is_supported_unify_humidity_control_supported_set_points (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns SupportedSetPoints attribute
  */
@@ -77490,7 +77490,7 @@ uint8_t dotdot_get_unify_humidity_control_supported_set_points(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_supported_set_points new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -77580,7 +77580,7 @@ bool dotdot_is_supported_unify_humidity_control_humidifier_setpoint_min (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns HumidifierSetpointMin attribute
  */
@@ -77596,7 +77596,7 @@ int32_t dotdot_get_unify_humidity_control_humidifier_setpoint_min(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_humidifier_setpoint_min new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -77686,7 +77686,7 @@ bool dotdot_is_supported_unify_humidity_control_humidifier_setpoint_max (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns HumidifierSetpointMax attribute
  */
@@ -77702,7 +77702,7 @@ int32_t dotdot_get_unify_humidity_control_humidifier_setpoint_max(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_humidifier_setpoint_max new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -77792,7 +77792,7 @@ bool dotdot_is_supported_unify_humidity_control_humidifier_setpoint (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns HumidifierSetpoint attribute
  */
@@ -77808,7 +77808,7 @@ int32_t dotdot_get_unify_humidity_control_humidifier_setpoint(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_humidifier_setpoint new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -77898,7 +77898,7 @@ bool dotdot_is_supported_unify_humidity_control_humidifier_setpoint_scale (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns HumidifierSetpointScale attribute
  */
@@ -77914,7 +77914,7 @@ ScaleType dotdot_get_unify_humidity_control_humidifier_setpoint_scale(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_humidifier_setpoint_scale new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -78004,7 +78004,7 @@ bool dotdot_is_supported_unify_humidity_control_humidifier_setpoint_precision (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns HumidifierSetpointPrecision attribute
  */
@@ -78020,7 +78020,7 @@ uint8_t dotdot_get_unify_humidity_control_humidifier_setpoint_precision(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_humidifier_setpoint_precision new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -78110,7 +78110,7 @@ bool dotdot_is_supported_unify_humidity_control_dehumidifier_setpoint_min (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DehumidifierSetpointMin attribute
  */
@@ -78126,7 +78126,7 @@ int32_t dotdot_get_unify_humidity_control_dehumidifier_setpoint_min(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dehumidifier_setpoint_min new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -78216,7 +78216,7 @@ bool dotdot_is_supported_unify_humidity_control_dehumidifier_setpoint_max (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DehumidifierSetpointMax attribute
  */
@@ -78232,7 +78232,7 @@ int32_t dotdot_get_unify_humidity_control_dehumidifier_setpoint_max(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dehumidifier_setpoint_max new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -78322,7 +78322,7 @@ bool dotdot_is_supported_unify_humidity_control_dehumidifier_setpoint (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DehumidifierSetpoint attribute
  */
@@ -78338,7 +78338,7 @@ int32_t dotdot_get_unify_humidity_control_dehumidifier_setpoint(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dehumidifier_setpoint new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -78428,7 +78428,7 @@ bool dotdot_is_supported_unify_humidity_control_dehumidifier_setpoint_scale (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DehumidifierSetpointScale attribute
  */
@@ -78444,7 +78444,7 @@ ScaleType dotdot_get_unify_humidity_control_dehumidifier_setpoint_scale(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dehumidifier_setpoint_scale new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -78534,7 +78534,7 @@ bool dotdot_is_supported_unify_humidity_control_dehumidifier_setpoint_precision 
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns DehumidifierSetpointPrecision attribute
  */
@@ -78550,7 +78550,7 @@ uint8_t dotdot_get_unify_humidity_control_dehumidifier_setpoint_precision(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_dehumidifier_setpoint_precision new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -78640,7 +78640,7 @@ bool dotdot_is_supported_unify_humidity_control_auto_setpoint_min (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AutoSetpointMin attribute
  */
@@ -78656,7 +78656,7 @@ int32_t dotdot_get_unify_humidity_control_auto_setpoint_min(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_auto_setpoint_min new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -78746,7 +78746,7 @@ bool dotdot_is_supported_unify_humidity_control_auto_setpoint_max (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AutoSetpointMax attribute
  */
@@ -78762,7 +78762,7 @@ int32_t dotdot_get_unify_humidity_control_auto_setpoint_max(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_auto_setpoint_max new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -78852,7 +78852,7 @@ bool dotdot_is_supported_unify_humidity_control_auto_setpoint (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AutoSetpoint attribute
  */
@@ -78868,7 +78868,7 @@ int32_t dotdot_get_unify_humidity_control_auto_setpoint(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_auto_setpoint new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -78958,7 +78958,7 @@ bool dotdot_is_supported_unify_humidity_control_auto_setpoint_scale (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AutoSetpointScale attribute
  */
@@ -78974,7 +78974,7 @@ ScaleType dotdot_get_unify_humidity_control_auto_setpoint_scale(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_auto_setpoint_scale new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */
@@ -79064,7 +79064,7 @@ bool dotdot_is_supported_unify_humidity_control_auto_setpoint_precision (
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to get,
  *                      see \ref attribute_store_get_node_attribute_value
- * 
+ *
  *
  * @returns AutoSetpointPrecision attribute
  */
@@ -79080,7 +79080,7 @@ uint8_t dotdot_get_unify_humidity_control_auto_setpoint_precision(
  * @param endpoint_id   Endpoint ID
  * @param value_state   value state to write for the node,
  *                      see \ref attribute_store_set_node_attribute_value
- * 
+ *
  * @param new_auto_setpoint_precision new value to set
  * @returns sl_status_t SL_STATUS_OK on success
  */

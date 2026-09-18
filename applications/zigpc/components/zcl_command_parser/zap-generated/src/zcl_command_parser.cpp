@@ -133,6 +133,7 @@ static std::unordered_map<zcl_cluster_id_t, std::set<zcl_command_id_t>>  command
   {
     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
     {
+      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_COMMAND_RESPONSE,
       ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_REPORT_RECORD,
       ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_RAW_FIXTURE_NOTIFICATION,
     }
@@ -2402,10 +2403,57 @@ zigpc_zcl_status_t zigpc_zclcmdparse_electrical_measurement_get_measurement_prof
   return status;
 }
 
+zigpc_zcl_status_t zigpc_zclcmdparse_dmf_bridge_config_generic_command_response_command(
+  const zigpc_gateway_on_command_received_t *cmd,
+  zigpc_zclcmdparse_result_t *result
+) {
+  
+  zigpc_zcl_status_t status = ZIGPC_ZCL_STATUS_SUCCESS;
+  size_t payload_offset = cmd->frame_payload_offset;
+  zigpc_zcl_data_type_t arg_type = ZIGPC_ZCL_DATA_TYPE_NODATA;
+  size_t arg_size = 0;
+  zigpc_zclcmdparse_dmf_bridge_config_generic_command_response_t *data;
+  data = &result->data.dmf_bridge_config_generic_command_response;
+
+  if (status == ZIGPC_ZCL_STATUS_SUCCESS) {
+    arg_type = ZIGPC_ZCL_DATA_TYPE_UINT8;
+    arg_size = zigpc_zcl_get_data_type_size(arg_type);
+    if (arg_size == 0) {
+      // Unable to get size of parameter
+      status = ZIGPC_ZCL_STATUS_UNSUP_CLUSTER_COMMAND;
+    } else if (cmd->frame.size < (payload_offset + arg_size)) {
+      status = ZIGPC_ZCL_STATUS_MALFORMED_COMMAND;
+    } else {
+      std::memcpy(&data->commandid, &cmd->frame.buffer[payload_offset], arg_size);
+      payload_offset += arg_size;
+    }
+  }
+  if (status == ZIGPC_ZCL_STATUS_SUCCESS) {
+    arg_type = ZIGPC_ZCL_DATA_TYPE_UINT8;
+    arg_size = zigpc_zcl_get_data_type_size(arg_type);
+    if (arg_size == 0) {
+      // Unable to get size of parameter
+      status = ZIGPC_ZCL_STATUS_UNSUP_CLUSTER_COMMAND;
+    } else if (cmd->frame.size < (payload_offset + arg_size)) {
+      status = ZIGPC_ZCL_STATUS_MALFORMED_COMMAND;
+    } else {
+      std::memcpy(&data->status, &cmd->frame.buffer[payload_offset], arg_size);
+      payload_offset += arg_size;
+    }
+  }
+  if (status == ZIGPC_ZCL_STATUS_SUCCESS) {
+    result->cluster_id = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG;
+    result->command_id = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_COMMAND_RESPONSE;
+    sl_log_debug(LOG_TAG, LOG_FMT_PARSE_SUCCESS, "DMFBridgeConfig", "GenericCommandResponse");
+  }
+  return status;
+}
+
 zigpc_zcl_status_t zigpc_zclcmdparse_dmf_bridge_config_generic_report_record_command(
   const zigpc_gateway_on_command_received_t *cmd,
   zigpc_zclcmdparse_result_t *result
 ) {
+  
   zigpc_zcl_status_t status = ZIGPC_ZCL_STATUS_SUCCESS;
   size_t payload_offset = cmd->frame_payload_offset;
   zigpc_zcl_data_type_t arg_type = ZIGPC_ZCL_DATA_TYPE_NODATA;
@@ -2417,6 +2465,7 @@ zigpc_zcl_status_t zigpc_zclcmdparse_dmf_bridge_config_generic_report_record_com
     arg_type = ZIGPC_ZCL_DATA_TYPE_UINT16;
     arg_size = zigpc_zcl_get_data_type_size(arg_type);
     if (arg_size == 0) {
+      // Unable to get size of parameter
       status = ZIGPC_ZCL_STATUS_UNSUP_CLUSTER_COMMAND;
     } else if (cmd->frame.size < (payload_offset + arg_size)) {
       status = ZIGPC_ZCL_STATUS_MALFORMED_COMMAND;
@@ -2429,13 +2478,12 @@ zigpc_zcl_status_t zigpc_zclcmdparse_dmf_bridge_config_generic_report_record_com
     arg_type = ZIGPC_ZCL_DATA_TYPE_UINT8;
     arg_size = zigpc_zcl_get_data_type_size(arg_type);
     if (arg_size == 0) {
+      // Unable to get size of parameter
       status = ZIGPC_ZCL_STATUS_UNSUP_CLUSTER_COMMAND;
     } else if (cmd->frame.size < (payload_offset + arg_size)) {
       status = ZIGPC_ZCL_STATUS_MALFORMED_COMMAND;
     } else {
-      std::memcpy(&data->record_index,
-                  &cmd->frame.buffer[payload_offset],
-                  arg_size);
+      std::memcpy(&data->record_index, &cmd->frame.buffer[payload_offset], arg_size);
       payload_offset += arg_size;
     }
   }
@@ -2443,13 +2491,12 @@ zigpc_zcl_status_t zigpc_zclcmdparse_dmf_bridge_config_generic_report_record_com
     arg_type = ZIGPC_ZCL_DATA_TYPE_UINT16;
     arg_size = zigpc_zcl_get_data_type_size(arg_type);
     if (arg_size == 0) {
+      // Unable to get size of parameter
       status = ZIGPC_ZCL_STATUS_UNSUP_CLUSTER_COMMAND;
     } else if (cmd->frame.size < (payload_offset + arg_size)) {
       status = ZIGPC_ZCL_STATUS_MALFORMED_COMMAND;
     } else {
-      std::memcpy(&data->total_records,
-                  &cmd->frame.buffer[payload_offset],
-                  arg_size);
+      std::memcpy(&data->total_records, &cmd->frame.buffer[payload_offset], arg_size);
       payload_offset += arg_size;
     }
   }
@@ -2458,6 +2505,7 @@ zigpc_zcl_status_t zigpc_zclcmdparse_dmf_bridge_config_generic_report_record_com
     arg_size = zigpc_zcl_get_data_type_size(arg_type);
     uint8_t arg_str_len = cmd->frame.buffer[payload_offset];
     if (arg_size == 0) {
+      // Unable to get size of parameter
       status = ZIGPC_ZCL_STATUS_UNSUP_CLUSTER_COMMAND;
     } else if (cmd->frame.size < (payload_offset + (arg_size * arg_str_len) + 1)) {
       status = ZIGPC_ZCL_STATUS_MALFORMED_COMMAND;
@@ -2468,15 +2516,10 @@ zigpc_zcl_status_t zigpc_zclcmdparse_dmf_bridge_config_generic_report_record_com
       payload_offset += arg_size * arg_str_len;
     }
   }
-
   if (status == ZIGPC_ZCL_STATUS_SUCCESS) {
     result->cluster_id = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG;
-    result->command_id
-      = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_REPORT_RECORD;
-    sl_log_debug(LOG_TAG,
-                 LOG_FMT_PARSE_SUCCESS,
-                 "DMFBridgeConfig",
-                 "GenericReportRecord");
+    result->command_id = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_REPORT_RECORD;
+    sl_log_debug(LOG_TAG, LOG_FMT_PARSE_SUCCESS, "DMFBridgeConfig", "GenericReportRecord");
   }
   return status;
 }
@@ -2485,6 +2528,7 @@ zigpc_zcl_status_t zigpc_zclcmdparse_dmf_bridge_config_raw_fixture_notification_
   const zigpc_gateway_on_command_received_t *cmd,
   zigpc_zclcmdparse_result_t *result
 ) {
+  
   zigpc_zcl_status_t status = ZIGPC_ZCL_STATUS_SUCCESS;
   size_t payload_offset = cmd->frame_payload_offset;
   zigpc_zcl_data_type_t arg_type = ZIGPC_ZCL_DATA_TYPE_NODATA;
@@ -2497,6 +2541,7 @@ zigpc_zcl_status_t zigpc_zclcmdparse_dmf_bridge_config_raw_fixture_notification_
     arg_size = zigpc_zcl_get_data_type_size(arg_type);
     uint8_t arg_str_len = cmd->frame.buffer[payload_offset];
     if (arg_size == 0) {
+      // Unable to get size of parameter
       status = ZIGPC_ZCL_STATUS_UNSUP_CLUSTER_COMMAND;
     } else if (cmd->frame.size < (payload_offset + (arg_size * arg_str_len) + 1)) {
       status = ZIGPC_ZCL_STATUS_MALFORMED_COMMAND;
@@ -2511,6 +2556,7 @@ zigpc_zcl_status_t zigpc_zclcmdparse_dmf_bridge_config_raw_fixture_notification_
     arg_type = ZIGPC_ZCL_DATA_TYPE_UINT16;
     arg_size = zigpc_zcl_get_data_type_size(arg_type);
     if (arg_size == 0) {
+      // Unable to get size of parameter
       status = ZIGPC_ZCL_STATUS_UNSUP_CLUSTER_COMMAND;
     } else if (cmd->frame.size < (payload_offset + arg_size)) {
       status = ZIGPC_ZCL_STATUS_MALFORMED_COMMAND;
@@ -2519,15 +2565,26 @@ zigpc_zcl_status_t zigpc_zclcmdparse_dmf_bridge_config_raw_fixture_notification_
       payload_offset += arg_size;
     }
   }
-
+  if (status == ZIGPC_ZCL_STATUS_SUCCESS) {
+    arg_type = ZIGPC_ZCL_DATA_TYPE_OCTSTR;
+    arg_size = zigpc_zcl_get_data_type_size(arg_type);
+    uint8_t arg_str_len = cmd->frame.buffer[payload_offset];
+    if (arg_size == 0) {
+      // Unable to get size of parameter
+      status = ZIGPC_ZCL_STATUS_UNSUP_CLUSTER_COMMAND;
+    } else if (cmd->frame.size < (payload_offset + (arg_size * arg_str_len) + 1)) {
+      status = ZIGPC_ZCL_STATUS_MALFORMED_COMMAND;
+    } else {
+      data->fixture_info_length = arg_str_len;
+      payload_offset++;
+      data->fixture_info = (const char *) &cmd->frame.buffer[payload_offset];
+      payload_offset += arg_size * arg_str_len;
+    }
+  }
   if (status == ZIGPC_ZCL_STATUS_SUCCESS) {
     result->cluster_id = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG;
-    result->command_id
-      = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_RAW_FIXTURE_NOTIFICATION;
-    sl_log_debug(LOG_TAG,
-                 LOG_FMT_PARSE_SUCCESS,
-                 "DMFBridgeConfig",
-                 "RawFixtureNotification");
+    result->command_id = ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_RAW_FIXTURE_NOTIFICATION;
+    sl_log_debug(LOG_TAG, LOG_FMT_PARSE_SUCCESS, "DMFBridgeConfig", "RawFixtureNotification");
   }
   return status;
 }
@@ -2761,16 +2818,15 @@ zigpc_zcl_status_t zigpc_zclcmdparse_dmf_bridge_config_client_cluster(
   zigpc_zclcmdparse_result_t *result
 ) {
   zigpc_zcl_status_t status = ZIGPC_ZCL_STATUS_UNSUP_CLUSTER_COMMAND;
-  switch (cmd->command_id) {
+  switch(cmd->command_id) {
+    case ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_COMMAND_RESPONSE:
+      status = zigpc_zclcmdparse_dmf_bridge_config_generic_command_response_command(cmd, result);
+      break;
     case ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_GENERIC_REPORT_RECORD:
-      status = zigpc_zclcmdparse_dmf_bridge_config_generic_report_record_command(
-        cmd,
-        result);
+      status = zigpc_zclcmdparse_dmf_bridge_config_generic_report_record_command(cmd, result);
       break;
     case ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_COMMAND_RAW_FIXTURE_NOTIFICATION:
-      status = zigpc_zclcmdparse_dmf_bridge_config_raw_fixture_notification_command(
-        cmd,
-        result);
+      status = zigpc_zclcmdparse_dmf_bridge_config_raw_fixture_notification_command(cmd, result);
       break;
     default:
       break;

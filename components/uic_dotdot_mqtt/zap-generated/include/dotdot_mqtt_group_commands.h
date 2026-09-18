@@ -3448,6 +3448,22 @@ typedef void (*uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_
 void uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback_t callback);
 
 /**
+ * @brief Callback signature for by-group DMFBridgeConfig::GenericCommandResponse command.
+ */
+typedef void (*uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_command_response_callback_t)(
+    const dotdot_group_id_t group_id,
+    const uic_mqtt_dotdot_dmf_bridge_config_command_generic_command_response_fields_t *fields
+);
+
+/**
+ * Setup handler to be called when a
+ * ucl/by-group/+/DMFBridgeConfig/generic_command_response is received.
+ * Setting this callback will overwrite the previous set callback.
+ *
+ */
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_command_response_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_command_response_callback_t callback);
+
+/**
  * @brief Callback signature for by-group DMFBridgeConfig::IdentifyFixture command.
  */
 typedef void (*uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback_t)(

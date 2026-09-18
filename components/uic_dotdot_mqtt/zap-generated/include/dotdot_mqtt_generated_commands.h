@@ -4430,6 +4430,27 @@ void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_trigger_rdm_discovery_c
   const dotdot_endpoint_id_t endpoint
 );
 /**
+ * @brief Publishes an incoming/generated GenericCommandResponse command for
+ * the DMFBridgeConfig cluster.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/GeneratedCommands/GenericCommandResponse
+ *
+ * @param unid      The UNID of the node that sent us the command.
+ * 
+ * @param endpoint  The Endpoint ID of the node that sent us the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_generic_command_response_command(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_command_response_fields_t *fields
+  
+);
+/**
  * @brief Publishes an incoming/generated IdentifyFixture command for
  * the DMFBridgeConfig cluster.
  *

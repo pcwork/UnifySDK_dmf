@@ -64362,4 +64362,3 @@ void uic_mqtt_dotdot_unify_humidity_control_attribute_auto_setpoint_precision_ca
 }
 
 // End of supported cluster.
-

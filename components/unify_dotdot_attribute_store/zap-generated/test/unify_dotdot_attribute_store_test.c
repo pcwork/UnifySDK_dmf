@@ -1140,6 +1140,10 @@ static uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_t test_u
 uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback(){
   return test_uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback;
 }
+static uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_t test_uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback = NULL;
+uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback(){
+  return test_uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback;
+}
 static uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_t test_uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback = NULL;
 uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback(){
   return test_uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback;
@@ -2775,6 +2779,11 @@ void uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_set_stub(
 {
   test_uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback = callback;
 }
+void uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_set_stub(
+  const uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_t callback, int cmock_num_calls)
+{
+  test_uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback = callback;
+}
 void uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_set_stub(
   const uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_t callback, int cmock_num_calls)
 {
@@ -3856,6 +3865,9 @@ void setUp()
   test_uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback = NULL;
   uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_set_Stub(
     &uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_set_stub);
+  test_uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback = NULL;
+  uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_set_Stub(
+    &uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_set_stub);
   test_uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback = NULL;
   uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_set_Stub(
     &uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_set_stub);
@@ -7616,6 +7628,21 @@ void test_automatic_deduction_of_supported_commands()
       
       ));
   }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback) {
+    // Dummy command parameters
+      uint8_t commandid_value;
+      memset(&commandid_value, 0x00, sizeof(commandid_value));
+      uint8_t status_value;
+      memset(&status_value, 0x00, sizeof(status_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_FAIL, test_uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        commandid_value,
+      
+        status_value
+      
+      ));
+  }
   if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback) {
     // Dummy command parameters
       const char* uid_value;
@@ -7761,12 +7788,16 @@ void test_automatic_deduction_of_supported_commands()
       memset(&uid_value, 0x00, sizeof(uid_value));
       uint16_t modelid_value;
       memset(&modelid_value, 0x00, sizeof(modelid_value));
+      const char* fixture_info_value;
+      memset(&fixture_info_value, 0x00, sizeof(fixture_info_value));
   // Invoke with support check
     TEST_ASSERT_EQUAL(SL_STATUS_FAIL, test_uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
       ,
         uid_value,
       
-        modelid_value
+        modelid_value,
+      
+        fixture_info_value
       
       ));
   }
@@ -10892,6 +10923,21 @@ void test_automatic_deduction_of_supported_commands()
       
       ));
   }
+  if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback) {
+    // Dummy command parameters
+      uint8_t commandid_value;
+      memset(&commandid_value, 0x00, sizeof(commandid_value));
+      uint8_t status_value;
+      memset(&status_value, 0x00, sizeof(status_value));
+  // Invoke with support check
+    TEST_ASSERT_EQUAL(SL_STATUS_OK, test_uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+      ,
+        commandid_value,
+      
+        status_value
+      
+      ));
+  }
   if (NULL != test_uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback) {
     // Dummy command parameters
       const char* uid_value;
@@ -11037,12 +11083,16 @@ void test_automatic_deduction_of_supported_commands()
       memset(&uid_value, 0x00, sizeof(uid_value));
       uint16_t modelid_value;
       memset(&modelid_value, 0x00, sizeof(modelid_value));
+      const char* fixture_info_value;
+      memset(&fixture_info_value, 0x00, sizeof(fixture_info_value));
   // Invoke with support check
     TEST_ASSERT_EQUAL(SL_STATUS_OK, test_uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback(expected_unid,expected_endpoint_id,UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
       ,
         uid_value,
       
-        modelid_value
+        modelid_value,
+      
+        fixture_info_value
       
       ));
   }

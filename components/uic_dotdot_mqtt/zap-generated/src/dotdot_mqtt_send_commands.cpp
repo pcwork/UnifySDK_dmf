@@ -12477,6 +12477,80 @@ void uic_mqtt_dotdot_dmf_bridge_config_publish_trigger_rdm_discovery_command_to_
 }
 
 /**
+ * @brief Sends/Publishes a GenericCommandResponse command for
+ * the DMFBridgeConfig cluster to a destination.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/Commands/GenericCommandResponse
+ *
+ * @param destination_unid      The UNID of the node that should receive the command.
+ * 
+ * @param destination_endpoint  The Endpoint ID of the node that should receive the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generic_command_response_command(
+  const dotdot_unid_t destination_unid,
+  const dotdot_endpoint_id_t destination_endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_command_response_fields_t *fields
+  
+) {
+  // Create the topic
+  std::string topic = "ucl/by-unid/"+ std::string(destination_unid) + "/ep" +
+                      std::to_string(destination_endpoint) + "/";
+  topic += "DMFBridgeConfig/Commands/GenericCommandResponse";
+
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_generic_command_response_command(
+    fields);
+
+  sl_log_debug(LOG_TAG, "Sending command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
+ * @brief Sends/Publishes a GenericCommandResponse command for
+ * the DMFBridgeConfig cluster to a group.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-group/GroupID/DMFBridgeConfig/Commands/GenericCommandResponse
+ *
+ * @param destination_group_id  The GroupID that should receive the command.
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generic_command_response_command_to_group(
+  uint16_t destination_group_id,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_command_response_fields_t *fields
+  
+){
+  // Create the topic
+  std::string topic = "ucl/by-group/"+ std::to_string(destination_group_id) +
+                      "/DMFBridgeConfig/Commands/GenericCommandResponse";
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_generic_command_response_command(
+    fields);
+
+  sl_log_info(LOG_TAG, "Sending group command to %s with payload %s ---", topic.c_str() , payload.c_str());
+
+  // Publish our command, not retained
+  uic_mqtt_publish(topic.c_str(),
+                   payload.c_str(),
+                   payload.size(),
+                   false);
+}
+
+/**
  * @brief Sends/Publishes a IdentifyFixture command for
  * the DMFBridgeConfig cluster to a destination.
  *

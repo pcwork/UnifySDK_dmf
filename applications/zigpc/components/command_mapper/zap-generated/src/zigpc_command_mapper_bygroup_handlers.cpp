@@ -5624,6 +5624,83 @@ void zigpc_command_mapper_bygroup_electrical_measurement_get_measurement_profile
  *
  * @param group_id  UCL group identifier.
  */
+void zigpc_command_mapper_bygroup_dmf_bridge_config_write_attributes_handler(
+  const dotdot_group_id_t group_id,
+  uic_mqtt_dotdot_dmf_bridge_config_state_t values,
+  uic_mqtt_dotdot_dmf_bridge_config_updated_state_t values_to_write
+) {
+  std::vector<zigpc_zcl_frame_data_t> write_attr_data;
+  std::list<zcl_attribute_id_t> attr_id_list;
+  std::list<zigpc_zcl_data_type_t> attr_data_type_list;
+
+  if (values_to_write.fixture_table_revision == true) {
+    zigpc_command_mapper_populate_write_attr_record(
+      write_attr_data,
+      attr_id_list,
+      attr_data_type_list,
+      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_FIXTURE_TABLE_REVISION,
+      ZIGPC_ZCL_DATA_TYPE_UINT16,
+      &values.fixture_table_revision
+    );
+  }
+
+  if (values_to_write.group_table_revision == true) {
+    zigpc_command_mapper_populate_write_attr_record(
+      write_attr_data,
+      attr_id_list,
+      attr_data_type_list,
+      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_GROUP_TABLE_REVISION,
+      ZIGPC_ZCL_DATA_TYPE_UINT16,
+      &values.group_table_revision
+    );
+  }
+
+  if (values_to_write.scene_table_revision == true) {
+    zigpc_command_mapper_populate_write_attr_record(
+      write_attr_data,
+      attr_id_list,
+      attr_data_type_list,
+      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_SCENE_TABLE_REVISION,
+      ZIGPC_ZCL_DATA_TYPE_UINT16,
+      &values.scene_table_revision
+    );
+  }
+
+  if (values_to_write.light_mode_table_revision == true) {
+    zigpc_command_mapper_populate_write_attr_record(
+      write_attr_data,
+      attr_id_list,
+      attr_data_type_list,
+      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_LIGHT_MODE_TABLE_REVISION,
+      ZIGPC_ZCL_DATA_TYPE_UINT16,
+      &values.light_mode_table_revision
+    );
+  }
+
+  if (values_to_write.schedule_table_revision == true) {
+    zigpc_command_mapper_populate_write_attr_record(
+      write_attr_data,
+      attr_id_list,
+      attr_data_type_list,
+      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_SCHEDULE_TABLE_REVISION,
+      ZIGPC_ZCL_DATA_TYPE_UINT16,
+      &values.schedule_table_revision
+    );
+  }
+
+  if (write_attr_data.size() > 0) {
+    zigpc_command_mapper_send_multicast(
+      group_id,
+      ZIGPC_ZCL_FRAME_TYPE_GLOBAL_CMD_TO_SERVER,
+      ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+      ZIGPC_ZCL_GLOBAL_COMMAND_WRITE_ATTRIBUTES,
+      write_attr_data.size(),
+      write_attr_data.data()
+    );
+  }
+
+}
+
 void zigpc_command_mapper_bygroup_dmf_bridge_config_trigger_rdm_discovery_handler(
   const dotdot_group_id_t group_id
 ) {
@@ -6011,6 +6088,7 @@ sl_status_t zigpc_command_mapper_mqtt_bygroup_handlers_init(void)
   // uic_mqtt_dotdot_by_group_electrical_measurement_write_attributes_callback_set(zigpc_command_mapper_bygroup_electrical_measurement_write_attributes_handler);
   // uic_mqtt_dotdot_by_group_electrical_measurement_get_profile_info_response_callback_set(zigpc_command_mapper_bygroup_electrical_measurement_get_profile_info_response_handler);
   // uic_mqtt_dotdot_by_group_electrical_measurement_get_measurement_profile_response_callback_set(zigpc_command_mapper_bygroup_electrical_measurement_get_measurement_profile_response_handler);
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_write_attributes_callback_set(zigpc_command_mapper_bygroup_dmf_bridge_config_write_attributes_handler);
   uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback_set(zigpc_command_mapper_bygroup_dmf_bridge_config_trigger_rdm_discovery_handler);
   uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback_set(zigpc_command_mapper_bygroup_dmf_bridge_config_identify_fixture_handler);
   uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_zone_callback_set(zigpc_command_mapper_bygroup_dmf_bridge_config_identify_zone_handler);

@@ -1357,6 +1357,7 @@ void uic_mqtt_dotdot_diagnostics_publish_supported_generated_commands(
  */
 typedef struct _uic_mqtt_dotdot_dmf_bridge_config_supported_commands_ {
   bool trigger_rdm_discovery;
+  bool generic_command_response;
   bool identify_fixture;
   bool identify_zone;
   bool play_light_mode;

@@ -11817,6 +11817,194 @@ sl_status_t zigpc_command_mapper_electrical_measurement_get_measurement_profile_
 }
 
 /**
+ * @brief DotDot MQTT handler for FixtureTableRevision/WriteAttributes command.
+ *
+ * @param unid Unify device identifier string
+ * @param endpoint Unify device endpoint identifier
+ * uic_mqtt_dotdot_dmf_bridge_config_state_t Attribute values
+ * uic_mqtt_dotdot_dmf_bridge_config_updated_state_t Boolean flags of which attributes to write
+ */
+sl_status_t zigpc_command_mapper_dmf_bridge_config_write_attributes_handler(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  uic_mqtt_dotdot_callback_call_type_t call_type,
+  uic_mqtt_dotdot_dmf_bridge_config_state_t values,
+  uic_mqtt_dotdot_dmf_bridge_config_updated_state_t values_to_write
+) {
+  sl_status_t status = SL_STATUS_OK;
+  std::vector<zigpc_zcl_frame_data_t> write_attr_data;
+  std::list<zcl_attribute_id_t> attr_id_list;
+  std::list<zigpc_zcl_data_type_t> attr_data_type_list;
+
+  if (call_type == UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK) {
+    status = zigpc_command_mapper_cluster_support_check(unid, endpoint, ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG);
+    if (status != SL_STATUS_OK) {
+      status = SL_STATUS_NOT_AVAILABLE;
+    }
+  } else {
+    if (values_to_write.fixture_table_revision == true) {
+      zigpc_command_mapper_populate_write_attr_record(
+        write_attr_data,
+        attr_id_list,
+        attr_data_type_list,
+        ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_FIXTURE_TABLE_REVISION,
+        ZIGPC_ZCL_DATA_TYPE_UINT16,
+        &values.fixture_table_revision
+      );
+    }
+
+    if (values_to_write.group_table_revision == true) {
+      zigpc_command_mapper_populate_write_attr_record(
+        write_attr_data,
+        attr_id_list,
+        attr_data_type_list,
+        ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_GROUP_TABLE_REVISION,
+        ZIGPC_ZCL_DATA_TYPE_UINT16,
+        &values.group_table_revision
+      );
+    }
+
+    if (values_to_write.scene_table_revision == true) {
+      zigpc_command_mapper_populate_write_attr_record(
+        write_attr_data,
+        attr_id_list,
+        attr_data_type_list,
+        ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_SCENE_TABLE_REVISION,
+        ZIGPC_ZCL_DATA_TYPE_UINT16,
+        &values.scene_table_revision
+      );
+    }
+
+    if (values_to_write.light_mode_table_revision == true) {
+      zigpc_command_mapper_populate_write_attr_record(
+        write_attr_data,
+        attr_id_list,
+        attr_data_type_list,
+        ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_LIGHT_MODE_TABLE_REVISION,
+        ZIGPC_ZCL_DATA_TYPE_UINT16,
+        &values.light_mode_table_revision
+      );
+    }
+
+    if (values_to_write.schedule_table_revision == true) {
+      zigpc_command_mapper_populate_write_attr_record(
+        write_attr_data,
+        attr_id_list,
+        attr_data_type_list,
+        ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_SCHEDULE_TABLE_REVISION,
+        ZIGPC_ZCL_DATA_TYPE_UINT16,
+        &values.schedule_table_revision
+      );
+    }
+
+    if ((status == SL_STATUS_OK) && (write_attr_data.size() > 0)) {
+      zigpc_command_mapper_send_unicast(
+        unid,
+        endpoint,
+        ZIGPC_ZCL_FRAME_TYPE_GLOBAL_CMD_TO_SERVER,
+        ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+        ZIGPC_ZCL_GLOBAL_COMMAND_WRITE_ATTRIBUTES,
+        write_attr_data.size(),
+        write_attr_data.data()
+      );
+    }
+  }
+
+  return status;
+
+}
+
+/**
+ * @brief DotDot MQTT handler for FixtureTableRevision/Commands/ForceReadAttributes.
+ *
+ * @param unid Unify device identifier string
+ * @param endpoint Unify device endpoint identifier
+ * uic_mqtt_dotdot_dmf_bridge_config_updated_state_t Boolean flags of which attributes to read
+ */
+sl_status_t zigpc_command_mapper_dmf_bridge_config_force_read_attributes_handler(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  uic_mqtt_dotdot_callback_call_type_t call_type,
+  uic_mqtt_dotdot_dmf_bridge_config_updated_state_t attributes_to_read
+) {
+  sl_status_t status = SL_STATUS_OK;
+  std::vector<zigpc_zcl_frame_data_t> read_attr_data;
+  std::list<zcl_attribute_id_t> read_attr_ids;
+
+  if (call_type == UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK) {
+    status = zigpc_command_mapper_cluster_support_check(unid, endpoint, ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG);
+    if (status != SL_STATUS_OK) {
+      status = SL_STATUS_NOT_AVAILABLE;
+    }
+  } else {
+
+    if (attributes_to_read.fixture_table_revision == true) {
+      zigpc_command_mapper_populate_read_attr_record(
+        read_attr_data, read_attr_ids,
+        ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_FIXTURE_TABLE_REVISION
+      );
+    }
+    if (attributes_to_read.group_table_revision == true) {
+      zigpc_command_mapper_populate_read_attr_record(
+        read_attr_data, read_attr_ids,
+        ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_GROUP_TABLE_REVISION
+      );
+    }
+    if (attributes_to_read.scene_table_revision == true) {
+      zigpc_command_mapper_populate_read_attr_record(
+        read_attr_data, read_attr_ids,
+        ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_SCENE_TABLE_REVISION
+      );
+    }
+    if (attributes_to_read.light_mode_table_revision == true) {
+      zigpc_command_mapper_populate_read_attr_record(
+        read_attr_data, read_attr_ids,
+        ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_LIGHT_MODE_TABLE_REVISION
+      );
+    }
+    if (attributes_to_read.schedule_table_revision == true) {
+      zigpc_command_mapper_populate_read_attr_record(
+        read_attr_data, read_attr_ids,
+        ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_SCHEDULE_TABLE_REVISION
+      );
+    }
+    if (attributes_to_read.total_fixtures_count == true) {
+      zigpc_command_mapper_populate_read_attr_record(
+        read_attr_data, read_attr_ids,
+        ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_TOTAL_FIXTURES_COUNT
+      );
+    }
+    if (attributes_to_read.discovery_status == true) {
+      zigpc_command_mapper_populate_read_attr_record(
+        read_attr_data, read_attr_ids,
+        ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_DISCOVERY_STATUS
+      );
+    }
+    if (attributes_to_read.ble_session_status == true) {
+      zigpc_command_mapper_populate_read_attr_record(
+        read_attr_data, read_attr_ids,
+        ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_BLE_SESSION_STATUS
+      );
+    }
+
+    if ((status == SL_STATUS_OK) && (read_attr_data.size() > 0)) {
+      zigpc_command_mapper_send_unicast(
+        unid,
+        endpoint,
+        ZIGPC_ZCL_FRAME_TYPE_GLOBAL_CMD_TO_SERVER,
+        ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG,
+        ZIGPC_ZCL_GLOBAL_COMMAND_READ_ATTRIBUTES,
+        read_attr_data.size(),
+        read_attr_data.data()
+      );
+    }
+  }
+
+  return status;
+
+}
+
+/**
  * @brief DotDot MQTT translator handler for DMFBridgeConfig/TriggerRDMDiscovery command.
  */
 sl_status_t zigpc_command_mapper_dmf_bridge_config_trigger_rdm_discovery_handler(
@@ -12560,6 +12748,12 @@ sl_status_t zigpc_command_mapper_register_dotdot_mqtt_handlers(void)
   // uic_mqtt_dotdot_electrical_measurement_get_measurement_profile_response_callback_set(
   //   zigpc_command_mapper_electrical_measurement_get_measurement_profile_response_handler
   // );
+  uic_mqtt_dotdot_set_dmf_bridge_config_write_attributes_callback(
+    zigpc_command_mapper_dmf_bridge_config_write_attributes_handler
+  );
+  uic_mqtt_dotdot_set_dmf_bridge_config_force_read_attributes_callback(
+    zigpc_command_mapper_dmf_bridge_config_force_read_attributes_handler
+  );
   uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_set(
     zigpc_command_mapper_dmf_bridge_config_trigger_rdm_discovery_handler
   );

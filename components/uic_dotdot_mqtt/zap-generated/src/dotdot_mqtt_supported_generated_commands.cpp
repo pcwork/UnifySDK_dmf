@@ -2326,6 +2326,9 @@ void uic_mqtt_dotdot_dmf_bridge_config_publish_supported_generated_commands(
   if (command_list->trigger_rdm_discovery == true) {
     command_vector.emplace_back("TriggerRDMDiscovery");
   }
+  if (command_list->generic_command_response == true) {
+    command_vector.emplace_back("GenericCommandResponse");
+  }
   if (command_list->identify_fixture == true) {
     command_vector.emplace_back("IdentifyFixture");
   }

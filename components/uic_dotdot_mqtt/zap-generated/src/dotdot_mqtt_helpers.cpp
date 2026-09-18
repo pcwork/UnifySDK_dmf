@@ -299,13 +299,13 @@ uint32_t arm_response_arm_notification_get_enum_value_number(const std::string &
 // Enum to string map for BLESessionStatus
 const std::map<uint32_t, std::string> ble_session_status_enum_id_to_string_map {
   { 0, "Free" },
-  { 1, "OccupiedByBLEMobileApp" },
+  { 1, "Occupied" },
 };
 
 // String to enum map for BLESessionStatus
 const std::map<std::string, uint32_t> ble_session_status_enum_string_to_id_map {
   { "Free", 0 },
-  { "OccupiedByBLEMobileApp", 1 },
+  { "Occupied", 1 },
 };
 
 std::string ble_session_status_get_enum_value_name(

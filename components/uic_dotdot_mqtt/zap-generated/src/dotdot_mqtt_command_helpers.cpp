@@ -13320,6 +13320,56 @@ std::string get_json_payload_for_dmf_bridge_config_trigger_rdm_discovery_command
 
 
 
+std::string get_json_payload_for_dmf_bridge_config_generic_command_response_command(
+  
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_command_response_fields_t *fields
+  
+){
+  bool command_with_no_fields = true;
+
+  // Create a JSON payload from all the parameters
+  nlohmann::json json_payload;
+  command_with_no_fields = false;
+  // Single Value
+  // Non-enum and non-bitmask (struct, string or scalar)
+  json_payload["CommandID"] = nlohmann::json(fields->commandid);
+  command_with_no_fields = false;
+  // Single Value
+  // Non-enum and non-bitmask (struct, string or scalar)
+  json_payload["Status"] = nlohmann::json(fields->status);
+
+  // Get the string
+  if (command_with_no_fields == true) {
+    return std::string("{}");
+  }
+  // Payload may contain data from end nodes, which we cannot control, thus we handle if there are non-utf8 characters
+  return json_payload.dump(-1, ' ', false, nlohmann::detail::error_handler_t::replace);
+}
+
+
+void uic_mqtt_dotdot_parse_dmf_bridge_config_generic_command_response(
+  nlohmann::json &jsn,
+  uint8_t &commandid,
+  
+  uint8_t &status
+  
+) {
+
+  if (jsn.at("CommandID").is_null()) {
+    sl_log_debug(LOG_TAG, "Ignoring JSON Null object");
+    return;
+  }
+        
+  commandid = jsn.at("CommandID").get< uint8_t >();
+      if (jsn.at("Status").is_null()) {
+    sl_log_debug(LOG_TAG, "Ignoring JSON Null object");
+    return;
+  }
+        
+  status = jsn.at("Status").get< uint8_t >();
+    }
+
+
 std::string get_json_payload_for_dmf_bridge_config_identify_fixture_command(
   
   const uic_mqtt_dotdot_dmf_bridge_config_command_identify_fixture_fields_t *fields
@@ -13799,6 +13849,10 @@ std::string get_json_payload_for_dmf_bridge_config_raw_fixture_notification_comm
   // Single Value
   // Non-enum and non-bitmask (struct, string or scalar)
   json_payload["ModelID"] = nlohmann::json(fields->modelid);
+  command_with_no_fields = false;
+  // Single Value
+  // Non-enum and non-bitmask (struct, string or scalar)
+  json_payload["FixtureInfo"] = nlohmann::json(fields->fixture_info);
 
   // Get the string
   if (command_with_no_fields == true) {
@@ -13813,7 +13867,9 @@ void uic_mqtt_dotdot_parse_dmf_bridge_config_raw_fixture_notification(
   nlohmann::json &jsn,
   std::string &uid,
   
-  uint16_t &modelid
+  uint16_t &modelid,
+  
+  std::string &fixture_info
   
 ) {
 
@@ -13829,7 +13885,13 @@ void uic_mqtt_dotdot_parse_dmf_bridge_config_raw_fixture_notification(
   }
         
   modelid = jsn.at("ModelID").get< uint16_t >();
-    }
+      if (jsn.at("FixtureInfo").is_null()) {
+    sl_log_debug(LOG_TAG, "Ignoring JSON Null object");
+    return;
+  }
+       
+  fixture_info = jsn.at("FixtureInfo").get<std::string>();
+          }
 
 
 /**
@@ -13843,6 +13905,41 @@ void uic_mqtt_dotdot_parse_dmf_bridge_config_write_attributes(
   uic_mqtt_dotdot_dmf_bridge_config_updated_state_t &new_updated_state
 ) {
 
+
+  if (jsn.find("FixtureTableRevision") != jsn.end()) {
+
+    new_state.fixture_table_revision = jsn.at("FixtureTableRevision").get<uint16_t>();
+        
+    new_updated_state.fixture_table_revision = true;
+  }
+
+  if (jsn.find("GroupTableRevision") != jsn.end()) {
+
+    new_state.group_table_revision = jsn.at("GroupTableRevision").get<uint16_t>();
+        
+    new_updated_state.group_table_revision = true;
+  }
+
+  if (jsn.find("SceneTableRevision") != jsn.end()) {
+
+    new_state.scene_table_revision = jsn.at("SceneTableRevision").get<uint16_t>();
+        
+    new_updated_state.scene_table_revision = true;
+  }
+
+  if (jsn.find("LightModeTableRevision") != jsn.end()) {
+
+    new_state.light_mode_table_revision = jsn.at("LightModeTableRevision").get<uint16_t>();
+        
+    new_updated_state.light_mode_table_revision = true;
+  }
+
+  if (jsn.find("ScheduleTableRevision") != jsn.end()) {
+
+    new_state.schedule_table_revision = jsn.at("ScheduleTableRevision").get<uint16_t>();
+        
+    new_updated_state.schedule_table_revision = true;
+  }
 
 
 }

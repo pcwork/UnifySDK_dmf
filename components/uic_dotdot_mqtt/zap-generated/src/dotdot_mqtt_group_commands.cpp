@@ -337,6 +337,7 @@ static uic_mqtt_dotdot_by_group_electrical_measurement_write_attributes_callback
 static uic_mqtt_dotdot_by_group_diagnostics_write_attributes_callback_t uic_mqtt_dotdot_by_group_diagnostics_write_attributes_callback = nullptr;
 
 
+static uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_command_response_callback_t uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_command_response_callback = nullptr;
 static uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback_t uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback = nullptr;
 static uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback_t uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback = nullptr;
 static uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_zone_callback_t uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_zone_callback = nullptr;
@@ -1780,6 +1781,12 @@ void uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback_s
 {
   uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback = callback;
 }
+
+void uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_command_response_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_command_response_callback_t callback)
+{
+  uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_command_response_callback = callback;
+}
+
 
 
 void uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback_set(const uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback_t callback)
@@ -22066,6 +22073,97 @@ static void uic_mqtt_dotdot_on_by_group_dmf_bridge_config_trigger_rdm_discovery(
   }
 
 }
+// Callback function for incoming publications on ucl/by-group/+/DMFBridgeConfig/Commands/GenericCommandResponse
+static void uic_mqtt_dotdot_on_by_group_dmf_bridge_config_generic_command_response(
+  const char *topic,
+  const char *message,
+  const size_t message_length)
+{
+  if ((group_dispatch_callback == nullptr) && (uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_command_response_callback == nullptr)) {
+    return;
+  }
+  if (message_length == 0) {
+    return;
+  }
+
+  dotdot_group_id_t group_id = 0U;
+  if(!uic_dotdot_mqtt::parse_topic_group_id(topic,group_id)) {
+    sl_log_debug(LOG_TAG,
+                "Failed to parse GroupId from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  // Pass to command-specific callback if set. Otherwise, pass to
+  // group-dispatch callback
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_command_response_callback != nullptr) {
+
+
+    uic_mqtt_dotdot_dmf_bridge_config_command_generic_command_response_fields_t fields;
+
+
+      nlohmann::json jsn;
+      try {
+        jsn = nlohmann::json::parse(std::string(message));
+
+
+        uic_mqtt_dotdot_parse_dmf_bridge_config_generic_command_response(
+          jsn,
+          fields.commandid,
+
+          fields.status
+              );
+
+      // Populate list fields from vector or string types
+
+
+      } catch (const nlohmann::json::parse_error& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_PARSE_FAIL, "DMFBridgeConfig", "GenericCommandResponse");
+        return;
+      } catch (const nlohmann::json::exception& e) {
+        // Catch JSON object field parsing errors
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "GenericCommandResponse", e.what());
+        return;
+      } catch (const std::exception& e) {
+        sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "GenericCommandResponse", "");
+        return;
+      }
+
+      uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_command_response_callback(
+        group_id,
+        &fields
+      );
+  } else if ((group_dispatch_callback != nullptr) && (!get_uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback().empty())) {
+    // group-dispatch callback only called if the command-specific by-unid
+    // callback is set
+    try {
+      nlohmann::json jsn = nlohmann::json::parse(std::string(message));
+      if (jsn.find("CommandID") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::GenericCommandResponse: Missing command-argument: CommandID\n");
+        return;
+      }
+      if (jsn.find("Status") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::GenericCommandResponse: Missing command-argument: Status\n");
+        return;
+      }
+
+      group_dispatch_callback(
+        group_id,
+        "DMFBridgeConfig",
+        "GenericCommandResponse",
+        message,
+        message_length,
+        uic_mqtt_dotdot_on_dmf_bridge_config_generic_command_response);
+
+    } catch (...) {
+      sl_log_debug(LOG_TAG, "GenericCommandResponse: Unable to parse JSON payload.\n");
+      return;
+    }
+  }
+
+}
+
 
 // Callback function for incoming publications on ucl/by-group/+/DMFBridgeConfig/Commands/IdentifyFixture
 static void uic_mqtt_dotdot_on_by_group_dmf_bridge_config_identify_fixture(
@@ -22925,7 +23023,8 @@ static void uic_mqtt_dotdot_on_by_group_dmf_bridge_config_raw_fixture_notificati
 
     
     uic_mqtt_dotdot_dmf_bridge_config_command_raw_fixture_notification_fields_t fields;
-      std::string uid;
+    std::string fixture_info;
+    std::string uid;
     
 
       nlohmann::json jsn;
@@ -22936,12 +23035,13 @@ static void uic_mqtt_dotdot_on_by_group_dmf_bridge_config_raw_fixture_notificati
         uic_mqtt_dotdot_parse_dmf_bridge_config_raw_fixture_notification(
           jsn,
           uid,
-      
-          fields.modelid
-              );
+          fields.modelid,
+          fixture_info
+        );
 
       // Populate list fields from vector or string types
-              fields.uid = uid.c_str();
+      fields.fixture_info = fixture_info.c_str();
+      fields.uid = uid.c_str();
       
 
       } catch (const nlohmann::json::parse_error& e) {
@@ -22972,6 +23072,10 @@ static void uic_mqtt_dotdot_on_by_group_dmf_bridge_config_raw_fixture_notificati
       }
       if (jsn.find("ModelID") == jsn.end()) {
         sl_log_debug(LOG_TAG, "DMFBridgeConfig::RawFixtureNotification: Missing command-argument: ModelID\n");
+        return;
+      }
+      if (jsn.find("FixtureInfo") == jsn.end()) {
+        sl_log_debug(LOG_TAG, "DMFBridgeConfig::RawFixtureNotification: Missing command-argument: FixtureInfo\n");
         return;
       }
 
@@ -23072,6 +23176,10 @@ sl_status_t uic_mqtt_dotdot_by_group_dmf_bridge_config_init()
   if (uic_mqtt_dotdot_by_group_dmf_bridge_config_trigger_rdm_discovery_callback) {
     subscription_topic = topic_bygroup + "DMFBridgeConfig/Commands/TriggerRDMDiscovery";
     uic_mqtt_subscribe(subscription_topic.c_str(), uic_mqtt_dotdot_on_by_group_dmf_bridge_config_trigger_rdm_discovery);
+  if (uic_mqtt_dotdot_by_group_dmf_bridge_config_generic_command_response_callback) {
+    subscription_topic = topic_bygroup + "DMFBridgeConfig/Commands/GenericCommandResponse";
+    uic_mqtt_subscribe(subscription_topic.c_str(), uic_mqtt_dotdot_on_by_group_dmf_bridge_config_generic_command_response);
+  }
   }
   if (uic_mqtt_dotdot_by_group_dmf_bridge_config_identify_fixture_callback) {
     subscription_topic = topic_bygroup + "DMFBridgeConfig/Commands/IdentifyFixture";
@@ -25085,6 +25193,7 @@ void uic_mqtt_dotdot_set_group_dispatch_callback(group_dispatch_t callback)
     uic_mqtt_subscribe("ucl/by-group/+/Diagnostics/Commands/WriteAttributes", uic_mqtt_dotdot_on_by_group_diagnostics_WriteAttributes);
 
     uic_mqtt_subscribe("ucl/by-group/+/DMFBridgeConfig/Commands/WriteAttributes", uic_mqtt_dotdot_on_by_group_dmf_bridge_config_WriteAttributes);
+    uic_mqtt_subscribe("ucl/by-group/+/DMFBridgeConfig/Commands/GenericCommandResponse", uic_mqtt_dotdot_on_by_group_dmf_bridge_config_generic_command_response);
     uic_mqtt_subscribe("ucl/by-group/+/DMFBridgeConfig/Commands/TriggerRDMDiscovery", uic_mqtt_dotdot_on_by_group_dmf_bridge_config_trigger_rdm_discovery);
     uic_mqtt_subscribe("ucl/by-group/+/DMFBridgeConfig/Commands/IdentifyFixture", uic_mqtt_dotdot_on_by_group_dmf_bridge_config_identify_fixture);
     uic_mqtt_subscribe("ucl/by-group/+/DMFBridgeConfig/Commands/IdentifyZone", uic_mqtt_dotdot_on_by_group_dmf_bridge_config_identify_zone);

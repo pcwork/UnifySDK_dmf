@@ -217,7 +217,7 @@ void test_receive_attribute_frame_should_process_dmf_bridge_config_enum8_attribu
   zigpc_zcl_data_type_t attr_type = ZIGPC_ZCL_DATA_TYPE_ENUM8;
   uint8_t discovery_status_value  = ZCL_DISCOVERY_STATUS_COMPLETED;
   uint8_t ble_session_status_value
-    = ZCL_BLE_SESSION_STATUS_OCCUPIED_BY_BLE_MOBILE_APP;
+    = ZCL_BLE_SESSION_STATUS_OCCUPIED;
 
   frame.buffer[0] = discovery_attr_id;
   frame.buffer[1] = discovery_attr_id >> 8;
@@ -241,7 +241,7 @@ void test_receive_attribute_frame_should_process_dmf_bridge_config_enum8_attribu
 
   uic_mqtt_dotdot_dmf_bridge_config_ble_session_status_publish_ExpectAndReturn(
     BASE_TOPIC.c_str(),
-    ZCL_BLE_SESSION_STATUS_OCCUPIED_BY_BLE_MOBILE_APP,
+    ZCL_BLE_SESSION_STATUS_OCCUPIED,
     UCL_MQTT_PUBLISH_TYPE_REPORTED,
     SL_STATUS_OK);
 

@@ -74586,6 +74586,21 @@ bool dotdot_is_any_dmf_bridge_config_writable_attribute_supported(
   const dotdot_unid_t unid,
   const dotdot_endpoint_id_t endpoint_id) {
 
+  if (true == dotdot_is_supported_dmf_bridge_config_fixture_table_revision(unid, endpoint_id)) {
+    return true;
+  }
+  if (true == dotdot_is_supported_dmf_bridge_config_group_table_revision(unid, endpoint_id)) {
+    return true;
+  }
+  if (true == dotdot_is_supported_dmf_bridge_config_scene_table_revision(unid, endpoint_id)) {
+    return true;
+  }
+  if (true == dotdot_is_supported_dmf_bridge_config_light_mode_table_revision(unid, endpoint_id)) {
+    return true;
+  }
+  if (true == dotdot_is_supported_dmf_bridge_config_schedule_table_revision(unid, endpoint_id)) {
+    return true;
+  }
 
   return false;
 }

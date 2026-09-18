@@ -35276,6 +35276,15 @@ typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_ca
     dotdot_endpoint_id_t endpoint,
     uic_mqtt_dotdot_callback_call_type_t call_type
 );
+typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_t)(
+    dotdot_unid_t unid,
+    dotdot_endpoint_id_t endpoint,
+    uic_mqtt_dotdot_callback_call_type_t call_type,
+    uint8_t commandid,
+
+    uint8_t status
+
+);
 typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_t)(
     dotdot_unid_t unid,
     dotdot_endpoint_id_t endpoint,
@@ -35365,7 +35374,9 @@ typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification
     uic_mqtt_dotdot_callback_call_type_t call_type,
     const char* uid,
 
-    uint16_t modelid
+    uint16_t modelid,
+
+    const char* fixture_info
 
 );
 
@@ -35406,6 +35417,15 @@ typedef sl_status_t (*uic_mqtt_dotdot_dmf_bridge_config_force_read_attributes_ca
     uic_mqtt_dotdot_dmf_bridge_config_updated_state_t
 );
 
+
+/**
+ * @brief Command fields for DMFBridgeConfig/GenericCommandResponse
+ */
+typedef struct {
+  uint8_t commandid;
+
+  uint8_t status;
+} uic_mqtt_dotdot_dmf_bridge_config_command_generic_command_response_fields_t;
 
 /**
  * @brief Command fields for DMFBridgeConfig/IdentifyFixture
@@ -35497,6 +35517,8 @@ typedef struct {
   const char* uid;
 
   uint16_t modelid;
+
+  const char* fixture_info;
 } uic_mqtt_dotdot_dmf_bridge_config_command_raw_fixture_notification_fields_t;
 
 
@@ -35540,6 +35562,46 @@ void uic_mqtt_dotdot_dmf_bridge_config_generated_trigger_rdm_discovery_callback_
  * +/DMFBridgeConfig/GeneratedCommands/trigger_rdm_discovery is received.
  */
 void uic_mqtt_dotdot_dmf_bridge_config_generated_trigger_rdm_discovery_callback_clear();
+/**
+ * @brief Setup callback to be called when a
+ * DMFBridgeConfig/Commands/generic_command_response is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * DMFBridgeConfig/Commands/generic_command_response is received.
+ *
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * DMFBridgeConfig/Commands/generic_command_response is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_clear();
+
+/**
+ * @brief Setup callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/generic_command_response is received.
+ *
+ * Setting this callback will not overwrite the previous set callback
+ * @param callback      Function to be called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_generic_command_response_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_t callback);
+/**
+ * @brief Unsets callback to be called when a
+ * +/DMFBridgeConfig/GeneratedCommands/generic_command_response is received.
+ * @param callback      Function to be no longer called on command reception
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_generic_command_response_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_t callback);
+/**
+ * @brief Clears all callbacks registered for when
+ * +/DMFBridgeConfig/GeneratedCommands/generic_command_response is received.
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_generated_generic_command_response_callback_clear();
 /**
  * @brief Setup callback to be called when a
  * DMFBridgeConfig/Commands/identify_fixture is received.

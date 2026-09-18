@@ -4494,6 +4494,25 @@ void uic_mqtt_dotdot_on_dmf_bridge_config_trigger_rdm_discovery(
 
 /**
  * @brief Retrieves the container with callbacks pointer for
+ * by-unid DMFBridgeConfig/Commands/GenericCommandResponse messages
+ *
+ * @returns std::set of callbacks.
+ */
+std::set<uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_t> &get_uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback();
+
+/**
+ * @brief MQTT Subscribe handler for incoming publications on:
+ * ucl/by-unid/+/+/DMFBridgeConfig/Commands/GenericCommandResponse
+ */
+// clang-format off
+void uic_mqtt_dotdot_on_dmf_bridge_config_generic_command_response(
+  const char *topic,
+  const char *message,
+  const size_t message_length);
+// clang-format on
+
+/**
+ * @brief Retrieves the container with callbacks pointer for
  * by-unid DMFBridgeConfig/Commands/IdentifyFixture messages
  *
  * @returns std::set of callbacks.

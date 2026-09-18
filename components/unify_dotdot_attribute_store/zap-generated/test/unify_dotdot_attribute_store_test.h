@@ -700,6 +700,9 @@
   uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback();
 
 
+  uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback();
+
+
   uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_t get_uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback();
 
 

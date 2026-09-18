@@ -223,7 +223,7 @@ typedef enum {
 // Enum for BLESessionStatus
 typedef enum {
   ZCL_BLE_SESSION_STATUS_FREE = 0,
-  ZCL_BLE_SESSION_STATUS_OCCUPIED_BY_BLE_MOBILE_APP = 1,
+  ZCL_BLE_SESSION_STATUS_OCCUPIED = 1,
 } BLESessionStatus;
 
 // Enum for BarrierControlMovingState

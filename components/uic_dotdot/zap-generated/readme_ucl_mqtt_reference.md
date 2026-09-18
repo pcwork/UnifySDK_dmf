@@ -47088,6 +47088,7 @@ ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Attributes/ClusterRevision/Reported { "v
             "type": "string",
             "enum": [
               "TriggerRDMDiscovery",
+              "GenericCommandResponse",
               "IdentifyFixture",
               "IdentifyZone",
               "PlayLightMode",
@@ -47126,7 +47127,7 @@ To see supported generated commands for DMFBridgeConfig cluster under the by-uni
 ```console
 mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/SupportedGeneratedCommands'
 # Example output
-ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/SupportedGeneratedCommands { "value": ["GenericReportRecord","RawFixtureNotification"] }
+ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/SupportedGeneratedCommands { "value": ["GenericCommandResponse","GenericReportRecord","RawFixtureNotification"] }
 ```
 
 <!-- -->
@@ -47177,6 +47178,53 @@ To receive a DMFBridgeConfig/TriggerRDMDiscovery generated command from a UNID/e
 
 ```console
 mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/GeneratedCommands/TriggerRDMDiscovery'
+```
+
+<br><br>
+
+\subsection dmf_bridge_config_generic_command_response_cmd DMFBridgeConfig/GenericCommandResponse Command
+
+**MQTT Topic Pattern:**
+
+```
+[PREFIX]/DMFBridgeConfig/Commands/GenericCommandResponse
+[PREFIX]/DMFBridgeConfig/GeneratedCommands/GenericCommandResponse
+```
+
+**MQTT Payload JSON Schema:**
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DMFBridgeConfig Cluster GenericCommandResponse Command Properties",
+  "type": "object",
+  "properties": {
+    "CommandID": {
+      "type": "integer"
+    },
+    "Status": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "CommandID",
+    "Status"
+  ]
+}
+```
+
+**Example Mosquitto CLI Tool Usage**
+
+To send a DMFBridgeConfig/GenericCommandResponse command under the by-unid topic space:
+
+```console
+mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/GenericCommandResponse' -m  '{ "CommandID": <COMMANDID_VALUE>,"Status": <STATUS_VALUE> }'
+```
+
+To receive a DMFBridgeConfig/GenericCommandResponse generated command from a UNID/endpoint:
+
+```console
+mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/GeneratedCommands/GenericCommandResponse'
 ```
 
 <br><br>
@@ -47630,11 +47678,15 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/GeneratedCommands/ZBNe
     },
     "ModelID": {
       "type": "integer"
+    },
+    "FixtureInfo": {
+      "type": "string"
     }
   },
   "required": [
     "UID",
-    "ModelID"
+    "ModelID",
+    "FixtureInfo"
   ]
 }
 ```
@@ -47644,7 +47696,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/GeneratedCommands/ZBNe
 To send a DMFBridgeConfig/RawFixtureNotification command under the by-unid topic space:
 
 ```console
-mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/RawFixtureNotification' -m  '{ "UID": <UID_VALUE>,"ModelID": <MODELID_VALUE> }'
+mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/RawFixtureNotification' -m  '{ "UID": <UID_VALUE>,"ModelID": <MODELID_VALUE>,"FixtureInfo": <FIXTURE_INFO_VALUE> }'
 ```
 
 To receive a DMFBridgeConfig/RawFixtureNotification generated command from a UNID/endpoint:
@@ -47671,6 +47723,21 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/GeneratedCommands/RawF
   "title": "DMFBridgeConfig Cluster WriteAttributes Command Properties",
   "type": "object",
   "properties": {
+    "FixtureTableRevision": {
+      "type": "integer"
+    },
+    "GroupTableRevision": {
+      "type": "integer"
+    },
+    "SceneTableRevision": {
+      "type": "integer"
+    },
+    "LightModeTableRevision": {
+      "type": "integer"
+    },
+    "ScheduleTableRevision": {
+      "type": "integer"
+    },
   },
   "required": [
     "value"
@@ -47683,7 +47750,7 @@ mosquitto_sub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/GeneratedCommands/RawF
 To update all DMFBridgeConfig attributes under the by-unid topic space:
 
 ```console
-mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/WriteAttributes' -m  '{  }'
+mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/DMFBridgeConfig/Commands/WriteAttributes' -m  '{ "FixtureTableRevision": <FIXTURE_TABLE_REVISION_VALUE> ,"GroupTableRevision": <GROUP_TABLE_REVISION_VALUE> ,"SceneTableRevision": <SCENE_TABLE_REVISION_VALUE> ,"LightModeTableRevision": <LIGHT_MODE_TABLE_REVISION_VALUE> ,"ScheduleTableRevision": <SCHEDULE_TABLE_REVISION_VALUE> , }'
 ```
 
 > NOTE: Specify only the list of attributes to write in this command.
@@ -56273,29 +56340,6 @@ mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/UnifyHumidityControl/Commands/ForceRea
 <br><br>
 
 <!-- -->
-<!-- START OF Enum BLESessionStatus Section -->
-<!-- -->
-\section enum_ble_session_status BLESessionStatus Enum
-
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "BLESessionStatus Enum Properties",
-  "type": "string",
-  "enum": [
-    "Free",
-    "OccupiedByBLEMobileApp"
-  ]
-}
-```
-
-<!-- -->
-<!-- END OF Enum BLESessionStatus Section -->
-<!-- -->
-
-<br><br>
-
-<!-- -->
 <!-- START OF Enum BarrierControlMovingState Section -->
 <!-- -->
 \section enum_barrier_control_moving_state BarrierControlMovingState Enum
@@ -57130,31 +57174,6 @@ mosquitto_pub -t 'ucl/by-unid/<UNID>/<EP>/UnifyHumidityControl/Commands/ForceRea
 
 <!-- -->
 <!-- END OF Enum DevTypeId Section -->
-<!-- -->
-
-<br><br>
-
-<!-- -->
-<!-- START OF Enum DiscoveryStatus Section -->
-<!-- -->
-\section enum_discovery_status DiscoveryStatus Enum
-
-```json
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "DiscoveryStatus Enum Properties",
-  "type": "string",
-  "enum": [
-    "Idle",
-    "Scanning",
-    "Completed",
-    "Error"
-  ]
-}
-```
-
-<!-- -->
-<!-- END OF Enum DiscoveryStatus Section -->
 <!-- -->
 
 <br><br>

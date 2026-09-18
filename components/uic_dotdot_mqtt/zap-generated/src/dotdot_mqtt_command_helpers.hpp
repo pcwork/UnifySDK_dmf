@@ -5449,6 +5449,36 @@ std::string get_json_payload_for_dmf_bridge_config_trigger_rdm_discovery_command
 
 /**
  * @brief Private helper function that will create a JSON string based on the
+ * fields of a DMFBridgeConfig GenericCommandResponse command
+ * 
+ * @param fields       Struct pointer with the list of fields for the command
+ * 
+ * @returns std::string that contains JSON payload
+ */
+std::string get_json_payload_for_dmf_bridge_config_generic_command_response_command(
+  
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_command_response_fields_t *fields
+  
+);
+
+
+/**
+ * @brief JSON parser for DMFBridgeConfig GenericCommandResponse command arguments.
+ *
+ * Parse incoming JSON object to populate command arguments passed in by reference.
+ */
+void uic_mqtt_dotdot_parse_dmf_bridge_config_generic_command_response(
+  nlohmann::json &jsn,
+  uint8_t &commandid,
+
+  uint8_t &status
+
+);
+
+
+
+/**
+ * @brief Private helper function that will create a JSON string based on the
  * fields of a DMFBridgeConfig IdentifyFixture command
  * 
  * @param fields       Struct pointer with the list of fields for the command
@@ -5743,7 +5773,9 @@ void uic_mqtt_dotdot_parse_dmf_bridge_config_raw_fixture_notification(
   nlohmann::json &jsn,
   std::string &uid,
 
-  uint16_t &modelid
+  uint16_t &modelid,
+
+  std::string &fixture_info
 
 );
 

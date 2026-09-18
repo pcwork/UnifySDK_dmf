@@ -83163,6 +83163,8 @@ sl_status_t uic_mqtt_dotdot_diagnostics_init()
 // Callbacks pointers
 static std::set<uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_t> uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback;
 static std::set<uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_callback_t> uic_mqtt_dotdot_dmf_bridge_config_generated_trigger_rdm_discovery_callback;
+static std::set<uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_t> uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback;
+static std::set<uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_t> uic_mqtt_dotdot_dmf_bridge_config_generated_generic_command_response_callback;
 static std::set<uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_t> uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback;
 static std::set<uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_t> uic_mqtt_dotdot_dmf_bridge_config_generated_identify_fixture_callback;
 static std::set<uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback_t> uic_mqtt_dotdot_dmf_bridge_config_identify_zone_callback;
@@ -83219,6 +83221,39 @@ void uic_mqtt_dotdot_dmf_bridge_config_generated_trigger_rdm_discovery_callback_
 void uic_mqtt_dotdot_dmf_bridge_config_generated_trigger_rdm_discovery_callback_clear()
 {
   uic_mqtt_dotdot_dmf_bridge_config_generated_trigger_rdm_discovery_callback.clear();
+}
+void uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_t callback)
+{
+  if (callback != nullptr) {
+    uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback.insert(callback);
+  }
+}
+void uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_t callback)
+{
+  uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback.erase(callback);
+}
+void uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_clear()
+{
+  uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback.clear();
+}
+std::set<uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_t>& get_uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback()
+{
+  return uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback;
+}
+
+void uic_mqtt_dotdot_dmf_bridge_config_generated_generic_command_response_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_t callback)
+{
+  if (callback != nullptr) {
+    uic_mqtt_dotdot_dmf_bridge_config_generated_generic_command_response_callback.insert(callback);
+  }
+}
+void uic_mqtt_dotdot_dmf_bridge_config_generated_generic_command_response_callback_unset(const uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback_t callback)
+{
+  uic_mqtt_dotdot_dmf_bridge_config_generated_generic_command_response_callback.erase(callback);
+}
+void uic_mqtt_dotdot_dmf_bridge_config_generated_generic_command_response_callback_clear()
+{
+  uic_mqtt_dotdot_dmf_bridge_config_generated_generic_command_response_callback.clear();
 }
 void uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_set(const uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback_t callback)
 {
@@ -83688,6 +83723,135 @@ static void uic_mqtt_dotdot_on_generated_dmf_bridge_config_trigger_rdm_discovery
       static_cast<dotdot_unid_t>(unid.c_str()),
       endpoint,
       UIC_MQTT_DOTDOT_CALLBACK_TYPE_NORMAL
+    );
+  }
+}
+
+
+// Callback function for incoming publications on ucl/by-unid/+/+/DMFBridgeConfig/Commands/GenericCommandResponse
+void uic_mqtt_dotdot_on_dmf_bridge_config_generic_command_response(
+  const char *topic,
+  const char *message,
+  const size_t message_length)
+{
+  if (message_length == 0 || (uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback.empty())) {
+    return;
+  }
+
+  std::string unid;
+  uint8_t endpoint = 0; // Default value for endpoint-less topics.
+  if(! uic_dotdot_mqtt::parse_topic(topic,unid,endpoint)) {
+    sl_log_debug(LOG_TAG,
+                "Error parsing UNID / Endpoint ID from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  uint8_t commandid = {};
+  uint8_t status = {};
+
+
+  nlohmann::json jsn;
+  try {
+    jsn = nlohmann::json::parse(std::string(message));
+
+
+    uic_mqtt_dotdot_parse_dmf_bridge_config_generic_command_response(
+      jsn,
+      commandid,
+
+      status
+      );
+
+  } catch (const nlohmann::json::parse_error& e) {
+    // Catch JSON object field parsing errors
+    sl_log_debug(LOG_TAG, LOG_FMT_JSON_PARSE_FAIL, "DMFBridgeConfig", "GenericCommandResponse");
+    return;
+  } catch (const nlohmann::json::exception& e) {
+    // Catch JSON object field parsing errors
+    sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "GenericCommandResponse", e.what());
+    return;
+  } catch (const std::exception& e) {
+    sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "GenericCommandResponse", "");
+    return;
+  }
+
+
+
+  for (const auto& callback: uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback){
+    callback(
+      static_cast<dotdot_unid_t>(unid.c_str()),
+      endpoint,
+      UIC_MQTT_DOTDOT_CALLBACK_TYPE_NORMAL,
+      commandid,
+
+      status
+
+    );
+  }
+
+}
+
+// Callback function for incoming publications on ucl/by-unid/+/+/DMFBridgeConfig/GeneratedCommands/GenericCommandResponse
+static void uic_mqtt_dotdot_on_generated_dmf_bridge_config_generic_command_response(
+  const char *topic,
+  const char *message,
+  const size_t message_length)
+{
+  if (message_length == 0 || (uic_mqtt_dotdot_dmf_bridge_config_generated_generic_command_response_callback.empty())) {
+    return;
+  }
+
+  std::string unid;
+  uint8_t endpoint = 0; // Default value for endpoint-less topics.
+  if(! uic_dotdot_mqtt::parse_topic(topic,unid,endpoint)) {
+    sl_log_debug(LOG_TAG,
+                "Error parsing UNID / Endpoint ID from topic %s. Ignoring",
+                topic);
+    return;
+  }
+
+  uint8_t commandid = {};
+  uint8_t status = {};
+
+
+  nlohmann::json jsn;
+  try {
+    jsn = nlohmann::json::parse(std::string(message));
+
+
+    uic_mqtt_dotdot_parse_dmf_bridge_config_generic_command_response(
+      jsn,
+      commandid,
+
+      status
+      );
+
+  } catch (const nlohmann::json::parse_error& e) {
+    // Catch JSON object field parsing errors
+    sl_log_debug(LOG_TAG, LOG_FMT_JSON_PARSE_FAIL, "DMFBridgeConfig", "GenericCommandResponse");
+    return;
+  } catch (const nlohmann::json::exception& e) {
+    // Catch JSON object field parsing errors
+    sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "GenericCommandResponse", e.what());
+    return;
+  } catch (const std::exception& e) {
+    sl_log_debug(LOG_TAG, LOG_FMT_JSON_ERROR, "DMFBridgeConfig", "GenericCommandResponse", "");
+    return;
+  }
+
+
+
+
+  for (const auto& callback: uic_mqtt_dotdot_dmf_bridge_config_generated_generic_command_response_callback){
+    callback(
+      static_cast<dotdot_unid_t>(unid.c_str()),
+      endpoint,
+      UIC_MQTT_DOTDOT_CALLBACK_TYPE_NORMAL,
+      commandid,
+
+      status
+
     );
   }
 }
@@ -84885,6 +85049,7 @@ void uic_mqtt_dotdot_on_dmf_bridge_config_raw_fixture_notification(
 
   std::string uid;
   uint16_t modelid = {};
+  std::string fixture_info;
 
 
   nlohmann::json jsn;
@@ -84896,7 +85061,9 @@ void uic_mqtt_dotdot_on_dmf_bridge_config_raw_fixture_notification(
       jsn,
       uid,
 
-      modelid
+      modelid,
+
+      fixture_info
       );
 
   } catch (const nlohmann::json::parse_error& e) {
@@ -84921,7 +85088,9 @@ void uic_mqtt_dotdot_on_dmf_bridge_config_raw_fixture_notification(
       UIC_MQTT_DOTDOT_CALLBACK_TYPE_NORMAL,
       uid.c_str(),
   
-      modelid
+      modelid,
+
+      fixture_info.c_str()
   
     );
   }
@@ -84949,6 +85118,7 @@ static void uic_mqtt_dotdot_on_generated_dmf_bridge_config_raw_fixture_notificat
 
   std::string uid;
   uint16_t modelid = {};
+  std::string fixture_info;
 
 
   nlohmann::json jsn;
@@ -84960,7 +85130,9 @@ static void uic_mqtt_dotdot_on_generated_dmf_bridge_config_raw_fixture_notificat
       jsn,
       uid,
 
-      modelid
+      modelid,
+
+      fixture_info
       );
 
   } catch (const nlohmann::json::parse_error& e) {
@@ -84986,7 +85158,9 @@ static void uic_mqtt_dotdot_on_generated_dmf_bridge_config_raw_fixture_notificat
       UIC_MQTT_DOTDOT_CALLBACK_TYPE_NORMAL,
       uid.c_str(),
   
-      modelid
+      modelid,
+
+      fixture_info.c_str()
   
     );
   }
@@ -85716,6 +85890,14 @@ sl_status_t uic_mqtt_dotdot_dmf_bridge_config_init()
   if (!uic_mqtt_dotdot_dmf_bridge_config_generated_trigger_rdm_discovery_callback.empty()) {
     subscription_topic = base_topic + "DMFBridgeConfig/GeneratedCommands/TriggerRDMDiscovery";
     uic_mqtt_subscribe(subscription_topic.c_str(), uic_mqtt_dotdot_on_generated_dmf_bridge_config_trigger_rdm_discovery);
+  }
+  if (!uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback.empty()) {
+    subscription_topic = base_topic + "DMFBridgeConfig/Commands/GenericCommandResponse";
+    uic_mqtt_subscribe(subscription_topic.c_str(), uic_mqtt_dotdot_on_dmf_bridge_config_generic_command_response);
+  }
+  if (!uic_mqtt_dotdot_dmf_bridge_config_generated_generic_command_response_callback.empty()) {
+    subscription_topic = base_topic + "DMFBridgeConfig/GeneratedCommands/GenericCommandResponse";
+    uic_mqtt_subscribe(subscription_topic.c_str(), uic_mqtt_dotdot_on_generated_dmf_bridge_config_generic_command_response);
   }
   if (!uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_callback.empty()) {
     subscription_topic = base_topic + "DMFBridgeConfig/Commands/IdentifyFixture";
@@ -109840,6 +110022,28 @@ static inline bool uic_mqtt_dotdot_dmf_bridge_config_trigger_rdm_discovery_is_su
 
   return false;
 }
+static inline bool uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_is_supported(
+  const dotdot_unid_t unid,
+  dotdot_endpoint_id_t endpoint_id)
+{
+    uint8_t commandid_value;
+    memset(&commandid_value, 0x00, sizeof(commandid_value));
+    uint8_t status_value;
+    memset(&status_value, 0x00, sizeof(status_value));
+    for (const auto& callback: uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_callback) {
+      if (callback( unid, endpoint_id, UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
+    ,
+        commandid_value,
+
+        status_value
+
+        ) == SL_STATUS_OK) {
+      return true;
+    }
+  }
+
+  return false;
+}
 static inline bool uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_is_supported(
   const dotdot_unid_t unid,
   dotdot_endpoint_id_t endpoint_id)
@@ -110050,12 +110254,16 @@ static inline bool uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_is
     memset(&uid_value, 0x00, sizeof(uid_value));
     uint16_t modelid_value;
     memset(&modelid_value, 0x00, sizeof(modelid_value));
+    const char* fixture_info_value;
+    memset(&fixture_info_value, 0x00, sizeof(fixture_info_value));
     for (const auto& callback: uic_mqtt_dotdot_dmf_bridge_config_raw_fixture_notification_callback) {
       if (callback( unid, endpoint_id, UIC_MQTT_DOTDOT_CALLBACK_TYPE_SUPPORT_CHECK
     ,
         uid_value,
     
-        modelid_value
+        modelid_value,
+
+        fixture_info_value
     
         ) == SL_STATUS_OK) {
       return true;
@@ -110120,6 +110328,13 @@ void uic_mqtt_dotdot_dmf_bridge_config_publish_supported_commands(
     }
     first_command = false;
     ss << R"("TriggerRDMDiscovery")";
+  }
+  if (uic_mqtt_dotdot_dmf_bridge_config_generic_command_response_is_supported(unid, endpoint_id)) {
+    if (first_command == false) {
+      ss << ", ";
+    }
+    first_command = false;
+    ss << R"("GenericCommandResponse")";
   }
   if (uic_mqtt_dotdot_dmf_bridge_config_identify_fixture_is_supported(unid, endpoint_id)) {
     if (first_command == false) {
@@ -118678,6 +118893,42 @@ void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_trigger_rdm_discovery_c
   std::string payload =
     get_json_payload_for_dmf_bridge_config_trigger_rdm_discovery_command(
     );
+
+  // Publish our command
+  uic_mqtt_publish(topic.c_str(),
+                    payload.c_str(),
+                    payload.size(),
+                    false);
+}
+/**
+ * @brief Publishes an incoming/generated GenericCommandResponse command for
+ * the DMFBridgeConfig cluster.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/GeneratedCommands/GenericCommandResponse
+ *
+ * @param unid      The UNID of the node that sent us the command.
+ *
+ * @param endpoint  The Endpoint ID of the node that sent us the command.
+ *
+ *
+ * @param fields                Struct pointer with the fields value of the command
+ *
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_generic_command_response_command(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_command_response_fields_t *fields
+
+) {
+  // Create the topic
+  std::string topic = "ucl/by-unid/"+ std::string(unid) + "/ep" +
+                      std::to_string(endpoint) + "/";
+  topic += "DMFBridgeConfig/GeneratedCommands/GenericCommandResponse";
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_generic_command_response_command(
+    fields);
 
   // Publish our command
   uic_mqtt_publish(topic.c_str(),

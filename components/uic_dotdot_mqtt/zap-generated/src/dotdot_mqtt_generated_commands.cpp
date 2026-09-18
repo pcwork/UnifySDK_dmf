@@ -10074,6 +10074,42 @@ void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_trigger_rdm_discovery_c
                     false);
 }
 /**
+ * @brief Publishes an incoming/generated GenericCommandResponse command for
+ * the DMFBridgeConfig cluster.
+ *
+ * Publication will be made at the following topic
+ * ucl/by-unid/UNID/epID/DMFBridgeConfig/GeneratedCommands/GenericCommandResponse
+ *
+ * @param unid      The UNID of the node that sent us the command.
+ * 
+ * @param endpoint  The Endpoint ID of the node that sent us the command.
+ * 
+ * 
+ * @param fields                Struct pointer with the fields value of the command
+ * 
+ */
+void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_generic_command_response_command(
+  const dotdot_unid_t unid,
+  const dotdot_endpoint_id_t endpoint,
+  const uic_mqtt_dotdot_dmf_bridge_config_command_generic_command_response_fields_t *fields
+  
+) {
+  // Create the topic
+  std::string topic = "ucl/by-unid/"+ std::string(unid) + "/ep" +
+                      std::to_string(endpoint) + "/";
+  topic += "DMFBridgeConfig/GeneratedCommands/GenericCommandResponse";
+
+  std::string payload =
+    get_json_payload_for_dmf_bridge_config_generic_command_response_command(
+    fields);
+
+  // Publish our command
+  uic_mqtt_publish(topic.c_str(),
+                    payload.c_str(),
+                    payload.size(),
+                    false);
+}
+/**
  * @brief Publishes an incoming/generated IdentifyFixture command for
  * the DMFBridgeConfig cluster.
  *
@@ -10461,6 +10497,56 @@ void uic_mqtt_dotdot_dmf_bridge_config_publish_generated_write_attributes_comman
   topic += "DMFBridgeConfig/GeneratedCommands/WriteAttributes";
 
   nlohmann::json json_object = nlohmann::json::object();
+
+
+  if (attribute_list.fixture_table_revision == true) {
+
+  // This is a single value
+
+  json_object["FixtureTableRevision"] = attribute_values.fixture_table_revision;
+
+
+  }
+
+
+  if (attribute_list.group_table_revision == true) {
+
+  // This is a single value
+
+  json_object["GroupTableRevision"] = attribute_values.group_table_revision;
+
+
+  }
+
+
+  if (attribute_list.scene_table_revision == true) {
+
+  // This is a single value
+
+  json_object["SceneTableRevision"] = attribute_values.scene_table_revision;
+
+
+  }
+
+
+  if (attribute_list.light_mode_table_revision == true) {
+
+  // This is a single value
+
+  json_object["LightModeTableRevision"] = attribute_values.light_mode_table_revision;
+
+
+  }
+
+
+  if (attribute_list.schedule_table_revision == true) {
+
+  // This is a single value
+
+  json_object["ScheduleTableRevision"] = attribute_values.schedule_table_revision;
+
+
+  }
 
 
   // Payload contains data from end nodes, which we cannot control, thus we handle if there are non-utf8 characters

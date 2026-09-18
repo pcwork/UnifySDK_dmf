@@ -2179,6 +2179,26 @@ static sl_status_t dmf_bridge_config_cluster_write_attributes_callback(
                "dmf_bridge_config: Incoming WriteAttributes command for %s, endpoint %d.\n",
                unid,
                endpoint_id);
+  if (true == updated_attributes.fixture_table_revision) {
+     sl_log_debug(LOG_TAG, "Updating desired value for FixtureTableRevision attribute");
+    dotdot_set_dmf_bridge_config_fixture_table_revision(unid, endpoint_id, DESIRED_ATTRIBUTE, attributes.fixture_table_revision);
+  }
+  if (true == updated_attributes.group_table_revision) {
+     sl_log_debug(LOG_TAG, "Updating desired value for GroupTableRevision attribute");
+    dotdot_set_dmf_bridge_config_group_table_revision(unid, endpoint_id, DESIRED_ATTRIBUTE, attributes.group_table_revision);
+  }
+  if (true == updated_attributes.scene_table_revision) {
+     sl_log_debug(LOG_TAG, "Updating desired value for SceneTableRevision attribute");
+    dotdot_set_dmf_bridge_config_scene_table_revision(unid, endpoint_id, DESIRED_ATTRIBUTE, attributes.scene_table_revision);
+  }
+  if (true == updated_attributes.light_mode_table_revision) {
+     sl_log_debug(LOG_TAG, "Updating desired value for LightModeTableRevision attribute");
+    dotdot_set_dmf_bridge_config_light_mode_table_revision(unid, endpoint_id, DESIRED_ATTRIBUTE, attributes.light_mode_table_revision);
+  }
+  if (true == updated_attributes.schedule_table_revision) {
+     sl_log_debug(LOG_TAG, "Updating desired value for ScheduleTableRevision attribute");
+    dotdot_set_dmf_bridge_config_schedule_table_revision(unid, endpoint_id, DESIRED_ATTRIBUTE, attributes.schedule_table_revision);
+  }
   return SL_STATUS_OK;
 }
 ////////////////////////////////////////////////////////////////////////////////

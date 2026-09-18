@@ -4433,7 +4433,7 @@ const zcl_attribute_t dmf_bridge_config_attribute_list[] = {
     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG, // cluster_id
     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_FIXTURE_TABLE_REVISION, // attribute_id
     (e_zcl_attribute_type) ZIGPC_ZCL_DATA_TYPE_UINT16, // type
-    false, // is_reportable
+    true, // is_reportable
     "FixtureTableRevision", // attribute_name
     "", // desired_payload
     "", // reported_payload
@@ -4442,7 +4442,7 @@ const zcl_attribute_t dmf_bridge_config_attribute_list[] = {
     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG, // cluster_id
     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_GROUP_TABLE_REVISION, // attribute_id
     (e_zcl_attribute_type) ZIGPC_ZCL_DATA_TYPE_UINT16, // type
-    false, // is_reportable
+    true, // is_reportable
     "GroupTableRevision", // attribute_name
     "", // desired_payload
     "", // reported_payload
@@ -4451,7 +4451,7 @@ const zcl_attribute_t dmf_bridge_config_attribute_list[] = {
     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG, // cluster_id
     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_SCENE_TABLE_REVISION, // attribute_id
     (e_zcl_attribute_type) ZIGPC_ZCL_DATA_TYPE_UINT16, // type
-    false, // is_reportable
+    true, // is_reportable
     "SceneTableRevision", // attribute_name
     "", // desired_payload
     "", // reported_payload
@@ -4460,7 +4460,7 @@ const zcl_attribute_t dmf_bridge_config_attribute_list[] = {
     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG, // cluster_id
     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_LIGHT_MODE_TABLE_REVISION, // attribute_id
     (e_zcl_attribute_type) ZIGPC_ZCL_DATA_TYPE_UINT16, // type
-    false, // is_reportable
+    true, // is_reportable
     "LightModeTableRevision", // attribute_name
     "", // desired_payload
     "", // reported_payload
@@ -4469,7 +4469,7 @@ const zcl_attribute_t dmf_bridge_config_attribute_list[] = {
     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG, // cluster_id
     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_SCHEDULE_TABLE_REVISION, // attribute_id
     (e_zcl_attribute_type) ZIGPC_ZCL_DATA_TYPE_UINT16, // type
-    false, // is_reportable
+    true, // is_reportable
     "ScheduleTableRevision", // attribute_name
     "", // desired_payload
     "", // reported_payload
@@ -4478,7 +4478,7 @@ const zcl_attribute_t dmf_bridge_config_attribute_list[] = {
     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG, // cluster_id
     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_TOTAL_FIXTURES_COUNT, // attribute_id
     (e_zcl_attribute_type) ZIGPC_ZCL_DATA_TYPE_UINT8, // type
-    false, // is_reportable
+    true, // is_reportable
     "TotalFixturesCount", // attribute_name
     "", // desired_payload
     "", // reported_payload
@@ -4487,7 +4487,7 @@ const zcl_attribute_t dmf_bridge_config_attribute_list[] = {
     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG, // cluster_id
     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_DISCOVERY_STATUS, // attribute_id
     (e_zcl_attribute_type) ZIGPC_ZCL_DATA_TYPE_ENUM8, // type
-    false, // is_reportable
+    true, // is_reportable
     "DiscoveryStatus", // attribute_name
     "", // desired_payload
     "", // reported_payload
@@ -4496,7 +4496,7 @@ const zcl_attribute_t dmf_bridge_config_attribute_list[] = {
     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG, // cluster_id
     ZIGPC_ZCL_CLUSTER_DMF_BRIDGE_CONFIG_ATTR_BLE_SESSION_STATUS, // attribute_id
     (e_zcl_attribute_type) ZIGPC_ZCL_DATA_TYPE_ENUM8, // type
-    false, // is_reportable
+    true, // is_reportable
     "BLESessionStatus", // attribute_name
     "", // desired_payload
     "", // reported_payload

@@ -1,16 +1,12 @@
 <?xml version="1.0"?>
-<!--
-DMF Bridge Config Cluster
-This is a manufacturer specific cluster.
--->
-<zcl:cluster
-  xmlns:zcl="http://zigbee.org/zcl/clusters"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:type="http://zigbee.org/zcl/types"
-  xmlns:xi="http://www.w3.org/2001/XInclude"
-  xsi:schemaLocation="http://zigbee.org/zcl/clusters cluster.xsd http://zigbee.org/zcl/types type.xsd"
-  id="FC42" revision="1" name="DMFBridgeConfig">
-  <classification role="application" picsCode="DMFBC" primaryTransaction="1" />
+<zcl:cluster xmlns:zcl="http://zigbee.org/zcl/clusters"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:type="http://zigbee.org/zcl/types"
+             xmlns:xi="http://www.w3.org/2001/XInclude"
+             xsi:schemaLocation="http://zigbee.org/zcl/clusters cluster.xsd http://zigbee.org/zcl/types type.xsd"
+             id="FC42" revision="1" name="DMFBridgeConfig" manufacturer="121f">
+
+  <classification role="application" picsCode="DMF" primaryTransaction="1" />
 
   <type:type short="DiscoveryStatus" name="DiscoveryStatus" id="01" inheritsFrom="enum8">
     <restriction>
@@ -24,53 +20,59 @@ This is a manufacturer specific cluster.
   <type:type short="BLESessionStatus" name="BLESessionStatus" id="02" inheritsFrom="enum8">
     <restriction>
       <type:enumeration value="00" name="Free" />
-      <type:enumeration value="01" name="OccupiedByBLEMobileApp" />
-    </restriction>
-  </type:type>
-
-  <type:type short="FixtureUID" name="FixtureUID" id="03" inheritsFrom="octstr">
-    <restriction>
-      <type:length value="6" />
+      <type:enumeration value="01" name="Occupied" />
     </restriction>
   </type:type>
 
   <server>
     <attributes>
-      <attribute id="0001" name="FixtureTableRevision" type="uint16" />
-      <attribute id="0002" name="GroupTableRevision" type="uint16" />
-      <attribute id="0003" name="SceneTableRevision" type="uint16" />
-      <attribute id="0004" name="LightModeTableRevision" type="uint16" />
-      <attribute id="0005" name="ScheduleTableRevision" type="uint16" />
-      <attribute id="0010" name="TotalFixturesCount" type="uint8" />
-      <attribute id="0011" name="DiscoveryStatus" type="DiscoveryStatus" />
-      <attribute id="0012" name="BLESessionStatus" type="BLESessionStatus" />
+      <attribute id="0001" name="FixtureTableRevision" type="uint16" readable="true" writable="true" reportRequired="true" />
+      <attribute id="0002" name="GroupTableRevision" type="uint16" readable="true" writable="true" reportRequired="true" />
+      <attribute id="0003" name="SceneTableRevision" type="uint16" readable="true" writable="true" reportRequired="true" />
+      <attribute id="0004" name="LightModeTableRevision" type="uint16" readable="true" writable="true" reportRequired="true" />
+      <attribute id="0005" name="ScheduleTableRevision" type="uint16" readable="true" writable="true" reportRequired="true" />
+
+      <attribute id="0010" name="TotalFixturesCount" type="uint8" readable="true" reportRequired="true" />
+
+      <attribute id="0011" name="DiscoveryStatus" type="DiscoveryStatus" readable="true" reportRequired="true" />
+      <attribute id="0012" name="BLESessionStatus" type="BLESessionStatus" readable="true" reportRequired="true" />
     </attributes>
 
     <commands>
       <command id="00" name="TriggerRDMDiscovery" />
+
       <command id="01" name="IdentifyFixture">
         <fields>
-          <field name="UID" type="FixtureUID" />
+          <field name="UID" type="octstr">
+            <type:restriction>
+              <minLength value="6" />
+              <maxLength value="6" />
+            </type:restriction>
+          </field>
           <field name="IdentifyOn" type="uint8" />
         </fields>
       </command>
+
       <command id="02" name="IdentifyZone">
         <fields>
           <field name="ZoneID" type="uint8" />
           <field name="IdentifyOn" type="uint8" />
         </fields>
       </command>
+
       <command id="03" name="PlayLightMode">
         <fields>
           <field name="LightModeID" type="uint8" />
         </fields>
       </command>
+
       <command id="10" name="GenericReadRecord">
         <fields>
           <field name="TableID" type="uint16" />
           <field name="RecordIndex" type="uint8" />
         </fields>
       </command>
+
       <command id="11" name="GenericWriteRecord">
         <fields>
           <field name="TableID" type="uint16" />
@@ -78,18 +80,21 @@ This is a manufacturer specific cluster.
           <field name="RecordPayload" type="octstr" />
         </fields>
       </command>
+
       <command id="12" name="GenericDeleteRecord">
         <fields>
           <field name="TableID" type="uint16" />
           <field name="RecordIndex" type="uint8" />
         </fields>
       </command>
+
       <command id="13" name="ClearTable">
         <fields>
           <field name="TableID" type="uint16" />
           <field name="ConfirmCode" type="uint16" />
         </fields>
       </command>
+
       <command id="14" name="ZBNetworkLeave">
         <fields>
           <field name="ConfirmCode" type="uint16" />
@@ -100,6 +105,13 @@ This is a manufacturer specific cluster.
 
   <client>
     <commands>
+          <command id="00" name="GenericCommandResponse">
+        <fields>
+          <field name="CommandID" type="uint8" />
+          <field name="Status" type="uint8" />
+        </fields>
+      </command>
+
       <command id="10" name="GenericReportRecord">
         <fields>
           <field name="TableID" type="uint16" />
@@ -108,12 +120,20 @@ This is a manufacturer specific cluster.
           <field name="RecordPayload" type="octstr" />
         </fields>
       </command>
+
       <command id="15" name="RawFixtureNotification">
         <fields>
-          <field name="UID" type="FixtureUID" />
+          <field name="UID" type="octstr">
+            <type:restriction>
+              <minLength value="6" />
+              <maxLength value="6" />
+            </type:restriction>
+          </field>
           <field name="ModelID" type="uint16" />
+          <field name="FixtureInfo" type="octstr" />
         </fields>
       </command>
     </commands>
   </client>
+
 </zcl:cluster>
