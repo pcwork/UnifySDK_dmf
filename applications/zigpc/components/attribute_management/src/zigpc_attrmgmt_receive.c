@@ -21,6 +21,7 @@
 #include <zigpc_common_zigbee.h>
 
 #include "attribute_management_int.h"
+#include "zigpc_attrmgmt_availability.h"
 
 static const char LOG_TAG[] = "zigpc_attrmgmt";
 
@@ -36,6 +37,10 @@ sl_status_t
   if ((eui64 == NULL) || (frame == NULL)) {
     status = SL_STATUS_NULL_POINTER;
   } else {
+    // Any frame received from the device (read attribute response or
+    // attribute report) proves that the device is alive and reachable.
+    (void)zigpc_attrmgmt_mark_device_alive(eui64);
+
     size_t i              = 0;
     const uint8_t *buffer = frame->buffer;
 

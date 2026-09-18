@@ -793,7 +793,7 @@
           "mfgCode": null,
           "define": "ON_OFF_CLUSTER",
           "side": "client",
-          "enabled": 1,
+          "enabled": 0,
           "commands": [
             {
               "name": "Off",
@@ -868,7 +868,7 @@
           "mfgCode": null,
           "define": "ON_OFF_CLUSTER",
           "side": "server",
-          "enabled": 1,
+          "enabled": 0,
           "commands": [],
           "attributes": [
             {

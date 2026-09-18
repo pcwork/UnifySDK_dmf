@@ -57,6 +57,11 @@ typedef struct {
   int attr_polling_rate_ms;
 
   bool poll_attr_only;
+  int poll_interval;   /**< Device heartbeat timeout in seconds. A device that
+                               does not respond within this window is counted
+                               as one missed heartbeat. */
+  int poll_max_retry;  /**< Number of consecutive missed heartbeats before a
+                               device is marked Unavailable. */
   bool ncp_update_firmware_flag;
   const char *ncp_update_firmware_path;
 

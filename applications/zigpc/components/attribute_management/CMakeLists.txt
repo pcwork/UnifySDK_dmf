@@ -13,7 +13,8 @@ add_library(
   src/zigpc_attrmgmt_receive.c
   src/zigpc_attrmgmt_reporting.cpp
   src/zigpc_attrmgmt_send.cpp
-  src/zigpc_attrmgmt_poll.cpp)
+  src/zigpc_attrmgmt_poll.cpp
+  src/zigpc_attrmgmt_availability.cpp)
 
 target_include_directories(
   zigpc_attribute_management
@@ -26,6 +27,7 @@ target_link_libraries(
           zigpc_gateway
           zigpc_common
           zigpc_config
+          zigpc_datastore
           zigpc_ucl
           unify)
 

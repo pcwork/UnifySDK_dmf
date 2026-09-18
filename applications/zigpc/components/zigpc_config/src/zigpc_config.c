@@ -50,6 +50,11 @@ static const char *CONFIG_NETWORK_CHANNEL  = "zigpc.network_channel";
 static const char *CONFIG_KEY_ZIGPC_POLLING_RATE = "zigpc.attr_polling_rate_ms";
 static const int ZIGPC_DEFAULT_POLLING_RATE_MS  = 10000;
 
+static const char *CONFIG_KEY_ZIGPC_POLL_INTERVAL = "zigpc.poll_interval";
+static const int ZIGPC_DEFAULT_POLL_INTERVAL     = 60;
+static const char *CONFIG_KEY_ZIGPC_POLL_MAX_RETRY = "zigpc.poll_max_retry";
+static const int ZIGPC_DEFAULT_POLL_MAX_RETRY    = 2;
+
 static config_status_t zigpc_parse_flow_control(const char *value,
                                                 zigpc_flow_control_t *result)
 {
@@ -119,6 +124,12 @@ int zigpc_config_init()
   status |= config_add_int(CONFIG_KEY_ZIGPC_POLLING_RATE,
                            "Polling rate in MS",
                            ZIGPC_DEFAULT_POLLING_RATE_MS);
+  status |= config_add_int(CONFIG_KEY_ZIGPC_POLL_INTERVAL,
+                           "Device heartbeat timeout in seconds before counting a missed heartbeat",
+                           ZIGPC_DEFAULT_POLL_INTERVAL);
+  status |= config_add_int(CONFIG_KEY_ZIGPC_POLL_MAX_RETRY,
+                           "Number of consecutive missed heartbeats before marking a device Unavailable",
+                           ZIGPC_DEFAULT_POLL_MAX_RETRY);
 
   status |= config_add_flag(CONFIG_USE_NETWORK_ARGS,
                             "Specify PAN ID, radio power and channel of zigbee network");
@@ -181,8 +192,12 @@ sl_status_t zigpc_config_fixt_setup()
 
   status |=
       config_get_as_int(
-            CONFIG_KEY_ZIGPC_POLLING_RATE,
-            &config.attr_polling_rate_ms);
+            CONFIG_KEY_ZIGPC_POLL_INTERVAL,
+            &config.poll_interval);
+  status |=
+      config_get_as_int(
+            CONFIG_KEY_ZIGPC_POLL_MAX_RETRY,
+            &config.poll_max_retry);
 
   config_status_t flag_status =
       config_has_flag(CONFIG_USE_NETWORK_ARGS);

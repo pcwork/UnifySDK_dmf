@@ -28,6 +28,7 @@
 #include "attribute_management.h"
 #include "attribute_management_int.h"
 #include "attribute_management_process.h"
+#include "zigpc_attrmgmt_availability.h"
 
 #include "zcl_attribute_info.h"
 #include "attribute_map.h"
@@ -165,6 +166,11 @@ PROCESS_THREAD(attribute_management_process, ev, data)
     } else if ((ev == PROCESS_EVENT_TIMER)
                && (data == &zigpc_attrmgmt_poll_timer)) {
       status = zigpc_attrmgmt_send_poll_attributes();
+
+      // Check device availability based on the last seen response from each
+      // device. Devices missing too many heartbeats are marked Unavailable
+      // and published on MQTT.
+      (void)zigpc_attrmgmt_check_device_availability();
 
       etimer_reset(&zigpc_attrmgmt_poll_timer);
     }
